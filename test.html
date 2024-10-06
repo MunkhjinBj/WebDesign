@@ -1,59 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Q&A Page</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-        }
-        .question {
-            background-color: #f1f1f1;
-            padding: 10px;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            margin-bottom: 5px;
-        }
-        .answer {
-            padding: 10px;
-            display: none;
-            background-color: #fafafa;
-            border-left: 4px solid #008cba;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+      }
+      .question {
+        background-color: #f1f1f1;
+        padding: 10px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        margin-bottom: 5px;
+      }
+      .answer {
+        padding: 10px;
+        display: none;
+        background-color: #fafafa;
+        border-left: 4px solid #008cba;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <h1>Questions and Answers</h1>
 
-    <div class="question" onclick="toggleAnswer(this)">What is your question 1?</div>
+    <div class="question" onclick="toggleAnswer(this)">
+      What is your question 1?
+    </div>
     <div class="answer">
-        <p>This is the answer to question 1. You can provide detailed information here.</p>
+      <p>
+        This is the answer to question 1. You can provide detailed information
+        here.
+      </p>
     </div>
 
-    <div class="question" onclick="toggleAnswer(this)">What is your question 2?</div>
+    <div class="question" onclick="toggleAnswer(this)">
+      What is your question 2?
+    </div>
     <div class="answer">
-        <p>This is the answer to question 2. Provide any helpful info here.</p>
+      <p>This is the answer to question 2. Provide any helpful info here.</p>
     </div>
 
-    <div class="question" onclick="toggleAnswer(this)">What is your question 3?</div>
+    <div class="question" onclick="toggleAnswer(this)">
+      What is your question 3?
+    </div>
     <div class="answer">
-        <p>This is the answer to question 3. Keep your answers clear and concise.</p>
+      <p>
+        This is the answer to question 3. Keep your answers clear and concise.
+      </p>
     </div>
 
     <script>
-        function toggleAnswer(element) {
-            let nextElement = element.nextElementSibling;
-            if (nextElement.style.display === "none" || nextElement.style.display === "") {
-                nextElement.style.display = "block";
-            } else {
-                nextElement.style.display = "none";
-            }
+      function toggleAnswer(element) {
+        let nextElement = element.nextElementSibling;
+        if (
+          nextElement.style.display === "none" ||
+          nextElement.style.display === ""
+        ) {
+          nextElement.style.display = "block";
+        } else {
+          nextElement.style.display = "none";
         }
+      }
     </script>
-
-</body>
+  </body>
 </html>
