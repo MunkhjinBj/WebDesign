@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,51 +23,66 @@
       </section>
     </nav>
     </header>
-    <section>
+    <div class="signo_container">
+    <section class = "Get_inside_head">
       <h1>Нэвтрэх</h1>
       <form>
-        <label for="email">и-мэйл</label>
-        <input type="text" id="email" name="email" required />
-        <label for="password">нууц үг</label>
-        <input type="password" id="password" name="password" required />
-        <label for="repeatpassword">нууц үгээ давт</label>
-        <input type="password" id="repeatpassword" name="password" required />
-        <a href="">нууц үгээ мартсан уу?</a>
+        <label for="email">И-мэйл</label>
+        <input type="text" id="email" name="email" placeholder="И-мэйл"required />
+        <label for="password">Нууц үг</label>
+        <input type="password" id="password" name="password" placeholder="Нууц үг" required />
+        <a href="#" class="forgot-password">Нууц үгээ мартсан уу?</a>
         <button>Нэвтрэх</button>
       </form>
-      <p>or</p>
-      <button>
-        <a href="#"><img src="./images/google.png" alt="" /></a>
-      </button>
+      <div class="or-container">
+        <span>OR</span>
+      </div>
+
+      <div class="social-login">
+        <button class="social-btn google">
+          <i class="fab fa-google"></i> 
+        </button>
+        <button class="social-btn facebook">
+          <i class="fab fa-facebook-f"></i> 
+      </div>
+      
+      
+
       <p>Бүртгэлтэй хаяг байхгүй юу? <a href="./signup.html">Бүртгүүлэх</a></p>
     </section>
-    <footer>
-      <img src="./images/ym2/logo.png" alt="">  
-      <section>
+    </div>
+    <footer class="footer">
+      <div class="footer-logo-name">
+        <img src="./images/ym2/logo.png" alt="Logo">
+        <h1 class = "footer-name">Нууц аялал</h1>
+      </div>
+      <section class="footer-links">
+        <h4>Бидний тухай</h4>
         <ul>
-          <li><a href="#">Бидний тухай</a></li>
+          <li><a href="#">Танилцуулга</a></li>
           <li><a href="#">Асуулт хариулт</a></li>
         </ul>
       </section>
-      <section>
-        <h4>холбоо барих</h4>
-         <p>и-мэйл: <a href="">nuutsaylal@gmail.com</a></p>
-         <p>Phone: +976 99999999</p>
+      <section class="footer-contact">
+        <h4>Холбоо барих</h4>
+        <p>и-мэйл: <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a></p>
+        <p>Phone: +976 99999999</p>
       </section>
-      <nav>
+      <section class="footer-social">
         <h4>Манай сүлжээ</h4>
         <ul>
-          <li><a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a href="https://instagram.com"><i class="fa-brands fa-instagram"></i></a></li>
-          <li><a href="https://twitter.com"><i class="fa-brands fa-x-twitter"></i>
-          </a></li>
+          <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
         </ul>
-      </nav>
-      <section></section>
-        <h4>манай хаяг</h4>
+      </section>
+      <section class="footer-address">
+        <h4>Манай хаяг</h4>
         <p>Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар</p>
       </section>
     </footer>
+    
+    
     <script src="https://kit.fontawesome.com/d903c022ca.js" crossorigin="anonymous"></script>
   </body>
 </html>

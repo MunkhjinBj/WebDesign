@@ -1,20 +1,33 @@
+:root {
+  --primary-color: #47B477;      /* Main color */
+  --primary-hover-color: #388e3c; /* Hover color for buttons */
+  --text-color: #333;              /* General text color */
+  --background-color: #ffffff;     /* Background color for forms */
+  --border-color: #e0e0e0;         /* Border color */
+  --shadow-color: rgba(0, 0, 4, 0.5); /* Shadow color */
+  
+  --facebook-color: #3b5998;       /* Facebook color */
+  --linkedin-color: #0e76a8;       /* LinkedIn color */
+  --google-color: #b7eb2a;         /* Google color */
+}
+
+/* Global styles */
 * {
   margin: 0;
   padding: 0;
 }
+
 header {
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: 500;
-  font-style: normal;
-  background-color: #f9f9f9;
-  border-bottom: 2px solid #e0e0e0;
+  background-color: var(--background-color);
+  border-bottom: 2px solid var(--border-color);
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
-  /* z-index: 1000; */
 }
 
 .header-nav {
@@ -33,7 +46,6 @@ header {
 .nav-links {
   display: flex;
   list-style: none;
-  margin-left: 0px;
 }
 
 .nav-links li {
@@ -44,14 +56,13 @@ header {
   text-decoration: none;
   font-size: 12px;
   text-transform: uppercase;
-  color: #333;
+  color: var(--text-color);
   padding: 10px 15px;
-  transition: color 0.3s ease;
-  background-color: 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .nav-links a:hover {
-  background-color: #4caf50;
+  background-color: var(--primary-color);
   color: white;
   border-radius: 5px;
 }
@@ -65,14 +76,14 @@ header {
 .user-links a {
   text-decoration: none;
   text-transform: uppercase;
-  color: #333;
+  color: var(--text-color);
   font-size: 12px;
   padding: 10px 5px 10px 10px;
   transition: color 0.3s ease;
 }
 
 .user-links a:hover {
-  color: #4caf50;
+  color: var(--primary-color);
 }
 
 /* Account icon styling */
@@ -103,3 +114,206 @@ header {
     margin-bottom: 10px;
   }
 }
+
+/* Sign in and sign up */
+
+/* Centering container */
+.signo_container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+/* Styling the form section */
+.Get_inside_head {
+  display: grid;
+  gap: 15px;
+  padding: 30px;
+  border: 5px solid var(--background-color);
+  border-radius: 50px;
+  background-color: var(--background-color);
+  box-shadow: 0px 4px 20px var(--shadow-color);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.Get_inside_head h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.Get_inside_head form {
+  display: grid;
+  gap: 15px;
+}
+
+.Get_inside_head input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.Get_inside_head a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.Get_inside_head button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 13px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.Get_inside_head button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.google-signin {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.google-signin img {
+  width: 30px;
+  height: 30px;
+}
+
+.Get_inside_head p {
+  font-size: 14px;
+}
+
+.forgot-password{
+  text-align: right;
+}
+
+/* Social login container */
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  transition: background-color 0.3s;
+}
+
+.social-btn:hover {
+  opacity: 0.9;
+}
+
+.social-btn.google {
+  color: var(--google-color); 
+}
+
+.social-btn.facebook {
+  color: var(--facebook-color); 
+}
+
+
+
+.or-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 10px 0; 
+  font-size: 16px;
+}
+
+.or-container::before,
+.or-container::after {
+  content: '';
+  flex: 1; 
+  border-top: 1px solid #ccc; 
+  margin: 20px;
+}
+
+
+
+/*Foooooooooooooooooooooooooooooooooooooootttttttttttttttttttttteeeeeeeeeeeeeeeeeeerrrrrrrrrrrrrrrrrrr*/
+
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 20px; 
+  padding: 20px; 
+  background-color: #D9D9D9; 
+  color: #333; 
+  font-family: "Montserrat Alternates", sans-serif;
+  justify-content: center;
+  align-items: center;
+  
+}
+.footer-logo-name{
+  grid-column: 1 / span 1;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.footer-logo-name img {
+  width: 30px; 
+  height: auto;
+  margin-right: 10px;
+}
+.footer-name{
+  font-size: 24px;
+  margin: 0;
+}
+
+.footer h4 {
+  margin-bottom: 10px; 
+}
+
+.footer-links, .footer-contact, .footer-social, .footer-address {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-links ul, .footer-social ul {
+  list-style: none;
+  padding: 0; 
+}
+
+.footer-links li, .footer-social li {
+  margin-bottom: 8px; 
+}
+
+.footer a {
+  text-decoration: none; 
+  color: var(--primary-color); 
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: var(--primary-hover-color); 
+}
+
+.footer-social ul {
+  display: flex; 
+  gap: 10px; 
+}
+
+.footer-social a {
+  font-size: 20px;
+}
+
+
