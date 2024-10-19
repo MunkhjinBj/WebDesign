@@ -168,15 +168,18 @@ header {
   background-color: var(--primary-color);
   color: #fff;
   border: none;
-  padding: 10px;
+  padding: 12px 20px;
   border-radius: 13px;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .Get_inside_head button:hover {
   background-color: var(--primary-hover-color);
+  transform: scale(1.05); /* Small hover animation */
 }
+
 
 .google-signin {
   background-color: transparent;
@@ -210,22 +213,38 @@ header {
   cursor: pointer;
   padding: 15px;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  transition: background-color 0.3s;
-}
-
-.social-btn:hover {
-  opacity: 0.9;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .social-btn.google {
-  color: var(--google-color); 
+  color: var(--google-color);
 }
 
 .social-btn.facebook {
-  color: var(--facebook-color); 
+  color: var(--facebook-color);
 }
+
+.social-btn:hover {
+  transform: scale(1.1);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
 
 
 
@@ -317,3 +336,43 @@ header {
 }
 
 
+/*Sign up*/
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container input {
+  width: 100%; 
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.Get_inside_head label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+/* Toggle button for eye icon */
+.password-container .toggle-password {
+  position: absolute;
+  right: 10px; 
+  top: 60%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.password-container .toggle-password:hover{
+  background-color: transparent;
+}
+
+.password-container .toggle-password i {
+  font-size: 18px;
+  color: #333;
+}
