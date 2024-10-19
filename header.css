@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+header {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: #f9f9f9;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  /* z-index: 1000; */
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-nav img {
+  width: 30px;
+  height: auto;
+  padding-top: 5px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin-left: 0px;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #333;
+  padding: 10px 15px;
+  transition: color 0.3s ease;
+  background-color: 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+}
+
+/* User section styling */
+.user-links {
+  display: flex;
+  align-items: center;
+}
+
+.user-links a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #333;
+  font-size: 12px;
+  padding: 10px 5px 10px 10px;
+  transition: color 0.3s ease;
+}
+
+.user-links a:hover {
+  color: #4caf50;
+}
+
+/* Account icon styling */
+.user-links img {
+  width: 30px;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+
+  .user-links {
+    margin-top: 10px;
+    flex-direction: column;
+  }
+
+  .user-links a {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
