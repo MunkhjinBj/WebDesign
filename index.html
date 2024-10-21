@@ -8,8 +8,112 @@
     <title>Нуууц аялал</title>
     <link rel="stylesheet" href="header.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    box-sizing: border-box;
+  }
+  .info {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.info_1{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-top: 100px;
+  justify-content: center;
+  align-items: center;
+}
+.info_2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    margin-top: -180px;
+
+}
+
+.info_1 img, .info_2 img {
+    border-radius: 45%;
+    width: 300px;
+}
+
+.info_1 h2 {
+    font-size: 1.2rem;
+    color: #333;
+    padding-left: 100px;
+}
+.info_2 h2 {
+  font-size: 1.2rem;
+  color: #333;
+  padding-right: 100px;
+}
+.purgon{
+  width: 1px;
+  height: auto;
+}
+
+.form_sec{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.form_link{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0; 
+}
+ .form_link h2{
+  font-size: 20px;
+  text-align: center;
+  font-weight: 550;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 520;
+  font-style: normal;
+ }
+ .form_link img{
+  width: 80px;
+  padding: 45px 0;
+ }
+ .form_link img:hover{
+  cursor:pointer;
+ }
+
+ .form_link button{
+  padding: 20px 30px;
+  color: #000;
+  background-color: #2E8B57;
+  font-weight: 550;
+  font-size: 17px;
+  border: 0 solid #2E8B57;
+  border-radius: 30px;
+ }
+.hover_info{
+  display: none;
+  background-color: antiquewhite;
+ }
+ .show_info:active + .show_info + .hover_info{
+  display: block;
+ }
+
+</style>
   </head>
   <body>
     <header>
@@ -29,22 +133,24 @@
     </header>
 
     <main>
-      <section>
-        <article>
+      <section class="info">
+        <article class="info_1">
           <img width="200px" src="./images/img4.jpg" alt="neg zurg" />
-          <h2>Таний хүсэлд нийцсэн хүссэн аяллалыг тан, бид бүтээж өгнө</h2>
+          <h2>Таний хүсэлд нийцсэн хүссэн <br>аяллалыг тан, бид бүтээж өгнө</h2>
+          <img class="purgon" width="200px" src="./images/IMG_9698.JPG" alt="">
         </article>
-        <article>
-          <img width="200px" src="" alt="neg zurg" />
-          <img width="200px" src="./images/IMG_9698.JPG" alt="">
-          <h2>Таний хүсэлд нийцсэн хүссэн аяллалыг тан бид бүтээж өгнө</h2>
+        <article class="info_2">
+          <h2>Таний хүсэлд нийцсэн хүссэн <br>аяллалыг тан бид бүтээж өгнө</h2>
+          <img width="200px" src="./images/modnuud.png" alt="neg zurg" />
         </article>
       </section>
-      <section>
-        <article>
-          <h2>Дараах асуултуудад хариулан өөрийн хүссэн аяллалдаа гараарай</h2>
+      <section class="form_sec">
+        <article class="form_link">
+          <h2>Дараах асуултуудад хариулан <br>өөрийн хүссэн аяллалдаа <br>гараарай</h2>
+          <a href=""><img class="show_info" src="./images/sum.png" alt=""></a>
+          <button>асуулт эхлүүлэх</button>
         </article>
-        <section>
+        <section class="hover_info">
           <h2>Хэрхэн захиалах вэ?</h2>
           <article>
             <img src="" alt="" />
@@ -68,10 +174,7 @@
             <h2>3-р алхам</h2>
             <p>Аялалдаа гарах</p>
           </article>
-          <span>v</span>
-          <button>асуулт эхлүүлэх</button>
         </section>
-        <p>Feel free to modify the content and structure as needed.</p>
       </section>
       <section>
         <h3>Аялагчдын сэтгэгдлүүдээс</h3>
