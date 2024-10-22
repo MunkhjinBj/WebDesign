@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аялал зохиох</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+.login a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+main {
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.progress-bar .step {
+    width: 50px;
+    height: 10px;
+    background-color: #ddd;
+    margin: 0 5px;
+}
+
+.progress-bar .step.completed {
+    background-color: #4caf50;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.question {
+    margin-bottom: 40px;
+}
+
+.question h2 {
+    margin-bottom: 15px;
+}
+
+.options {
+    display: flex;
+    gap: 20px;
+}
+
+.option {
+    text-align: center;
+}
+
+.option img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.number-select {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="date"] {
+    padding: 10px;
+    margin-right: 20px;
+    font-size: 1rem;
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 5px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+footer {
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+footer .partners {
+    margin-bottom: 20px;
+}
+
+footer .partner-logos img {
+    width: 80px;
+    margin: 0 10px;
+}
+
+footer .footer-links ul {
+    list-style: none;
+}
+
+footer .footer-links ul li a {
+    color: white;
+    text-decoration: none;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Сайтын тухай</a></li>
+                <li><a href="#">Холбоо барих</a></li>
+                <li><a href="#">Манай дэмжигчид</a></li>
+            </ul>
+        </nav>
+        <div class="login">
+            <a href="#">Нэвтрэх</a>
+        </div>
+    </header>
+
+    <main>
+        <h1>Аялал эхлүүлэх</h1>
+        <div class="progress-bar">
+            <div class="step completed"></div>
+            <div class="step"></div>
+            <div class="step"></div>
+        </div>
+
+        <form class="travel-form">
+            <section class="question">
+                <h2>1. Та аль бүс нутагт зочлохыг хүсч байна вэ?</h2>
+                <div class="options">
+                    <div class="option">
+                        <img src="gobi.jpg" alt="Gobi Desert">
+                        <p>Gobi Desert</p>
+                    </div>
+                    <div class="option">
+                        <img src="khuvsgul.jpg" alt="Khuvsgul Lake">
+                        <p>Khuvsgul Lake</p>
+                    </div>
+                    <div class="option">
+                        <img src="altai.jpg" alt="Altai Mountains">
+                        <p>Altai Mountains</p>
+                    </div>
+                    <div class="option">
+                        <img src="orkhon.jpg" alt="Orkhon Valley">
+                        <p>Orkhon Valley</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="question">
+                <h2>2. Та ямар аяллыг илүү үздэг вэ?</h2>
+                <div class="options">
+                    <div class="option">
+                        <img src="family.jpg" alt="Family Trip">
+                        <p>Гэр бүлийн аялал</p>
+                    </div>
+                    <div class="option">
+                        <img src="cultural.jpg" alt="Cultural Tour">
+                        <p>Хүмүүсийн амьдрал, соёлын аялал</p>
+                    </div>
+                    <div class="option">
+                        <img src="city.jpg" alt="City Tour">
+                        <p>Хотын аялал</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="question">
+                <h2>3. Та хэзээ аялахыг хүсч байна вэ?</h2>
+                <div class="calendar">
+                    <input type="date" id="start-date">
+                    <input type="date" id="end-date">
+                </div>
+            </section>
+
+            <section class="question">
+                <h2>4. Хэн аялах вэ?</h2>
+                <div class="number-select">
+                    <label>Том хүн</label>
+                    <input type="number" value="0" min="0">
+                    <label>Хүүхэд</label>
+                    <input type="number" value="0" min="0">
+                </div>
+            </section>
+
+            <section class="question">
+                <h2>5. Та ямар төрлийн байрыг илүү үздэг вэ?</h2>
+                <div class="options accommodation">
+                    <div class="option">
+                        <img src="hotel.jpg" alt="Hotel">
+                        <p>Зочид буудал</p>
+                    </div>
+                    <div class="option">
+                        <img src="camping.jpg" alt="Camping">
+                        <p>Майхан</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="question">
+                <h2>6. Та Монголд ямар туршлага хайж байна вэ?</h2>
+                <div class="options experience">
+                    <div class="option">
+                        <img src="culture.jpg" alt="Cultural">
+                        <p>Соёлын аялал</p>
+                    </div>
+                    <div class="option">
+                        <img src="nature.jpg" alt="Nature">
+                        <p>Байгаль орчин</p>
+                    </div>
+                    <div class="option">
+                        <img src="animals.jpg" alt="Animals">
+                        <p>Амьтан ба зэрлэг ан амьтан</p>
+                    </div>
+                    <div class="option">
+                        <img src="relax.jpg" alt="Relaxing">
+                        <p>Амрах</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="question">
+                <h2>7. Та аялалдаа хэдийг зарцуулахыг хайж байна вэ?</h2>
+                <input type="range" min="0" max="5000" value="2500">
+            </section>
+
+            <button type="submit" class="submit-btn">Дараах</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="partners">
+            <h3>Хамтрагч байгууллагууд:</h3>
+            <div class="partner-logos">
+                <img src="partner1.jpg" alt="Partner 1">
+                <img src="partner2.jpg" alt="Partner 2">
+                <img src="partner3.jpg" alt="Partner 3">
+            </div>
+        </div>
+        <div class="footer-links">
+                <img src="./images/ym2/logo.png" alt="" />
+                <section>
+                  <ul>
+                    <li><a href="#">Бидний тухай</a></li>
+                    <li><a href="#">Асуулт хариулт</a></li>
+                  </ul>
+                </section>
+                <section>
+                  <h4>холбоо барих</h4>
+                  <p>и-мэйл: <a href="">nuutsaylal@gmail.com</a></p>
+                  <p>Phone: +976 99999999</p>
+                </section>
+                <nav>
+                  <h4>Манай сүлжээ</h4>
+                  <ul>
+                    <li>
+                      <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                    </li>
+                    <li>
+                      <a href="https://instagram.com"
+                        ><i class="fa-brands fa-instagram"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="https://twitter.com"
+                        ><i class="fa-brands fa-x-twitter"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+                <section>
+                  <h4>манай хаяг</h4>
+                  <p>
+                    Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
+                  </p>
+                </section>
+    
+        </div>
+    </footer>
+</body>
+</html>
