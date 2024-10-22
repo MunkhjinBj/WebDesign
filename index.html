@@ -3,151 +3,289 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="main page">
+    <meta name="description" content="main page" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Нуууц аялал</title>
-    <link rel="stylesheet" href="header.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<style>
-  *{
-    margin: 0;
-    padding: 0;
-    font-family: "Montserrat Alternates", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    box-sizing: border-box;
-  }
-  .info {
-    display: flex;
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
+    <link rel="stylesheet" href="header.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat Alternates", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        box-sizing: border-box;
+      }
+      .info {
+        display: flex;
+        width: 80%;
+        max-width: 1200px;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
 
-.info_1{
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  padding-top: 100px;
-  justify-content: center;
-  align-items: center;
-}
-.info_2 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    gap: 15px;
-    margin-top: -180px;
+      .info_1 {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        padding-top: 100px;
+        justify-content: center;
+        align-items: center;
+      }
+      .info_2 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+        margin-top: -180px;
+      }
 
-}
+      .info_1 img,
+      .info_2 img {
+        border-radius: 45%;
+        width: 300px;
+      }
 
-.info_1 img, .info_2 img {
-    border-radius: 45%;
-    width: 300px;
-}
+      .info_1 h2 {
+        font-size: 1.2rem;
+        color: #333;
+        padding-left: 100px;
+      }
+      .info_2 h2 {
+        font-size: 1.2rem;
+        color: #333;
+        padding-right: 100px;
+      }
+      .purgon {
+        width: 1px;
+        height: auto;
+      }
 
-.info_1 h2 {
-    font-size: 1.2rem;
-    color: #333;
-    padding-left: 100px;
-}
-.info_2 h2 {
-  font-size: 1.2rem;
-  color: #333;
-  padding-right: 100px;
-}
-.purgon{
-  width: 1px;
-  height: auto;
-}
+      .form_sec {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .form_link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 30px 0;
+      }
+      .form_link h2 {
+        font-size: 20px;
+        text-align: center;
+        font-weight: 550;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 520;
+        font-style: normal;
+      }
+      .form_link img {
+        width: 80px;
+        padding: 45px 0;
+      }
+      .form_link img:hover {
+        cursor: pointer;
+      }
 
-.form_sec{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+      .form_link button {
+        padding: 20px 30px;
+        color: #000;
+        background-color: #2e8b57;
+        font-weight: 550;
+        font-size: 17px;
+        border: 0 solid #2e8b57;
+        border-radius: 30px;
+      }
+      .hover_info {
+        display: none;
+        background-color: antiquewhite;
+      }
+      .show_info:active + .show_info + .hover_info {
+        display: block;
+      }
 
-}
-.form_link{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 30px 0; 
-}
- .form_link h2{
-  font-size: 20px;
-  text-align: center;
-  font-weight: 550;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 520;
-  font-style: normal;
- }
- .form_link img{
-  width: 80px;
-  padding: 45px 0;
- }
- .form_link img:hover{
-  cursor:pointer;
- }
+      .comment_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 50px 0;
+      }
 
- .form_link button{
-  padding: 20px 30px;
-  color: #000;
-  background-color: #2E8B57;
-  font-weight: 550;
-  font-size: 17px;
-  border: 0 solid #2E8B57;
-  border-radius: 30px;
- }
-.hover_info{
-  display: none;
-  background-color: antiquewhite;
- }
- .show_info:active + .show_info + .hover_info{
-  display: block;
- }
+      .comment_section .comments {
+        display: flex;
+        align-items: flex-start;
+        padding: 50px 200px;
+        gap: 30px;
+      }
+      .comment_section h3 {
+        margin-left: -700px;
+        font-weight: 510;
+      }
+      .comment_section > article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 350px;
+      }
+      article p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 500px;
+        line-height: 1.5;
+        text-align: justify;
+        vertical-align: top;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+      }
+      article span {
+        display: block;
+        font-size: 40px;
+        color: gold;
+      }
 
-</style>
+      .rating {
+        display: flex;
+        margin-top: 10px;
+        justify-content: space-between;
+      }
+      .user_time {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      article strong,
+      article time {
+        margin-top: 5px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+      }
+      .arrow-left,
+      .arrow-right {
+        position: fixed;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        color: #333;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .arrow-left {
+        left: 10px;
+      }
+
+      .arrow-right {
+        right: 10px;
+      }
+
+      /* gallery */
+
+      .partner_org {
+        margin: 100px 200px 120px 200px;
+      }
+
+      .partner_org h4 {
+        text-align: left;
+        padding-left: 120px;
+        font-size: 18px;
+        margin-bottom: 50px;
+        font-weight: 600;
+      }
+
+      .logo-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+        justify-items: center;
+        align-items: center;
+      }
+
+      .logo-grid img {
+        max-width: 80px;
+        height: auto;
+        transition: transform 0.3s ease;
+      }
+
+      .logo-grid img:hover {
+        transform: scale(1.1);
+      }
+
+      .logo-grid img:nth-child(-n + 6) {
+        grid-column-start: span 1;
+        margin-left: auto;
+      }
+
+      .logo-grid img:nth-child(n + 7) {
+        grid-column-start: span 1;
+        margin-right: auto;
+      }
+    </style>
   </head>
   <body>
     <header>
       <nav class="header-nav">
-      <a id="" href="./index.html"><img width="50px" src="./images/ym2/logo.png" alt="logo" /></a>
-      <ul class="nav-links">
+        <a id="" href="./index.html"
+          ><img width="50px" src="./images/ym2/logo.png" alt="logo"
+        /></a>
+        <ul class="nav-links">
           <li><a href="./aboutUs.html">Бидний тухай</a></li>
           <li><a href="./zahialah.html">Аялал захиалах</a></li>
           <li><a href="./mytravels.html">Миний аяллууд</a></li>
           <li><a href="./travels.html">Aяллууд</a></li>
-      </ul>
-      <section class="user-links">
-        <a href="./signin.html">Нэвтрэх</a>
-        <a href=""><img src="./images/account icon.png" alt=""></a>
-      </section>
-    </nav>
+        </ul>
+        <section class="user-links">
+          <a href="./signin.html">Нэвтрэх</a>
+          <a href=""><img src="./images/account icon.png" alt="" /></a>
+        </section>
+      </nav>
     </header>
 
     <main>
       <section class="info">
         <article class="info_1">
           <img width="200px" src="./images/img4.jpg" alt="neg zurg" />
-          <h2>Таний хүсэлд нийцсэн хүссэн <br>аяллалыг тан, бид бүтээж өгнө</h2>
-          <img class="purgon" width="200px" src="./images/IMG_9698.JPG" alt="">
+          <h2>
+            Таний хүсэлд нийцсэн хүссэн <br />аяллалыг тан, бид бүтээж өгнө
+          </h2>
+          <img
+            class="purgon"
+            width="200px"
+            src="./images/IMG_9698.JPG"
+            alt=""
+          />
         </article>
         <article class="info_2">
-          <h2>Таний хүсэлд нийцсэн хүссэн <br>аяллалыг тан бид бүтээж өгнө</h2>
+          <h2>
+            Таний хүсэлд нийцсэн хүссэн <br />аяллалыг тан бид бүтээж өгнө
+          </h2>
           <img width="200px" src="./images/modnuud.png" alt="neg zurg" />
         </article>
       </section>
       <section class="form_sec">
         <article class="form_link">
-          <h2>Дараах асуултуудад хариулан <br>өөрийн хүссэн аяллалдаа <br>гараарай</h2>
-          <a href=""><img class="show_info" src="./images/sum.png" alt=""></a>
+          <h2>
+            Дараах асуултуудад хариулан <br />өөрийн хүссэн аяллалдаа
+            <br />гараарай
+          </h2>
+          <a href=""><img class="show_info" src="./images/sum.png" alt="" /></a>
           <button>асуулт эхлүүлэх</button>
         </article>
         <section class="hover_info">
@@ -176,72 +314,106 @@
           </article>
         </section>
       </section>
-      <section>
+      <section class="comment_section">
         <h3>Аялагчдын сэтгэгдлүүдээс</h3>
-        <article>
-          <p>
-            Миний нууцлаг аяллын туршлага намайг чамин газар руу аваачиж,онгоцны
-            буудал дэзр гэнэтийн нээлтээ хийхдээ хөл амгүй болгов. Хачирхалтай
-            кафенаас эхлээд сэтгэл хөдлөм үзмэр хүртэл хором бүp нууцлаг, сэтгэл
-            догдлолоор дүүрэн байсан нь амьдралынхаа адал явдал болсон.
-          </p>
-          <span>★★★★☆</span>
-          <strong>Амарзаяа.М</strong>
-          <time datetime="">2024.02.04</time>
-        </article>
-        <article>
+        <div class="arrow-left">&lt;</div>
+        <section class="comments">
+          <article>
             <p>
-              Нууцлаг аялал миний урьд өмнө нь хэзээ ч байгаагүй нууцлг эрдэнийн эрдэнэсийг олж харах нүдийг минь нээж нээлт болгон нь эрдэнэс нээх мэт мэдрэмж төрүүлдэг. Чулуун гудамжнаас эхлээд хөл хөдөлгөөн ихтэй зах хүртэл бүх турлага нь сэтгэл хөдлөл, хүлээлтээр дүүрэн байсан бөгөөд хором бүрийг мартагдашгүй болгодог.
+              Миний нууцлаг аяллын туршлага намайг чамин газар руу
+              аваачиж,онгоцны буудал дэзр гэнэтийн нээлтээ хийхдээ хөл амгүй
+              болгов. Хачирхалтай кафенаас эхлээд сэтгэл хөдлөм үзмэр хүртэл
+              хором бүp нууцлаг, сэтгэл догдлолоор дүүрэн байсан нь амьдралынхаа
+              адал явдал болсон.
             </p>
-            <span>★★★★★</span>
-            <strong>Үйлсмөнх.О</strong>
-            <time datetime="">2024.03.14</time>
+            <div class="rating">
+              <span>★★★★☆</span>
+              <div class="user_time">
+                <strong>Амарзаяа.М</strong>
+                <time datetime="">2024.02.04</time>
+              </div>
+            </div>
           </article>
           <article>
-            <article>
-                <p>
-                  Нууцлаг аялалын адал явдалд орох нь эцэс төгсгөлгүй боломжуудын ертөнцөд хөл тавьсантай адил байв. Эртний балгасуудбг судлахаас эхлээд чамин хоолоор амтлах хүртэл зорьсон газар бүр миний хамгийн зэрлэг хүлээлтийг давж, туршлага бүрийг эхнээс нь дуустал сэтгэл хөдөлгөм болгосон.  
-                </p>
-                <span>★★★★☆</span>
-                <strong>Анар. М</strong>
-                <time datetime="">2024.04.04</time>
-              </article>
-          </article>
             <p>
-              Над шиг тэнүүчлэгч хүний хувьд нууцлаг аялал нь биелэх мөрөөдөл байсан. Очих газ р бүр сэтгэл татам ой дундуур тэнүүчилж, далд хүрхрээнд бүдрах хүртэл сонин адал явдал, санааннд оромгүй учралуудыг амлаж, эргэн тойрныхоо ертөнцийг гайхшруулах мэдрэмжийг дахин төрүүлэв.
+              Нууцлаг аялал миний урьд өмнө нь хэзээ ч байгаагүй нууцлг эрдэнийн
+              эрдэнэсийг олж харах нүдийг минь нээж нээлт болгон нь эрдэнэс нээх
+              мэт мэдрэмж төрүүлдэг. Чулуун гудамжнаас эхлээд хөл хөдөлгөөн
+              ихтэй зах хүртэл бүх турлага нь сэтгэл хөдлөл, хүлээлтээр дүүрэн
+              байсан бөгөөд хором бүрийг мартагдашгүй болгодог.
             </p>
-            <span>★★★★☆</span>
-            <strong>Мөрөн .Ү</strong>
-            <time datetime="">2024.06.23</time>
+            <div class="rating">
+              <span>★★★★☆</span>
+              <div class="user_time">
+                <strong>Амарзаяа.М</strong>
+                <time datetime="">2024.02.04</time>
+              </div>
+            </div>
           </article>
+          <article>
+            <p>
+              Нууцлаг аялалын адал явдалд орох нь эцэс төгсгөлгүй боломжуудын
+              ертөнцөд хөл тавьсантай адил байв. Эртний балгасуудбг судлахаас
+              эхлээд чамин хоолоор амтлах хүртэл зорьсон газар бүр миний хамгийн
+              зэрлэг хүлээлтийг давж, туршлага бүрийг эхнээс нь дуустал сэтгэл
+              хөдөлгөм болгосон.
+            </p>
+            <div class="rating">
+              <span>★★★★☆</span>
+              <div class="user_time">
+                <strong>Амарзаяа.М</strong>
+                <time datetime="">2024.02.04</time>
+              </div>
+            </div>
+          </article>
+          <article>
+            <p>
+              Над шиг тэнүүчлэгч хүний хувьд нууцлаг аялал нь биелэх мөрөөдөл
+              байсан. Очих газ р бүр сэтгэл татам ой дундуур тэнүүчилж, далд
+              хүрхрээнд бүдрах хүртэл сонин адал явдал, санааннд оромгүй
+              учралуудыг амлаж, эргэн тойрныхоо ертөнцийг гайхшруулах мэдрэмжийг
+              дахин төрүүлэв.
+            </p>
+            <div class="rating">
+              <span>★★★★☆</span>
+              <div class="user_time">
+                <strong>Амарзаяа.М</strong>
+                <time datetime="">2024.02.04</time>
+              </div>
+            </div>
+          </article>
+        </section>
+        <div class="arrow-right">&gt;</div>
       </section>
-      <section>
-        <img width = "200px" src="./images/gallery/img1.jpg" alt="1">
-        <img width = "200px"  src="./images/gallery/img2.jpg" alt="2">
-        <img width = "200px" src="./images/gallery/img3.jpg" alt="3">
-        <img width = "200px" src="./images/gallery/img4.jpg" alt="4">
-        <img width = "200px" src="./images/gallery/img5.jpg" alt="5">
-        <img width = "200px" src="./images/gallery/img6.jpg" alt="6">
-        <img width = "200px" src="./images/gallery/img7.jpg" alt="7">
+      <section class="gallery">
+        <img width="200px" src="./images/gallery/img1.jpg" alt="1" />
+        <img width="200px" src="./images/gallery/img2.jpg" alt="2" />
+        <img width="200px" src="./images/gallery/img3.jpg" alt="3" />
+        <img width="200px" src="./images/gallery/img4.jpg" alt="4" />
+        <img width="200px" src="./images/gallery/img5.jpg" alt="5" />
+        <img width="200px" src="./images/gallery/img6.jpg" alt="6" />
+        <img width="200px" src="./images/gallery/img7.jpg" alt="7" />
       </section>
-      <section>
+      <section class="partner_org">
         <h4>Хамтрагч байгуулгууд</h4>
-        <img src="./images/partnerOrg/apple.png" alt="">
-        <img src="./images/partnerOrg/buurger.png" alt="">
-        <img src="./images/partnerOrg/disney.png" alt="">
-        <img src="./images/partnerOrg/kfc.png" alt="">
-        <img src="./images/partnerOrg/gap.png" alt="">
-        <img src="./images/partnerOrg/huvtsas.png" alt="">
-        <img src="./images/partnerOrg/image 17.png" alt="">
-        <img src="./images/partnerOrg/paramount.png" alt="">
-        <img src="./images/partnerOrg/uul1.png" alt="">
-        <img src="./images/partnerOrg/uul2.png" alt="">
-        <img src="./images/partnerOrg/uul3.png" alt="">
+        <div class="logo-grid">
+          <img width="70px" src="./images/partnerOrg/apple.png" alt="" />
+          <img src="./images/partnerOrg/buurger.png" alt="" />
+          <img src="./images/partnerOrg/disney.png" alt="" />
+          <img src="./images/partnerOrg/kfc.png" alt="" />
+          <img src="./images/partnerOrg/gap.png" alt="" />
+          <img src="./images/partnerOrg/huvtsas.png" alt="" />
+          <img src="./images/partnerOrg/image 17.png" alt="" />
+          <img src="./images/partnerOrg/paramount.png" alt="" />
+          <img src="./images/partnerOrg/uul1.png" alt="" />
+          <img src="./images/partnerOrg/uul2.png" alt="" />
+          <img src="./images/partnerOrg/uul3.png" alt="" />
+        </div>
       </section>
     </main>
     <footer class="footer">
       <div class="footer-logo">
-        <img src="./images/ym2/logo.png" alt="Logo">
+        <img src="./images/ym2/logo.png" alt="Logo" />
       </div>
       <section class="footer-links">
         <h4>Бидний тухай</h4>
@@ -252,23 +424,42 @@
       </section>
       <section class="footer-contact">
         <h4>Холбоо барих</h4>
-        <p>и-мэйл: <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a></p>
+        <p>
+          и-мэйл: <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+        </p>
         <p>Phone: +976 99999999</p>
       </section>
       <section class="footer-social">
         <h4>Манай сүлжээ</h4>
         <ul>
-          <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+          <li>
+            <a href="https://facebook.com" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://instagram.com" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://twitter.com" target="_blank"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </li>
         </ul>
       </section>
       <section class="footer-address">
         <h4>Манай хаяг</h4>
-        <p>Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар</p>
+        <p>
+          Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
+        </p>
       </section>
     </footer>
-    
-    <script src="https://kit.fontawesome.com/d903c022ca.js" crossorigin="anonymous"></script>
+
+    <script
+      src="https://kit.fontawesome.com/d903c022ca.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
