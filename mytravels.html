@@ -5,7 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="MyJourneys" />
     <link rel="stylesheet" href="header.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat Alternates", sans-serif;
+        font-weight: 300;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .container {
+        margin: 40px 50px;
+        border: solid 1px #000000;
+        border-radius: 15px;
+        padding: 35px 25px;
+      }
+      .history-container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+      .date {
+        padding-left: 30px;
+      }
+      .history-container h1 {
+        font-size: 18px;
+        font-weight: 550;
+        padding-bottom: 10px;
+      }
+      .history-container .date p {
+        padding-bottom: 10px;
+      }
+      .history {
+        border: solid 1px #000000;
+        border-radius: 8px;
+        padding: 20px 30px;
+        font-size: 12px;
+        margin-bottom: 18px;
+        display: flex;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -25,70 +76,83 @@
         </section>
       </nav>
     </header>
-    <section>
-      <section>
-        <h1>2024 он</h1>
-        <p>зургаадугаар сар</p>
-        <section>
+    <section class="container">
+      <section class="history-container">
+        <div class="date">
+          <h1>2024 он</h1>
+          <p>Зургаадугаар сар</p>
+        </div>
+        <section class="history">
           <p>Хөвсгөл нуур - 2 хоногийн аялал</p>
-          <p>Хугауаа: 2024.06.24 - 26</p>
+          <p>Хугацаа: 2024.06.24 - 26</p>
           <span>o</span>
           <p>
             7.1-ээс өмнө баталгаажуулахгүй бол захиалга цуцлагдахыг анхаарна уу!
           </p>
           <span>v</span>
         </section>
-        <section>
+        <section class="history">
           <p>Хонгорын элс - 4 хоногийн аялал</p>
           <p>Хугауаа: 2024.06.04 - 08</p>
           <span>o</span>
           <span>v</span>
         </section>
       </section>
-      <section>
-        <h1>2023 он</h1>
-        <p>есөн сар</p>
-        <section>
-          <p>Ёлын ам - 3 хоногийн аялал</p>
-          <p>Хугауаа: 2023.09.04 - 07</p>
+      <section class="history-container">
+        <div class="date">
+          <h1>2023 он</h1>
+          <p>есөн сар</p>
+        </div>
+        <section class="history">
+          <div class="info">
+            <p>Ёлын ам - 3 хоногийн аялал</p>
+            <p>Хугауаа: 2023.09.04 - 07</p>
+          </div>
           <span>o</span>
           <span>v</span>
         </section>
       </section>
     </section>
-    <footer>
-      <img src="./images/ym2/logo.png" alt="" />
-      <section>
+    <footer class="footer">
+      <div class="footer-logo">
+        <img src="./images/ym2/logo.png" alt="Logo" />
+      </div>
+      <section class="footer-links">
+        <h4>Бидний тухай</h4>
         <ul>
-          <li><a href="#">Бидний тухай</a></li>
-          <li><a href="#">Асуулт хариулт</a></li>
+          <li><a href="aboutUs.html">Танилцуулга</a></li>
+          <li><a href="QnA.html">Асуулт хариулт</a></li>
         </ul>
       </section>
-      <section>
-        <h4>холбоо барих</h4>
-        <p>и-мэйл: <a href="">nuutsaylal@gmail.com</a></p>
+      <section class="footer-contact">
+        <h4>Холбоо барих</h4>
+        <p>
+          и-мэйл: <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+        </p>
         <p>Phone: +976 99999999</p>
       </section>
-      <nav>
+      <section class="footer-social">
         <h4>Манай сүлжээ</h4>
         <ul>
           <li>
-            <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
-          </li>
-          <li>
-            <a href="https://instagram.com"
-              ><i class="fa-brands fa-instagram"></i
+            <a href="https://facebook.com" target="_blank"
+              ><i class="fab fa-facebook-f"></i
             ></a>
           </li>
           <li>
-            <a href="https://twitter.com"
-              ><i class="fa-brands fa-x-twitter"></i>
-            </a>
+            <a href="https://instagram.com" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://twitter.com" target="_blank"
+              ><i class="fab fa-twitter"></i
+            ></a>
           </li>
         </ul>
-      </nav>
-      <section>
-        <h4>манай хаяг</h4>
+      </section>
+      <section class="footer-address">
+        <h4>Манай хаяг</h4>
         <p>
           Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
         </p>
