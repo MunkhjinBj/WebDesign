@@ -1,14 +1,14 @@
 :root {
-  --primary-color: #47B477;      /* Main color */
+  --primary-color: #47b477; /* Main color */
   --primary-hover-color: #388e3c; /* Hover color for buttons */
-  --text-color: #333;              /* General text color */
-  --background-color: #ffffff;     /* Background color for forms */
-  --border-color: #e0e0e0;         /* Border color */
+  --text-color: #333; /* General text color */
+  --background-color: #ffffff; /* Background color for forms */
+  --border-color: #e0e0e0; /* Border color */
   --shadow-color: rgba(0, 0, 4, 0.5); /* Shadow color */
-  
-  --facebook-color: #3b5998;       /* Facebook color */
-  --linkedin-color: #0e76a8;       /* LinkedIn color */
-  --google-color: #b7eb2a;         /* Google color */
+
+  --facebook-color: #3b5998; /* Facebook color */
+  --linkedin-color: #0e76a8; /* LinkedIn color */
+  --google-color: #b7eb2a; /* Google color */
 }
 
 /* Global styles */
@@ -93,8 +93,8 @@ header {
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
+  /* .header-nav {
+    display: none;
     margin-left: 0;
   }
 
@@ -110,6 +110,54 @@ header {
   .user-links a {
     margin-right: 0;
     margin-bottom: 10px;
+  } */
+  * {
+    width: min-content;
+  }
+
+  .header-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: --primary-hover-color;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Adjust logo size and alignment for mobile */
+  .header-nav img {
+    width: 30px;
+    margin: 0;
+  }
+
+  /* Stack links in a single row */
+  .nav-links,
+  .user-links {
+    flex-direction: row;
+  }
+
+  /* Simplify font sizes and spacing for small screens */
+  .header-nav a {
+    font-size: 14px;
+    margin: 0 5px;
+  }
+  .header-nav img {
+    display: none;
+    width: 100px;
+  }
+  .nav-links li {
+    border-radius: 50%;
+    background-color: var(--primary-color);
+  }
+  .nav-links .user-links a {
+    display: none;
+  }
+  footer {
+    display: none;
+    background-color: #007bff;
   }
 }
 
@@ -178,7 +226,6 @@ header {
   transform: scale(1.05); /* Small hover animation */
 }
 
-
 .google-signin {
   background-color: transparent;
   border: none;
@@ -194,7 +241,7 @@ header {
   font-size: 14px;
 }
 
-.forgot-password{
+.forgot-password {
   text-align: right;
 }
 
@@ -242,97 +289,93 @@ header {
   border: 0;
 }
 
-
-
-
-
 .or-container {
   display: flex;
   align-items: center;
   text-align: center;
-  margin: 10px 0; 
+  margin: 10px 0;
   font-size: 16px;
 }
 
 .or-container::before,
 .or-container::after {
-  content: '';
-  flex: 1; 
-  border-top: 1px solid #ccc; 
+  content: "";
+  flex: 1;
+  border-top: 1px solid #ccc;
   margin: 20px;
 }
 
-
-
 /*Foooooooooooooooooooooooooooooooooooooootttttttttttttttttttttteeeeeeeeeeeeeeeeeeerrrrrrrrrrrrrrrrrrr*/
-
 
 .footer {
   display: grid;
-  grid-template-columns: repeat(5,1fr);
-  gap: 20px; 
-  padding: 20px; 
-  background-color: #D9D9D9; 
-  color: #333; 
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 20px;
+  background-color: #d9d9d9;
+  color: #333;
   font-family: "Montserrat Alternates", sans-serif;
   justify-content: center;
   align-items: center;
-  
 }
-.footer-logo-name{
+.footer-logo-name {
   grid-column: 1 / span 1;
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-logo-name img {
-  width: 30px; 
+  width: 30px;
   height: auto;
   margin-right: 10px;
 }
-.footer-name{
+.footer-name {
   font-size: 24px;
   margin: 0;
 }
 
 .footer h4 {
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
-.footer-links, .footer-contact, .footer-social, .footer-address {
+.footer-links,
+.footer-contact,
+.footer-social,
+.footer-address {
   display: flex;
   flex-direction: column;
 }
 
-.footer-links ul, .footer-social ul {
+.footer-links ul,
+.footer-social ul {
   list-style: none;
-  padding: 0; 
+  padding: 0;
 }
 
-.footer-links li, .footer-social li {
-  margin-bottom: 8px; 
+.footer-links li,
+.footer-social li {
+  margin-bottom: 8px;
 }
 
 .footer a {
-  text-decoration: none; 
-  color: var(--primary-color); 
+  text-decoration: none;
+  color: var(--primary-color);
   transition: color 0.3s;
 }
 
 .footer a:hover {
-  color: var(--primary-hover-color); 
+  color: var(--primary-hover-color);
 }
 
 .footer-social ul {
-  display: flex; 
-  gap: 10px; 
+  display: flex;
+  gap: 10px;
 }
 
 .footer-social a {
   font-size: 20px;
 }
-
 
 /*Sign up*/
 
@@ -342,7 +385,7 @@ header {
 }
 
 .password-container input {
-  width: 100%; 
+  width: 100%;
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
@@ -359,14 +402,14 @@ header {
 /* Toggle button for eye icon */
 .password-container .toggle-password {
   position: absolute;
-  right: 10px; 
+  right: 10px;
   top: 60%;
   background-color: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
 }
-.password-container .toggle-password:hover{
+.password-container .toggle-password:hover {
   background-color: transparent;
 }
 
@@ -377,37 +420,38 @@ header {
 
 /*FaQ*/
 
- .sec-title{
+.sec-title {
   justify-content: center;
   margin-bottom: 3vh;
   display: flex;
   font-size: 25px;
-
 }
 
 .faq-list {
   margin: 20px auto;
-  max-width: 70vh; 
+  max-width: 70vh;
 }
 
 .panel.group {
   display: flex;
-  flex-direction: column; 
-  gap: 3vh; 
+  flex-direction: column;
+  gap: 3vh;
 }
 
 .faq-item {
-  background: linear-gradient(135deg, #f1f1f1, #f1f1f1); 
-  border-radius: 40px; 
+  background: linear-gradient(135deg, #f1f1f1, #f1f1f1);
+  border-radius: 40px;
   padding: 20px; /* Inner padding for content */
-  box-shadow: 8px 8px 20px rgba(238, 238, 238, 0.1), -8px -8px 20px rgba(255, 255, 255, 0.7); /* 3D shadow */
+  box-shadow: 8px 8px 20px rgba(238, 238, 238, 0.1),
+    -8px -8px 20px rgba(255, 255, 255, 0.7); /* 3D shadow */
   border: 1px solid #ffffff; /* Slight border for a defined edge */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.faq-item:hover{
+.faq-item:hover {
   transform: translateY(-10px);
-  box-shadow: 12px 12px 30px rgba(123, 238, 129, 0.15),-12px -12px 30px rgba(235, 232, 232, 0.6);;
+  box-shadow: 12px 12px 30px rgba(123, 238, 129, 0.15),
+    -12px -12px 30px rgba(235, 232, 232, 0.6);
 }
 
 .item-title {
@@ -433,6 +477,6 @@ header {
 
 @media (max-width: 768px) {
   .faq-item {
-    padding: 15px; 
+    padding: 15px;
   }
 }

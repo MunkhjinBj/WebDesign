@@ -55,6 +55,27 @@
         font-size: 12px;
         margin-bottom: 18px;
         display: flex;
+        flex-direction: column;
+      }
+      .history .infoNstate {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .history .note {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .history .note span {
+      }
+      .history .note p {
+        font-size: xx-small;
+        font-weight: 500;
+        word-wrap: break-word;
+        width: 190px;
+
+        bottom: -200px;
       }
     </style>
   </head>
@@ -83,19 +104,33 @@
           <p>Зургаадугаар сар</p>
         </div>
         <section class="history">
-          <p>Хөвсгөл нуур - 2 хоногийн аялал</p>
-          <p>Хугацаа: 2024.06.24 - 26</p>
-          <span>o</span>
-          <p>
-            7.1-ээс өмнө баталгаажуулахгүй бол захиалга цуцлагдахыг анхаарна уу!
-          </p>
-          <span>v</span>
+          <div class="infoNstate">
+            <div class="info">
+              <p>Хөвсгөл нуур - 2 хоногийн аялал</p>
+              <p>Хугацаа: 2024.06.24 - 26</p>
+            </div>
+            <span class="state">o</span>
+          </div>
+
+          <div class="note">
+            <span>v</span>
+            <p>
+              7.1-ээс өмнө баталгаажуулахгүй бол захиалга цуцлагдахыг анхаарна
+              уу!
+            </p>
+          </div>
         </section>
         <section class="history">
-          <p>Хонгорын элс - 4 хоногийн аялал</p>
-          <p>Хугауаа: 2024.06.04 - 08</p>
-          <span>o</span>
-          <span>v</span>
+          <div class="infoNstate">
+            <div class="info">
+              <p>Хонгорын элс - 4 хоногийн аялал</p>
+              <p>Хугауаа: 2024.06.04 - 08</p>
+            </div>
+            <span class="state">o</span>
+          </div>
+          <div class="note">
+            <span>v</span>
+          </div>
         </section>
       </section>
       <section class="history-container">
@@ -104,12 +139,16 @@
           <p>есөн сар</p>
         </div>
         <section class="history">
-          <div class="info">
-            <p>Ёлын ам - 3 хоногийн аялал</p>
-            <p>Хугауаа: 2023.09.04 - 07</p>
+          <div class="infoNstate">
+            <div class="info">
+              <p>Ёлын ам - 3 хоногийн аялал</p>
+              <p>Хугауаа: 2023.09.04 - 07</p>
+            </div>
+            <span class="state">o</span>
           </div>
-          <span>o</span>
-          <span>v</span>
+          <div class="note">
+            <span>v</span>
+          </div>
         </section>
       </section>
     </section>
