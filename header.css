@@ -28,6 +28,7 @@ header {
   align-items: center;
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 .header-nav {
@@ -209,7 +210,6 @@ header {
 .footer a:hover {
   color: var(--primary-hover-color);
 }
-<<<<<<< HEAD
 
 .footer-social ul {
   display: flex;
@@ -324,12 +324,7 @@ header {
   }
 }
 
-
-
-
 /*----------------------------------------Travels----------------------------------------*/
-
-
 
 .content {
   display: flex;
@@ -462,5 +457,3 @@ header {
   justify-content: center;
   padding: 20px;
 }
-=======
->>>>>>> 293c6a8 (d)
