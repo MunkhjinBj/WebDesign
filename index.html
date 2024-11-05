@@ -28,9 +28,9 @@
       }
 
       .info {
+        background-color: #666;
         display: flex;
-        width: 80%;
-        max-width: 1200px;
+        height: 70vh;
         margin: 0 auto;
         align-items: center;
         justify-content: center;
@@ -111,12 +111,97 @@
         border: 0 solid #2e8b57;
         border-radius: 30px;
       }
-      .hover_info {
-        display: none;
-        background-color: antiquewhite;
+
+      #hover_info {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        margin: 2rem;
+        font-family: system-ui, -apple-system, sans-serif;
+        background: white;
+        border-radius: 28px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;
       }
-      .show_info:active + .show_info + .hover_info {
-        display: block;
+
+      #hover_info h2 {
+        text-align: center;
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 3rem;
+      }
+
+      #hover_info article {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 4rem;
+        align-items: center;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      #hover_info article:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      #hover_info article h2 {
+        font-size: 1.5rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        grid-column: 1 / -1;
+        text-align: left;
+      }
+
+      #hover_info article p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #666;
+        margin: 0;
+      }
+
+      #hover_info article img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        aspect-ratio: 16/9;
+      }
+
+      #hover_info article h2::before {
+        content: "";
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background: #4caf50;
+        border-radius: 50%;
+        margin-right: 10px;
+        color: white;
+        text-align: center;
+        line-height: 30px;
+        font-size: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        #hover_info article {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        #hover_info article h2 {
+          text-align: center;
+        }
+
+        #hover_info {
+          padding: 1rem;
+          margin: 1rem;
+        }
+      }
+
+      #hover_info article {
+        animation: fadeIn 0.5s ease-out forwards;
       }
 
       .comment_section {
@@ -407,9 +492,15 @@
   <body>
     <header>
       <nav class="header-nav">
-        <a href="./index.html"
-          ><img width="50px" src="./images/ym2/logo.png" alt="logo"
-        /></a>
+        <div class="motto">
+          <a href="./index.html"
+            ><img width="50px" src="./images/ym2/logo.png" alt="logo"
+          /></a>
+          <p>
+            Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
+            <strong style="font-weight: 600">бид бүтээж өгнө</strong>
+          </p>
+        </div>
         <ul class="nav-links">
           <li><a href="./aboutUs.html">Бидний тухай</a></li>
           <li><a href="./zahialah.html">Аялал захиалах</a></li>
@@ -427,9 +518,7 @@
       <section class="info">
         <article class="info_1">
           <img width="200px" src="./images/img4.jpg" alt="neg zurg" />
-          <h2>
-            Таний хүсэлд нийцсэн хүссэн <br />аяллалыг тан, бид бүтээж өгнө
-          </h2>
+          <h2>Таний хүсэлд нийцсэн, хүссэн аяллалыг тань, бид бүтээж өгнө</h2>
           <img
             class="purgon"
             width="200px"
@@ -450,34 +539,36 @@
             Дараах асуултуудад хариулан <br />өөрийн хүссэн аяллалдаа
             <br />гараарай
           </h2>
-          <a href=""><img class="show_info" src="./images/sum.png" alt="" /></a>
-          <button>асуулт эхлүүлэх</button>
+          <a href="javascript:void(0);" onclick="showDiv()">
+            <img class="show_info" src="./images/sum.png" alt="Show info" />
+          </a>
+          <section id="hover_info" style="display: none">
+            <h2>Хэрхэн захиалах вэ?</h2>
+            <article>
+              <h2>1-р алхам</h2>
+              <p>
+                Аялалтай холбоотой асуултуудыг бөглөөд өөрсдийн хүсэлд нийцсэн
+                аялалын төлөвлөгөөгөө аваарай
+              </p>
+              <img src="/images/1 alham.png" alt="" />
+            </article>
+            <article>
+              <h2>2-р алхам</h2>
+              <p>
+                Таныг асуултаа бөглөж баталгаажуулсны дараа бид цаг агаар болон
+                тээшиндээ зайлшгүй авч явах хэрэгтэй зүйлсийн жагсаалтыг танруу
+                мэйлээр болон утсаар залгаж мэдэгдэх болно.
+              </p>
+              <img src="/images/2 alham.png" alt="нэг зураг" />
+            </article>
+            <article>
+              <h2>3-р алхам</h2>
+              <p>Аялалдаа гарах</p>
+              <img src="/images/3 alham.png" alt="" />
+            </article>
+          </section>
+          <a href="/zahialah.html"><button>асуулт эхлүүлэх</button></a>
         </article>
-        <section class="hover_info">
-          <h2>Хэрхэн захиалах вэ?</h2>
-          <article>
-            <img src="" alt="" />
-            <h2>1-р алхам</h2>
-            <p>
-              Аялалтай холбоотой асуултуудыг бөглөөд өөрсдийн хүсэлд нийцсэн
-              аялалын төлөвлөгөөгөө аваарай
-            </p>
-          </article>
-          <article>
-            <h2>2-р алхам</h2>
-            <p>
-              Таныг асуултаа бөглөж баталгаажуулсны дараа бид цаг агаар болон
-              тээшиндээ зайлшгүй авч явах хэрэгтэй зүйлсийн жагсаалтыг танруу
-              мэйлээр болон утсаар залгаж мэдэгдэх болно.
-            </p>
-            <img src="" alt="нэг зураг" />
-          </article>
-          <article>
-            <img src="" alt="" />
-            <h2>3-р алхам</h2>
-            <p>Аялалдаа гарах</p>
-          </article>
-        </section>
       </section>
       <section class="comment_section">
         <h3>Аялагчдын сэтгэгдлүүдээс</h3>
@@ -630,5 +721,18 @@
       src="https://kit.fontawesome.com/d903c022ca.js"
       crossorigin="anonymous"
     ></script>
+    <script>
+      function showDiv() {
+        var hoverInfo = document.getElementById("hover_info");
+        if (
+          hoverInfo.style.display === "none" ||
+          hoverInfo.style.display === ""
+        ) {
+          hoverInfo.style.display = "block";
+        } else {
+          hoverInfo.style.display = "none";
+        }
+      }
+    </script>
   </body>
 </html>
