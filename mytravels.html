@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+
     <title>Document</title>
     <!-- <style>
       * {
@@ -128,7 +129,7 @@
         margin: 0;
       }
 
-      .container {
+      #container {
         max-width: 100%;
         margin: 40px 40px;
         border: solid 1px #000000;
@@ -266,7 +267,7 @@
         </section>
       </nav>
     </header>
-    <section class="container">
+    <!-- <section class="container">
       <section class="history-container">
         <div class="date">
           <h1>2024 он</h1>
@@ -274,10 +275,7 @@
         </div>
         <section class="history">
           <div class="infoNstate">
-            <div class="info">
-              <p>Хөвсгөл нуур - 2 хоногийн аялал</p>
-              <p>Хугацаа: 2024.06.24 - 26</p>
-            </div>
+            <div class="info"></div>
             <span class="state">o</span>
           </div>
 
@@ -320,7 +318,8 @@
           </div>
         </section>
       </section>
-    </section>
+    </section> -->
+    <section id="container"></section>
     <footer class="footer">
       <div class="footer-logo">
         <img src="./images/ym2/logo.png" alt="Logo" />
@@ -370,5 +369,104 @@
       src="https://kit.fontawesome.com/d903c022ca.js"
       crossorigin="anonymous"
     ></script>
+    <!-- <script>
+      const tours = JSON.parse(localStorage.getItem("cart")) || [];
+      console.log(tours);
+      const ordersContainer = document.getElementById("orders");
+
+      if (tours.length === 0) {
+        console.log("gasdga");
+        ordersContainer.innerHTML = `<p>Та аялал захиалаагүй байна.</p>`;
+      } else {
+        const orderElement = document.createElement("section");
+        orderElement.classList.add("history-container");
+
+        // Аяллын мэдээллийг HTML болгон үүсгэнэ
+        orderElement.innerHTML = `
+              <div class="date">
+                <h1>${new Date().getFullYear()} он</h1>
+                <p>${tours.date}</p>
+              </div>`;
+        tours.forEach((tour) => {
+          orderElement.innerHTML = `
+              <section class="history">
+                <div class="infoNstate">
+                  <div class="info">
+                    <p>${tour.title}</p>
+                    <p>Хугацаа: ${tour.date}</p>
+                  </div>
+                  <span class="state">o</span>
+                </div>
+                <div class="note">
+                  <span>v</span>
+                  <p>7.1-ээс өмнө баталгаажуулахгүй бол захиалга цуцлагдахыг анхаарна уу!</p>
+                </div>
+              </section>
+            `;
+
+          ordersContainer.appendChild(orderElement);
+        });
+      }
+    </script> -->
+    <script>
+      const tours = JSON.parse(localStorage.getItem("cart")) || [];
+      console.log(tours);
+
+      const ordersContainer = document.getElementById("container");
+
+      if (tours.length === 0) {
+        ordersContainer.innerHTML = `<p>Та аялал захиалаагүй байна.</p>`;
+      } else {
+        const groupedTours = tours.reduce((acc, tour) => {
+          const tourDate = new Date(tour.startDate);
+          const year = tourDate.getFullYear();
+          const month = tourDate.toLocaleString("mn-MN", { month: "long" });
+
+          if (!acc[year]) acc[year] = {};
+          if (!acc[year][month]) acc[year][month] = [];
+
+          acc[year][month].push(tour);
+          return acc;
+        }, {});
+
+        for (const year in groupedTours) {
+          const yearElement = document.createElement("history-container");
+          yearElement.innerHTML = `<h1>${year} он</h1>`;
+          ordersContainer.appendChild(yearElement);
+
+          const months = groupedTours[year];
+          for (const month in months) {
+            const monthElement = document.createElement("month");
+            monthElement.classList.add("month-container");
+            monthElement.innerHTML = `<p>${month}</p>`;
+            yearElement.appendChild(monthElement);
+
+            const tours = months[month];
+            tours.forEach((tour) => {
+              const orderElement = document.createElement("section");
+              orderElement.classList.add("history-container");
+
+              orderElement.innerHTML = `
+          <section class="history">
+            <div class="infoNstate">
+              <div class="info">
+                <p>${tour.title}</p>
+                <p>Хугацаа: ${tour.date} өдөр</p>
+              </div>
+              <span class="state">o</span>
+            </div>
+            <div class="note">
+              <span>v</span>
+              <p></p>
+            </div>
+          </section>
+        `;
+
+              monthElement.appendChild(orderElement);
+            });
+          }
+        }
+      }
+    </script>
   </body>
 </html>

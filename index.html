@@ -6,7 +6,7 @@
     <meta name="description" content="main page" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Нуууц аялал</title>
-    <link rel="stylesheet" href="header.css" />
+    <!-- <link rel="stylesheet" href="header.css" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -59,10 +59,10 @@
         width: 300px;
       }
 
-      .info_1 h2 {
-        font-size: 1.2rem;
-        color: #333;
-        padding-left: 100px;
+      .info_1 h1 {
+        font-size: 2.5rem; /* Adjust size as needed */
+        font-weight: bold; /* Make it bold for emphasis */
+        color: #ffffff; /* Use a color that contrasts with the background */
       }
       .info_2 h2 {
         font-size: 1.2rem;
@@ -487,6 +487,108 @@
           display: none;
         }
       }
+      @keyframes appear {
+        from {
+          opacity: 0;
+          scale: 0.5;
+        }
+        to {
+          opacity: 1;
+          scale: 1;
+        }
+      }
+      .block {
+        animation: appear linear;
+        animation-timeline: view();
+        animation-range: entry 0;
+      }
+
+      /*footer*/
+      footer {
+        padding: 4rem 0;
+        display: flex;
+        justify-content: center;
+        background-color: #666;
+      }
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 7rem;
+        padding-bottom: 10px;
+        border-bottom: solid 1px #ececec;
+      }
+      .footer-container h4 {
+        font-weight: 700;
+        text-transform: uppercase;
+        padding-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+      .footer-container li {
+        list-style: none;
+        padding-bottom: 0.4rem;
+      }
+      .footer-first {
+        display: block;
+        gap: 2rem;
+      }
+      .footer-logo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+      }
+      .footer-logo img {
+        width: 3rem;
+        height: auto;
+      }
+      .footer-logo p {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .social-icons {
+        margin: 2rem 0 0 0;
+      }
+      .social-icons ul {
+        display: flex;
+        justify-content: space-between;
+        gap: 3rem;
+      }
+      .social-icons li {
+        list-style: none;
+      }
+
+      .fa-square-facebook:hover {
+        opacity: 1;
+        color: #475993;
+      }
+      .fa-instagram:hover {
+        opacity: 1;
+        color: transparent;
+        background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+      .fa-twitter:hover {
+        opacity: 1;
+        color: #1da1f2;
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+      .footer-links a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .footer-address p {
+        text-wrap: wrap;
+        max-width: 300px;
+      }
     </style>
   </head>
   <body>
@@ -515,10 +617,11 @@
     </header>
 
     <main>
-      <section class="info">
+      <section class="block info">
         <article class="info_1">
           <img width="200px" src="./images/img4.jpg" alt="neg zurg" />
-          <h2>Таний хүсэлд нийцсэн, хүссэн аяллалыг тань, бид бүтээж өгнө</h2>
+          <h1>Найзуудаараа аялна гэж ярьсаар л байна уу?</h1>
+          <h1>Дараа гэж байхгүй одоо л аялцгаая</h1>
           <img
             class="purgon"
             width="200px"
@@ -533,7 +636,7 @@
           <img width="200px" src="./images/modnuud.png" alt="neg zurg" />
         </article>
       </section>
-      <section class="form_sec">
+      <section class="block form_sec">
         <article class="form_link">
           <h2>
             Дараах асуултуудад хариулан <br />өөрийн хүссэн аяллалдаа
@@ -671,50 +774,72 @@
         </div>
       </section>
     </main>
-    <footer class="footer">
-      <div class="footer-logo">
-        <img src="./images/ym2/logo.png" alt="Logo" />
+    <footer>
+      <div class="footer-container">
+        <section class="footer-first">
+          <div class="footer-logo">
+            <img src="./images/ym2/logo.png" alt="Logo" />
+            <p>
+              нууц <br />
+              аялал
+            </p>
+          </div>
+          <div class="social-icons">
+            <ul>
+              <li>
+                <a
+                  style="color: white"
+                  href="https://www.facebook.com/UnreadToday/"
+                  ><i
+                    style="font-size: 34px"
+                    class="fa-brands fa-square-facebook"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a style="color: white" href="https://twitter.com/UnreadToday"
+                  ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  style="color: white"
+                  href="https://www.instagram.com/unreadtoday/"
+                  ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="footer-links">
+          <h4>Бидний тухай</h4>
+          <ul>
+            <li><a href="aboutUs.html">Танилцуулга</a></li>
+            <li><a href="QnA.html">Асуулт хариулт</a></li>
+          </ul>
+        </section>
+        <section class="footer-contact">
+          <h4>Холбоо барих</h4>
+          <ul>
+            <li>
+              <p>
+                и-мэйл:
+                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+              </p>
+            </li>
+            <li><p>Phone: +976 99999999</p></li>
+          </ul>
+        </section>
+        <section class="footer-address">
+          <h4>Манай хаяг</h4>
+          <li>
+            <p>
+              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+              Улаанбаатар
+            </p>
+          </li>
+        </section>
       </div>
-      <section class="footer-links">
-        <h4>Бидний тухай</h4>
-        <ul>
-          <li><a href="aboutUs.html">Танилцуулга</a></li>
-          <li><a href="QnA.html">Асуулт хариулт</a></li>
-        </ul>
-      </section>
-      <section class="footer-contact">
-        <h4>Холбоо барих</h4>
-        <p>
-          и-мэйл: <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
-        </p>
-        <p>Phone: +976 99999999</p>
-      </section>
-      <section class="footer-social">
-        <h4>Манай сүлжээ</h4>
-        <ul>
-          <li>
-            <a href="https://facebook.com" target="_blank"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://instagram.com" target="_blank"
-              ><i class="fab fa-instagram"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://twitter.com" target="_blank"
-              ><i class="fab fa-twitter"></i
-            ></a>
-          </li>
-        </ul>
-      </section>
-      <section class="footer-address">
-        <h4>Манай хаяг</h4>
-        <p>
-          Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
-        </p>
-      </section>
     </footer>
 
     <script
