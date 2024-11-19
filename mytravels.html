@@ -5,118 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="MyJourneys" />
     <link rel="stylesheet" href="header.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
 
     <title>Document</title>
-    <!-- <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: "Montserrat Alternates", sans-serif;
-        font-weight: 300;
-      }
 
-      body {
-        margin: 0;
-      }
-
-      .container {
-        box-sizing: border-box;
-        width: 85%;
-        margin: 4% 5%;
-        border: solid 1px #000000;
-        border-radius: 15px;
-        padding: 35px 25px;
-      }
-      .history-container {
-        box-sizing: border-box;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-      }
-      .date {
-        padding-left: 30px;
-      }
-      .history-container h1 {
-        font-size: 18px;
-        font-weight: 550;
-        padding-bottom: 10px;
-      }
-      .history-container .date p {
-        padding-bottom: 10px;
-      }
-      .history {
-        border: solid 1px #000000;
-        border-radius: 8px;
-        padding: 20px 30px;
-        font-size: 12px;
-        margin-bottom: 18px;
-        display: flex;
-        flex-direction: column;
-      }
-      .history .infoNstate {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-      .history .note {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .history .note span {
-      }
-      .history .note p {
-        font-size: xx-small;
-        font-weight: 500;
-        word-wrap: break-word;
-        width: 190px;
-
-        bottom: -200px;
-      }
-      @media (max-width: 768px) {
-        .header-nav {
-          position: fixed;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          padding: 10px 0;
-          flex-direction: row;
-          background-color: #333;
-          box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Hide logo on smaller screens */
-        .header-nav img {
-          display: none;
-        }
-
-        /* Stack links in a single row */
-        .nav-links,
-        .user-links {
-          flex-direction: row;
-        }
-
-        /* Adjust font sizes and spacing for smaller screens */
-        .header-nav a {
-          font-size: 14px;
-          margin: 0 5px;
-        }
-        .user-links {
-          display: none;
-        }
-        footer {
-          display: none;
-        }
-      }
-    </style> -->
     <style>
       /* General reset and styling */
       * {
@@ -131,8 +22,8 @@
 
       #container {
         max-width: 100%;
-        margin: 40px 40px;
-        border: solid 1px #000000;
+        margin: 3rem 6rem;
+
         border-radius: 15px;
         padding: 35px 25px;
       }
@@ -143,7 +34,16 @@
         justify-content: space-between;
         flex-direction: column;
       }
-
+      .year-container h1 {
+        margin: 1rem 0 1rem 0.5rem;
+      }
+      .month-container {
+        box-shadow: 0px 0px 26px -20px rgba(66, 68, 90, 1);
+        padding: 2rem;
+      }
+      .month-container p {
+        padding-bottom: 1rem;
+      }
       .date {
         padding-left: 30px;
       }
@@ -160,7 +60,7 @@
 
       .history {
         max-width: 100%;
-        border: solid 1px #000000;
+        box-shadow: 0px 0px 26px -16px rgba(66, 68, 90, 1);
         border-radius: 8px;
         padding: 20px 30px;
         font-size: 12px;
@@ -172,10 +72,15 @@
       .history .infoNstate {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 2rem;
+      }
+      .history .infoNstate img {
+        border-radius: 5px;
+        width: 10rem;
       }
 
-      .history .note {
+      .history .history .note {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -188,65 +93,6 @@
         width: 190px;
         bottom: -200px;
       }
-
-      /* Navigation styling 
-      .header-nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-        background-color: #333;
-        color: #fff;
-      }
-
-      .header-nav a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 16px;
-        margin: 0 10px;
-      }
-
-      .header-nav img {
-        vertical-align: middle;
-      }
-
-      Nav links and user links
-      .nav-links,
-      .user-links {
-        display: flex;
-        align-items: center;
-      } */
-
-      /* Media query for mobile view */
-      /* @media (max-width: 768px) {
-         .header-nav {
-           position: fixed;
-           bottom: 0;
-           left: 0;
-           width: 100%;
-           padding: 10px 0;
-           flex-direction: row;
-           justify-content: space-around;
-           background-color: #333;
-           box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-         }
-
-        
-         .header-nav img {
-           display: none;
-         }
-
-  
-         .nav-links,
-         .user-links {
-           flex-direction: row;
-         }
-
-   
-         .header-nav a {
-           font-size: 14px;
-           margin: 0 5px;
-         }*/
     </style>
   </head>
   <body>
@@ -320,94 +166,73 @@
       </section>
     </section> -->
     <section id="container"></section>
-    <footer class="footer">
-      <div class="footer-logo">
-        <img src="./images/ym2/logo.png" alt="Logo" />
+    <footer>
+      <div class="footer-container">
+        <section class="footer-first">
+          <div class="footer-logo">
+            <img src="./images/ym2/logo.png" alt="Logo" />
+            <p>
+              нууц <br />
+              аялал
+            </p>
+          </div>
+          <div class="social-icons">
+            <ul>
+              <li>
+                <a style="color: white" href="#"
+                  ><i
+                    style="font-size: 34px"
+                    class="fa-brands fa-square-facebook"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="footer-links">
+          <h4>Бидний тухай</h4>
+          <ul>
+            <li><a href="aboutUs.html">Танилцуулга</a></li>
+            <li><a href="QnA.html">Асуулт хариулт</a></li>
+          </ul>
+        </section>
+        <section class="footer-contact">
+          <h4>Холбоо барих</h4>
+          <ul>
+            <li>
+              <p>
+                и-мэйл:
+                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+              </p>
+            </li>
+            <li><p>Phone: +976 99999999</p></li>
+          </ul>
+        </section>
+        <section class="footer-address">
+          <h4>Манай хаяг</h4>
+          <li>
+            <p>
+              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+              Улаанбаатар
+            </p>
+          </li>
+        </section>
       </div>
-      <section class="footer-links">
-        <h4>Бидний тухай</h4>
-        <ul>
-          <li><a href="aboutUs.html">Танилцуулга</a></li>
-          <li><a href="QnA.html">Асуулт хариулт</a></li>
-        </ul>
-      </section>
-      <section class="footer-contact">
-        <h4>Холбоо барих</h4>
-        <p>
-          и-мэйл: <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
-        </p>
-        <p>Phone: +976 99999999</p>
-      </section>
-      <section class="footer-social">
-        <h4>Манай сүлжээ</h4>
-        <ul>
-          <li>
-            <a href="https://facebook.com" target="_blank"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://instagram.com" target="_blank"
-              ><i class="fab fa-instagram"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://twitter.com" target="_blank"
-              ><i class="fab fa-twitter"></i
-            ></a>
-          </li>
-        </ul>
-      </section>
-      <section class="footer-address">
-        <h4>Манай хаяг</h4>
-        <p>
-          Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
-        </p>
-      </section>
     </footer>
     <script
       src="https://kit.fontawesome.com/d903c022ca.js"
       crossorigin="anonymous"
     ></script>
-    <!-- <script>
-      const tours = JSON.parse(localStorage.getItem("cart")) || [];
-      console.log(tours);
-      const ordersContainer = document.getElementById("orders");
-
-      if (tours.length === 0) {
-        console.log("gasdga");
-        ordersContainer.innerHTML = `<p>Та аялал захиалаагүй байна.</p>`;
-      } else {
-        const orderElement = document.createElement("section");
-        orderElement.classList.add("history-container");
-
-        // Аяллын мэдээллийг HTML болгон үүсгэнэ
-        orderElement.innerHTML = `
-              <div class="date">
-                <h1>${new Date().getFullYear()} он</h1>
-                <p>${tours.date}</p>
-              </div>`;
-        tours.forEach((tour) => {
-          orderElement.innerHTML = `
-              <section class="history">
-                <div class="infoNstate">
-                  <div class="info">
-                    <p>${tour.title}</p>
-                    <p>Хугацаа: ${tour.date}</p>
-                  </div>
-                  <span class="state">o</span>
-                </div>
-                <div class="note">
-                  <span>v</span>
-                  <p>7.1-ээс өмнө баталгаажуулахгүй бол захиалга цуцлагдахыг анхаарна уу!</p>
-                </div>
-              </section>
-            `;
-
-          ordersContainer.appendChild(orderElement);
-        });
-      }
-    </script> -->
     <script>
       const tours = JSON.parse(localStorage.getItem("cart")) || [];
       console.log(tours);
@@ -430,13 +255,14 @@
         }, {});
 
         for (const year in groupedTours) {
-          const yearElement = document.createElement("history-container");
+          const yearElement = document.createElement("section");
+          yearElement.classList.add("year-container");
           yearElement.innerHTML = `<h1>${year} он</h1>`;
           ordersContainer.appendChild(yearElement);
 
           const months = groupedTours[year];
           for (const month in months) {
-            const monthElement = document.createElement("month");
+            const monthElement = document.createElement("section");
             monthElement.classList.add("month-container");
             monthElement.innerHTML = `<p>${month}</p>`;
             yearElement.appendChild(monthElement);
@@ -447,20 +273,21 @@
               orderElement.classList.add("history-container");
 
               orderElement.innerHTML = `
-          <section class="history">
-            <div class="infoNstate">
-              <div class="info">
-                <p>${tour.title}</p>
-                <p>Хугацаа: ${tour.date} өдөр</p>
-              </div>
-              <span class="state">o</span>
-            </div>
-            <div class="note">
-              <span>v</span>
-              <p></p>
-            </div>
-          </section>
-        `;
+              <section class="history">
+                <div class="infoNstate">
+                  <img src="${tour.image}">
+                  <div class="info">
+                    <h1>${tour.title}</h1>
+                    <p>Хугацаа: ${tour.startDate}-ээс ${tour.finishDate} /${tour.date} өдөр/</p>
+                  </div>
+                  <span class="state">o</span>
+                </div>
+                <div class="note">
+                  <span>v</span>
+                  <p></p>
+                </div>
+              </section>
+            `;
 
               monthElement.appendChild(orderElement);
             });

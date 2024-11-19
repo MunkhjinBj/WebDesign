@@ -9,17 +9,6 @@
     />
     <link rel="stylesheet" href="header.css" />
     <title>Travels</title>
-    <link rel="stylesheet" href="header.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <header>
@@ -41,56 +30,23 @@
     </header>
 
     <main class="content">
-      <!-- Filters Section -->
       <aside class="filters">
         <h3>Шүүлтүүр</h3>
-        <hr />
 
-        <div class="filter-group">
+        <div class="filter-group days">
           <h4>Аяллын хоног</h4>
-          <label><input type="checkbox" /> 1</label>
-          <label><input type="checkbox" /> 2</label>
-          <label><input type="checkbox" /> 3</label>
-          <label><input type="checkbox" /> 4+</label>
         </div>
 
-        <div class="filter-group">
-          <h4>Аяллын онцлог</h4>
-          <label><input type="checkbox" /> Уул уурхайн аялал</label>
-          <label><input type="checkbox" /> Ус нуурын аялал</label>
-          <label><input type="checkbox" /> Түүхэн газрын аялал</label>
-          <label><input type="checkbox" /> Явган аялал</label>
-          <label><input type="checkbox" /> Усан аялал</label>
+        <div class="filter-group types">
+          <h4>Аяллын төрөл</h4>
         </div>
 
-        <div class="filter-group">
-          <h4>Үнэ (₮)</h4>
-          <input type="range" min="50000" max="500000" step="10000" />
-          <span>₮50,000 - ₮500,000</span>
-        </div>
-
-        <div class="filter-group">
-          <h4>Санал болгох улирал</h4>
-          <label><input type="checkbox" /> Зун</label>
-          <label><input type="checkbox" /> Өвөл</label>
-          <label><input type="checkbox" /> Хавар</label>
-          <label><input type="checkbox" /> Намар</label>
-        </div>
-
-        <div class="filter-group">
-          <h4>Үнэлгээ</h4>
-          <label><input type="checkbox" /> ★★★★☆+</label>
-          <label><input type="checkbox" /> ★★★☆☆+</label>
-        </div>
+        <button id="clear-filters">цэвэрлэх</button>
       </aside>
 
-      <!-- Travels Section -->
-      <section class="travels">
-        <div class="travel-grid">
-          <!-- Repeat articles for other travel options -->
-        </div>
+      <section class="travels-container">
+        <div class="travel-grid"></div>
 
-        <!-- Pagination -->
         <div class="pagination">
           <a href="#">&laquo; </a>
           <a href="#">1</a>
@@ -102,59 +58,72 @@
         <h3>Your Cart</h3>
         <div class="cart-items"></div>
       </div>
-
-      <script src="cart.js"></script>
     </main>
 
-    <footer class="footer">
-      <div class="footer-logo">
-        <img src="./images/ym2/logo.png" alt="Logo" />
+    <footer>
+      <div class="footer-container">
+        <section class="footer-first">
+          <div class="footer-logo">
+            <img src="./images/ym2/logo.png" alt="Logo" />
+            <p>
+              нууц <br />
+              аялал
+            </p>
+          </div>
+          <div class="social-icons">
+            <ul>
+              <li>
+                <a style="color: white" href="#"
+                  ><i
+                    style="font-size: 34px"
+                    class="fa-brands fa-square-facebook"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="footer-links">
+          <h4>Бидний тухай</h4>
+          <ul>
+            <li><a href="aboutUs.html">Танилцуулга</a></li>
+            <li><a href="QnA.html">Асуулт хариулт</a></li>
+          </ul>
+        </section>
+        <section class="footer-contact">
+          <h4>Холбоо барих</h4>
+          <ul>
+            <li>
+              <p>
+                и-мэйл:
+                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+              </p>
+            </li>
+            <li><p>Phone: +976 99999999</p></li>
+          </ul>
+        </section>
+        <section class="footer-address">
+          <h4>Манай хаяг</h4>
+          <li>
+            <p>
+              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+              Улаанбаатар
+            </p>
+          </li>
+        </section>
       </div>
-      <section class="footer-links">
-        <h4>Бидний тухай</h4>
-        <ul>
-          <li><a href="#">Танилцуулга</a></li>
-          <li><a href="#">Асуулт хариулт</a></li>
-        </ul>
-      </section>
-      <section class="footer-contact">
-        <h4>Холбоо барих</h4>
-        <p>
-          и-мэйл: <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
-        </p>
-        <p>Phone: +976 99999999</p>
-      </section>
-      <section class="footer-social">
-        <h4>Манай сүлжээ</h4>
-        <ul>
-          <li>
-            <a href="https://facebook.com" target="_blank"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://instagram.com" target="_blank"
-              ><i class="fab fa-instagram"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://twitter.com" target="_blank"
-              ><i class="fab fa-twitter"></i
-            ></a>
-          </li>
-        </ul>
-      </section>
-      <section class="footer-address">
-        <h4>Манай хаяг</h4>
-        <p>
-          Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
-        </p>
-      </section>
     </footer>
 
-    <script
-      src="https://kit.fontawesome.com/d903c022ca.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="cart.js"></script>
   </body>
 </html>
