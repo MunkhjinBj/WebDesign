@@ -107,6 +107,50 @@ header {
   border-radius: 50%;
 }
 
+/*Gallery please*/
+
+.gallery{
+  position: relative;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.gallery-wrapper {
+  display: flex;
+  will-change: transform;
+}
+
+
+.gallery-wrapper img{
+  flex-shrink: 0;
+  width: clamp(300px, 20%, 400px);
+  height: auto;
+  margin-right: 30px;
+  object-fit: cover;
+  user-select: none;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow.left{
+left: 10px;
+}
+
+.arrow.right{
+  right:10px;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .header-nav {
@@ -486,6 +530,8 @@ footer {
 }
 
 /* Cart Styles */
+
+
 .cart {
   position: fixed;
   top: 10%;
