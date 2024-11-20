@@ -1,0 +1,64 @@
+{"travels": [
+    {
+      "id": 1,
+      "title": "Хөвсгөл нуурын аялал",
+      "image": "./images/Khuvsgul lake.jpg",
+      "type": "Адал явдалт",
+      "startDate": "2024-06-24",
+      "finishDate": "2024-06-26",
+      "date": 2,
+      "status": "Боломжтой"
+    },
+    {
+      "id": 2,
+      "title": "Говь гурван сайхан",
+      "image": "./images/Gobi desert.jpg",
+      "type": "Тайван амралт",
+      "startDate": "2024-07-10",
+      "finishDate": "2024-07-15",
+      "date": 5,
+      "status": "Дууссан"
+    },
+    {
+      "id": 3,
+      "title": "Тэрэлжийн аялал",
+      "image": "https://picsum.photos/300",
+      "type": "Гэр бүлд зориулсан",
+      "startDate": "2024-05-01",
+      "finishDate": "2024-05-03",
+      "date": 3,
+      "status": "Шинэ"
+    },
+
+    {
+      "id": 2,
+      "title": "Говь гурван сайхан",
+      "image": "https://picsum.photos/300",
+      "type": "Тайван амралт",
+      "startDate": "2024-07-10",
+      "finishDate": "2024-07-15",
+      "date": 5,
+      "status": "Дууссан"
+    },
+    {
+      "id": 4,
+      "title": "Орхоны хөндийн соёлын аялал",
+      "image": "https://picsum.photos/300",
+      "type": "Соёлын аялал",
+      "startDate": "2024-08-12",
+      "finishDate": "2024-08-14",
+      "date": 3,
+      "status": "Шинэ"
+    },
+    {
+      "id": 5,
+      "title": "Хустайн нурууны  аялал",
+      "image": "https://picsum.photos/300",
+      "type": "Романтик",
+      "startDate": "2024-09-01",
+      "finishDate": "2024-09-03",
+      "date": 3,
+      "status": "Боломжтой"
+    }
+  ]
+}

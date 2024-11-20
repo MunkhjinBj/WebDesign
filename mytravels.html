@@ -28,6 +28,12 @@
         padding: 35px 25px;
       }
 
+      #container p {
+        display: flex;
+        justify-content: center;
+        text-decoration: underline;
+      }
+
       .history-container {
         max-width: 100%;
         display: flex;
@@ -113,58 +119,6 @@
         </section>
       </nav>
     </header>
-    <!-- <section class="container">
-      <section class="history-container">
-        <div class="date">
-          <h1>2024 он</h1>
-          <p>Зургаадугаар сар</p>
-        </div>
-        <section class="history">
-          <div class="infoNstate">
-            <div class="info"></div>
-            <span class="state">o</span>
-          </div>
-
-          <div class="note">
-            <span>v</span>
-            <p>
-              7.1-ээс өмнө баталгаажуулахгүй бол захиалга цуцлагдахыг анхаарна
-              уу!
-            </p>
-          </div>
-        </section>
-        <section class="history">
-          <div class="infoNstate">
-            <div class="info">
-              <p>Хонгорын элс - 4 хоногийн аялал</p>
-              <p>Хугауаа: 2024.06.04 - 08</p>
-            </div>
-            <span class="state">o</span>
-          </div>
-          <div class="note">
-            <span>v</span>
-          </div>
-        </section>
-      </section>
-      <section class="history-container">
-        <div class="date">
-          <h1>2023 он</h1>
-          <p>есөн сар</p>
-        </div>
-        <section class="history">
-          <div class="infoNstate">
-            <div class="info">
-              <p>Ёлын ам - 3 хоногийн аялал</p>
-              <p>Хугауаа: 2023.09.04 - 07</p>
-            </div>
-            <span class="state">o</span>
-          </div>
-          <div class="note">
-            <span>v</span>
-          </div>
-        </section>
-      </section>
-    </section> -->
     <section id="container"></section>
     <footer>
       <div class="footer-container">
@@ -234,7 +188,7 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      const tours = JSON.parse(localStorage.getItem("cart")) || [];
+      const tours = JSON.parse(localStorage.getItem("cartItems")) || [];
       console.log(tours);
 
       const ordersContainer = document.getElementById("container");
