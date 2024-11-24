@@ -1,0 +1,170 @@
+:root {
+  --background-color: #f9f9f9;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --text-color: #333;
+  --primary-color: #2e8b57;
+  --button-text-color: white;
+}
+
+/* Centering container */
+.signo_container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Form section styling */
+.Get_inside_head {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+  border: 0.25rem solid var(--background-color);
+  border-radius: 2rem;
+  background-color: var(--background-color);
+  box-shadow: 0 0.5rem 1.5rem var(--shadow-color);
+  max-width: 25rem;
+  text-align: center;
+}
+
+.Get_inside_head h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.Get_inside_head form {
+  display: grid;
+  gap: 1rem;
+}
+
+
+
+/* Password field container adjustments */
+.password-container {
+    position: relative;
+  }
+  
+  .password-container input {
+    padding-right: 3rem; /* Increase space for the icon */
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 1rem; /* Adjust position */
+    top: 70%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .toggle-password i {
+    font-size: 1.25rem;
+    color: var(--text-color);
+  }
+  
+  .toggle-password:hover i {
+    color: var(--primary-color); /* Color change on hover */
+  }
+
+.input-group label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+input {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Input group styling */
+.input-group select,
+.input-group input {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-group select {
+  background-color: #fff;
+}
+
+.input-group select:focus,
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.password-container + .password-container {
+  margin-top: 0.5rem;
+}
+
+/* Form alignment */
+form .input-group,
+form .password-container {
+  margin-bottom: 1rem;
+}
+
+
+
+.primary-btn {
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.primary-btn:hover {
+  background-color: darkgreen;
+}
+
+/* Social login buttons */
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  background-color: #f4f4f4;
+  box-shadow: 0 0.125rem 0.25rem var(--shadow-color);
+  transition: transform 0.3s ease, background-color 0.3 ease;
+}
+
+.social-btn:hover {
+  transform: scale(1.05);
+  background-color: #e6e6e6;
+}
+
+.google {
+  color: #db4437;
+}
+
+.facebook {
+  color: #4267b2;
+}
+
+.or-container {
+  margin: 1rem 0;
+  font-size: 1rem;
+  color: var(--text-color);
+}
