@@ -518,7 +518,7 @@ footer {
 }
 
 #travel-grid article button {
-  background-color: #0073e6;
+  background-color: var(--primary-color););
   color: #fff;
   border: none;
   padding: 8px 12px;
