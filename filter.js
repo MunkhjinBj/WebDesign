@@ -23,3 +23,16 @@ export async function travelLoader() {
   const data = await result.json();
   return data.travels;
 }
+
+export async function applyFiltersFromURL() {
+  const params = new URLSearchParams(document.location.search);
+  const type = params.get("type");
+
+  let travels = await travelLoader();
+
+  if (type) {
+    travels = travels.filter((travel) => travel.type === type);
+  }
+
+  return travels;
+}
