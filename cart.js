@@ -28,7 +28,7 @@ export async function addToCart(id) {
     if (!exists) {
       cartItems.push({ id: travelItem.id, title: travelItem.title });
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      renderCart();
+      renderCart(); // This will update the cart count and the cart items
     } else {
       alert("Энэ аялал аль хэдийн таны сагсанд байна.");
     }
@@ -39,69 +39,40 @@ export function removeFromCart(id) {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   cartItems = cartItems.filter((item) => item.id !== id);
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  renderCart();
+  renderCart(); // This will update the cart count and the cart items
 }
 
 export function renderCart() {
   const cartContainer = document.getElementById("cart-items");
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  
+  // Update the cart item count
+  const cartCount = document.getElementById("cart-count");
+  cartCount.textContent = cartItems.length; // Update the cart count
+
   cartContainer.innerHTML = "";
   cartItems.forEach((item) => {
     const cartItem = new Cart(item);
     cartContainer.insertAdjacentHTML("beforeend", cartItem.render());
   });
 }
-export function filterTravels() {
-  const filteredTravels = travels.filter(
-    (travel) =>
-      (!filters.days.length || filters.days.includes(travel.date)) &&
-      (!filters.types.length || filters.types.includes(travel.type))
-  );
-  renderTravels(filteredTravels);
-}
 
-// Dynamic Filter Setup
-
-// const daysContainer = document.querySelector(".filter-group days");
-// date.forEach(({ id, name }) => {
-//   daysContainer.innerHTML += `<label><input type="checkbox" value="${id}" /> ${name}</label>`;
-// });
-
-// const typesContainer = document.querySelector(".filter-group.types");
-// destinationtype.forEach(({ type }) => {
-//   typesContainer.innerHTML += `<label><input type="checkbox" value="${type}" /> ${type}</label>`;
-// });
-
-// document.querySelectorAll(".filter-group input").forEach((checkbox) => {
-//   checkbox.addEventListener("change", (e) => {
-//     const value = e.target.value;
-//     const isChecked = e.target.checked;
-
-//     if (e.target.closest(".days")) {
-//       isChecked
-//         ? filters.days.push(Number(value))
-//         : filters.days.splice(filters.days.indexOf(Number(value)), 1);
-//     }
-
-//     if (e.target.closest(".types")) {
-//       isChecked
-//         ? filters.types.push(value)
-//         : filters.types.splice(filters.types.indexOf(value), 1);
-//     }
-
-//     filterTravels();
-//   });
-// });
-
-// // Clear Filters
-// document.getElementById("clear-filters").addEventListener("click", () => {
-//   filters.days = [];
-//   filters.types = [];
-//   document.querySelectorAll(".filter-group input").forEach((input) => {
-//     input.checked = false;
-//   });
-//   renderTravels();
-// });
+// Initialize cart count on page load
+document.addEventListener("DOMContentLoaded", () => {
+  renderCart(); // Ensure the cart count is set when the page loads
+});
 
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
+
+
+document.getElementById("clear-filters").addEventListener("click", () => {
+  // Uncheck all filters
+  document.querySelectorAll(".filter-group input").forEach(input => input.checked = false);
+
+  // Reload all travels without filters
+  window.location.search = ""; // This clears the URL filters
+  travelLoader().then(travels => {
+    document.getElementById("travel-grid").innerHTML = travels.map((t) => new Travels(t).render()).join("");
+  });
+});

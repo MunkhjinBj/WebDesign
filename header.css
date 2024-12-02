@@ -38,7 +38,7 @@ header {
 .header-nav {
   display: flex;
   align-items: center;
-  justify-content: inherit;
+  justify-content: space-between;
   width: 100%;
 }
 .header-nav .motto {
@@ -85,7 +85,7 @@ header {
 
 .user-links {
   display: flex;
-  align-items: center;
+  align-items: center;gap : 15px;
 }
 
 .user-links a {
@@ -434,7 +434,7 @@ footer {
 }
 
 #travel-grid article button {
-  background-color: var(--primary-color););
+  background-color: var(--primary-color);;
   color: #fff;
   border: none;
   padding: 8px 12px;
@@ -448,32 +448,57 @@ footer {
   background-color: #005bb5;
 }
 
-/* Cart Styles */
+/* Position and style for cart icon */
+.cart-icon {
+  position: relative;
+  font-size: 24px;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
 
+.cart-icon:hover {
+  color: #62ebc9; /* Change color when hovered */
+}
+.cart-count {
+  position: absolute;
+  top: -10px;
+  right: -15px;
+  background-color: #ff6666;
+  color: white;
+  font-size: 10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-weight: bold;
+}
 
+/* Wrap the cart icon and cart together */
+.cart-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Cart dropdown position */
 .cart {
-  position: fixed;
-  top: 10%;
-  right: 10px;
+  position: absolute;
+  top: 100%; /* Position the cart below the cart icon */
+  right: 0; /* Align the cart to the right of the icon */
   width: 300px;
-  max-height: 70vh;
-  overflow-y: auto;
   background: #fff;
-  padding: 20px;
+  padding: 10px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Hide by default */
+  z-index: 1000;
 }
 
-.cart h3 {
-  font-size: 1.5em;
-  margin-bottom: 15px;
-  color: #0073e6;
+/* Show cart when the container (icon or dropdown) is hovered */
+.cart-container:hover .cart {
+  display: block;
 }
 
+/* Cart items styling */
 #cart-items article {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 5px 0;
   border-bottom: 1px solid #eee;
 }
@@ -487,6 +512,7 @@ footer {
   color: #333;
 }
 
+/* Button styling inside cart */
 #cart-items article button {
   background-color: #ff6666;
   color: #fff;
@@ -496,11 +522,6 @@ footer {
   border-radius: 3px;
 }
 
-.pagination {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-}
 
 
 
