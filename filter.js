@@ -31,24 +31,32 @@ export async function travelLoader() {
   return data.travels;
 }
 
+// Apply filters based on checked boxes when the Apply Filters button is clicked
 export async function applyFiltersFromURL() {
-  const params = new URLSearchParams(document.location.search);
-  const type = params.get("type");
-  const minDays = params.get("minDays");
-  const maxDays = params.get("maxDays");
+  // Get selected filter values
+  const selectedTypes = Array.from(document.querySelectorAll('.filter-types:checked')).map(input => input.value);
+  const selectedDays = Array.from(document.querySelectorAll('.filter-days:checked')).map(input => input.value);
 
   let travels = await travelLoader();
 
-  if (type) {
-    travels = travels.filter((travel) => travel.type === type);
+  if (selectedTypes.length > 0) {
+    travels = travels.filter((travel) => selectedTypes.includes(travel.type));
   }
 
-  if (minDays) {
-    travels = travels.filter((travel) => travel.date >= minDays);
-  }
+  if (selectedDays.length > 0) {
+    const dayRanges = {
+      '1-3': [1, 3],
+      '4-6': [4, 6],
+      '7+': [7, Infinity]
+    };
 
-  if (maxDays) {
-    travels = travels.filter((travel) => travel.date <= maxDays);
+    travels = travels.filter((travel) => {
+      for (let range of selectedDays) {
+        const [min, max] = dayRanges[range];
+        if (travel.date >= min && travel.date <= max) return true;
+      }
+      return false;
+    });
   }
 
   return travels;
