@@ -8,6 +8,7 @@
       content="travels page: sanal bolgoj baigaa aylluud"
     />
     <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="filter.css" />
     <title>Travels</title>
   </head>
   <body>
@@ -23,23 +24,26 @@
           <li><a href="./travels.html">Аяллууд</a></li>
         </ul>
         <section class="user-links">
-          <a href="./signin.html">Нэвтрэх</a>
-          <a href="signin.html"><img src="./images/account icon.png" alt="" /></a>
-        </section>
-        <div class="cart-container" id="cart-container">
-          <div class="cart-icon" id="cart-icon">
-            <i class="fa fa-shopping-cart"></i> <!-- Font Awesome cart icon -->
-            <span class="cart-count" id="cart-count">0</span> <!-- Cart item count -->
-          </div>
-          <!-- Cart dropdown here -->
-          <div class="cart" id="cart">
-            <h3>Сагс</h3>
-            <div id="cart-items">
-              <!-- Dynamically added cart items will go here -->
+          <div class="cart-container" id="cart-container">
+            <div class="cart-icon" id="cart-icon">
+              <i class="fa fa-shopping-cart"></i>
+              <!-- Font Awesome cart icon -->
+              <span class="cart-count" id="cart-count">0</span>
+              <!-- Cart item count -->
+            </div>
+            <!-- Cart dropdown here -->
+            <div class="cart" id="cart">
+              <h3>Сагс</h3>
+              <div id="cart-items">
+                <!-- Dynamically added cart items will go here -->
+              </div>
             </div>
           </div>
-        </div>
-        
+          <a href="./signin.html">Нэвтрэх</a>
+          <a href="signin.html"
+            ><img src="./images/account icon.png" alt=""
+          /></a>
+        </section>
       </nav>
     </header>
 
@@ -50,9 +54,17 @@
         <div class="filter-group days">
           <h4>Аяллын хоног</h4>
         </div>
-
         <div class="filter-group types">
           <h4>Аяллын төрөл</h4>
+        </div>
+        <div class="filter-group season">
+          <h4>Улирал</h4>
+        </div>
+        <div class="filter-group age">
+          <h4>Насны ангилал</h4>
+        </div>
+        <div class="filter-group price">
+          <h4 for="price">Үнэ</h4>
         </div>
 
         <button id="apply-filters">Шүүлтүүрийг оруулах</button>
@@ -69,8 +81,6 @@
           <a href="#">&raquo; </a>
         </div>
       </section>
-
-      
     </main>
 
     <footer>

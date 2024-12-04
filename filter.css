@@ -1,0 +1,162 @@
+/*----------------------------------------Filter----------------------------------------*/
+.filter-group.price {
+  width: 300px;
+  margin: 20px auto;
+}
+.filter-group.days {
+  width: 300px;
+}
+.slider-container {
+  position: relative;
+  height: 30px;
+}
+.filter-group.season {
+  width: 300px;
+  margin: 20px auto;
+}
+input[type="range"] {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+}
+
+/* input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #f9a825;
+  cursor: pointer;
+  border: 2px solid #f44336;
+} */
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+/* input[type="range"]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #f9a825;
+  cursor: pointer;
+  border: 2px solid #f44336;
+} */
+
+.price-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/*----------------------------------------Travels----------------------------------------*/
+
+.content {
+  display: flex;
+  justify-content: start;
+  flex: 1;
+}
+
+.filters {
+  width: 20vw;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-right: 1px solid #ccc;
+}
+
+.filters h3 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group label {
+  display: block;
+  cursor: pointer;
+  color: #555;
+}
+
+.filter-group label:hover {
+  color: #0073e6;
+}
+
+.filter-group input[type="range"] {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.filter-group button {
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-group button:hover {
+  background-color: #005bb5;
+}
+
+.travels {
+  width: 70%;
+  padding: 20px;
+}
+
+#travel-grid {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0 3rem;
+}
+
+#travel-grid article {
+  width: 200px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  text-align: center;
+}
+
+#travel-grid article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+#travel-grid article img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+#travel-grid article h3 {
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #333;
+}
+
+#travel-grid article p {
+  color: #777;
+  font-size: 0.9em;
+}
+
+#travel-grid article button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+#travel-grid article button:hover {
+  background-color: #005bb5;
+}

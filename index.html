@@ -92,7 +92,6 @@
       .form_link img:hover {
         cursor: pointer;
       }
-      
 
       .form_link button {
         padding: 20px 30px;
@@ -515,8 +514,25 @@
           <li><a href="./travels.html">Aяллууд</a></li>
         </ul>
         <section class="user-links">
+          <div class="cart-container" id="cart-container">
+            <div class="cart-icon" id="cart-icon">
+              <i class="fa fa-shopping-cart"></i>
+              <!-- Font Awesome cart icon -->
+              <span class="cart-count" id="cart-count">0</span>
+              <!-- Cart item count -->
+            </div>
+            <!-- Cart dropdown here -->
+            <div class="cart" id="cart">
+              <h3>Сагс</h3>
+              <div id="cart-items">
+                <!-- Dynamically added cart items will go here -->
+              </div>
+            </div>
+          </div>
           <a href="./signin.html">Нэвтрэх</a>
-          <a href="signin.html"><img src="./images/account icon.png" alt="" /></a>
+          <a href="signin.html"
+            ><img src="./images/account icon.png" alt=""
+          /></a>
         </section>
       </nav>
     </header>
@@ -655,13 +671,13 @@
       </section>
       <section class="gallery">
         <div class="gallery-wrapper">
-        <img src="./images/gallery/img1.jpg" alt="1" />
-        <img src="./images/gallery/img2.jpg" alt="2" />
-        <img src="./images/gallery/img3.jpg" alt="3" />
-        <img src="./images/gallery/img4.jpg" alt="4" />
-        <img src="./images/gallery/img5.jpg" alt="5" />
-        <img src="./images/gallery/img6.jpg" alt="6" />
-        <img src="./images/gallery/img7.jpg" alt="7" />
+          <img src="./images/gallery/img1.jpg" alt="1" />
+          <img src="./images/gallery/img2.jpg" alt="2" />
+          <img src="./images/gallery/img3.jpg" alt="3" />
+          <img src="./images/gallery/img4.jpg" alt="4" />
+          <img src="./images/gallery/img5.jpg" alt="5" />
+          <img src="./images/gallery/img6.jpg" alt="6" />
+          <img src="./images/gallery/img7.jpg" alt="7" />
         </div>
         <button class="arrow left">&lt;</button>
         <button class="arrow right">&gt;</button>
@@ -696,9 +712,7 @@
           <div class="social-icons">
             <ul>
               <li>
-                <a
-                  style="color: white"
-                  href="#"
+                <a style="color: white" href="#"
                   ><i
                     style="font-size: 34px"
                     class="fa-brands fa-square-facebook"
@@ -711,9 +725,7 @@
                 ></a>
               </li>
               <li>
-                <a
-                  style="color: white"
-                 href="#"
+                <a style="color: white" href="#"
                   ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
                 ></a>
               </li>
