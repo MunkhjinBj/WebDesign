@@ -2,7 +2,7 @@
     {
       "id": 1,
       "title": "Хөвсгөл нуурын аялал",
-      "image": "https://picsum.photos/300",
+      "image": "/images/Khuvsgul lake.jpg",
       "type": "Адал явдалт",
       "startDate": "2024-06-24",
       "finishDate": "2024-06-26",
@@ -21,7 +21,7 @@
     {
       "id": 2,
       "title": "Говь гурван сайханы аялал",
-      "image": "https://picsum.photos/300",
+      "image": "/images/Khuvsgul lake.jpg",
       "type": "Тайван амралт",
       "startDate": "2024-07-01",
       "finishDate": "2024-07-05",
@@ -40,7 +40,7 @@
     {
       "id": 3,
       "title": "Орхоны хөндийн соёлын аялал",
-      "image": "https://picsum.photos/300",
+      "image": "/images/Khuvsgul lake.jpg",
       "type": "Соёлын аялал",
       "startDate": "2024-08-15",
       "finishDate": "2024-08-18",
@@ -59,7 +59,7 @@
     {
       "id": 4,
       "title": "Тэрэлжийн гэр бүлийн аялал",
-     "image": "https://picsum.photos/300",
+     "image": "/images/Khuvsgul lake.jpg",
       "type": "Гэр бүлд зориулсан",
       "startDate": "2024-06-10",
       "finishDate": "2024-06-12",
@@ -78,7 +78,7 @@
     {
       "id": 5,
       "title": "Хустайн нурууны аялал",
-      "image": "https://picsum.photos/300",
+      "image": "/images/Khuvsgul lake.jpg",
       "type": "Романтик аялал",
       "startDate": "2024-09-05",
       "finishDate": "2024-09-07",
@@ -97,7 +97,7 @@
     {
       "id": 6,
       "title": "Алтай таван богдын аялал",
-   "image": "https://picsum.photos/300",
+   "image": "/images/Khuvsgul lake.jpg",
       "type": "Адал явдалт",
       "startDate": "2024-07-15",
       "finishDate": "2024-07-20",
@@ -116,7 +116,7 @@
     {
       "id": 7,
       "title": "Увсын нуурын аялал",
-      "image": "https://picsum.photos/300",
+      "image": "/images/Khuvsgul lake.jpg",
       "type": "Тайван амралт",
       "startDate": "2024-06-15",
       "finishDate": "2024-06-17",
@@ -135,7 +135,7 @@
     {
       "id": 8,
       "title": "Амарбаясгалант хийдийн аялал",
-      "image": "https://picsum.photos/300",
+      "image": "/images/Khuvsgul lake.jpg",
       "type": "Соёлын аялал",
       "startDate": "2024-08-05",
       "finishDate": "2024-08-07",
@@ -154,7 +154,7 @@
     {
       "id": 9,
       "title": "Дөрвөлжин нуурын аялал",
-      "image": "https://picsum.photos/300",
+      "image": "/images/Khuvsgul lake.jpg",
       "type": "Гэр бүлд зориулсан",
       "startDate": "2024-06-20",
       "finishDate": "2024-06-22",
@@ -173,7 +173,7 @@
     {
       "id": 10,
       "title": "Бурхан Халдун уулын аялал",
-      "image": "https://picsum.photos/300",
+      "image": "/images/Khuvsgul lake.jpg",
       "type": "Адал явдалт",
       "startDate": "2024-09-10",
       "finishDate": "2024-09-12",
@@ -192,7 +192,7 @@
       {
         "id": 11,
         "title": "Дархан хотын соёлын аялал",
-        "image": "https://picsum.photos/300",
+        "image": "/images/Khuvsgul lake.jpg",
         "type": "Соёлын аялал",
         "startDate": "2024-07-05",
         "finishDate": "2024-07-06",
@@ -211,7 +211,7 @@
       {
         "id": 12,
         "title": "Зүүн Монголын говь аялал",
-        "image": "https://picsum.photos/300",
+        "image": "/images/Khuvsgul lake.jpg",
         "type": "Адал явдалт",
         "startDate": "2024-06-28",
         "finishDate": "2024-06-30",
@@ -230,7 +230,7 @@
       {
         "id": 13,
         "title": "Хөвсгөл уулын романтик аялал",
-        "image": "https://picsum.photos/300",
+        "image": "/images/Khuvsgul lake.jpg",
         "type": "Романтик аялал",
         "startDate": "2024-09-01",
         "finishDate": "2024-09-03",
@@ -249,7 +249,7 @@
       {
         "id": 14,
         "title": "Архангайн байгалийн аялал",
-        "image": "https://picsum.photos/300",
+        "image": "/images/Khuvsgul lake.jpg",
         "type": "Тайван амралт",
         "startDate": "2024-07-10",
         "finishDate": "2024-07-12",
@@ -268,7 +268,7 @@
       {
         "id": 15,
         "title": "Хяргас нуурын аялал",
-        "image": "https://picsum.photos/300",
+        "image": "/images/Khuvsgul lake.jpg",
         "type": "Гэр бүлд зориулсан",
         "startDate": "2024-06-20",
         "finishDate": "2024-06-23",
@@ -287,7 +287,7 @@
       {
         "id": 16,
         "title": "Монголын цөлийн адал явдал",
-        "image": "https://picsum.photos/300",
+        "image": "/images/Khuvsgul lake.jpg",
         "type": "Адал явдалт",
         "startDate": "2024-08-01",
         "finishDate": "2024-08-05",
@@ -306,7 +306,7 @@
       {
         "id": 17,
         "title": "Дорнод аймгийн соёлын аялал",
-        "image": "https://picsum.photos/300",
+        "image": "/images/Khuvsgul lake.jpg",
         "type": "Соёлын аялал",
         "startDate": "2024-07-20",
         "finishDate": "2024-07-22",
@@ -325,7 +325,7 @@
       {
         "id": 18,
         "title": "Улаанбаатарын музейн аялал",
-        "image": "https://picsum.photos/300",
+        "image": "/images/Khuvsgul lake.jpg",
         "type": "Соёлын аялал",
         "startDate": "2024-06-25",
         "finishDate": "2024-06-25",
@@ -344,7 +344,7 @@
       {
         "id": 19,
         "title": "Сэлэнгийн голын амралт",
-        "image": "https://picsum.photos/300",
+        "image": "/images/Khuvsgul lake.jpg",
         "type": "Тайван амралт",
         "startDate": "2024-08-10",
         "finishDate": "2024-08-12",
@@ -363,7 +363,7 @@
       {
         "id": 20,
         "title": "Даланзадгадын адал явдал",
-        "image": "https://picsum.photos/300",
+        "image": "/images/Khuvsgul lake.jpg",
         "type": "Адал явдалт",
         "startDate": "2024-06-15",
         "finishDate": "2024-06-20",
