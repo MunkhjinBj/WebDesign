@@ -3,10 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="travels page: sanal bolgoj baigaa aylluud"
-    />
+    <meta name="keywords" content="travel, tours, Mongolia, trips, booking" />
+
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="filter.css" />
     <title>Travels</title>
@@ -54,6 +52,7 @@
     </header>
 
     <main class="content">
+      <button id="filter-toggle" class="burger-menu">☰ Шүүлтүүр</button>
       <aside class="filters">
         <h3>Шүүлтүүр</h3>
 
@@ -73,18 +72,16 @@
           <h4 for="price">Үнэ</h4>
         </div>
 
-        <button id="apply-filters">Шүүлтүүрийг оруулах</button>
-
         <button id="clear-filters">цэвэрлэх</button>
       </aside>
 
       <section class="travels-container">
         <div id="travel-grid"></div>
 
-        <div class="pagination">
-          <a href="#">&laquo; </a>
-          <a href="#">1</a>
-          <a href="#">&raquo; </a>
+        <div class="pagination" aria-label="Page navigation">
+          <a href="#" aria-label="Previous page">&laquo;</a>
+          <a href="#" aria-label="Page 1">1</a>
+          <a href="#" aria-label="Next page">&raquo;</a>
         </div>
       </section>
     </main>

@@ -1,92 +1,78 @@
-/*----------------------------------------Filter----------------------------------------*/
-.filter-group.price {
+/*---------------------------------------- Filter Section ----------------------------------------*/
+.filter-group.price,
+.filter-group.days,
+.filter-group.types,
+.filter-group.age,
+.filter-group.season {
   width: 300px;
-  margin: 20px auto;
+  margin: 0px;
 }
-.filter-group.days {
-  width: 300px;
-}
+
 .slider-container {
   position: relative;
   height: 30px;
 }
-.filter-group.season {
-  width: 300px;
-  margin: 20px auto;
-}
+
 input[type="range"] {
   position: absolute;
   width: 100%;
   background: transparent;
 }
 
-/* input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background: #f9a825;
-  cursor: pointer;
-  border: 2px solid #f44336;
-} */
-
 input[type="range"]:focus {
   outline: none;
 }
 
-/* input[type="range"]::-moz-range-thumb {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background: #f9a825;
-  cursor: pointer;
-  border: 2px solid #f44336;
-} */
-
 .price-display {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
-}
-
-/*----------------------------------------Travels----------------------------------------*/
-
-.content {
-  display: flex;
-  justify-content: start;
-  flex: 1;
-}
-
-.travels-container {
-  padding: 1rem 0;
+  font-size: 12px;
+  color: #666;
 }
 
 .filters {
-  width: max-content;
-  margin: 2rem;
-  padding: 2rem;
-  height: max-content;
-  background-color: #f3f3f3;
-  border-radius: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100vh;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.filters.active {
+  transform: translateX(0);
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
 }
 
 .filters h3 {
-  font-size: 1.3em;
-  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 5px;
 }
 
 .filter-group {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
-
+.filter-group h4 {
+  font-size: 13px;
+}
 .filter-group label {
   display: block;
-  cursor: pointer;
+  font-size: 12px;
   color: #555;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .filter-group label:hover {
-  color: #0073e6;
+  color: var(--primary-color);
 }
 
 .filter-group input[type="range"] {
@@ -95,17 +81,58 @@ input[type="range"]:focus {
 }
 
 .filter-group button {
-  background-color: #0073e6;
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 3px;
+  padding: 10px 15px;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 0.9rem;
   transition: background-color 0.3s ease;
 }
 
 .filter-group button:hover {
-  background-color: #005bb5;
+  background-color: var(--primary-hover-color);
+}
+
+.burger-menu {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1100;
+  font-size: 1.2rem;
+}
+
+.burger-menu:hover {
+  background-color: var(--primary-hover-color);
+}
+
+/* Sidebar Close Button */
+.filters .close-btn {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.filters .close-btn:hover {
+  color: var(--primary-color);
+}
+
+/*---------------------------------------- Travels Section ----------------------------------------*/
+.content {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .travels {
@@ -115,44 +142,59 @@ input[type="range"]:focus {
 
 #travel-grid {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  justify-items: flex-start;
   flex-wrap: wrap;
-  align-items: center;
-  margin: 0 3rem;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 #travel-grid article {
-  width: 20em;
+  width: 150px;
+  height: max-content;
   background: #fff;
-  padding: 10px;
-  border-radius: 5px;
+  padding-bottom: 1rem;
+  border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
   text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+#travel-grid article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 #travel-grid article img {
-  transition: 0.2s all ease-in-out;
-}
-
-#travel-grid article:hover img {
-  transform: scale(1.03);
-}
-
-#travel-grid article img {
-  max-width: 100%;
+  width: 100%;
   border-radius: 5px;
+  object-fit: cover;
 }
 
 #travel-grid article h3 {
-  font-size: 1.2em;
+  font-size: 12px;
   margin: 10px 0;
   color: #333;
 }
 
 #travel-grid article p {
-  color: #777;
-  font-size: 0.9em;
+  color: #666;
+  font-size: 10px;
+  margin: 5px 0;
+}
+#travel-grid ul {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+#travel-grid ul li {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 5px 0;
 }
 
 #travel-grid article button {
@@ -160,12 +202,87 @@ input[type="range"]:focus {
   color: #fff;
   border: none;
   padding: 8px 12px;
-  cursor: pointer;
-  margin-top: 10px;
   border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.8rem;
   transition: background-color 0.3s ease;
 }
 
 #travel-grid article button:hover {
   background-color: var(--primary-hover-color);
+}
+
+/*---------------------------------------- Pagination ----------------------------------------*/
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.pagination a {
+  color: var(--primary-color);
+  margin: 0 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.pagination a.active {
+  color: #fff;
+  background-color: var(--primary-color);
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+/*---------------------------------------- Responsiveness ----------------------------------------*/
+@media screen and (max-width: 768px) {
+  .filters {
+    width: 70%;
+  }
+
+  #travel-grid article {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .burger-menu {
+    display: block; /* Visible only on smaller screens */
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .filters {
+    transform: translateX(0); /* Always visible on large screens */
+    position: static; /* Integrate with the page flow */
+    width: 20%; /* Adjust width for larger screens */
+    height: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .filters {
+    position: fixed;
+    transform: translateX(-100%); /* Hide sidebar by default */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .filters.active {
+    transform: translateX(0); /* Show sidebar */
+  }
+
+  .travels-container {
+    margin-left: 0; /* No space for sidebar on small screens */
+  }
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
 }
