@@ -1,5 +1,3 @@
-let cartItems = [];
-
 export default class Cart {
   constructor(cartObj) {
     this.id = cartObj.id;
@@ -11,18 +9,17 @@ export default class Cart {
 
   render() {
     return `
-      <article>
+      <article data-id="${this.id}">
         <h4>${this.title}</h4>
-        <p>${this.startDate}</p>
-        <p>${this.price}<p>
-        <button onclick="removeFromCart(${this.id})">Устгах</button>
+        
+        <button class="remove-from-cart" data-id="${this.id}">Устгах</button>
       </article>
     `;
   }
 }
 
 export async function addToCart(id) {
-  const result = await fetch("./travels.json");
+  const result = await fetch("/travels.json");
   const data = await result.json();
 
   const travelItem = data.travels.find((item) => item.id === id);
@@ -31,7 +28,7 @@ export async function addToCart(id) {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     const exists = cartItems.some((item) => item.id === id);
     if (!exists) {
-      cartItems.push({ id: travelItem.id, title: travelItem.title });
+      cartItems.push(travelItem);
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
       renderCart();
     } else {
@@ -42,7 +39,7 @@ export async function addToCart(id) {
 
 export function removeFromCart(id) {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  cartItems = cartItems.filter((item) => item.id !== id);
+  cartItems = cartItems.filter((item) => item.id !== parseInt(id, 10));
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
   renderCart();
 }
@@ -53,7 +50,7 @@ export function renderCart() {
 
   // Update the cart item count
   const cartCount = document.getElementById("cart-count");
-  cartCount.textContent = cartItems.length; // Update the cart count
+  cartCount.textContent = cartItems.length;
 
   cartContainer.innerHTML = "";
   cartItems.forEach((item) => {

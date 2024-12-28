@@ -336,14 +336,15 @@ footer {
 .cart-icon {
   position: relative;
   font-size: 20px;
-  color: var(--primary-color);
   cursor: pointer;
+  color: var(--primary-color);
   transition: color 0.3s ease;
 }
 
 .cart-icon:hover {
-  color: #62ebc9; /* Change color when hovered */
+  color: #62ebc9;
 }
+
 .cart-count {
   position: absolute;
   top: -10px;
@@ -356,7 +357,6 @@ footer {
   font-weight: bold;
 }
 
-/* Wrap the cart icon and cart together */
 .cart-container {
   position: relative;
   display: inline-block;
@@ -365,19 +365,19 @@ footer {
 /* Cart dropdown position */
 .cart {
   position: absolute;
-  top: 100%; /* Position the cart below the cart icon */
-  right: 0; /* Align the cart to the right of the icon */
+  top: 100%;
+  right: 0;
   width: 300px;
   background: #fff;
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: none; /* Hide by default */
+  display: none;
   z-index: 1000;
 }
 
-/* Show cart when the container (icon or dropdown) is hovered */
-.cart-container:hover .cart {
+.cart-container:hover .cart,
+.cart-container:focus-within .cart {
   display: block;
 }
 

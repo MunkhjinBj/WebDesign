@@ -4,15 +4,18 @@ import Travels, {
   renderFilters,
 } from "./modules/filter.js";
 
-import Cart, { renderCart, addToCart } from "./modules/cart.js";
+import Cart, { renderCart, addToCart, removeFromCart } from "./modules/cart.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const travelGrid = document.getElementById("travel-grid");
 
   await renderFilters();
+
+  // Шүүлтүүрээс үл хамааран аяллын мэдээллийг харуулах
   const travels = await travelLoader();
   travelGrid.innerHTML = travels.map((t) => new Travels(t).render()).join("");
 
+  // Шүүлтүүрүүдийг сонгож аялуудыг шинэчлэх
   document.querySelectorAll(".filter-group label").forEach((label) => {
     label.addEventListener("click", async () => {
       const updatedTravels = await applyFiltersFromURL();
@@ -22,6 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
+  // Сагсанд нэмэх
   document.addEventListener("click", (event) => {
     if (event.target.classList.contains("add-to-cart")) {
       const article = event.target.closest("article");
@@ -30,6 +34,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
+  //Сагснаас хасах
+  document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("remove-from-cart")) {
+      const id = event.target.getAttribute("data-id");
+      removeFromCart(id);
+    }
+  });
+
+  // Шүүлтүүрийг цэвэрлэх товчлуур
   document.getElementById("clear-filters").addEventListener("click", () => {
     document
       .querySelectorAll(".filter-group input")
@@ -43,15 +56,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
-  // Toggle button functionality for filters
-  const filterToggle = document.getElementById("burger-menu");
-  const filters = document.querySelector("filters");
+  // Шүүлтүүрийг нээх/хаах товчлуурын үйлдэл(mobile дээр)
+  const filterToggle = document.getElementById("filter-toggle");
+  const filters = document.getElementsByClassName("filters")[0];
 
   filterToggle.addEventListener("click", () => {
-    // Toggle 'active' class on the filters element
     filters.classList.toggle("active");
 
-    // Optionally, update button text or styling
     if (filters.classList.contains("active")) {
       filterToggle.textContent = "✖ Шүүлтүүр хаах";
     } else {

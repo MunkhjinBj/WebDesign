@@ -7,22 +7,30 @@ export default class Travels {
     this.days = travelObj.day;
     this.price = travelObj.price;
     this.season = travelObj.season;
+    this.location = travelObj.location;
   }
 
   render() {
     return `
-      <article>
-        <img src="${this.image}" alt="${this.title}">
+    <article data-id="${this.id}">
+      <img src="${this.image}" alt="" />
+      <div class="info">
         <h3>${this.title}</h3>
-        <p>Enjoy the breathtaking view and the serene beauty of this destination.</p>
-        <ul class="details">
-          <li><strong>Үнэ:</strong> ${this.price}</li>
-          <li><strong>Өдөр:</strong> ${this.days}</li>
-          <li><strong>Улирал:</strong> ${this.season}</li>
+        <ul class="location">
+          <li>${this.location}</li>
+          <li>${this.days} хоног</li>
         </ul>
-        <button onclick="addToCart(${this.id})">Add to Cart</button>
-      </article>
-    `;
+        <ul class="addCart">
+          <li>
+            <button class="add-to-cart">Сагслах</button>
+          </li>
+          <li>
+            <h2>${this.price}₮</h2>
+          </li>
+        </ul>
+      </div>
+    </article>
+  `;
   }
 }
 

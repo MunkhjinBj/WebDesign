@@ -1,3 +1,22 @@
+.nuur-container {
+  position: relative;
+  text-align: center;
+}
+
+.nuur-container img {
+  width: 100%;
+  height: auto;
+}
+
+.nuur-container h1 {
+  position: absolute;
+  top: 90px;
+  left: 17%;
+  /* transform: translate(-50%, -50%); */
+  color: white;
+  font-size: 3.5rem;
+}
+
 /*---------------------------------------- Filter Section ----------------------------------------*/
 .filter-group.price,
 .filter-group.days,
@@ -31,14 +50,21 @@ input[type="range"]:focus {
 }
 
 .filters {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
-  width: 20%;
-  height: 100vh;
-  padding: 20px;
-  background-color: #f9f9f9;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  height: 80%;
+  margin: 0 35px;
+}
+
+.filters::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  bottom: 45%;
+  right: 0;
+  width: 1px;
+  background-color: black;
 }
 
 .filters.active {
@@ -47,20 +73,34 @@ input[type="range"]:focus {
 }
 
 .filters h3 {
-  font-size: 14px;
+  font-family: var(--font-family);
+  font-size: 16px;
   color: #333;
-  margin-bottom: 15px;
-  text-transform: uppercase;
   letter-spacing: 1px;
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: 5px;
+  border-bottom: 2px solid var(--primary-hover-color);
+  padding-bottom: 15px;
+  margin-right: 70px;
 }
 
 .filter-group {
-  margin-bottom: 25px;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.filter-group::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-right: 70px;
+}
+.filter-group:last-child::after {
+  content: none;
 }
 .filter-group h4 {
   font-size: 13px;
+  padding: 15px 0;
 }
 .filter-group label {
   display: block;
@@ -69,6 +109,9 @@ input[type="range"]:focus {
   margin-bottom: 5px;
   cursor: pointer;
   transition: color 0.3s ease;
+  padding-left: 10px;
+  padding-bottom: 3px;
+  margin-right: 70px;
 }
 
 .filter-group label:hover {
@@ -130,53 +173,65 @@ input[type="range"]:focus {
 }
 
 /*---------------------------------------- Travels Section ----------------------------------------*/
+
 .content {
   display: flex;
   justify-content: flex-start;
+  margin-top: 40px;
 }
 
-.travels {
+.travels-container {
   width: 70%;
-  padding: 20px;
+  padding: 0 25px 0 20px;
 }
 
 #travel-grid {
-  display: flex;
-  justify-content: space-between;
-  justify-items: flex-start;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0;
   margin: 0 auto;
-  padding: 0 15px;
 }
 
 #travel-grid article {
-  width: 150px;
-  height: max-content;
+  width: 220px;
+  height: 350px;
   background: #fff;
-  padding-bottom: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.1rem;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
 }
 
-#travel-grid article:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+#travel-grid article:hover img {
+  transform: scale(1.1);
+  border-radius: 16px;
+  transform-origin: center;
 }
 
 #travel-grid article img {
-  width: 100%;
-  border-radius: 5px;
+  width: 220px;
+  height: 220px;
+  border-radius: 16px;
   object-fit: cover;
+  transition: transform 0.3s ease-in-out;
 }
-
+#travel-grid article:hover {
+  border-radius: 16px; /* Optional: Rounded corners for the article */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Optional: Shadow effect */
+}
 #travel-grid article h3 {
-  font-size: 12px;
-  margin: 10px 0;
+  text-align: left;
+  font-size: 14px;
   color: #333;
+  font-weight: 550;
+  border-bottom: 1px solid black;
+  padding-bottom: 3px;
+  margin: 0 10px;
 }
 
 #travel-grid article p {
@@ -184,32 +239,67 @@ input[type="range"]:focus {
   font-size: 10px;
   margin: 5px 0;
 }
-#travel-grid ul {
-  text-align: left;
-  list-style: none;
-  padding: 0;
-  margin-bottom: 15px;
-}
-
-#travel-grid ul li {
-  font-size: 0.9rem;
-  color: #666;
-  margin: 5px 0;
-}
 
 #travel-grid article button {
-  background-color: var(--primary-color);
+  background-color: var(--primary-hover-color);
   color: #fff;
   border: none;
-  padding: 8px 12px;
-  border-radius: 3px;
+  padding: 5px 10px;
+  right: -50px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 12px;
+  font-weight: 500;
   transition: background-color 0.3s ease;
 }
 
 #travel-grid article button:hover {
   background-color: var(--primary-hover-color);
+}
+
+#travel-grid .info {
+  padding: 0 1rem;
+}
+
+#travel-grid .info ul {
+  text-align: left;
+  list-style: none;
+  margin: 5px 10px 8px 10px;
+  display: flex;
+  align-items: center;
+}
+
+#travel-grid .info ul li {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+#travel-grid .info ul li h2 {
+  font-size: 14px;
+  font-weight: 550;
+}
+
+#travel-grid .location {
+  display: flex;
+  justify-content: space-between;
+}
+
+#travel-grid .location li:first-child::before {
+  content: "";
+  background-image: url("./images/ym2/loc.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin-right: 3px;
+}
+
+#travel-grid .addCart {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
 }
 
 /*---------------------------------------- Pagination ----------------------------------------*/
@@ -277,12 +367,4 @@ input[type="range"]:focus {
   .travels-container {
     margin-left: 0; /* No space for sidebar on small screens */
   }
-}
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: var(--primary-color);
-  cursor: pointer;
 }
