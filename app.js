@@ -1,4 +1,4 @@
-import "/components/TravelList.js";
+import "./components/TravelList.js";
 import Travels, {
   travelLoader,
   applyFiltersFromURL,
