@@ -19,7 +19,7 @@ export default class Cart {
 }
 
 export async function addToCart(id) {
-  const result = await fetch("/travels.json");
+  const result = await fetch("./travels.json");
   const data = await result.json();
 
   const travelItem = data.travels.find((item) => item.id === id);
