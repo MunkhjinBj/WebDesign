@@ -1,3 +1,4 @@
+import "/components/TravelList.js";
 import Travels, {
   travelLoader,
   applyFiltersFromURL,
@@ -13,26 +14,63 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Шүүлтүүрээс үл хамааран аяллын мэдээллийг харуулах
   const travels = await travelLoader();
-  travelGrid.innerHTML = travels.map((t) => new Travels(t).render()).join("");
+  travelGrid.innerHTML = travels
+    .map(
+      (t) =>
+        `<travel-list 
+               data-id="${t.id}" 
+               data-title="${t.title}" 
+               data-image="${t.image}" 
+               data-location="${t.location}" 
+               data-days="${t.day}" 
+               data-price="${t.price}">
+          </travel-list>`
+    )
+    .join("");
+  // travelGrid.innerHTML = travels.map((t) => new Travels(t).render()).join("");
 
   // Шүүлтүүрүүдийг сонгож аялуудыг шинэчлэх
   document.querySelectorAll(".filter-group label").forEach((label) => {
     label.addEventListener("click", async () => {
       const updatedTravels = await applyFiltersFromURL();
       travelGrid.innerHTML = updatedTravels
-        .map((t) => new Travels(t).render())
+        .map(
+          (t) =>
+            `<travel-list 
+               data-id="${t.id}" 
+               data-title="${t.title}" 
+               data-image="${t.image}" 
+               data-location="${t.location}" 
+               data-days="${t.day}" 
+               data-price="${t.price}">
+             </travel-list>`
+        )
         .join("");
     });
   });
+  // document.querySelectorAll(".filter-group label").forEach((label) => {
+  //   label.addEventListener("click", async () => {
+  //     const updatedTravels = await applyFiltersFromURL();
+  //     travelGrid.innerHTML = updatedTravels
+  //       .map((t) => new Travels(t).render())
+  //       .join("");
+  //   });
+  // });
 
   // Сагсанд нэмэх
   document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("add-to-cart")) {
-      const article = event.target.closest("article");
-      const id = parseInt(article.dataset.id, 10);
+    if (event.target.tagName === "TRAVEL-LIST") {
+      const id = parseInt(event.target.getAttribute("data-id"), 10);
       addToCart(id);
     }
   });
+  // document.addEventListener("click", (event) => {
+  //   if (event.target.classList.contains("add-to-cart")) {
+  //     const article = event.target.closest("article");
+  //     const id = parseInt(article.dataset.id, 10);
+  //     addToCart(id);
+  //   }
+  // });
 
   //Сагснаас хасах
   document.addEventListener("click", (event) => {

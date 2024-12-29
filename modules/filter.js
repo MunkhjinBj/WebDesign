@@ -10,28 +10,28 @@ export default class Travels {
     this.location = travelObj.location;
   }
 
-  render() {
-    return `
-    <article data-id="${this.id}">
-      <img src="${this.image}" alt="" />
-      <div class="info">
-        <h3>${this.title}</h3>
-        <ul class="location">
-          <li>${this.location}</li>
-          <li>${this.days} хоног</li>
-        </ul>
-        <ul class="addCart">
-          <li>
-            <button class="add-to-cart">Сагслах</button>
-          </li>
-          <li>
-            <h2>${this.price}₮</h2>
-          </li>
-        </ul>
-      </div>
-    </article>
-  `;
-  }
+  // render() {
+  //   return `
+  //   <article data-id="${this.id}">
+  //     <img src="${this.image}" alt="" />
+  //     <div class="info">
+  //       <h3>${this.title}</h3>
+  //       <ul class="location">
+  //         <li>${this.location}</li>
+  //         <li>${this.days} хоног</li>
+  //       </ul>
+  //       <ul class="addCart">
+  //         <li>
+  //           <button class="add-to-cart">Сагслах</button>
+  //         </li>
+  //         <li>
+  //           <h2>${this.price}₮</h2>
+  //         </li>
+  //       </ul>
+  //     </div>
+  //   </article>
+  // `;
+  // }
 }
 
 export async function travelLoader() {
@@ -72,7 +72,6 @@ export async function applyFiltersFromURL() {
   if (filterTypes.length > 0) {
     travels = travels.filter((travel) => filterTypes.includes(travel.type));
   }
-
   if (filterDays.length > 0) {
     const dayRanges = {
       "1-3": [1, 3],
@@ -178,58 +177,3 @@ export async function renderFilters() {
   `
   );
 }
-
-// function updatePrice() {
-//   const minPrice = document.getElementById("min-price");
-//   const maxPrice = document.getElementById("max-price");
-//   const minPriceDisplay = document.getElementById("min-price-display");
-//   const maxPriceDisplay = document.getElementById("max-price-display");
-
-//   // Update the displayed prices
-//   minPriceDisplay.textContent = `${parseInt(
-//     minPrice.value
-//   ).toLocaleString()} ₮`;
-//   maxPriceDisplay.textContent = `${parseInt(
-//     maxPrice.value
-//   ).toLocaleString()} ₮`;
-
-//   // Prevent sliders from crossing over
-//   if (parseInt(minPrice.value) >= parseInt(maxPrice.value)) {
-//     minPrice.value = maxPrice.value - 100;
-//   }
-// }
-
-// Apply filters based on checked boxes when the Apply Filters button is clicked
-// export async function applyFiltersFromURL() {
-//   // Get selected filter values
-//   const selectedTypes = Array.from(
-//     document.querySelectorAll(".filter-types:checked")
-//   ).map((input) => input.value);
-//   const selectedDays = Array.from(
-//     document.querySelectorAll(".filter-days:checked")
-//   ).map((input) => input.value);
-
-//   let travels = await travelLoader();
-
-//   if (selectedTypes.length > 0) {
-//     travels = travels.filter((travel) => selectedTypes.includes(travel.type));
-//   }
-
-//   if (selectedDays.length > 0) {
-//     const dayRanges = {
-//       "1-3": [1, 3],
-//       "4-6": [4, 6],
-//       "7+": [7, Infinity],
-//     };
-
-//     travels = travels.filter((travel) => {
-//       for (let range of selectedDays) {
-//         const [min, max] = dayRanges[range];
-//         if (travel.date >= min && travel.date <= max) return true;
-//       }
-//       return false;
-//     });
-//   }
-
-//   return travels;
-// }
