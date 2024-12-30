@@ -37,6 +37,7 @@ export default class Travels {
 export async function travelLoader() {
   const result = await fetch("./travels.json");
   const data = await result.json();
+
   return data.travels;
 }
 

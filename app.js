@@ -109,19 +109,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
   // Шүүлтүүрийг нээх/хаах товчлуурын үйлдэл(mobile дээр)
-  document
-    .getElementById("filter-toggle")
-    .addEventListener("click", function () {
-      const filters = document.querySelector(".filters");
-      filters.classList.toggle("active");
-    });
+  // document
+  //   .getElementById("filter-toggle")
+  //   .addEventListener("click", function () {
+  //     const filters = document.querySelector(".filters");
+  //     filters.classList.toggle("active");
+  //   });
 
-  document
-    .querySelector(".filters .close-btn")
-    .addEventListener("click", function () {
-      const filters = document.querySelector(".filters");
-      filters.classList.remove("active");
-    });
+  // document
+  //   .querySelector(".filters .close-btn")
+  //   .addEventListener("click", function () {
+  //     const filters = document.querySelector(".filters");
+  //     filters.classList.remove("active");
+  //   });
 
   document
     .getElementById("clear-filters")

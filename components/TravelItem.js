@@ -4,7 +4,6 @@ template.innerHTML = `
     article {
         width: 220px;
         height: 350px;
-        background: #fff;
         margin-bottom: 1.1rem;
         text-align: center;
         cursor: pointer;

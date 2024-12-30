@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Нуууц аялал</title>
     <link rel="stylesheet" href="header.css" />
-
+    <script type="module" src="app.js"></script>
     <style>
       * {
         margin: 0;
@@ -17,191 +17,18 @@
         font-style: normal;
         box-sizing: border-box;
       }
-
-      .info {
-        background-color: #666;
+      main {
         display: flex;
-        height: 70vh;
-        margin: 0 auto;
-        align-items: center;
         justify-content: center;
         flex-direction: column;
       }
-
-      .info_1 {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        padding-top: 100px;
-        justify-content: center;
-        align-items: center;
-      }
-      .info_2 {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-align: center;
-        gap: 15px;
-        margin-top: -180px;
-      }
-
-      .info_1 img,
-      .info_2 img {
-        border-radius: 45%;
-        width: 300px;
-      }
-
-      .info_1 h1 {
-        font-size: 2.5rem; /* Adjust size as needed */
-        font-weight: bold; /* Make it bold for emphasis */
-        color: #ffffff; /* Use a color that contrasts with the background */
-      }
-      .info_2 h2 {
-        font-size: 1.2rem;
-        color: #333;
-        padding-right: 100px;
-      }
-      .purgon {
-        width: 1px;
-        height: auto;
-      }
-
-      .form_sec {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .form_link {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 30px 0;
-      }
-      .form_link h2 {
-        font-size: 20px;
-        text-align: center;
-        font-weight: 550;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 520;
-        font-style: normal;
-      }
-      .form_link img {
-        width: 80px;
-        padding: 45px 0;
-      }
-      .form_link img:hover {
-        cursor: pointer;
-      }
-
-      .form_link button {
-        padding: 20px 30px;
-        color: #000;
-        background-color: #2e8b57;
-        font-weight: 550;
-        font-size: 17px;
-        border: 0 solid #2e8b57;
-        border-radius: 30px;
-      }
-
-      #hover_info {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem;
-        margin: 2rem;
-        font-family: system-ui, -apple-system, sans-serif;
-        background: white;
-        border-radius: 28px;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;
-      }
-
-      #hover_info h2 {
-        text-align: center;
-        font-size: 2rem;
-        color: #333;
-        margin-bottom: 3rem;
-      }
-
-      #hover_info article {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        margin-bottom: 4rem;
-        align-items: center;
-        padding: 1.5rem;
-        background: white;
-        border-radius: 15px;
-        transition: transform 0.3s ease;
-      }
-
-      #hover_info article:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-      }
-
-      #hover_info article h2 {
-        font-size: 1.5rem;
-        color: #2c3e50;
-        margin-bottom: 1rem;
-        grid-column: 1 / -1;
-        text-align: left;
-      }
-
-      #hover_info article p {
-        font-size: 1rem;
-        line-height: 1.6;
-        color: #666;
-        margin: 0;
-      }
-
-      #hover_info article img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        object-fit: cover;
-        aspect-ratio: 16/9;
-      }
-
-      #hover_info article h2::before {
-        content: "";
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-        background: #4caf50;
-        border-radius: 50%;
-        margin-right: 10px;
-        color: white;
-        text-align: center;
-        line-height: 30px;
-        font-size: 1rem;
-      }
-
-      @media (max-width: 768px) {
-        #hover_info article {
-          grid-template-columns: 1fr;
-          text-align: center;
-        }
-
-        #hover_info article h2 {
-          text-align: center;
-        }
-
-        #hover_info {
-          padding: 1rem;
-          margin: 1rem;
-        }
-      }
-
-      #hover_info article {
-        animation: fadeIn 0.5s ease-out forwards;
-      }
-
+      /*-------comment--------*/
       .comment_section {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 50px 10%;
-        position: relative;
+        margin: 50px 10rem 5rem 10rem;
       }
 
       .comment_section .comments-container {
@@ -230,8 +57,8 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        max-width: 350px;
-        padding: 2%;
+        max-width: 400px;
+        padding: 1rem;
         border-radius: 16px;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       }
@@ -243,22 +70,23 @@
       .comment_section article p {
         overflow: hidden;
         text-overflow: ellipsis;
-
         line-height: 1.5;
-        font-size: 0.9em;
+        font-size: 12px;
         text-align: justify;
         vertical-align: top;
         font-family: "Montserrat", sans-serif;
         font-weight: 300;
       }
       .comment_section article span {
-        display: block;
-        font-size: 1em;
+        display: flex;
+        font-size: 1.3em;
         color: gold;
+        align-items: end;
       }
 
       .rating {
         display: flex;
+        width: 100%;
         margin-top: 10px;
         align-items: center;
         justify-content: space-between;
@@ -275,26 +103,8 @@
         margin-top: 5px;
         font-family: "Montserrat", sans-serif;
         font-weight: 300;
+        font-size: 12px;
       }
-      /*.arrow-left,
-      .arrow-right {
-        position: absolute;
-        font-size: 24px;
-        cursor: pointer;
-        padding: 10px;
-        color: #333;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      .arrow-left {
-        left: 10px;
-      }
-
-      .arrow-right {
-        right: 10px;
-      }*/
 
       .arrow-left,
       .arrow-right {
@@ -355,22 +165,6 @@
       }
 
       @media screen and (max-width: 992px) {
-        .info_1 {
-          grid-template-columns: 1fr;
-          text-align: center;
-        }
-
-        .info_1 h2,
-        .info_2 h2 {
-          padding: 20px 0;
-          font-size: 1.1rem;
-        }
-
-        .info_2 {
-          flex-direction: column;
-          margin-top: 30px;
-        }
-
         .comment_section .comments-container {
           flex-direction: column;
           padding: 20px;
@@ -493,6 +287,170 @@
         animation-timeline: view();
         animation-range: entry 0;
       }
+
+      .main-banner {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .main-banner .banner-image img {
+        width: 95vw;
+        height: auto;
+        display: block;
+        padding: 40px 60px 60px 60px;
+      }
+
+      .main-banner .search-bar {
+        position: absolute;
+        width: 75vw;
+        bottom: 1%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        padding: 1rem 1.8rem;
+        border-radius: 18px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 29px 0px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        transition: all 0.3s ease-in-out;
+        gap: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+
+      .main-banner .search-bar form {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        box-sizing: border-box;
+      }
+
+      .main-banner .search-bar label {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.9rem;
+        color: #626262;
+        text-align: left;
+        padding: 0 8px;
+        box-sizing: border-box;
+      }
+
+      .main-banner .search-bar input,
+      .main-banner .search-bar button {
+        width: 100%;
+
+        position: relative;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        background-color: #e6e6e6;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+        flex: 1 1 auto; /* Уян хатан байдалд тохируулсан */
+
+        box-sizing: border-box;
+      }
+
+      .main-banner .search-bar form button {
+        background: #28a745;
+        max-width: 150px;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        height: max-content;
+        transition: background-color 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      .main-banner .search-bar button:hover {
+        background: #218838;
+      }
+
+      @media (max-width: 768px) {
+        .main-banner .search-bar {
+          width: 95%; /* Бага дэлгэц дээр илүү нарийн */
+          padding: 0.8rem 1rem;
+        }
+
+        .main-banner .search-bar input,
+        .main-banner .search-bar button {
+          font-size: 0.8rem; /* Бага дэлгэцэд текстийг жижигрүүлэх */
+        }
+      }
+      /* Popular tours section */
+      .popular-tours {
+        text-align: center;
+        padding: 2rem 8rem;
+        background: #fff;
+        margin-bottom: 2rem;
+        background-color: #f7f6f0;
+      }
+
+      .popular-tours h2 {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        font-weight: 550;
+        text-align: left;
+        padding-bottom: 3rem;
+      }
+
+      .tours-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .tour {
+        background: #fdfdfd;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .tour:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .tour img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+
+      .tour-info {
+        padding: 1rem;
+      }
+
+      .tour-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .tour-info p {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .main-banner .search-bar {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+      travel-item::part(title) {
+        color: blue;
+        font-size: 24px;
+      }
     </style>
   </head>
   <body>
@@ -530,62 +488,78 @@
     </header>
 
     <main>
-      <section class="block info">
-        <article class="info_1">
-          <img width="200px" src="./images/img4.jpg" alt="neg zurg" />
-          <h1>Найзуудаараа аялна гэж ярьсаар л байна уу?</h1>
-          <h1>Дараа гэж байхгүй одоо л аялцгаая</h1>
-          <img
-            class="purgon"
-            width="200px"
-            src="./images/IMG_9698.JPG"
-            alt=""
-          />
-        </article>
-        <article class="info_2">
-          <h2>
-            Таний хүсэлд нийцсэн хүссэн <br />аяллалыг тан бид бүтээж өгнө
-          </h2>
-          <img width="200px" src="./images/modnuud.png" alt="neg zurg" />
-        </article>
+      <section class="main-banner">
+        <div class="banner-image">
+          <img src="./images/ym2/mainpage.png" alt="Beautiful Landscape" />
+        </div>
+        <div class="search-bar">
+          <form>
+            <label>
+              Байршил
+              <input type="text" placeholder="Архангай" />
+            </label>
+            <label>
+              Хоног
+              <input type="number" placeholder="2" />
+            </label>
+            <label>
+              Эхлэх өдөр
+              <input type="date" value="2025-01-01" />
+            </label>
+            <label>
+              Дуусах өдөр
+              <input type="date" value="2025-01-05" />
+            </label>
+            <button type="submit">Хайх</button>
+          </form>
+        </div>
       </section>
-      <section class="block form_sec">
-        <article class="form_link">
-          <h2>
-            Дараах асуултуудад хариулан <br />өөрийн хүссэн аяллалдаа
-            <br />гараарай
-          </h2>
-          <a href="javascript:void(0);" onclick="showDiv()">
-            <img class="show_info" src="./images/sum.png" alt="Show info" />
-          </a>
-          <section id="hover_info" style="display: none">
-            <h2>Хэрхэн захиалах вэ?</h2>
-            <article>
-              <h2>1-р алхам</h2>
-              <p>
-                Аялалтай холбоотой асуултуудыг бөглөөд өөрсдийн хүсэлд нийцсэн
-                аялалын төлөвлөгөөгөө аваарай
-              </p>
-              <img src="/images/1 alham.png" alt="" />
-            </article>
-            <article>
-              <h2>2-р алхам</h2>
-              <p>
-                Таныг асуултаа бөглөж баталгаажуулсны дараа бид цаг агаар болон
-                тээшиндээ зайлшгүй авч явах хэрэгтэй зүйлсийн жагсаалтыг танруу
-                мэйлээр болон утсаар залгаж мэдэгдэх болно.
-              </p>
-              <img src="/images/2 alham.png" alt="нэг зураг" />
-            </article>
-            <article>
-              <h2>3-р алхам</h2>
-              <p>Аялалдаа гарах</p>
-              <img src="/images/3 alham.png" alt="" />
-            </article>
-          </section>
-          <a href="/zahialah.html"><button>асуулт эхлүүлэх</button></a>
-        </article>
+      <section class="popular-tours">
+        <h2>Эрэлттэй аяллууд</h2>
+        <div class="tours-grid" id="travel-grid">
+          <travel-item
+            data-id="1"
+            data-title="Хөвсгөл далайн аялал"
+            data-image="./images/travels/Khuvsgul lake.jpg"
+            data-location="Хөвсгөл"
+            data-days="5"
+            data-price="350,000"
+          ></travel-item>
+          <travel-item
+            data-id="2"
+            data-title="Увс нуурын аялал"
+            data-image="./images/travels/uvsnuur.png"
+            data-location="Увс"
+            data-days="3"
+            data-price="280,000"
+          ></travel-item>
+          <travel-item
+            data-id="1"
+            data-title="Хөвсгөл далайн аялал"
+            data-image="./images/travels/Khuvsgul lake.jpg"
+            data-location="Хөвсгөл"
+            data-days="5"
+            data-price="350,000"
+          ></travel-item>
+          <travel-item
+            data-id="2"
+            data-title="Увс нуурын аялал"
+            data-image="./images/travels/uvsnuur.png"
+            data-location="Увс"
+            data-days="3"
+            data-price="280,000"
+          ></travel-item>
+          <travel-item
+            data-id="1"
+            data-title="Хөвсгөл далайн аялал"
+            data-image="./images/travels/Khuvsgul lake.jpg"
+            data-location="Хөвсгөл"
+            data-days="5"
+            data-price="350,000"
+          ></travel-item>
+        </div>
       </section>
+
       <section class="comment_section">
         <h3>Аялагчдын сэтгэгдлүүдээс</h3>
 
@@ -662,17 +636,17 @@
         </section>
       </section>
       <section class="gallery">
-        <div class="gallery-wrapper">
-          <img src="./images/gallery/img1.jpg" alt="1" />
-          <img src="./images/gallery/img2.jpg" alt="2" />
-          <img src="./images/gallery/img3.jpg" alt="3" />
-          <img src="./images/gallery/img4.jpg" alt="4" />
-          <img src="./images/gallery/img5.jpg" alt="5" />
-          <img src="./images/gallery/img6.jpg" alt="6" />
-          <img src="./images/gallery/img7.jpg" alt="7" />
+        <div class="gallery-wrapper" id="galleryWrapper">
+          <img src="./images/gallery/img1.jpg" alt="Image 1" />
+          <img src="./images/gallery/img2.jpg" alt="Image 2" />
+          <img src="./images/gallery/img3.jpg" alt="Image 3" />
+          <img src="./images/gallery/img4.jpg" alt="Image 4" />
+          <img src="./images/gallery/img5.jpg" alt="Image 5" />
+          <img src="./images/gallery/img6.jpg" alt="Image 6" />
+          <img src="./images/gallery/img7.jpg" alt="Image 7" />
         </div>
-        <button class="arrow left">&lt;</button>
-        <button class="arrow right">&gt;</button>
+        <button class="arrow left" id="leftArrow">&lt;</button>
+        <button class="arrow right" id="rightArrow">&gt;</button>
       </section>
       <section class="partner_org">
         <h4>Хамтрагч байгуулгууд</h4>
@@ -760,17 +734,37 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      function showDiv() {
-        var hoverInfo = document.getElementById("hover_info");
-        if (
-          hoverInfo.style.display === "none" ||
-          hoverInfo.style.display === ""
-        ) {
-          hoverInfo.style.display = "block";
-        } else {
-          hoverInfo.style.display = "none";
-        }
+      const galleryWrapper = document.getElementById("galleryWrapper");
+      const leftArrow = document.getElementById("leftArrow");
+      const rightArrow = document.getElementById("rightArrow");
+
+      let scrollPosition = 0;
+      const scrollStep = 300; // Adjust this value based on your desired scroll amount
+
+      function updateArrows() {
+        leftArrow.style.display = scrollPosition === 0 ? "none" : "block";
+        rightArrow.style.display =
+          Math.abs(scrollPosition) >=
+          galleryWrapper.scrollWidth - galleryWrapper.offsetWidth
+            ? "none"
+            : "block";
       }
+
+      rightArrow.addEventListener("click", () => {
+        const maxScroll =
+          galleryWrapper.scrollWidth - galleryWrapper.offsetWidth;
+        scrollPosition = Math.max(scrollPosition - scrollStep, -maxScroll);
+        galleryWrapper.style.transform = `translateX(${scrollPosition}px)`;
+        updateArrows();
+      });
+
+      leftArrow.addEventListener("click", () => {
+        scrollPosition = Math.min(scrollPosition + scrollStep, 0);
+        galleryWrapper.style.transform = `translateX(${scrollPosition}px)`;
+        updateArrows();
+      });
+
+      updateArrows();
     </script>
     <script src="arrows.js"></script>
   </body>
