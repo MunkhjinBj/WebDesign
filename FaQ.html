@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content ="When exploring our travelling site you may encounter a question, and this page will help you navigate more easily">
-    <title>QnA</title>
-    <link rel="stylesheet" href="header.css">
+    <title>FaQ</title>
+    <link rel="stylesheet" href="header.css" />
   </head>
   <body>
     <header>
+      <div class="motto">
+        <a href="./index.html"
+          ><img width="50px" src="./images/ym2/logo.png" alt="logo"
+        /></a>
+        <p>
+          Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
+          <strong style="font-weight: 600">бид бүтээж өгнө</strong>
+        </p>
+      </div>
         <nav class="header-nav">
-        <a id="" href="./index.html"><img width="50px" src="./images/ym2/logo.png" alt="logo" /></a>
+        <a id="" href="./index.html"><img width="50px" src="/images/ym2/account_icon.png"  alt="logo" /></a>
         <ul class="nav-links">
             <li><a href="./aboutUs.html">Бидний тухай</a></li>
             <li><a href="./zahialah.html">Аялал захиалах</a></li>
@@ -19,8 +28,15 @@
             <li><a href="./travels.html">Aяллууд</a></li>
         </ul>
         <section class="user-links">
+          <div class="cart-container" id="cart-container">
+            <div class="cart-icon" id="cart-icon">
+              <i class="fa fa-shopping-cart"></i>
+              <span class="cart-count" id="cart-count">0</span>
+            </div>
+            <cart-comp></cart-comp>
+          </div>
           <a href="./signin.html">Нэвтрэх</a>
-          <a href=""><img src="./images/account icon.png" alt=""></a>
+          <a href="signin.html"><img src="./images/account icon.png" alt=""></a>
         </section>
       </nav>
       </header>
@@ -82,51 +98,74 @@
       
     </main>
 
-    <footer class="footer">
-      <div class="footer-logo">
-        <img src="./images/ym2/logo.png" alt="Logo" />
+    <footer>
+      <div class="footer-container">
+        <section class="footer-first">
+          <div class="footer-logo">
+            <img src="./images/ym2/logo.png" alt="Logo" />
+            <p>
+              нууц <br />
+              аялал
+            </p>
+          </div>
+          <div class="social-icons">
+            <ul>
+              <li>
+                <a
+                  style="color: white"
+                  href="#"
+                  ><i
+                    style="font-size: 34px"
+                    class="fa-brands fa-square-facebook"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  style="color: white"
+                 href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="footer-links">
+          <h4>Бидний тухай</h4>
+          <ul>
+            <li><a href="aboutUs.html">Танилцуулга</a></li>
+            <li><a href="FaQ.html">Асуулт хариулт</a></li>
+          </ul>
+        </section>
+        <section class="footer-contact">
+          <h4>Холбоо барих</h4>
+          <ul>
+            <li>
+              <p>
+                и-мэйл:
+                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+              </p>
+            </li>
+            <li><p>Phone: +976 99999999</p></li>
+          </ul>
+        </section>
+        <section class="footer-address">
+          <h4>Манай хаяг</h4>
+          <li>
+            <p>
+              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+              Улаанбаатар
+            </p>
+          </li>
+        </section>
       </div>
-      <section class="footer-links">
-        <h4>Бидний тухай</h4>
-        <ul>
-          <li><a href="aboutUs.html">Танилцуулга</a></li>
-          <li><a href="QnA.html">Асуулт хариулт</a></li>
-        </ul>
-      </section>
-      <section class="footer-contact">
-        <h4>Холбоо барих</h4>
-        <p>
-          и-мэйл: <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
-        </p>
-        <p>Phone: +976 99999999</p>
-      </section>
-      <section class="footer-social">
-        <h4>Манай сүлжээ</h4>
-        <ul>
-          <li>
-            <a href="https://facebook.com" target="_blank"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://instagram.com" target="_blank"
-              ><i class="fab fa-instagram"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://twitter.com" target="_blank"
-              ><i class="fab fa-twitter"></i
-            ></a>
-          </li>
-        </ul>
-      </section>
-      <section class="footer-address">
-        <h4>Манай хаяг</h4>
-        <p>
-          Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
-        </p>
-      </section>
     </footer>
+
       
     <script src="https://kit.fontawesome.com/d903c022ca.js" crossorigin="anonymous"></script>
   </body>

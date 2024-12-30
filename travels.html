@@ -3,16 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="travels page: sanal bolgoj baigaa aylluud" />
+    <meta name="keywords" content="travel, tours, Mongolia, trips, booking" />
+
     <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="filter.css" />
     <title>Travels</title>
+    <script type="module" src="app.js"></script>
   </head>
   <body>
     <header>
       <nav class="header-nav">
-        <a href="./index.html">
-          <img width="50px" src="./images/ym2/logo.png" alt="logo" />
-        </a>
+        <div class="motto">
+          <a href="./index.html"
+            ><img width="50px" src="./images/ym2/logo.png" alt="logo"
+          /></a>
+          <p>
+            Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
+            <strong style="font-weight: 600">бид бүтээж өгнө</strong>
+          </p>
+        </div>
         <ul class="nav-links">
           <li><a href="./aboutUs.html">Бидний тухай</a></li>
           <li><a href="./zahialah.html">Аялал захиалах</a></li>
@@ -20,111 +29,127 @@
           <li><a href="./travels.html">Аяллууд</a></li>
         </ul>
         <section class="user-links">
+          <div class="cart-container" id="cart-container">
+            <div class="cart-icon" id="cart-icon">
+              <i class="fa fa-shopping-cart"></i>
+              <span class="cart-count" id="cart-count">0</span>
+            </div>
+            <cart-comp></cart-comp>
+          </div>
           <a href="./signin.html">Нэвтрэх</a>
-          <a href=""><img src="./images/account icon.png" alt="" /></a>
+          <a href="signin.html"
+            ><img src="/images/ym2/account_icon.png" alt=""
+          /></a>
         </section>
       </nav>
     </header>
 
+    <div class="nuur-container">
+      <img src="./images/ym2/main.png" alt="" />
+      <h1>Аялалууд</h1>
+    </div>
+
     <main class="content">
-      <!-- Filters Section -->
+      <button id="filter-toggle" class="burger-menu">☰ Шүүлтүүр</button>
       <aside class="filters">
         <h3>Шүүлтүүр</h3>
-        <hr />
 
-        <div class="filter-group">
+        <div class="filter-group days">
           <h4>Аяллын хоног</h4>
-          <label><input type="checkbox" /> 1</label>
-          <label><input type="checkbox" /> 2</label>
-          <label><input type="checkbox" /> 3</label>
-          <label><input type="checkbox" /> 4+</label>
+        </div>
+        <div class="filter-group types">
+          <h4>Аяллын төрөл</h4>
+        </div>
+        <div class="filter-group season">
+          <h4>Улирал</h4>
+        </div>
+        <div class="filter-group age">
+          <h4>Насны ангилал</h4>
+        </div>
+        <div class="filter-group price">
+          <h4 for="price">Үнэ</h4>
         </div>
 
-        <div class="filter-group">
-          <h4>Аяллын онцлог</h4>
-          <label><input type="checkbox" /> Уул уурхайн аялал</label>
-          <label><input type="checkbox" /> Ус нуурын аялал</label>
-          <label><input type="checkbox" /> Түүхэн газрын аялал</label>
-          <label><input type="checkbox" /> Явган аялал</label>
-          <label><input type="checkbox" /> Усан аялал</label>
-        </div>
-
-        <div class="filter-group">
-          <h4>Үнэ (₮)</h4>
-          <input type="range" min="50000" max="500000" step="10000" />
-          <span>₮50,000 - ₮500,000</span>
-        </div>
-
-        <div class="filter-group">
-          <h4>Санал болгох улирал</h4>
-          <label><input type="checkbox" /> Зун</label>
-          <label><input type="checkbox" /> Өвөл</label>
-          <label><input type="checkbox" /> Хавар</label>
-          <label><input type="checkbox" /> Намар</label>
-        </div>
-
-        <div class="filter-group">
-          <h4>Үнэлгээ</h4>
-          <label><input type="checkbox" /> ★★★★☆+</label>
-          <label><input type="checkbox" /> ★★★☆☆+</label>
-        </div>
+        <button id="clear-filters">цэвэрлэх</button>
       </aside>
 
-      <!-- Travels Section -->
-      <section class="travels">
-        <div class="travel-grid">
-          
+      <section class="travels-container">
+        <div id="travel-grid"></div>
 
-          <!-- Repeat articles for other travel options -->
-        </div>
-
-        <!-- Pagination -->
-        <div class="pagination">
-          <a href="#">&laquo; </a>
-          <a href="#">1</a>
-          <a href="#">&raquo; </a>
+        <div class="pagination" aria-label="Page navigation">
+          <a href="#" aria-label="Previous page">&laquo;</a>
+          <a href="#" aria-label="Page 1">1</a>
+          <a href="#" aria-label="Next page">&raquo;</a>
         </div>
       </section>
-
-      <div class="cart">
-        <h3>Your Cart</h3>
-        <div class="cart-items"></div>
-      </div>
-
-
-      <script src="cart.js"></script>
     </main>
 
-    <footer class="footer">
-      <div class="footer-logo">
-        <img src="./images/ym2/logo.png" alt="Logo">
+    <footer>
+      <div class="footer-container">
+        <section class="footer-first">
+          <div class="footer-logo">
+            <img src="./images/ym2/logo.png" alt="Logo" />
+            <p>
+              нууц <br />
+              аялал
+            </p>
+          </div>
+          <div class="social-icons">
+            <ul>
+              <li>
+                <a style="color: white" href="#"
+                  ><i
+                    style="font-size: 34px"
+                    class="fa-brands fa-square-facebook"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="footer-links">
+          <h4>Бидний тухай</h4>
+          <ul>
+            <li><a href="aboutUs.html">Танилцуулга</a></li>
+            <li><a href="FaQ.html">Асуулт хариулт</a></li>
+          </ul>
+        </section>
+        <section class="footer-contact">
+          <h4>Холбоо барих</h4>
+          <ul>
+            <li>
+              <p>
+                и-мэйл:
+                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+              </p>
+            </li>
+            <li><p>Phone: +976 99999999</p></li>
+          </ul>
+        </section>
+        <section class="footer-address">
+          <h4>Манай хаяг</h4>
+          <li>
+            <p>
+              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+              Улаанбаатар
+            </p>
+          </li>
+        </section>
       </div>
-      <section class="footer-links">
-        <h4>Бидний тухай</h4>
-        <ul>
-          <li><a href="#">Танилцуулга</a></li>
-          <li><a href="#">Асуулт хариулт</a></li>
-        </ul>
-      </section>
-      <section class="footer-contact">
-        <h4>Холбоо барих</h4>
-        <p>и-мэйл: <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a></p>
-        <p>Phone: +976 99999999</p>
-      </section>
-      <section class="footer-social">
-        <h4>Манай сүлжээ</h4>
-        <ul>
-          <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
-        </ul>
-      </section>
-      <section class="footer-address">
-        <h4>Манай хаяг</h4>
-        <p>Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар</p>
-      </section>
     </footer>
-
-    <script src="https://kit.fontawesome.com/d903c022ca.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/d903c022ca.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -1,12 +1,11 @@
-const togglePassword = document.querySelector('.toggle-password');
-const passwordInput = document.querySelector('#password');
+document.querySelectorAll('.toggle-password').forEach(button => {
+  button.addEventListener('click', function () {
+    const passwordInput = this.previousElementSibling; // Get the corresponding password input
+    const type = passwordInput.type === 'password' ? 'text' : 'password'; // Toggle visibility
+    passwordInput.setAttribute('type', type);
 
-togglePassword.addEventListener('click', function () {
-  // Toggle the type attribute
-  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-  passwordInput.setAttribute('type', type);
-  
-  // Toggle the eye / eye-slash icon
-  this.querySelector('i').classList.toggle('fa-eye');
-  this.querySelector('i').classList.toggle('fa-eye-slash');
+    // Toggle eye/eye-slash icon
+    this.querySelector('i').classList.toggle('fa-eye');
+    this.querySelector('i').classList.toggle('fa-eye-slash');
+  });
 });

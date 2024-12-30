@@ -10,9 +10,15 @@
   <body>
     <header>
       <nav class="header-nav">
-        <a id="" href="./index.html"
-          ><img width="50px" src="./images/ym2/logo.png" alt="logo"
-        /></a>
+        <div class="motto">
+          <a href="./index.html"
+            ><img width="50px" src="./images/ym2/logo.png" alt="logo"
+          /></a>
+          <p>
+            Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
+            <strong style="font-weight: 600">бид бүтээж өгнө</strong>
+          </p>
+        </div>
         <ul class="nav-links">
           <li><a href="./aboutUs.html">Бидний тухай</a></li>
           <li><a href="./zahialah.html">Аялал захиалах</a></li>
@@ -20,84 +26,122 @@
           <li><a href="./travels.html">Aяллууд</a></li>
         </ul>
         <section class="user-links">
+          <div class="cart-container" id="cart-container">
+            <div class="cart-icon" id="cart-icon">
+              <i class="fa fa-shopping-cart"></i>
+              <span class="cart-count" id="cart-count">0</span>
+            </div>
+            <cart-comp></cart-comp>
+          </div>
           <a href="./signin.html">Нэвтрэх</a>
-          <a href=""><img src="./images/account icon.png" alt="" /></a>
+          <a href="signin.html"
+            ><img src="/images/ym2/account_icon.png" alt=""
+          /></a>
         </section>
       </nav>
     </header>
-    <section>
-      <h1>БИДНИЙ ТУХАЙ</h1>
-      <p>
-        Нууц аялалд тавтай морил! Бид таны аяллыг мартагдашгүй болгохын тулд
-        таны хүсэл, сонирхол, төсөвт тохирсон аяллыг зөвхөн танд зориулан
-        төлөвлөдөг.
-      </p>
-      <img src="" alt="" />
-      <img src="" alt="" />
-      <img src="" alt="" />
-      <img src="" alt="" />
-      <img src="" alt="" />
-    </section>
-    <section>
-      <p>
-        Нууц аялал бол зүгээр нэг аялал зохион байгуулагч биш, харин хувь хүний
-        сонирхолд нийцүүлэн адал явдлаар дүүрэн аяллыг бүтээдэг газар юм. Та
-        адал явдал эрэлхийлэгч үү, соёлын уламжлалыг сонирхогч уу, эсвэл амралт
-        хэрэгтэй хүн үү гэдгээс үл хамааран бид таны хүсэлд нийцсэн аяллын
-        хөтөлбөрийг бүрдүүлнэ.
-      </p>
-      <p>
-        Та хаашаа аялахыг хүсэж байгаа, юу хийхийг хүсэж байгаа, ямар төсөвтэй
-        байгаа талаараа бидэнд хэлээрэй. Бид танд тохирсон төгс аяллыг бүтээх
-        болно.
-      </p>
-      <p>Өнөөдөр таны аялал эхэлж байна. Адал явдал таныг хүлээж байна!</p>
-    </section>
-    <footer class="footer">
-      <div class="footer-logo">
-        <img src="./images/ym2/logo.png" alt="Logo" />
+    <section class="about-section">
+      <div class="about-container">
+        <div class="about-header">
+          <h1>БИДНИЙ ТУХАЙ</h1>
+          <p class="intro">
+            Нууц аялалд тавтай морил! Бид таны аяллыг мартагдашгүй болгохын тулд
+            таны хүсэл, сонирхол, төсөвт тохирсон аяллыг зөвхөн танд зориулан
+            төлөвлөдөг.
+          </p>
+        </div>
+        <div class="about-images">
+          <img src="https://picsum.photos/300" alt="Adventure" />
+          <img src="https://picsum.photos/300" alt="Culture" />
+          <img src="https://picsum.photos/300" alt="Relaxation" />
+        </div>
+        <div class="about-details">
+          <p>
+            Нууц аялал бол зүгээр нэг аялал зохион байгуулагч биш, харин хувь
+            хүний сонирхолд нийцүүлэн адал явдлаар дүүрэн аяллыг бүтээдэг газар
+            юм. Та адал явдал эрэлхийлэгч үү, соёлын уламжлалыг сонирхогч уу,
+            эсвэл амралт хэрэгтэй хүн үү гэдгээс үл хамааран бид таны хүсэлд
+            нийцсэн аяллын хөтөлбөрийг бүрдүүлнэ.
+          </p>
+          <p>
+            Та хаашаа аялахыг хүсэж байгаа, юу хийхийг хүсэж байгаа, ямар
+            төсөвтэй байгаа талаараа бидэнд хэлээрэй. Бид танд тохирсон төгс
+            аяллыг бүтээх болно.
+          </p>
+          <p class="call-to-action">
+            <strong
+              >Өнөөдөр таны аялал эхэлж байна. Адал явдал таныг хүлээж
+              байна!</strong
+            >
+          </p>
+        </div>
       </div>
-      <section class="footer-links">
-        <h4>Бидний тухай</h4>
-        <ul>
-          <li><a href="aboutUs.html">Танилцуулга</a></li>
-          <li><a href="QnA.html">Асуулт хариулт</a></li>
-        </ul>
-      </section>
-      <section class="footer-contact">
-        <h4>Холбоо барих</h4>
-        <p>
-          и-мэйл: <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
-        </p>
-        <p>Phone: +976 99999999</p>
-      </section>
-      <section class="footer-social">
-        <h4>Манай сүлжээ</h4>
-        <ul>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <section class="footer-first">
+          <div class="footer-logo">
+            <img src="./images/ym2/logo.png" alt="Logo" />
+            <p>
+              нууц <br />
+              аялал
+            </p>
+          </div>
+          <div class="social-icons">
+            <ul>
+              <li>
+                <a style="color: white" href="#"
+                  ><i
+                    style="font-size: 34px"
+                    class="fa-brands fa-square-facebook"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="footer-links">
+          <h4>Бидний тухай</h4>
+          <ul>
+            <li><a href="aboutUs.html">Танилцуулга</a></li>
+            <li><a href="FaQ.html">Асуулт хариулт</a></li>
+          </ul>
+        </section>
+        <section class="footer-contact">
+          <h4>Холбоо барих</h4>
+          <ul>
+            <li>
+              <p>
+                и-мэйл:
+                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+              </p>
+            </li>
+            <li><p>Phone: +976 99999999</p></li>
+          </ul>
+        </section>
+        <section class="footer-address">
+          <h4>Манай хаяг</h4>
           <li>
-            <a href="https://facebook.com" target="_blank"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
+            <p>
+              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+              Улаанбаатар
+            </p>
           </li>
-          <li>
-            <a href="https://instagram.com" target="_blank"
-              ><i class="fab fa-instagram"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://twitter.com" target="_blank"
-              ><i class="fab fa-twitter"></i
-            ></a>
-          </li>
-        </ul>
-      </section>
-      <section class="footer-address">
-        <h4>Манай хаяг</h4>
-        <p>
-          Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
-        </p>
-      </section>
+        </section>
+      </div>
     </footer>
+
     <script
       src="https://kit.fontawesome.com/d903c022ca.js"
       crossorigin="anonymous"

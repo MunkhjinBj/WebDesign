@@ -1,0 +1,260 @@
+.nuur-container {
+  position: relative;
+  text-align: center;
+}
+
+.nuur-container img {
+  width: 100%;
+  height: auto;
+}
+
+.nuur-container h1 {
+  position: absolute;
+  top: 90px;
+  left: 17%;
+  /* transform: translate(-50%, -50%); */
+  color: white;
+  font-size: 3.5rem;
+}
+
+/*---------------------------------------- Filter Section ----------------------------------------*/
+.filter-group.price,
+.filter-group.days,
+.filter-group.types,
+.filter-group.age,
+.filter-group.season {
+  width: 300px;
+  margin: 0px;
+}
+
+.slider-container {
+  position: relative;
+  height: 30px;
+}
+
+input[type="range"] {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+.price-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #666;
+}
+
+.filters {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 80%;
+  margin: 0 35px;
+}
+
+.filters::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  bottom: 45%;
+  right: 0;
+  width: 1px;
+  background-color: black;
+}
+
+.filters.active {
+  transform: translateX(0);
+  z-index: 1000;
+}
+
+.filters h3 {
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: #333;
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--primary-hover-color);
+  padding-bottom: 15px;
+  margin-right: 70px;
+}
+
+.filter-group {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.filter-group::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-right: 70px;
+}
+.filter-group:last-child::after {
+  content: none;
+}
+.filter-group h4 {
+  font-size: 13px;
+  padding: 15px 0;
+}
+.filter-group label {
+  display: block;
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding-left: 10px;
+  padding-bottom: 3px;
+  margin-right: 70px;
+}
+
+.filter-group label:hover {
+  color: var(--primary-color);
+}
+
+.filter-group input[type="range"] {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.filter-group button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.filter-group button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.burger-menu {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1100;
+  font-size: 1.2rem;
+}
+
+.burger-menu:hover {
+  background-color: var(--primary-hover-color);
+}
+
+/* Sidebar Close Button */
+.filters .close-btn {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.filters .close-btn:hover {
+  color: var(--primary-color);
+}
+
+/*---------------------------------------- Travels Section ----------------------------------------*/
+
+.content {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 40px;
+}
+
+.travels-container {
+  width: 70%;
+  padding: 0 25px 0 20px;
+}
+
+#travel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0;
+  margin: 0 auto;
+}
+
+/*---------------------------------------- Pagination ----------------------------------------*/
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.pagination a {
+  color: var(--primary-color);
+  margin: 0 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.pagination a.active {
+  color: #fff;
+  background-color: var(--primary-color);
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+/*---------------------------------------- Responsiveness ----------------------------------------*/
+@media screen and (max-width: 768px) {
+  .filters {
+    width: 70%;
+  }
+
+  #travel-grid article {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .burger-menu {
+    display: block;
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .filters {
+    transform: translateX(0);
+    position: static;
+    width: 20%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .filters {
+    position: fixed;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .filters.active {
+    transform: translateX(0);
+  }
+
+  .travels-container {
+    margin-left: 0;
+  }
+}
