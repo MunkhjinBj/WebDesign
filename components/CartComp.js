@@ -3,7 +3,7 @@ import {
   removeFromCart as removeFromCartModule,
   getCartItems,
   getTotalPrice,
-} from "/modules/cart.js";
+} from "../modules/cart.js";
 
 export default class CartComp extends HTMLElement {
   constructor() {
