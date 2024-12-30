@@ -9,30 +9,30 @@ export default class Travels {
     this.season = travelObj.season;
     this.location = travelObj.location;
   }
-
-  // render() {
-  //   return `
-  //   <article data-id="${this.id}">
-  //     <img src="${this.image}" alt="" />
-  //     <div class="info">
-  //       <h3>${this.title}</h3>
-  //       <ul class="location">
-  //         <li>${this.location}</li>
-  //         <li>${this.days} хоног</li>
-  //       </ul>
-  //       <ul class="addCart">
-  //         <li>
-  //           <button class="add-to-cart">Сагслах</button>
-  //         </li>
-  //         <li>
-  //           <h2>${this.price}₮</h2>
-  //         </li>
-  //       </ul>
-  //     </div>
-  //   </article>
-  // `;
-  // }
 }
+// render() {
+//     return `
+//     <article data-id="${this.id}">
+//       <img src="${this.image}" alt="" />
+//       <div class="info">
+//         <h3>${this.title}</h3>
+//         <ul class="location">
+//           <li>${this.location}</li>
+//           <li>${this.days} хоног</li>
+//         </ul>
+//         <ul class="addCart">
+//           <li>
+//             <button class="add-to-cart">Сагслах</button>
+//           </li>
+//           <li>
+//             <h2>${this.price}₮</h2>
+//           </li>
+//         </ul>
+//       </div>
+//     </article>
+// `;
+// }
+//
 
 export async function travelLoader() {
   const result = await fetch("./travels.json");
@@ -43,7 +43,6 @@ export async function travelLoader() {
 export async function applyFiltersFromURL() {
   // Load all travel data first
   let travels = await travelLoader();
-
   const params = new URLSearchParams(document.location.search);
 
   // Extract filters from URL parameters
@@ -176,4 +175,27 @@ export async function renderFilters() {
     </div>
   `
   );
+}
+
+export async function renderTravels(filteredTravels = null) {
+  const travelsContainer = document.getElementById("travel-grid");
+
+  const travelsData = filteredTravels || (await travelLoader());
+
+  travelsContainer.innerHTML = travelsData
+    .map((travel) => {
+      return `
+        <travel-item
+          data-id="${travel.id}"
+          data-image="${travel.image}"
+          data-title="${travel.title}"
+          data-type="${travel.type}"
+          data-days="${travel.day}"
+          data-price="${travel.price}"
+          data-season="${travel.season}"
+          data-location="${travel.location}">
+        </travel-item>
+      `;
+    })
+    .join("");
 }

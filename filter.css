@@ -69,7 +69,7 @@ input[type="range"]:focus {
 
 .filters.active {
   transform: translateX(0);
-  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 .filters h3 {
@@ -225,7 +225,7 @@ input[type="range"]:focus {
   }
 
   .burger-menu {
-    display: block; /* Visible only on smaller screens */
+    display: block;
     background-color: #0078d7;
     color: white;
     border: none;
@@ -237,24 +237,24 @@ input[type="range"]:focus {
 
 @media screen and (min-width: 1024px) {
   .filters {
-    transform: translateX(0); /* Always visible on large screens */
-    position: static; /* Integrate with the page flow */
-    width: 20%; /* Adjust width for larger screens */
+    transform: translateX(0);
+    position: static;
+    width: 20%;
     height: auto;
   }
 }
 @media screen and (max-width: 768px) {
   .filters {
     position: fixed;
-    transform: translateX(-100%); /* Hide sidebar by default */
+    transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
   }
 
   .filters.active {
-    transform: translateX(0); /* Show sidebar */
+    transform: translateX(0);
   }
 
   .travels-container {
-    margin-left: 0; /* No space for sidebar on small screens */
+    margin-left: 0;
   }
 }

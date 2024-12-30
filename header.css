@@ -192,6 +192,7 @@ footer {
   justify-content: space-between;
   flex-direction: row;
   align-items: flex-start;
+  font-size: 12px;
   gap: 4rem;
   padding-bottom: 10px;
   border-bottom: solid 1px #ececec;
@@ -222,7 +223,7 @@ footer {
   height: auto;
 }
 .footer-logo p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
@@ -266,6 +267,7 @@ footer {
 .footer-address p {
   text-wrap: wrap;
   max-width: 300px;
+  font-size: 12px;
 }
 /*-------------------------------------------------*/
 
@@ -344,6 +346,11 @@ footer {
 .cart-icon:hover {
   color: #62ebc9;
 }
+.cart-icon:hover + .cart {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .cart-count {
   position: absolute;
@@ -362,49 +369,14 @@ footer {
   display: inline-block;
 }
 
-/* Cart dropdown position */
-.cart {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 300px;
-  background: #fff;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: none;
-  z-index: 1000;
-}
-
 .cart-container:hover .cart,
 .cart-container:focus-within .cart {
   display: block;
+  transform: translateY(0);
+  opacity: 1;
 }
 
-/* Cart items styling */
-#cart-items article {
-  padding: 5px 0;
-  border-bottom: 1px solid #eee;
-}
-
-#cart-items article:last-child {
-  border-bottom: none;
-}
-
-#cart-items article h4 {
-  font-size: 1em;
-  color: #333;
-}
-
-/* Button styling inside cart */
-#cart-items article button {
-  background-color: #ff6666;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 3px;
-}
+/* Cart dropdown position */
 
 /*----------------About Us---------------*/
 
