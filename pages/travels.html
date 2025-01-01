@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="travel, tours, Mongolia, trips, booking" />
+
+    <link rel="stylesheet" href="../assets/css/header.css" />
+    <link rel="stylesheet" href="../assets/css/filter.css" />
+    <title>Travels</title>
+  </head>
+  <body>
+    <header>
+      <nav class="header-nav">
+        <div class="motto">
+          <a href="./index.html"
+            ><img width="50px" src="../images/ym2/logo.png" alt="logo"
+          /></a>
+          <p>
+            Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
+            <strong style="font-weight: 600">бид бүтээж өгнө</strong>
+          </p>
+        </div>
+        <ul class="nav-links">
+          <li><a href="./aboutUs.html">Бидний тухай</a></li>
+          <li><a href="./zahialah.html">Аялал захиалах</a></li>
+          <li><a href="./mytravels.html">Миний аяллууд</a></li>
+          <li><a href="./travels.html">Аяллууд</a></li>
+        </ul>
+        <section class="user-links">
+          <div class="cart-container" id="cart-container">
+            <div class="cart-icon" id="cart-icon">
+              <i class="fa fa-shopping-cart"></i>
+              <span class="cart-count" id="cart-count">0</span>
+            </div>
+            <div class="cart" id="cart">
+              <h3>Сагс</h3>
+              <div id="cart-items"></div>
+            </div>
+          </div>
+          <a href="./signin.html">Нэвтрэх</a>
+          <a href="signin.html"
+            ><img src="../images/ym2/account_icon.png" alt=""
+          /></a>
+        </section>
+      </nav>
+    </header>
+
+    <div class="nuur-container">
+      <img src="../images/ym2/main.png" alt="" />
+      <h1>Аялалууд</h1>
+    </div>
+
+    <main class="content">
+      <button id="filter-toggle" class="burger-menu">☰ Шүүлтүүр</button>
+      <aside class="filters">
+        <h3>Шүүлтүүр</h3>
+
+        <div class="filter-group days">
+          <h4>Аяллын хоног</h4>
+        </div>
+        <div class="filter-group types">
+          <h4>Аяллын төрөл</h4>
+        </div>
+        <div class="filter-group season">
+          <h4>Улирал</h4>
+        </div>
+        <div class="filter-group age">
+          <h4>Насны ангилал</h4>
+        </div>
+        <div class="filter-group price">
+          <h4 for="price">Үнэ</h4>
+        </div>
+
+        <button id="clear-filters">цэвэрлэх</button>
+      </aside>
+
+      <section class="travels-container">
+        <div id="travel-grid">
+          <article>
+            <img src="../images/travels/taiga.png" alt="" />
+            <div class="info">
+              <h3>Тайгын аялал</h3>
+              <ul class="location">
+                <li>Хөвсгөл</li>
+                <li>2 хоног</li>
+              </ul>
+              <ul class="addCart">
+                <li>
+                  <button>Сагслах</button>
+                </li>
+                <li>
+                  <h2>200,000₮</h2>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="pagination" aria-label="Page navigation">
+          <a href="#" aria-label="Previous page">&laquo;</a>
+          <a href="#" aria-label="Page 1">1</a>
+          <a href="#" aria-label="Next page">&raquo;</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <section class="footer-first">
+          <div class="footer-logo">
+            <img src="../images/ym2/logo.png" alt="Logo" />
+            <p>
+              нууц <br />
+              аялал
+            </p>
+          </div>
+          <div class="social-icons">
+            <ul>
+              <li>
+                <a style="color: white" href="#"
+                  ><i
+                    style="font-size: 34px"
+                    class="fa-brands fa-square-facebook"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="footer-links">
+          <h4>Бидний тухай</h4>
+          <ul>
+            <li><a href="aboutUs.html">Танилцуулга</a></li>
+            <li><a href="./FaQ.html">Асуулт хариулт</a></li>
+          </ul>
+        </section>
+        <section class="footer-contact">
+          <h4>Холбоо барих</h4>
+          <ul>
+            <li>
+              <p>
+                и-мэйл:
+                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+              </p>
+            </li>
+            <li><p>Phone: +976 99999999</p></li>
+          </ul>
+        </section>
+        <section class="footer-address">
+          <h4>Манай хаяг</h4>
+          <li>
+            <p>
+              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+              Улаанбаатар
+            </p>
+          </li>
+        </section>
+      </div>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/d903c022ca.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="../assets/js/app.js"></script>
+    
+  </body>
+</html>

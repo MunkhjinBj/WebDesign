@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Аялал зохиох</title>
+    <link rel="stylesheet" href="../assets/css/header.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="header-nav">
+        <div class="motto">
+          <a href="./index.html"
+            ><img width="50px" src="../images/ym2/logo.png" alt="logo"
+          /></a>
+          <p>
+            Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
+            <strong style="font-weight: 600">бид бүтээж өгнө</strong>
+          </p>
+        </div>
+        <ul class="nav-links">
+          <li><a href="./aboutUs.html">Бидний тухай</a></li>
+          <li><a href="./zahialah.html">Аялал захиалах</a></li>
+          <li><a href="./mytravels.html">Миний аяллууд</a></li>
+          <li><a href="./travels.html">Aяллууд</a></li>
+        </ul>
+        <section class="user-links">
+          <div class="cart-container" id="cart-container">
+            <div class="cart-icon" id="cart-icon">
+              <i class="fa fa-shopping-cart"></i>
+              <!-- Font Awesome cart icon -->
+              <span class="cart-count" id="cart-count">0</span>
+              <!-- Cart item count -->
+            </div>
+            <!-- Cart dropdown here -->
+            <div class="cart" id="cart">
+              <h3>Сагс</h3>
+              <div id="cart-items">
+                <!-- Dynamically added cart items will go here -->
+              </div>
+            </div>
+          </div>
+          <a href="./signin.html">Нэвтрэх</a>
+          <a href="./signin.html"
+            ><img src="../images/account icon.png" alt=""
+          /></a>
+        </section>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Аялал эхлүүлэх</h1>
+      <div class="progress-bar">
+        <div class="step completed"></div>
+        <div class="step"></div>
+        <div class="step"></div>
+      </div>
+
+      <form class="travel-form">
+        <section class="question">
+          <h2>1. Та аль бүс нутагт зочлохыг хүсч байна вэ?</h2>
+          <div class="options">
+            <div class="option">
+              <img
+                src="/Users/bek/Documents/GitHub/WebDesign/images/altai mountains.jpg"
+                alt="Gobi Desert"
+              />
+              <p>Gobi Desert</p>
+            </div>
+            <div class="option">
+              <img
+                src="/Users/bek/Documents/GitHub/WebDesign/images/Khuvsgul lake.jpg"
+                alt="Khuvsgul Lake"
+              />
+              <p>Khuvsgul Lake</p>
+            </div>
+            <div class="option">
+              <img
+                src="/Users/bek/Documents/GitHub/WebDesign/images/altai mountains.jpg"
+                alt="Altai Mountains"
+              />
+              <p>Altai Mountains</p>
+            </div>
+            <div class="option">
+              <img
+                src="/Users/bek/Documents/GitHub/WebDesign/images/Orkhon valley.jpg"
+                alt="Orkhon Valley"
+              />
+              <p>Orkhon Valley</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="question">
+          <h2>2. Та ямар аяллыг илүү үздэг вэ?</h2>
+          <div class="options">
+            <div class="option">
+              <img
+                src="/Users/bek/Documents/GitHub/WebDesign/images/family trip.jpg"
+                alt="Family Trip"
+              />
+              <p>Гэр бүлийн аялал</p>
+            </div>
+            <div class="option">
+              <img
+                src="/Users/bek/Documents/GitHub/WebDesign/images/Cultural trip.jpg"
+                alt="Cultural Tour"
+              />
+              <p>Хүмүүсийн амьдрал, соёлын аялал</p>
+            </div>
+            <div class="option">
+              <img
+                src="/Users/bek/Documents/GitHub/WebDesign/images/City tour.jpg"
+                alt="City Tour"
+              />
+              <p>Хотын аялал</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="question">
+          <h2>3. Та хэзээ аялахыг хүсч байна вэ?</h2>
+          <div class="calendar">
+            <input type="date" id="start-date" />
+            <input type="date" id="end-date" />
+          </div>
+        </section>
+
+        <section class="question">
+          <h2>4. Хэн аялах вэ?</h2>
+          <div class="number-select">
+            <label>Том хүн</label>
+            <input type="number" value="0" min="0" />
+            <label>Хүүхэд</label>
+            <input type="number" value="0" min="0" />
+          </div>
+        </section>
+
+        <section class="question">
+          <h2>5. Та ямар төрлийн байрыг илүү үздэг вэ?</h2>
+          <div class="options accommodation">
+            <div class="option">
+              <img src="hotel.jpg" alt="Hotel" />
+              <p>Зочид буудал</p>
+            </div>
+            <div class="option">
+              <img src="camping.jpg" alt="Camping" />
+              <p>Майхан</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="question">
+          <h2>6. Та Монголд ямар туршлага хайж байна вэ?</h2>
+          <div class="options experience">
+            <div class="option">
+              <img src="culture.jpg" alt="Cultural" />
+              <p>Соёлын аялал</p>
+            </div>
+            <div class="option">
+              <img src="nature.jpg" alt="Nature" />
+              <p>Байгаль орчин</p>
+            </div>
+            <div class="option">
+              <img src="animals.jpg" alt="Animals" />
+              <p>Амьтан ба зэрлэг ан амьтан</p>
+            </div>
+            <div class="option">
+              <img src="relax.jpg" alt="Relaxing" />
+              <p>Амрах</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="question">
+          <h2>7. Та аялалдаа хэдийг зарцуулахыг хайж байна вэ?</h2>
+          <input type="range" min="0" max="5000" value="2500" />
+        </section>
+
+        <button type="submit" class="submit-btn">Дараах</button>
+      </form>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <section class="footer-first">
+          <div class="footer-logo">
+            <img src=".//images/ym2/logo.png" alt="Logo" />
+            <p>
+              нууц <br />
+              аялал
+            </p>
+          </div>
+          <div class="social-icons">
+            <ul>
+              <li>
+                <a style="color: white" href="#"
+                  ><i
+                    style="font-size: 34px"
+                    class="fa-brands fa-square-facebook"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="footer-links">
+          <h4>Бидний тухай</h4>
+          <ul>
+            <li><a href="./aboutUs.html">Танилцуулга</a></li>
+            <li><a href="./FaQ.html">Асуулт хариулт</a></li>
+          </ul>
+        </section>
+        <section class="footer-contact">
+          <h4>Холбоо барих</h4>
+          <ul>
+            <li>
+              <p>
+                и-мэйл:
+                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+              </p>
+            </li>
+            <li><p>Phone: +976 99999999</p></li>
+          </ul>
+        </section>
+        <section class="footer-address">
+          <h4>Манай хаяг</h4>
+          <li>
+            <p>
+              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+              Улаанбаатар
+            </p>
+          </li>
+        </section>
+      </div>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/d903c022ca.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartCountElement = document.getElementById('cart-count');
+        cartCountElement.textContent = cartItems.length;
+      });
+    </script>
+  </body>
+</html>

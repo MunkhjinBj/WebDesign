@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="main page" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Нуууц аялал</title>
+    <link rel="stylesheet" href="../assets/css/header.css" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat Alternates", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        box-sizing: border-box;
+      }
+
+      .info {
+        background-color: #666;
+        display: flex;
+        height: 70vh;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .info_1 {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        padding-top: 100px;
+        justify-content: center;
+        align-items: center;
+      }
+      .info_2 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+        margin-top: -180px;
+      }
+
+      .info_1 img,
+      .info_2 img {
+        border-radius: 45%;
+        width: 300px;
+      }
+
+      .info_1 h1 {
+        font-size: 2.5rem; /* Adjust size as needed */
+        font-weight: bold; /* Make it bold for emphasis */
+        color: #ffffff; /* Use a color that contrasts with the background */
+      }
+      .info_2 h2 {
+        font-size: 1.2rem;
+        color: #333;
+        padding-right: 100px;
+      }
+      .purgon {
+        width: 1px;
+        height: auto;
+      }
+
+      .form_sec {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .form_link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 30px 0;
+      }
+      .form_link h2 {
+        font-size: 20px;
+        text-align: center;
+        font-weight: 550;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 520;
+        font-style: normal;
+      }
+      .form_link img {
+        width: 80px;
+        padding: 45px 0;
+      }
+      .form_link img:hover {
+        cursor: pointer;
+      }
+
+      .form_link button {
+        padding: 20px 30px;
+        color: #000;
+        background-color: #2e8b57;
+        font-weight: 550;
+        font-size: 17px;
+        border: 0 solid #2e8b57;
+        border-radius: 30px;
+      }
+
+      #hover_info {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        margin: 2rem;
+        font-family: system-ui, -apple-system, sans-serif;
+        background: white;
+        border-radius: 28px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;
+      }
+
+      #hover_info h2 {
+        text-align: center;
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 3rem;
+      }
+
+      #hover_info article {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 4rem;
+        align-items: center;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      #hover_info article:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      #hover_info article h2 {
+        font-size: 1.5rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        grid-column: 1 / -1;
+        text-align: left;
+      }
+
+      #hover_info article p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #666;
+        margin: 0;
+      }
+
+      #hover_info article img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        aspect-ratio: 16/9;
+      }
+
+      #hover_info article h2::before {
+        content: "";
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background: #4caf50;
+        border-radius: 50%;
+        margin-right: 10px;
+        color: white;
+        text-align: center;
+        line-height: 30px;
+        font-size: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        #hover_info article {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        #hover_info article h2 {
+          text-align: center;
+        }
+
+        #hover_info {
+          padding: 1rem;
+          margin: 1rem;
+        }
+      }
+
+      #hover_info article {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      .comment_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 50px 10%;
+        position: relative;
+      }
+
+      .comment_section .comments-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+
+      .comment_section .comments {
+        display: flex;
+        align-items: flex-start;
+        padding-top: 50px;
+        gap: 30px;
+        position: relative;
+      }
+      .comment_section h3 {
+        margin-right: 30em;
+        font-weight: 510;
+        font-size: 1.2em;
+        position: relative;
+      }
+      .comment_section .comments article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 350px;
+        padding: 2%;
+        border-radius: 16px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      }
+      .comment_section .comments article:hover {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;
+        transform: translateY(-0.3%);
+        transition: 0.3s ease;
+      }
+      .comment_section article p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        line-height: 1.5;
+        font-size: 0.9em;
+        text-align: justify;
+        vertical-align: top;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+      }
+      .comment_section article span {
+        display: block;
+        font-size: 1em;
+        color: gold;
+      }
+
+      .rating {
+        display: flex;
+        margin-top: 10px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+      }
+      .user_time {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      article strong,
+      article time {
+        margin-top: 5px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+      }
+      /*.arrow-left,
+      .arrow-right {
+        position: absolute;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        color: #333;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .arrow-left {
+        left: 10px;
+      }
+
+      .arrow-right {
+        right: 10px;
+      }*/
+
+      .arrow-left,
+      .arrow-right {
+        font-size: 30px;
+        position: relative;
+        top: 50%;
+        cursor: pointer;
+        z-index: 0;
+      }
+
+      .arrow-left {
+        right: 20px;
+      }
+      .arrow-right {
+        left: 20px;
+      }
+
+      /* gallery */
+
+      .partner_org {
+        margin: 100px 200px 120px 200px;
+      }
+
+      .partner_org h4 {
+        text-align: left;
+        padding-left: 120px;
+        font-size: 18px;
+        margin-bottom: 50px;
+        font-weight: 600;
+      }
+
+      .logo-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+        justify-items: center;
+        align-items: center;
+      }
+
+      .logo-grid img {
+        max-width: 80px;
+        height: auto;
+        transition: transform 0.3s ease;
+      }
+
+      .logo-grid img:hover {
+        transform: scale(1.1);
+      }
+
+      .logo-grid img:nth-child(-n + 6) {
+        grid-column-start: span 1;
+        margin-left: auto;
+      }
+
+      .logo-grid img:nth-child(n + 7) {
+        grid-column-start: span 1;
+        margin-right: auto;
+      }
+
+      @media screen and (max-width: 992px) {
+        .info_1 {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .info_1 h2,
+        .info_2 h2 {
+          padding: 20px 0;
+          font-size: 1.1rem;
+        }
+
+        .info_2 {
+          flex-direction: column;
+          margin-top: 30px;
+        }
+
+        .comment_section .comments-container {
+          flex-direction: column;
+          padding: 20px;
+          gap: 40px;
+        }
+
+        .comment_section h3 {
+          margin-left: 0;
+          text-align: center;
+        }
+
+        .partner_org {
+          margin: 30px 50px;
+        }
+
+        .logo-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .header-nav {
+          flex-direction: column;
+          padding: 10px;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+          padding: 10px 0;
+        }
+
+        .nav-links li {
+          margin: 10px 0;
+        }
+
+        .user-links {
+          width: 100%;
+          justify-content: center;
+          padding: 10px 0;
+        }
+
+        .info_1 img,
+        .info_2 img {
+          width: 200px;
+        }
+
+        .form_link button {
+          padding: 15px 25px;
+          font-size: 15px;
+        }
+
+        .logo-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+        }
+
+        .footer {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 30px;
+        }
+
+        .footer section {
+          padding: 10px;
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        .info_1 img,
+        .info_2 img {
+          width: 150px;
+        }
+
+        .form_link h2 {
+          font-size: 16px;
+        }
+
+        .form_link img {
+          width: 60px;
+          padding: 30px 0;
+        }
+
+        .comment_section article {
+          max-width: 100%;
+        }
+
+        .logo-grid {
+          grid-template-columns: repeat(1, 1fr);
+          gap: 40px;
+        }
+
+        .partner_org {
+          margin: 30px 20px;
+        }
+
+        .partner_org h4 {
+          padding-left: 0;
+          text-align: center;
+        }
+
+        .arrow-left,
+        .arrow-right {
+          display: none;
+        }
+      }
+      @keyframes appear {
+        from {
+          opacity: 0;
+          scale: 0.5;
+        }
+        to {
+          opacity: 1;
+          scale: 1;
+        }
+      }
+      .block {
+        animation: appear linear;
+        animation-timeline: view();
+        animation-range: entry 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="header-nav">
+        <div class="motto">
+          <a href="./index.html"
+            ><img width="50px" src="../images/ym2/logo.png" alt="logo"
+          /></a>
+          <p>
+            Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
+            <strong style="font-weight: 600">бид бүтээж өгнө</strong>
+          </p>
+        </div>
+        <ul class="nav-links">
+          <li><a href="./aboutUs.html">Бидний тухай</a></li>
+          <li><a href="./zahialah.html">Аялал захиалах</a></li>
+          <li><a href="./mytravels.html">Миний аяллууд</a></li>
+          <li><a href="./travels.html">Aяллууд</a></li>
+        </ul>
+        <section class="user-links">
+          <div class="cart-container" id="cart-container">
+            <div class="cart-icon" id="cart-icon">
+              <i class="fa fa-shopping-cart"></i>
+              <!-- Font Awesome cart icon -->
+              <span class="cart-count" id="cart-count">0</span>
+              <!-- Cart item count -->
+            </div>
+            <!-- Cart dropdown here -->
+            <div class="cart" id="cart">
+              <h3>Сагс</h3>
+              <div id="cart-items">
+                <!-- Dynamically added cart items will go here -->
+              </div>
+            </div>
+          </div>
+          <a href="./signin.html">Нэвтрэх</a>
+          <a href="./signin.html"
+            ><img src="../images/ym2/account_icon.png"  alt=""
+          /></a>
+        </section>
+      </nav>
+    </header>
+
+    <main>
+      <section class="block info">
+        <article class="info_1">
+          <img width="200px" src="../images/img4.jpg" alt="neg zurg" />
+          <h1>Найзуудаараа аялна гэж ярьсаар л байна уу?</h1>
+          <h1>Дараа гэж байхгүй одоо л аялцгаая</h1>
+          <img
+            class="purgon"
+            width="200px"
+            src="../images/IMG_9698.JPG"
+            alt=""
+          />
+        </article>
+        <article class="info_2">
+          <h2>
+            Таний хүсэлд нийцсэн хүссэн <br />аяллалыг тан бид бүтээж өгнө
+          </h2>
+          <img width="200px" src="../images/modnuud.png" alt="neg zurg" />
+        </article>
+      </section>
+      <section class="block form_sec">
+        <article class="form_link">
+          <h2>
+            Дараах асуултуудад хариулан <br />өөрийн хүссэн аяллалдаа
+            <br />гараарай
+          </h2>
+          <a href="javascript:void(0);" onclick="showDiv()">
+            <img class="show_info" src="../images/sum.png" alt="Show info" />
+          </a>
+          <section id="hover_info" style="display: none">
+            <h2>Хэрхэн захиалах вэ?</h2>
+            <article>
+              <h2>1-р алхам</h2>
+              <p>
+                Аялалтай холбоотой асуултуудыг бөглөөд өөрсдийн хүсэлд нийцсэн
+                аялалын төлөвлөгөөгөө аваарай
+              </p>
+              <img src="../images/1 alham.png" alt="" />
+            </article>
+            <article>
+              <h2>2-р алхам</h2>
+              <p>
+                Таныг асуултаа бөглөж баталгаажуулсны дараа бид цаг агаар болон
+                тээшиндээ зайлшгүй авч явах хэрэгтэй зүйлсийн жагсаалтыг танруу
+                мэйлээр болон утсаар залгаж мэдэгдэх болно.
+              </p>
+              <img src="../images/2 alham.png" alt="нэг зураг" />
+            </article>
+            <article>
+              <h2>3-р алхам</h2>
+              <p>Аялалдаа гарах</p>
+              <img src="../images/3 alham.png" alt="" />
+            </article>
+          </section>
+          <a href="./zahialah.html"><button>асуулт эхлүүлэх</button></a>
+        </article>
+      </section>
+      <section class="comment_section">
+        <h3>Аялагчдын сэтгэгдлүүдээс</h3>
+
+        <section class="comments-container">
+          <i class="arrow-left fa-solid fa-chevron-left"></i>
+          <div class="comments">
+            <article>
+              <p>
+                Миний нууцлаг аяллын туршлага намайг чамин газар руу
+                аваачиж,онгоцны буудал дэзр гэнэтийн нээлтээ хийхдээ хөл амгүй
+                болгов. Хачирхалтай кафенаас эхлээд сэтгэл хөдлөм үзмэр хүртэл
+                хором бүp нууцлаг, сэтгэл догдлолоор дүүрэн байсан нь
+                амьдралынхаа адал явдал болсон.
+              </p>
+              <div class="rating">
+                <span>★★★★☆</span>
+                <div class="user_time">
+                  <strong>Амарзаяа.М</strong>
+                  <time datetime="">2024.02.04</time>
+                </div>
+              </div>
+            </article>
+            <article>
+              <p>
+                Нууцлаг аялал миний урьд өмнө нь хэзээ ч байгаагүй нууцлг
+                эрдэнийн эрдэнэсийг олж харах нүдийг минь нээж нээлт болгон нь
+                эрдэнэс нээх мэт мэдрэмж төрүүлдэг. Чулуун гудамжнаас эхлээд хөл
+                хөдөлгөөн ихтэй зах хүртэл бүх турлага нь сэтгэл хөдлөл,
+                хүлээлтээр дүүрэн байсан бөгөөд хором бүрийг мартагдашгүй
+                болгодог.
+              </p>
+              <div class="rating">
+                <span>★★★★☆</span>
+                <div class="user_time">
+                  <strong>Амарзаяа.М</strong>
+                  <time datetime="">2024.02.04</time>
+                </div>
+              </div>
+            </article>
+            <article>
+              <p>
+                Нууцлаг аялалын адал явдалд орох нь эцэс төгсгөлгүй боломжуудын
+                ертөнцөд хөл тавьсантай адил байв. Эртний балгасуудбг судлахаас
+                эхлээд чамин хоолоор амтлах хүртэл зорьсон газар бүр миний
+                хамгийн зэрлэг хүлээлтийг давж, туршлага бүрийг эхнээс нь
+                дуустал сэтгэл хөдөлгөм болгосон.
+              </p>
+              <div class="rating">
+                <span>★★★★☆</span>
+                <div class="user_time">
+                  <strong>Амарзаяа.М</strong>
+                  <time datetime="">2024.02.04</time>
+                </div>
+              </div>
+            </article>
+            <article>
+              <p>
+                Над шиг тэнүүчлэгч хүний хувьд нууцлаг аялал нь биелэх мөрөөдөл
+                байсан. Очих газ р бүр сэтгэл татам ой дундуур тэнүүчилж, далд
+                хүрхрээнд бүдрах хүртэл сонин адал явдал, санааннд оромгүй
+                учралуудыг амлаж, эргэн тойрныхоо ертөнцийг гайхшруулах
+                мэдрэмжийг дахин төрүүлэв.
+              </p>
+              <div class="rating">
+                <span>★★★★☆</span>
+                <div class="user_time">
+                  <strong>Амарзаяа.М</strong>
+                  <time datetime="">2024.02.04</time>
+                </div>
+              </div>
+            </article>
+          </div>
+          <i class="arrow-right fa-solid fa-chevron-right"></i>
+        </section>
+      </section>
+      <section class="gallery">
+        <div class="gallery-wrapper">
+          <img src="../images/gallery/img1.jpg" alt="1" />
+          <img src="../images/gallery/img2.jpg" alt="2" />
+          <img src="../images/gallery/img3.jpg" alt="3" />
+          <img src="../images/gallery/img4.jpg" alt="4" />
+          <img src="../images/gallery/img5.jpg" alt="5" />
+          <img src="../images/gallery/img6.jpg" alt="6" />
+          <img src="../images/gallery/img7.jpg" alt="7" />
+        </div>
+        <button class="arrow left">&lt;</button>
+        <button class="arrow right">&gt;</button>
+      </section>
+      <section class="partner_org">
+        <h4>Хамтрагч байгуулгууд</h4>
+        <div class="logo-grid">
+          <img width="70px" src="../images/partnerOrg/apple.png" alt="" />
+          <img src="../images/partnerOrg/buurger.png" alt="" />
+          <img src="../images/partnerOrg/disney.png" alt="" />
+          <img src="../images/partnerOrg/kfc.png" alt="" />
+          <img src="../images/partnerOrg/gap.png" alt="" />
+          <img src="../images/partnerOrg/huvtsas.png" alt="" />
+          <img src="../images/partnerOrg/image 17.png" alt="" />
+          <img src="../images/partnerOrg/paramount.png" alt="" />
+          <img src="../images/partnerOrg/uul1.png" alt="" />
+          <img src="../images/partnerOrg/uul2.png" alt="" />
+          <img src="../images/partnerOrg/uul3.png" alt="" />
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <section class="footer-first">
+          <div class="footer-logo">
+            <img src="../images/ym2/logo.png" alt="Logo" />
+            <p>
+              нууц <br />
+              аялал
+            </p>
+          </div>
+          <div class="social-icons">
+            <ul>
+              <li>
+                <a style="color: white" href="#"
+                  ><i
+                    style="font-size: 34px"
+                    class="fa-brands fa-square-facebook"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="footer-links">
+          <h4>Бидний тухай</h4>
+          <ul>
+            <li><a href="./aboutUs.html">Танилцуулга</a></li>
+            <li><a href="./FaQ.html">Асуулт хариулт</a></li>
+          </ul>
+        </section>
+        <section class="footer-contact">
+          <h4>Холбоо барих</h4>
+          <ul>
+            <li>
+              <p>
+                и-мэйл:
+                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+              </p>
+            </li>
+            <li><p>Phone: +976 99999999</p></li>
+          </ul>
+        </section>
+        <section class="footer-address">
+          <h4>Манай хаяг</h4>
+          <li>
+            <p>
+              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+              Улаанбаатар
+            </p>
+          </li>
+        </section>
+      </div>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/d903c022ca.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function showDiv() {
+        var hoverInfo = document.getElementById("hover_info");
+        if (
+          hoverInfo.style.display === "none" ||
+          hoverInfo.style.display === ""
+        ) {
+          hoverInfo.style.display = "block";
+        } else {
+          hoverInfo.style.display = "none";
+        }
+      }
+    </script>
+    <script src="../assets/js/arrows.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartCountElement = document.getElementById('cart-count');
+        cartCountElement.textContent = cartItems.length;
+      });
+    </script>
+  </body>
+</html>
