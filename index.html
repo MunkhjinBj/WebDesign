@@ -12,7 +12,7 @@
       * {
         margin: 0;
         padding: 0;
-        font-family: "Montserrat Alternates", sans-serif;
+        font-family: var(--font-family);
         font-weight: 500;
         font-style: normal;
         box-sizing: border-box;
@@ -21,7 +21,9 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        gap: 3rem;
       }
+
       /*-------comment--------*/
       .comment_section {
         display: flex;
@@ -74,7 +76,7 @@
         font-size: 12px;
         text-align: justify;
         vertical-align: top;
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--font-family-p);
         font-weight: 300;
       }
       .comment_section article span {
@@ -101,7 +103,7 @@
       article strong,
       article time {
         margin-top: 5px;
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--font-family-p);
         font-weight: 300;
         font-size: 12px;
       }
@@ -130,7 +132,7 @@
         overflow: hidden;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        background-color: #ffffff;
+        background-color: var(--background-color);
         margin: auto;
       }
 
@@ -163,7 +165,7 @@
         cursor: pointer;
         z-index: 10;
         font-size: 1.5rem;
-        transition: background-color 0.3s;
+        transition: var(--background-color) 0.3s;
       }
 
       .arrow:hover {
@@ -257,6 +259,9 @@
         .logo-grid {
           grid-template-columns: repeat(3, 1fr);
         }
+        .motto p {
+          display: none;
+        }
       }
 
       @media screen and (max-width: 768px) {
@@ -280,16 +285,6 @@
           width: 100%;
           justify-content: center;
           padding: 10px 0;
-        }
-
-        .info_1 img,
-        .info_2 img {
-          width: 200px;
-        }
-
-        .form_link button {
-          padding: 15px 25px;
-          font-size: 15px;
         }
 
         .logo-grid {
@@ -369,7 +364,7 @@
         bottom: 1%;
         left: 50%;
         transform: translateX(-50%);
-        background: #fff;
+        background: var(--background-color);
         padding: 1rem 1.8rem;
         border-radius: 18px;
         box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 29px 0px;
@@ -407,7 +402,7 @@
 
         position: relative;
         padding: 0.5rem;
-        border: 1px solid #ddd;
+        border: 1px solid var(--background-color);
         background-color: #e6e6e6;
         border-radius: 8px;
         font-size: 0.9rem;
@@ -448,7 +443,6 @@
         text-align: center;
         padding: 2rem 8rem;
         background: #fff;
-        margin-bottom: 2rem;
         background-color: #f7f6f0;
       }
 
@@ -533,11 +527,10 @@
         </ul>
         <section class="user-links">
           <div class="cart-container" id="cart-container">
-            <div class="cart-icon" id="cart-icon">
-              <i class="fa fa-shopping-cart"></i>
-              <span class="cart-count" id="cart-count">0</span>
-            </div>
-            <cart-comp></cart-comp>
+            <cart-icon></cart-icon>
+            <cart-comp data-total-price>
+              <span slot="item"></span>
+            </cart-comp>
           </div>
           <a href="./signin.html">Нэвтрэх</a>
           <a href="signin.html"

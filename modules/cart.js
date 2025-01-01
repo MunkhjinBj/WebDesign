@@ -26,8 +26,24 @@ export function getCartItems() {
 
 export function addToCart(item) {
   const exists = cartItems.some((cartItem) => cartItem.id === item.id);
+
   if (!exists) {
     cartItems.push(item);
+
+    const cartIcon = document.querySelector("cart-icon");
+
+    if (cartIcon) {
+      const cartCountElement = cartIcon.shadowRoot.querySelector("#cart-count");
+
+      if (cartCountElement) {
+        let currentCount = parseInt(cartCountElement.textContent || "0", 10);
+        currentCount += 1;
+        cartCountElement.textContent = currentCount;
+
+        localStorage.setItem("cartCount", currentCount);
+      }
+    }
+
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   } else {
     alert("Энэ аялал аль хэдийн таны сагсанд байна.");
@@ -35,9 +51,27 @@ export function addToCart(item) {
 }
 
 export function removeFromCart(id) {
-  console.log("gags");
   cartItems = cartItems.filter((item) => parseInt(item.id, 10) !== id);
-  console.log(cartItems);
+
+  const cartIcon = document.querySelector("cart-icon");
+
+  if (cartIcon) {
+    const cartCountElement = cartIcon.shadowRoot.querySelector("#cart-count");
+
+    if (cartCountElement) {
+      let currentCount = parseInt(cartCountElement.textContent || "0", 10);
+
+      // Prevent negative counts
+      if (currentCount > 0) {
+        currentCount -= 1;
+        cartCountElement.textContent = currentCount;
+
+        // Save the updated count to localStorage
+        localStorage.setItem("cartCount", currentCount);
+      }
+    }
+  }
+
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
 
@@ -45,6 +79,12 @@ export function getTotalPrice() {
   return cartItems
     .reduce((total, item) => total + parseFloat(item.price), 0)
     .toLocaleString();
+}
+
+export function toggle() {
+  const cart = this.shadowRoot.querySelector("#cart");
+  const isVisible = cart.style.display === "block";
+  cart.style.display = isVisible ? "none" : "block";
 }
 
 // export function renderCart() {

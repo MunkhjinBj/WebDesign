@@ -3,66 +3,33 @@ import {
   removeFromCart as removeFromCartModule,
   getCartItems,
   getTotalPrice,
+  toggle,
 } from "../modules/cart.js";
-
 export default class CartComp extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.render = this.render.bind(this);
-  }
 
-  connectedCallback() {
-    this.shadowRoot.addEventListener("click", (event) => {
-      if (event.target.classList.contains("remove-from-cart")) {
-        const id = parseInt(event.target.getAttribute("data-id"), 10);
-        console.log(id);
-        this.removeFromCart(id);
-      }
-      this.render();
-    });
-  }
-
-  addToCart(item) {
-    addToCartModule(item);
-    this.render();
-  }
-
-  removeFromCart(id) {
-    removeFromCartModule(id); // Логикийг модулиас дуудах
-    this.render();
-  }
-
-  disconnectedCallback() {
-    this.shadowRoot.removeEventListener("click", this.handleButtonClick);
-  }
-
-  render() {
-    const cartItems = getCartItems();
-    const totalPrice = getTotalPrice();
-    const cartItemsHTML = cartItems
-      .map(
-        (item) => `
-        <article data-id="${item.id}">
-          <h5>${item.title}</h5>
-          <p>${item.price}₮</p>
-          <button class="remove-from-cart" data-id="${item.id}">Устгах</button>
-        </article>
-      `
-      )
-      .join("");
-    this.shadowRoot.innerHTML = `
+    const template = document.createElement("template");
+    template.innerHTML = `
     <style>  
+        :host(:state(open)) {
+          background-color: lightgreen;
+        }
+        :host(:state(closed)) {
+          background-color: lightcoral;
+        }
         .cart {
             position: absolute;
-            right: 0;
+            right: 20px;
+            top: 74px;
             width: 320px;
             background: #fff;
             padding: 15px;
             border-radius: 8px;
             border: 1px solid #ddd;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: block;
+            display: none;
             z-index: 1000;
             transition: opacity 0.3s ease, transform 0.3s ease;
             transform: translateY(-10px);
@@ -133,14 +100,98 @@ export default class CartComp extends HTMLElement {
             background-color: #c0392b;
         }
     </style>
-     <div id="cart" class="cart">
+         <div id="cart" class="cart">
         <h3>Сагс</h3>
         <div id="cart-items">
-            ${cartItemsHTML || "<p>Сагс хоосон байна</p>"}
+          <slot name="cart-items"><p></p></slot>
         </div>
-        <h4>Нийт: ${getTotalPrice()}₮</h4>
-     </div>
-    `;
+        <h4>Нийт: <slot name="total-price"></slot></h4>
+      </div>
+      `;
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+  }
+
+  static get observedAttributes() {
+    return ["data-total-price"];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === "data-total-price") {
+      const totalPriceElement = this.shadowRoot.querySelector("#total-price");
+      totalPriceElement.textContent = newValue;
+      this.render();
+    }
+  }
+
+  connectedCallback() {
+    this.shadowRoot.addEventListener("click", (event) => {
+      if (event.target.classList.contains("remove-from-cart")) {
+        const id = parseInt(event.target.getAttribute("data-id"), 10);
+        this.removeFromCart(id);
+      }
+    });
+    const slot = this.shadowRoot.querySelector('slot[name="items"]');
+    if (slot) {
+      slot.addEventListener("slotchange", () => {
+        this.render(); // Slot doto
+      });
+    }
+    this.render();
+  }
+
+  disconnectedCallback() {
+    this.shadowRoot.removeEventListener("click", this.handleButtonClick);
+  }
+
+  addToCart(item) {
+    addToCartModule(item);
+    this.updateTotalPrice();
+    this.render();
+  }
+
+  removeFromCart(id) {
+    removeFromCartModule(id);
+    this.updateTotalPrice();
+    this.render();
+  }
+
+  updateTotalPrice() {
+    const cartItems = getCartItems();
+    const totalPrice = cartItems
+      .reduce((sum, item) => sum + parseFloat(item.price), 0)
+      .toLocaleString();
+    // Нийт үнийг атрибут болгон хадгалах
+    localStorage.setItem("data-total-price", totalPrice);
+  }
+
+  render() {
+    const cartItems = getCartItems();
+    const cartItemsHTML = cartItems
+      .map(
+        (item) => `
+        <article data-id="${item.id}">
+          <h5>${item.title}</h5>
+          <p>${item.price}₮</p>
+          <button class="remove-from-cart" data-id="${item.id}">Устгах</button>
+        </article>
+      `
+      )
+      .join("");
+
+    const slotCartItems = this.shadowRoot.querySelector(
+      'slot[name="cart-items"]'
+    );
+    slotCartItems.innerHTML = cartItemsHTML || "<p>Сагс хоосон байна</p>";
+
+    const slotTotalPrice = this.shadowRoot.querySelector(
+      'slot[name="total-price"]'
+    );
+    slotTotalPrice.innerHTML = localStorage.getItem("data-total-price") || "0₮";
+  }
+  toggle() {
+    const cart = this.shadowRoot.querySelector("#cart");
+    const isVisible = cart.style.display === "block";
+    cart.style.display = isVisible ? "none" : "block";
   }
 }
 customElements.define("cart-comp", CartComp);

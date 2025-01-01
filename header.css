@@ -2,17 +2,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://kit.fontawesome.com/d903c022ca.js");
 :root {
-  --primary-color: #47b477;
-  --primary-hover-color: #388e3c;
+  --primary-color: #388e3c;
+  --primary-hover-color: #47b477;
   --text-color: #333;
   --background-color: #ffffff;
+  --sec-background-color: #f3f3f3;
+
   --border-color: #e0e0e0;
   --shadow-color: rgba(0, 0, 4, 0.5);
   --facebook-color: #3b5998;
   --linkedin-color: #0e76a8;
   --google-color: #b7eb2a;
-  --base-font-size: 1rem;
+  --base-font-size: 14px;
   --font-family: "Montserrat Alternates", sans-serif;
+  --font-family-p: "Montserrat", sans-serif;
+
+  --background-color-dark: #0a0a0a;
+  --text-color-dark: #ffffff;
+}
+
+body.light-mode {
+  --background-color: var(--background-color);
+  --text-color: var(--text-color);
+}
+body.dark-mode {
+  --background-color: var(--background-color-dark);
+  --sec-background-color: rgb(15, 15, 27);
+  --text-color: #efecec;
+  --border-color: #0f1a43;
 }
 
 /* Global styles */
@@ -46,6 +63,7 @@ header {
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  color: var(--text-color);
 }
 .header-nav p {
   padding-left: 2em;
@@ -108,6 +126,10 @@ header {
   border-radius: 50%;
 }
 
+.user-links #toggle-theme {
+  cursor: pointer;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .header-nav {
@@ -136,15 +158,41 @@ header {
     background-color: var(--primary-color);
   }
 }
+/* toggle button */
+#toggle-theme {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+#toggle-theme svg {
+  fill: #080d21;
+  color: #080d21;
+}
+
+#toggle-theme svg:last-child {
+  display: none;
+}
+.dark-mode #toggle-theme svg:first-child {
+  display: none;
+}
+.dark-mode #toggle-theme svg:last-child {
+  display: block;
+}
 /*---------------------footer----------------------------*/
 footer {
   padding: 4rem 0;
   display: flex;
   justify-content: center;
-  background-color: rgb(216, 216, 216);
+  background-color: var(--sec-background-color);
 }
 .footer-container {
+  color: var(--text-color);
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -159,8 +207,10 @@ footer {
   text-transform: uppercase;
   padding-bottom: 1rem;
   font-size: 0.8rem;
+  color: var(--text-color);
 }
 .footer-container li {
+  color: var(--text-color);
   flex: 1;
   list-style: none;
   padding-bottom: 0.4rem;
@@ -184,6 +234,7 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
+  color: var(--text-color);
 }
 .social-icons {
   margin: 1rem 0 0 0;
@@ -218,7 +269,7 @@ footer {
 }
 .footer-links a {
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
 }
 
 .footer-address p {
@@ -292,7 +343,7 @@ footer {
 }
 
 /* Position and style for cart icon */
-.cart-icon {
+/* .cart-icon {
   position: relative;
   font-size: 20px;
   cursor: pointer;
@@ -331,7 +382,7 @@ footer {
   display: block;
   transform: translateY(0);
   opacity: 1;
-}
+} */
 
 /* Cart dropdown position */
 

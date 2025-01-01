@@ -1,5 +1,6 @@
 import "./components/TravelItem.js";
 import "./components/CartComp.js";
+import "./components/CartIcon.js";
 import Travels, {
   travelLoader,
   applyFiltersFromURL,
@@ -61,6 +62,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // });
 
   // Сагсанд нэмэх
+  //eniig addToCart ashiglah gej baigaa shuu
   travelGrid.addEventListener("addToCart", (event) => {
     const travelItem = {
       id: event.detail.id,
@@ -126,12 +128,26 @@ document.addEventListener("DOMContentLoaded", async () => {
   document
     .getElementById("clear-filters")
     .addEventListener("click", function () {
-      // Reset all filters here
       document
         .querySelectorAll(".filters input[type='range']")
         .forEach((input) => {
           input.value = input.min;
         });
-      // Reset any other filter options (checkbox, radio buttons)
     });
+
+  //dark-mode
+  const toggleThemeButton = document.querySelector("#toggle-theme");
+
+  toggleThemeButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("light-mode");
+  });
+
+  //state
+  document.addEventListener("showCard", () => {
+    const cartComp = document.querySelector("cart-comp");
+    if (cartComp) {
+      cartComp.toggle();
+    }
+  });
 });
