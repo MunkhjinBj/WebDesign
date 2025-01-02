@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="User Info" />
+    <title>Миний мэдээлэл</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1 {
+        color: #333;
+      }
+      #user-info {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      p {
+        margin: 10px 0;
+      }
+      strong {
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Миний мэдээлэл</h1>
+    <div id="user-info">
+      <p>Loading user info...</p>
+    </div>
+
+    <script>
+      async function fetchUserInfo() {
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+          window.location.href = "signin.html"; // Redirect if no token
+          return;
+        }
+
+        try {
+          const response = await fetch("http://localhost:5501/userinfo", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            const userInfoDiv = document.getElementById("user-info");
+            userInfoDiv.innerHTML = `
+              <p><strong>Нэр:</strong> ${data.full_name}</p>
+              <p><strong>И-мэйл:</strong> ${data.email}</p>
+              <p><strong>Утас:</strong> ${data.phone_number}</p>
+              <p><strong>Төрсөн өдөр:</strong> ${data.date_of_birth}</p>
+              <p><strong>Хүйс:</strong> ${data.gender}</p>
+            `;
+          } else {
+            alert(data.message);
+          }
+        } catch (err) {
+          console.error("Error fetching user info:", err);
+          alert("An error occurred while fetching user info.");
+        }
+      }
+
+      fetchUserInfo();
+    </script>
+  </body>
+</html>
