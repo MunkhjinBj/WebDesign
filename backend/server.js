@@ -8,23 +8,20 @@ const app = express();
 const port = 5501;
 require('dotenv').config();
 
-
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(cors());
-console.log('JWT_SECRET:', process.env.DATABASE_URL);
 
+// Print the DATABASE_URL to confirm it's correctly loaded
+console.log('DATABASE_URL:', process.env.DATABASE_URL);
 
-// Set up PostgreSQL connection pool (Render Database)
+// Set up PostgreSQL connection pool (for local or cloud database)
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL, // Use the internal Render DB URL
-    ssl: {
-      rejectUnauthorized: false, // For secure connection to Render
-    },
-  });
-  
+  connectionString: process.env.DATABASE_URL, // Use your database connection string from .env
+  ssl: process.env.DATABASE_URL.includes('render') ? { rejectUnauthorized: false } : false, // Enable SSL for cloud DB only
+});
 
 // Test database connection
 pool.connect((err, client, release) => {
@@ -63,11 +60,10 @@ app.post('/signup', async (req, res) => {
     // Redirect to signin page after successful registration
     res.redirect('http://127.0.0.1:5501/signin.html');  // Redirect to signin page after successful signup
   } catch (err) {
-    console.error('Error during signup:', err); // Print detailed error
-    res.status(500).json({ error: err.message || 'Server error' }); // Send detailed error message to client
+    console.error('Error during signup:', err);
+    res.status(500).json({ error: err.message || 'Server error' });
   }
 });
-
 
 // POST route for signin (login)
 app.post('/signin', async (req, res) => {
@@ -125,7 +121,7 @@ app.get('/userinfo', async (req, res) => {
     return res.status(401).json({ message: 'Invalid or expired token.' });
   }
 });
-//tst
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
