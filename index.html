@@ -6,8 +6,12 @@
     <meta name="description" content="main page" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Нуууц аялал</title>
-    <link rel="stylesheet" href="./frontend/header.css" />
-    <script type="module" src="./frontend/app.js"></script>
+    <link rel="stylesheet" href="./frontend/header.css"/>
+    <script type="module" src="./frontend/app.js" defer></script>
+
+    <link rel="preconnect" href="https://ka-f.fontawesome.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <style>
       * {
         margin: 0;
@@ -180,6 +184,16 @@
         right: 10px;
       }
 
+      @media (min-width: 991px) and (max-width: 1225px) {
+        .gallery-wrapper img {
+          width: clamp(150px, 30%, 300px);
+          margin-right: 0.5rem;
+        }
+        .motto p {
+          display: none;
+        }
+      }
+
       @media (max-width: 768px) {
         .gallery {
           padding: 1rem 0;
@@ -197,6 +211,9 @@
         .arrow {
           padding: 10px;
           font-size: 1rem;
+        }
+        .motto p {
+          display: none;
         }
       }
 
@@ -301,6 +318,9 @@
         .footer section {
           padding: 10px;
         }
+        .motto p {
+          display: none;
+        }
       }
 
       @media screen and (max-width: 576px) {
@@ -324,6 +344,9 @@
 
         .arrow-left,
         .arrow-right {
+          display: none;
+        }
+        .motto p {
           display: none;
         }
       }
@@ -413,7 +436,7 @@
       }
 
       .main-banner .search-bar form button {
-        background: #28a745;
+        background: #176324;
         max-width: 150px;
         color: #fff;
         border: none;
@@ -500,6 +523,9 @@
           flex-direction: column;
           gap: 0.5rem;
         }
+        .motto p {
+          display: none;
+        }
       }
       travel-item::part(title) {
         color: blue;
@@ -511,7 +537,7 @@
     <header>
       <nav class="header-nav">
         <div class="motto">
-          <a href="./index.html"
+          <a href="./index.html" aria-label="Homepage"
             ><img width="50px" src="./images/ym2/logo.png" alt="logo"
           /></a>
           <p>
@@ -520,10 +546,10 @@
           </p>
         </div>
         <ul class="nav-links">
-          <li><a href="./frontend/aboutUs.html">Бидний тухай</a></li>
-          <li><a href="./frontend/zahialah.html">Аялал захиалах</a></li>
-          <li><a href="./frontend/mytravels.html">Миний аяллууд</a></li>
-          <li><a href="./frontend/travels.html">Aяллууд</a></li>
+          <li><a href="./frontend/aboutUs.html" aria-label="Learn more about us">Бидний тухай</a></li>
+          <li><a href="./frontend/zahialah.html" aria-label="Plan your trip in your prefrence">Аялал захиалах</a></li>
+          <li><a href="./frontend/mytravels.html" aria-label="Navigate your travels">Миний аяллууд</a></li>
+          <li><a href="./frontend/travels.html" aria-label="Deep dive into our travelling options">Aяллууд</a></li>
         </ul>
         <section class="user-links">
           <div class="cart-container" id="cart-container">
@@ -532,9 +558,9 @@
               <span slot="item"></span>
             </cart-comp>
           </div>
-          <a href="./frontend/signin.html">Нэвтрэх</a>
-          <a href="./frontend/signin.html"
-            ><img src="./images/ym2/account_icon.png" alt=""
+          <a href="./frontend/signin.html" aria-label="Sign in to your account">Нэвтрэх</a>
+          <a href="./frontend/signin.html" aria-label="Sign in to your account"
+            ><img src="./images/ym2/account_icon.png" alt="" loading="lazy"
           /></a>
         </section>
       </nav>
@@ -543,7 +569,7 @@
     <main>
       <section class="main-banner">
         <div class="banner-image">
-          <img src="./images/ym2/mainpage.png" alt="Beautiful Landscape" />
+          <img src="./images/ym2/mainpage.webp" alt="Beautiful Landscape" loading="lazy"/>
         </div>
         <div class="search-bar">
           <form>
@@ -573,7 +599,7 @@
           <travel-item
             data-id="1"
             data-title="Хөвсгөл далайн аялал"
-            data-image="/images/travels/Khuvsgul lake.jpg"
+            data-image="/images/travels/Khuvsgul lake.webp"
             data-location="Хөвсгөл"
             data-days="5"
             data-price="350,000"
@@ -581,7 +607,7 @@
           <travel-item
             data-id="2"
             data-title="Увс нуурын аялал"
-            data-image="/images/travels/uvsnuur.png"
+            data-image="/images/travels/uvsnuur.webp"
             data-location="Увс"
             data-days="3"
             data-price="280,000"
@@ -589,7 +615,7 @@
           <travel-item
             data-id="1"
             data-title="Хөвсгөл далайн аялал"
-            data-image="/images/travels/Khuvsgul lake.jpg"
+            data-image="/images/travels/Khuvsgul lake.webp"
             data-location="Хөвсгөл"
             data-days="5"
             data-price="350,000"
@@ -597,7 +623,7 @@
           <travel-item
             data-id="2"
             data-title="Увс нуурын аялал"
-            data-image="/images/travels/uvsnuur.png"
+            data-image="/images/travels/uvsnuur.webp"
             data-location="Увс"
             data-days="3"
             data-price="280,000"
@@ -605,7 +631,7 @@
           <travel-item
             data-id="1"
             data-title="Хөвсгөл далайн аялал"
-            data-image="./images/travels/Khuvsgul lake.jpg"
+            data-image="./images/travels/Khuvsgul lake.webp"
             data-location="Хөвсгөл"
             data-days="5"
             data-price="350,000"
@@ -690,13 +716,13 @@
       </section>
       <section class="gallery">
         <div class="gallery-wrapper" id="galleryWrapper">
-          <img src="./images/gallery/img1.jpg" alt="Image 1" />
-          <img src="./images/gallery/img2.jpg" alt="Image 2" />
-          <img src="./images/gallery/img3.jpg" alt="Image 3" />
-          <img src="./images/gallery/img4.jpg" alt="Image 4" />
-          <img src="./images/gallery/img5.jpg" alt="Image 5" />
-          <img src="./images/gallery/img6.jpg" alt="Image 6" />
-          <img src="./images/gallery/img7.jpg" alt="Image 7" />
+          <img src="./images/gallery/img1.webp" alt="Image 1" loading="lazy"/>
+          <img src="./images/gallery/img2.webp" alt="Image 2" loading="lazy"/>
+          <img src="./images/gallery/img3.webp" alt="Image 3" loading="lazy"/>
+          <img src="./images/gallery/img4.webp" alt="Image 4" loading="lazy"/>
+          <img src="./images/gallery/img5.webp" alt="Image 5" loading="lazy"/>
+          <img src="./images/gallery/img6.webp" alt="Image 6" loading="lazy"/>
+          <img src="./images/gallery/img7.webp" alt="Image 7" loading="lazy"/>
         </div>
         <button class="arrow left" id="leftArrow">&lt;</button>
         <button class="arrow right" id="rightArrow">&gt;</button>
@@ -704,17 +730,17 @@
       <section class="partner_org">
         <h4>Хамтрагч байгуулгууд</h4>
         <div class="logo-grid">
-          <img width="70px" src="./images/partnerOrg/apple.png" alt="" />
-          <img src="./images/partnerOrg/buurger.png" alt="" />
-          <img src="./images/partnerOrg/disney.png" alt="" />
-          <img src="./images/partnerOrg/kfc.png" alt="" />
-          <img src="./images/partnerOrg/gap.png" alt="" />
-          <img src="./images/partnerOrg/huvtsas.png" alt="" />
-          <img src="./images/partnerOrg/image 17.png" alt="" />
-          <img src="./images/partnerOrg/paramount.png" alt="" />
-          <img src="./images/partnerOrg/uul1.png" alt="" />
-          <img src="./images/partnerOrg/uul2.png" alt="" />
-          <img src="./images/partnerOrg/uul3.png" alt="" />
+          <img width="70px" src="./images/partnerOrg/apple.webp" alt="Our sponsors" />
+          <img src="./images/partnerOrg/buurger.webp" alt="Our sponsors" loading="lazy"/>
+          <img src="./images/partnerOrg/disney.png" alt="Our sponsors" loading="lazy"/>
+          <img src="./images/partnerOrg/kfc.webp" alt="Our sponsors" loading="lazy" />
+          <img src="./images/partnerOrg/gap.png" alt="Our sponsors" loading="lazy"/>
+          <img src="./images/partnerOrg/huvtsas.webp" alt="Our sponsors" loading="lazy"/>
+          <img src="./images/partnerOrg/image 17.webp" alt="Our sponsors" loading="lazy"/>
+          <img src="./images/partnerOrg/paramount.webp" alt="Our sponsors" loading="lazy"/>
+          <img src="./images/partnerOrg/uul1.webp" alt="Our sponsors" loading="lazy"/>
+          <img src="./images/partnerOrg/uul2.webp" alt="Our sponsors" loading="lazy"/>
+          <img src="./images/partnerOrg/uul3.webp" alt="Our sponsors" loading="lazy"/>
         </div>
       </section>
     </main>
@@ -731,7 +757,7 @@
           <div class="social-icons">
             <ul>
               <li>
-                <a style="color: white" href="#"
+                <a style="color: white" href="#" aria-label="Facebook"
                   ><i
                     style="font-size: 34px"
                     class="fa-brands fa-square-facebook"
@@ -739,12 +765,12 @@
                 </a>
               </li>
               <li>
-                <a style="color: white" href="#"
+                <a style="color: white" href="#" aria-label="Twitter"
                   ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
                 ></a>
               </li>
               <li>
-                <a style="color: white" href="#"
+                <a style="color: white" href="#" aria-label="Instagram"
                   ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
                 ></a>
               </li>
@@ -754,8 +780,8 @@
         <section class="footer-links">
           <h4>Бидний тухай</h4>
           <ul>
-            <li><a href="aboutUs.html">Танилцуулга</a></li>
-            <li><a href="FaQ.html">Асуулт хариулт</a></li>
+            <li><a href="aboutUs.html" aria-label="Learn more about us">Танилцуулга</a></li>
+            <li><a href="FaQ.html" aria-label="Frequently asked questions">Асуулт хариулт</a></li>
           </ul>
         </section>
         <section class="footer-contact">
@@ -764,7 +790,7 @@
             <li>
               <p>
                 и-мэйл:
-                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us!">nuutsaylal@gmail.com</a>
               </p>
             </li>
             <li><p>Phone: +976 99999999</p></li>
@@ -772,12 +798,14 @@
         </section>
         <section class="footer-address">
           <h4>Манай хаяг</h4>
+          <ul>
           <li>
             <p>
               Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
               Улаанбаатар
             </p>
           </li>
+          </ul>
         </section>
       </div>
     </footer>
@@ -785,6 +813,7 @@
     <script
       src="https://kit.fontawesome.com/d903c022ca.js"
       crossorigin="anonymous"
+      defer
     ></script>
     <script>
       const galleryWrapper = document.getElementById("galleryWrapper");
@@ -819,6 +848,6 @@
 
       updateArrows();
     </script>
-    <script src="arrows.js"></script>
+    <script src="arrows.js" defer></script>
   </body>
 </html>

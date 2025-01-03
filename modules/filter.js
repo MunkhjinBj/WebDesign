@@ -22,7 +22,7 @@ export default class Travels {
 //         </ul>
 //         <ul class="addCart">
 //           <li>
-//             <button class="add-to-cart">Сагслах</button>
+//             <button class="add-to-cart" aria-label="add to the cart">Сагслах</button>
 //           </li>
 //           <li>
 //             <h2>${this.price}₮</h2>
@@ -188,7 +188,7 @@ export async function renderFilters() {
     "beforeend",
     `
     <div class="slider-container">
-      <input type="range" id="min-price" min="8135" max="1955800" value="8135" step="100" oninput="updatePrice()">
+      <input type="range" id="min-price"  aria-label = "Price range"min="8135" max="1955800" value="8135" step="100" oninput="updatePrice()">
     </div>
     <div class="price-display">
       <span id="min-price-display">100,000₮</span>
