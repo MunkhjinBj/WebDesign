@@ -1,13 +1,13 @@
-import "/components/TravelItem.js";
+import "../components/TravelItem.js";
 ("");
-import "/components/CartComp.js";
-import "/components/CartIcon.js";
+import "../components/CartComp.js";
+import "../components/CartIcon.js";
 import Travels, {
   travelLoader,
   applyFiltersFromURL,
   renderFilters,
   renderTravels,
-} from "/modules/filter.js";
+} from "../modules/filter.js";
 
 // import Cart, { addToCart, removeFromCart } from "./modules/cart.js";
 

@@ -50,7 +50,7 @@ export async function travelLoader() {
     return data.travels;
   } catch (error) {
     console.error("Error loading travels:", error.message);
-    return []; // Return an empty array to prevent frontend crashes
+    return [];
   }
 }
 

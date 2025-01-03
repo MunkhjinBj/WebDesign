@@ -44,33 +44,8 @@ app.get("/api/destinations", async (req, res) => {
   }
 });
 
-// Start Server and Swagger Docs
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`Server running at http://localhost:${port}`);
   swaggerDocs(app, port);
   console.log(`Swagger Docs available at http:// localhost:${port}/docs`);
 });
-
-// import express from "express";
-// import bodyParser from "body-parser";
-// import travelRoutes from "./routes/travels.mjs";
-// import userRoutes from "./routes/users.mjs";
-// import bookingRoutes from "./routes/bookings.mjs";
-// import reviewRoutes from "./routes/reviews.mjs";
-// import paymentRoutes from "./routes/payment.mjs";
-
-// const app = express();
-// const PORT = 3000;
-
-// app.use(bodyParser.json());
-
-// // Routes
-// app.use("/api/travels", travelRoutes);
-// app.use("/api/users", userRoutes);
-// app.use("/api/bookings", bookingRoutes);
-// app.use("/api/reviews", reviewRoutes);
-// app.use("/api/payments", paymentRoutes);
-
-// app.listen(PORT, () => {
-//   console.log(`Server running at http://localhost:${PORT}`);
-// });
