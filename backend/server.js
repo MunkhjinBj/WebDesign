@@ -20,7 +20,7 @@ console.log('DATABASE_URL:', process.env.DATABASE_URL);
 // Set up PostgreSQL connection pool (for local or cloud database)
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL, // Use your database connection string from .env
-  ssl: process.env.DATABASE_URL.includes('render') ? { rejectUnauthorized: false } : false, // Enable SSL for cloud DB only
+  ssl: { rejectUnauthorized: false }  , // Enable SSL for cloud DB only
 });
 
 // Test database connection
