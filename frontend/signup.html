@@ -18,7 +18,7 @@
       <nav class="header-nav">
         <div class="motto">
           <a href="./index.html"
-            ><img width="50px" src="./images/ym2/logo.png" alt="logo"
+            ><img width="50px" src="../images/ym2/logo.png" alt="logo"
           /></a>
           <p>
             Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
@@ -128,9 +128,12 @@
         </form>
         <div class="or-container">OR</div>
         <div class="social-login">
-          <button class="social-btn google" onclick="window.location.href='/auth/google'">
+          <button
+            class="social-btn google"
+            onclick="window.location.href='/auth/google'"
+          >
             <i class="fab fa-google"></i>
-          </button>          
+          </button>
           <button class="social-btn facebook">
             <i class="fab fa-facebook-f"></i>
           </button>
@@ -209,16 +212,16 @@
     ></script>
     <script src="muu.js"></script>
     <script>
-      document.querySelector('form').addEventListener('submit', function (e) {
-        const password = document.getElementById('password').value;
-        const confirmPassword = document.getElementById('confirm-password').value;
-    
+      document.querySelector("form").addEventListener("submit", function (e) {
+        const password = document.getElementById("password").value;
+        const confirmPassword =
+          document.getElementById("confirm-password").value;
+
         if (password !== confirmPassword) {
           e.preventDefault();
-          alert('Passwords do not match!');
+          alert("Passwords do not match!");
         }
       });
     </script>
-    
   </body>
 </html>

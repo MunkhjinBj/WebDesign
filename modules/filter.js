@@ -4,7 +4,7 @@ export default class Travels {
     this.image = travelObj.image;
     this.title = travelObj.title;
     this.type = travelObj.type;
-    this.days = travelObj.day;
+    this.days = travelObj.days;
     this.price = travelObj.price;
     this.season = travelObj.season;
     this.location = travelObj.location;
@@ -202,12 +202,6 @@ export async function renderTravels(filteredTravels = null) {
   const travelsContainer = document.getElementById("travel-grid");
 
   const travelsData = filteredTravels || (await travelLoader());
-
-  if (!Array.isArray(travelsData)) {
-    console.error("renderTravels expected an array but got:", travelsData);
-    travelsContainer.innerHTML = "<p>Error loading travel data.</p>";
-    return;
-  }
 
   travelsContainer.innerHTML = travelsData
     .map((travel) => {

@@ -16,7 +16,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.resolve("frontend")));
+app.use(express.static(path.resolve(".")));
 app.use("/components", express.static(path.resolve("components")));
 app.use("/modules", express.static(path.resolve("modules")));
 app.use("/images", express.static(path.resolve("images")));
@@ -24,7 +24,7 @@ app.use("/images", express.static(path.resolve("images")));
 const port = 3000;
 
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve("frontend/index.html"));
+  res.sendFile(path.resolve("../index.html"));
 });
 app.get("/frontend/app.js", (req, res) => {
   res.sendFile(path.resolve("frontend/app.js"));
