@@ -4,31 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="SignIn">
-    <link rel="stylesheet" href="header.css" />
-    <link rel="stylesheet" href="sign_css.css" />
-    <script type="module" src="app.js"></script>
+    <link rel="stylesheet" href="../assets/css/header.css"/>
+    <link rel="stylesheet" href="../assets/css/sign_css.css"/>
+    <script type="module" src="../assets/js/app.js"></script>
     <title>Нэвтрэх</title>
   </head>
   <body>
     <header>
       <nav class="header-nav">
         <div class="motto">
-          <a href="./index.html"
-            ><img width="50px" src="./images/ym2/logo.png" alt="logo"
+          <a href="./index.html" aria-label="Go to homepage"
+            ><img width="50px" src="../images/ym2/logo.png" alt="logo"
           /></a>
           <p>
             Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
             <strong style="font-weight: 600">бид бүтээж өгнө</strong>
           </p>
         </div>
-      <ul class="nav-links">
-          <li><a href="./aboutUs.html">Бидний тухай</a></li>
-          <li><a href="./zahialah.html">Аялал захиалах</a></li>
-          <li><a href="./mytravels.html">Миний аяллууд</a></li>
-          <li><a href="./travels.html">Aяллууд</a></li>
-      </ul>
+        <ul class="nav-links">
+          <li><a href="./aboutUs.html" aria-label="Learn more about us.">Бидний тухай</a></li>
+          <li><a href="./zahialah.html" aria-label="Dive deep into our travelling.">Аялал захиалах</a></li>
+          <li><a href="./mytravels.html"aria-label="Look into your adventures.">Миний аяллууд</a></li>
+          <li><a href="./travels.html"aria-label="Learn more about our travelling options that you can look.">Aяллууд</a></li>
+        </ul>
       <section class="user-links">
-        <button id="toggle-theme">
+        <button id="toggle-theme" aria-label="Switch themes">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -58,9 +58,9 @@
             <span slot="item"></span>
           </cart-comp>
         </div>
-        <a href="./signin.html">Нэвтрэх</a>
-        <a href="signin.html"
-          ><img src="/images/ym2/account_icon.png" alt=""
+        <a href="./signin.html" aria-label="Sign in to your account">Нэвтрэх</a>
+        <a href="./signin.html" aria-label="Sign in to your account"
+          ><img src="../images/ym2/account_icon.png" alt=""
         /></a>
       </section>
     </nav>
@@ -76,23 +76,23 @@
           <div class="password-container">
             <label for="password">Нууц үг</label>
             <input type="password" id="password" name="password" required />
-            <button type="button" class="toggle-password">
+            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
               <i class="fas fa-eye"></i>
             </button>
           </div>
-          <a href="#" class="forgot-password">Нууц үгээ мартсан уу?</a>
-          <button type="submit" class="primary-btn">Нэвтрэх</button>
+          <a href="#" class="forgot-password" aria-label="Forgot your Password?">Нууц үгээ мартсан уу?</a>
+          <button type="submit" class="primary-btn" aria-label="Forgot your password?">Нэвтрэх</button>
         </form>
         <div class="or-container">OR</div>
         <div class="social-login">
-          <button class="social-btn google">
+          <button class="social-btn google" aria-label="Sign in with Google">
             <i class="fab fa-google"></i>
           </button>
-          <button class="social-btn facebook">
+          <button class="social-btn facebook" aria-label="Sign in with Facebook">
             <i class="fab fa-facebook-f"></i>
           </button>
         </div>
-        <p>Бүртгэлтэй хаяг байхгүй юу? <a href="./signup.html">Бүртгүүлэх</a></p>
+        <p>Бүртгэлтэй хаяг байхгүй юу? <a href="./signup.html" aria-label="Dont have an account?">Бүртгүүлэх</a></p>
       </section>
     </div>
     
@@ -100,7 +100,7 @@
       <div class="footer-container">
         <section class="footer-first">
           <div class="footer-logo">
-            <img src="./images/ym2/logo.png" alt="Logo" />
+            <img src="../images/ym2/logo.png" alt="Logo" />
             <p>
               нууц <br />
               аялал
@@ -136,8 +136,8 @@
         <section class="footer-links">
           <h4>Бидний тухай</h4>
           <ul>
-            <li><a href="aboutUs.html">Танилцуулга</a></li>
-            <li><a href="QnA.html">Асуулт хариулт</a></li>
+            <li><a href="./aboutUs.html" aria-label="Learn more about us">Танилцуулга</a></li>
+            <li><a href="./QnA.html" aria-label="Some questions and answers">Асуулт хариулт</a></li>
           </ul>
         </section>
         <section class="footer-contact">
@@ -146,7 +146,7 @@
             <li>
               <p>
                 и-мэйл:
-                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+                <a href="mailto:nuutsaylal@gmail.com" aria-label="Send us a mail">nuutsaylal@gmail.com</a>
               </p>
             </li>
             <li><p>Phone: +976 99999999</p></li>
@@ -154,12 +154,14 @@
         </section>
         <section class="footer-address">
           <h4>Манай хаяг</h4>
+          <ul>
           <li>
             <p>
               Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
               Улаанбаатар
             </p>
           </li>
+        </ul>
         </section>
       </div>
     </footer>
@@ -168,24 +170,9 @@
     
     
     <script src="https://kit.fontawesome.com/d903c022ca.js" crossorigin="anonymous"></script>
-    <script src="muu.js"></script>
+    <script src="../assets/js/muu.js"></script>
     <script>
-      // Password visibility toggle
-      document.querySelector('.toggle-password').addEventListener('click', function() {
-        const passwordInput = document.getElementById('password');
-        const icon = this.querySelector('i');
-        
-        if (passwordInput.type === 'password') {
-          passwordInput.type = 'text';
-          icon.classList.remove('fa-eye');
-          icon.classList.add('fa-eye-slash');
-        } else {
-          passwordInput.type = 'password';
-          icon.classList.remove('fa-eye-slash');
-          icon.classList.add('fa-eye');
-        }
-      });
-    
+          
       // Form submission handler
       document.querySelector('form').addEventListener('submit', async function(e) {
         e.preventDefault();  // Prevent default form submission
@@ -209,7 +196,7 @@
             localStorage.setItem('token', data.token);
     
             // Redirect to user info page
-            window.location.href = 'userinfo.html';  // Replace with your user info page URL
+            window.location.href = './userinfo.html';  // Replace with your user info page URL
           } else {
             alert(data.message);
           }

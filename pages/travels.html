@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="About us" />
-    <link rel="stylesheet" href="header.css" />
-    <script type="module" src="app.js"></script>
-    <title>About us</title>
+    <meta name="keywords" content="travel, tours, Mongolia, trips, booking" />
+
+    <link rel="stylesheet" href="../assets/css/header.css" />
+    <link rel="stylesheet" href="../assets/css/filter.css" />
+    <title>Travels</title>
+    <script type="module" src="../assets/js/app.js"></script>
   </head>
   <body>
     <header>
       <nav class="header-nav">
         <div class="motto">
           <a href="./index.html"
-            ><img width="50px" src="./images/ym2/logo.png" alt="logo"
+            ><img width="50px" src="../images/ym2/logo.png" alt="logo"
           /></a>
           <p>
             Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
@@ -21,13 +23,13 @@
           </p>
         </div>
         <ul class="nav-links">
-          <li><a href="./aboutUs.html">Бидний тухай</a></li>
-          <li><a href="./zahialah.html">Аялал захиалах</a></li>
-          <li><a href="./mytravels.html">Миний аяллууд</a></li>
-          <li><a href="./travels.html">Aяллууд</a></li>
+          <li><a href="./aboutUs.html" aria-label="Learn more about us.">Бидний тухай</a></li>
+          <li><a href="./zahialah.html" aria-label="Dive deep into our travelling.">Аялал захиалах</a></li>
+          <li><a href="./mytravels.html"aria-label="Look into your adventures.">Миний аяллууд</a></li>
+          <li><a href="./travels.html"aria-label="Learn more about our travelling options that you can look.">Aяллууд</a></li>
         </ul>
         <section class="user-links">
-          <button id="toggle-theme">
+          <button id="toggle-theme" aria-label="Switch themes">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -51,62 +53,65 @@
               />
             </svg>
           </button>
-          <div class="cart-container" id="cart-container">
+          <div class="cart-container" id="cart-container" aria-label="Go to cart">
             <cart-icon></cart-icon>
             <cart-comp data-total-price>
               <span slot="item"></span>
             </cart-comp>
           </div>
-          <a href="./signin.html">Нэвтрэх</a>
-          <a href="signin.html"
-            ><img src="/images/ym2/account_icon.png" alt=""
+          <a href="./signin.html" aria-label="Sign in to your account">Нэвтрэх</a>
+          <a href="./signin.html" aria-label="Sign in to your account"
+            ><img src="../images/ym2/account_icon.png" alt=""
           /></a>
         </section>
       </nav>
     </header>
-    <section class="about-section">
-      <div class="about-container">
-        <div class="about-header">
-          <h1>БИДНИЙ ТУХАЙ</h1>
-          <p class="intro">
-            Нууц аялалд тавтай морил! Бид таны аяллыг мартагдашгүй болгохын тулд
-            таны хүсэл, сонирхол, төсөвт тохирсон аяллыг зөвхөн танд зориулан
-            төлөвлөдөг.
-          </p>
+
+    <div class="nuur-container">
+      <img src="../images/ym2/main.png" alt="" />
+      <h1>Аялалууд</h1>
+    </div>
+
+    <main class="content">
+      <button id="filter-toggle" class="burger-menu" aria-label="Apply these filter for your preferences">☰ Шүүлтүүр</button>
+      <aside class="filters">
+        <h1>Шүүлтүүр</h1>
+
+        <div class="filter-group days">
+          <h2>Аяллын хоног</h2>
         </div>
-        <div class="about-images">
-          <img src="https://picsum.photos/300" alt="Adventure" />
-          <img src="https://picsum.photos/300" alt="Culture" />
-          <img src="https://picsum.photos/300" alt="Relaxation" />
+        <div class="filter-group types">
+          <h2>Аяллын төрөл</h2>
         </div>
-        <div class="about-details">
-          <p>
-            Нууц аялал бол зүгээр нэг аялал зохион байгуулагч биш, харин хувь
-            хүний сонирхолд нийцүүлэн адал явдлаар дүүрэн аяллыг бүтээдэг газар
-            юм. Та адал явдал эрэлхийлэгч үү, соёлын уламжлалыг сонирхогч уу,
-            эсвэл амралт хэрэгтэй хүн үү гэдгээс үл хамааран бид таны хүсэлд
-            нийцсэн аяллын хөтөлбөрийг бүрдүүлнэ.
-          </p>
-          <p>
-            Та хаашаа аялахыг хүсэж байгаа, юу хийхийг хүсэж байгаа, ямар
-            төсөвтэй байгаа талаараа бидэнд хэлээрэй. Бид танд тохирсон төгс
-            аяллыг бүтээх болно.
-          </p>
-          <p class="call-to-action">
-            <strong
-              >Өнөөдөр таны аялал эхэлж байна. Адал явдал таныг хүлээж
-              байна!</strong
-            >
-          </p>
+        <div class="filter-group season">
+          <h2>Улирал</h2>
         </div>
-      </div>
-    </section>
+        <div class="filter-group age">
+          <h2>Насны ангилал</h2>
+        </div>
+        <div class="filter-group price">
+          <h2 for="price">Үнэ</h2>
+        </div>
+
+        <button id="clear-filters">цэвэрлэх</button>
+      </aside>
+
+      <section class="travels-container">
+        <div id="travel-grid"></div>
+
+        <div class="pagination" aria-label="Page navigation">
+          <a href="#" aria-label="Previous page" aria-label="Navigate to Previous page">&laquo;</a>
+          <a href="#" aria-label="Page 1" aria-label="Current page">1</a>
+          <a href="#" aria-label="Next page" aria-label="Navigate to Next page">&raquo;</a>
+        </div>
+      </section>
+    </main>
 
     <footer>
       <div class="footer-container">
         <section class="footer-first">
           <div class="footer-logo">
-            <img src="./images/ym2/logo.png" alt="Logo" />
+            <img src="../images/ym2/logo.png" alt="Logo" />
             <p>
               нууц <br />
               аялал
@@ -115,7 +120,7 @@
           <div class="social-icons">
             <ul>
               <li>
-                <a style="color: white" href="#"
+                <a style="color: white" href="#" aria-label="Visit our Facebook page"
                   ><i
                     style="font-size: 34px"
                     class="fa-brands fa-square-facebook"
@@ -123,12 +128,12 @@
                 </a>
               </li>
               <li>
-                <a style="color: white" href="#"
+                <a style="color: white" href="#" aria-label="Visit our Twitter page"
                   ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
                 ></a>
               </li>
               <li>
-                <a style="color: white" href="#"
+                <a style="color: white" href="#" aria-label="Visit our Instagram page"
                   ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
                 ></a>
               </li>
@@ -136,39 +141,36 @@
           </div>
         </section>
         <section class="footer-links">
-          <h4>Бидний тухай</h4>
+          <h2>Бидний тухай</h2>
           <ul>
-            <li><a href="aboutUs.html">Танилцуулга</a></li>
-            <li><a href="FaQ.html">Асуулт хариулт</a></li>
+            <li><a href="./aboutUs.html" aria-label="Learn more about us">Танилцуулга</a></li>
+            <li><a href="./FaQ.html" aria-label="Some frequently asked questions">Асуулт хариулт</a></li>
           </ul>
         </section>
         <section class="footer-contact">
-          <h4>Холбоо барих</h4>
+          <h2>Холбоо барих</h2>
           <ul>
             <li>
               <p>
                 и-мэйл:
-                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+                <a href="mailto:nuutsaylal@gmail.com" aria-label="Send mail to us">nuutsaylal@gmail.com</a>
               </p>
             </li>
             <li><p>Phone: +976 99999999</p></li>
           </ul>
         </section>
         <section class="footer-address">
-          <h4>Манай хаяг</h4>
+          <h2>Манай хаяг</h2>
+          <ul>
           <li>
             <p>
               Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
               Улаанбаатар
             </p>
           </li>
+          </ul>
         </section>
       </div>
     </footer>
-
-    <script
-      src="https://kit.fontawesome.com/d903c022ca.js"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>

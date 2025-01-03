@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="main page" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Нуууц аялал</title>
+
+    <link rel="preconnect" href="https://ka-f.fontawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+
+    <link rel="stylesheet" href="../assets/css/header.css" />
+    <script type="module" src="../assets/js/app.js"></script>
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-style: normal;
+        box-sizing: border-box;
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 3rem;
+      }
+
+      /*-------comment--------*/
+      .comment_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 50px 10rem 5rem 10rem;
+      }
+
+      .comment_section .comments-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+
+      .comment_section .comments {
+        display: flex;
+        align-items: flex-start;
+        padding-top: 50px;
+        gap: 30px;
+        position: relative;
+      }
+      .comment_section h3 {
+        margin-right: 30em;
+        font-weight: 510;
+        font-size: 1.2em;
+        position: relative;
+      }
+      .comment_section .comments article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 400px;
+        padding: 1rem;
+        border-radius: 16px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      }
+      .comment_section .comments article:hover {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;
+        transform: translateY(-0.3%);
+        transition: 0.3s ease;
+      }
+      .comment_section article p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5;
+        font-size: 12px;
+        text-align: justify;
+        vertical-align: top;
+        font-family: var(--font-family-p);
+        font-weight: 300;
+      }
+      .comment_section article span {
+        display: flex;
+        font-size: 1.3em;
+        color: gold;
+        align-items: end;
+      }
+
+      .rating {
+        display: flex;
+        width: 100%;
+        margin-top: 10px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+      }
+      .user_time {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      article strong,
+      article time {
+        margin-top: 5px;
+        font-family: var(--font-family-p);
+        font-weight: 300;
+        font-size: 12px;
+      }
+
+      .arrow-left,
+      .arrow-right {
+        font-size: 30px;
+        position: relative;
+        top: 50%;
+        cursor: pointer;
+        z-index: 0;
+      }
+
+      .arrow-left {
+        right: 20px;
+      }
+      .arrow-right {
+        left: 20px;
+      }
+
+      /* gallery */
+      .gallery {
+        position: relative;
+        width: 90%;
+        max-width: 1200px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        background-color: var(--background-color);
+        margin: auto;
+      }
+
+      .gallery-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        will-change: transform;
+      }
+
+      .gallery-wrapper img {
+        flex-shrink: 0;
+        width: clamp(200px, 20%, 250px);
+        height: auto;
+        margin-right: 15px;
+        object-fit: cover;
+        border-radius: 5px;
+        user-select: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+        font-size: 1.5rem;
+        transition: var(--background-color) 0.3s;
+      }
+
+      .arrow:hover {
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+
+      .arrow.left {
+        left: 10px;
+      }
+
+      .arrow.right {
+        right: 10px;
+      }
+
+      @media (max-width: 768px) {
+        .gallery {
+          padding: 1rem 0;
+        }
+
+        .gallery-wrapper img {
+          width: clamp(
+            150px,
+            30%,
+            300px
+          ); /* Жижиг дэлгэцэд зурагны хэмжээг багасгана */
+          margin-right: 0.5rem;
+        }
+
+        .arrow {
+          padding: 10px;
+          font-size: 1rem;
+        }
+      }
+
+      .partner_org {
+        margin: 100px 200px 120px 200px;
+      }
+
+      .partner_org h4 {
+        text-align: left;
+        padding-left: 120px;
+        font-size: 18px;
+        margin-bottom: 50px;
+        font-weight: 600;
+      }
+
+      .logo-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+        justify-items: center;
+        align-items: center;
+      }
+
+      .logo-grid img {
+        max-width: 80px;
+        height: auto;
+        transition: transform 0.3s ease;
+      }
+
+      .logo-grid img:hover {
+        transform: scale(1.1);
+      }
+
+      .logo-grid img:nth-child(-n + 6) {
+        grid-column-start: span 1;
+        margin-left: auto;
+      }
+
+      .logo-grid img:nth-child(n + 7) {
+        grid-column-start: span 1;
+        margin-right: auto;
+      }
+
+      @media screen and (max-width: 992px) {
+        .comment_section .comments-container {
+          flex-direction: column;
+          padding: 20px;
+          gap: 40px;
+        }
+
+        .comment_section h3 {
+          margin-left: 0;
+          text-align: center;
+        }
+
+        .partner_org {
+          margin: 30px 50px;
+        }
+
+        .logo-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .motto p {
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .header-nav {
+          flex-direction: column;
+          padding: 10px;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+          padding: 10px 0;
+        }
+
+        .nav-links li {
+          margin: 10px 0;
+        }
+
+        .user-links {
+          width: 100%;
+          justify-content: center;
+          padding: 10px 0;
+        }
+
+        .logo-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+        }
+
+        .footer {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 30px;
+        }
+
+        .footer section {
+          padding: 10px;
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        .comment_section article {
+          max-width: 100%;
+        }
+
+        .logo-grid {
+          grid-template-columns: repeat(1, 1fr);
+          gap: 40px;
+        }
+
+        .partner_org {
+          margin: 30px 20px;
+        }
+
+        .partner_org h4 {
+          padding-left: 0;
+          text-align: center;
+        }
+
+        .arrow-left,
+        .arrow-right {
+          display: none;
+        }
+      }
+      @keyframes appear {
+        from {
+          opacity: 0;
+          scale: 0.5;
+        }
+        to {
+          opacity: 1;
+          scale: 1;
+        }
+      }
+      .block {
+        animation: appear linear;
+        animation-timeline: view();
+        animation-range: entry 0;
+      }
+
+      .main-banner {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .main-banner .banner-image img {
+        width: 95vw;
+        height: auto;
+        display: block;
+        padding: 40px 60px 60px 60px;
+      }
+
+      .main-banner .search-bar {
+        position: absolute;
+        width: 75vw;
+        bottom: 1%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--background-color);
+        padding: 1rem 1.8rem;
+        border-radius: 18px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 29px 0px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        transition: all 0.3s ease-in-out;
+        gap: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+
+      .main-banner .search-bar form {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        box-sizing: border-box;
+      }
+
+      .main-banner .search-bar label {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.9rem;
+        color: #626262;
+        text-align: left;
+        padding: 0 8px;
+        box-sizing: border-box;
+      }
+
+      .main-banner .search-bar input,
+      .main-banner .search-bar button {
+        width: 100%;
+
+        position: relative;
+        padding: 0.5rem;
+        border: 1px solid var(--background-color);
+        background-color: #e6e6e6;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+        flex: 1 1 auto; /* Уян хатан байдалд тохируулсан */
+
+        box-sizing: border-box;
+      }
+
+      .main-banner .search-bar form button {
+        background: #17631D;
+        max-width: 150px;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        height: max-content;
+        transition: background-color 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      .main-banner .search-bar button:hover {
+        background: #218838;
+      }
+
+      @media (max-width: 768px) {
+        .main-banner .search-bar {
+          width: 95%; /* Бага дэлгэц дээр илүү нарийн */
+          padding: 0.8rem 1rem;
+        }
+
+        .main-banner .search-bar input,
+        .main-banner .search-bar button {
+          font-size: 0.8rem; /* Бага дэлгэцэд текстийг жижигрүүлэх */
+        }
+      }
+      /* Popular tours section */
+      .popular-tours {
+        text-align: center;
+        padding: 2rem 8rem;
+        background: #fff;
+        background-color: #f7f6f0;
+      }
+
+      .popular-tours h2 {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        font-weight: 550;
+        text-align: left;
+        padding-bottom: 3rem;
+      }
+
+      .tours-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .tour {
+        background: #fdfdfd;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .tour:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .tour img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+
+      .tour-info {
+        padding: 1rem;
+      }
+
+      .tour-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .tour-info p {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .main-banner .search-bar {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+      travel-item::part(title) {
+        color: blue;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="header-nav">
+        <div class="motto">
+          <a href="./index.html" 
+            ><img width="50px" src="../images/ym2/logo.png" alt="logo" loading="lazy"
+          /></a>
+          <p>
+            Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
+            <strong style="font-weight: 600">бид бүтээж өгнө</strong>
+          </p>
+        </div>
+        <ul class="nav-links">
+          <li><a href="./aboutUs.html" aria-label="Learn more about us.">Бидний тухай</a></li>
+          <li><a href="./zahialah.html" aria-label="Dive deep into our travelling.">Аялал захиалах</a></li>
+          <li><a href="./mytravels.html"aria-label="Look into your adventures.">Миний аяллууд</a></li>
+          <li><a href="./travels.html"aria-label="Learn more about our travelling options that you can look.">Aяллууд</a></li>
+        </ul>
+        <section class="user-links">
+          <div class="cart-container" id="cart-container">
+            <cart-icon></cart-icon>
+            <cart-comp data-total-price>
+              <span slot="item"></span>
+            </cart-comp>
+          </div>
+          <a href="./signin.html" aria-label="Sign in to your account.">Нэвтрэх</a>
+          <a href="./signin.html" aria-label="Sign in to your account.">
+            <img src="../images/ym2/account_icon.png" alt="account icon"/>
+          </a>
+        </section>
+      </nav>
+    </header>
+
+    <main>
+      <section class="main-banner">
+        <div class="banner-image">
+          <img src="../images/ym2/mainpage.webp" alt="Beautiful Landscape" loading="lazy"/> 
+        </div>
+        <div class="search-bar">
+          <form>
+            <label>
+              Байршил
+              <input type="text" placeholder="Архангай" />
+            </label>
+            <label>
+              Хоног
+              <input type="number" placeholder="2" />
+            </label>
+            <label>
+              Эхлэх өдөр
+              <input type="date" value="2025-01-01" />
+            </label>
+            <label>
+              Дуусах өдөр
+              <input type="date" value="2025-01-05" />
+            </label>
+            <button type="submit">Хайх</button>
+          </form>
+        </div>
+      </section>
+      <section class="popular-tours">
+        <h2>Эрэлттэй аяллууд</h2>
+        <div class="tours-grid" id="travel-grid">
+          <travel-item
+            data-id="1"
+            data-title="Хөвсгөл далайн аялал"
+            data-image="../images/travels/Khuvsgul lake.webp"
+            data-location="Хөвсгөл"
+            data-days="5"
+            data-price="350,000"
+          ></travel-item>
+          <travel-item
+            data-id="2"
+            data-title="Увс нуурын аялал"
+            data-image="../images/travels/uvsnuur.webp"
+            data-location="Увс"
+            data-days="3"
+            data-price="280,000"
+          ></travel-item>
+          <travel-item
+            data-id="1"
+            data-title="Хөвсгөл далайн аялал"
+            data-image="../images/travels/Khuvsgul lake.webp"
+            data-location="Хөвсгөл"
+            data-days="5"
+            data-price="350,000"
+          ></travel-item>
+          <travel-item
+            data-id="2"
+            data-title="Увс нуурын аялал"
+            data-image="../images/travels/uvsnuur.webp"
+            data-location="Увс"
+            data-days="3"
+            data-price="280,000"
+          ></travel-item>
+          <travel-item
+            data-id="1"
+            data-title="Хөвсгөл далайн аялал"
+            data-image="../images/travels/Khuvsgul lake.webp"
+            data-location="Хөвсгөл"
+            data-days="5"
+            data-price="350,000"
+          ></travel-item>
+        </div>
+      </section>
+
+      <section class="comment_section">
+        <h3>Аялагчдын сэтгэгдлүүдээс</h3>
+
+        <section class="comments-container">
+          <i class="arrow-left fa-solid fa-chevron-left"></i>
+          <div class="comments">
+            <article>
+              <p>
+                Миний нууцлаг аяллын туршлага намайг чамин газар руу
+                аваачиж,онгоцны буудал дэзр гэнэтийн нээлтээ хийхдээ хөл амгүй
+                болгов. Хачирхалтай кафенаас эхлээд сэтгэл хөдлөм үзмэр хүртэл
+                хором бүp нууцлаг, сэтгэл догдлолоор дүүрэн байсан нь
+                амьдралынхаа адал явдал болсон.
+              </p>
+              <div class="rating">
+                <span>★★★★☆</span>
+                <div class="user_time">
+                  <strong>Амарзаяа.М</strong>
+                  <time datetime="">2024.02.04</time>
+                </div>
+              </div>
+            </article>
+            <article>
+              <p>
+                Нууцлаг аялал миний урьд өмнө нь хэзээ ч байгаагүй нууцлг
+                эрдэнийн эрдэнэсийг олж харах нүдийг минь нээж нээлт болгон нь
+                эрдэнэс нээх мэт мэдрэмж төрүүлдэг. Чулуун гудамжнаас эхлээд хөл
+                хөдөлгөөн ихтэй зах хүртэл бүх турлага нь сэтгэл хөдлөл,
+                хүлээлтээр дүүрэн байсан бөгөөд хором бүрийг мартагдашгүй
+                болгодог.
+              </p>
+              <div class="rating">
+                <span>★★★★☆</span>
+                <div class="user_time">
+                  <strong>Амарзаяа.М</strong>
+                  <time datetime="">2024.02.04</time>
+                </div>
+              </div>
+            </article>
+            <article>
+              <p>
+                Нууцлаг аялалын адал явдалд орох нь эцэс төгсгөлгүй боломжуудын
+                ертөнцөд хөл тавьсантай адил байв. Эртний балгасуудбг судлахаас
+                эхлээд чамин хоолоор амтлах хүртэл зорьсон газар бүр миний
+                хамгийн зэрлэг хүлээлтийг давж, туршлага бүрийг эхнээс нь
+                дуустал сэтгэл хөдөлгөм болгосон.
+              </p>
+              <div class="rating">
+                <span>★★★★☆</span>
+                <div class="user_time">
+                  <strong>Амарзаяа.М</strong>
+                  <time datetime="">2024.02.04</time>
+                </div>
+              </div>
+            </article>
+            <article>
+              <p>
+                Над шиг тэнүүчлэгч хүний хувьд нууцлаг аялал нь биелэх мөрөөдөл
+                байсан. Очих газ р бүр сэтгэл татам ой дундуур тэнүүчилж, далд
+                хүрхрээнд бүдрах хүртэл сонин адал явдал, санааннд оромгүй
+                учралуудыг амлаж, эргэн тойрныхоо ертөнцийг гайхшруулах
+                мэдрэмжийг дахин төрүүлэв.
+              </p>
+              <div class="rating">
+                <span>★★★★☆</span>
+                <div class="user_time">
+                  <strong>Амарзаяа.М</strong>
+                  <time datetime="">2024.02.04</time>
+                </div>
+              </div>
+            </article>
+          </div>
+          <i class="arrow-right fa-solid fa-chevron-right"></i>
+        </section>
+      </section>
+      <section class="gallery">
+        <div class="gallery-wrapper" id="galleryWrapper">
+          <img src="../images/gallery/img1.webp" alt="Image 1" />
+          <img src="../images/gallery/img2.webp" alt="Image 2" />
+          <img src="../images/gallery/img3.webp" alt="Image 3" />
+          <img src="../images/gallery/img4.webp" alt="Image 4" />
+          <img src="../images/gallery/img5.webp" alt="Image 5" />
+          <img src="../images/gallery/img6.webp" alt="Image 6" />
+          <img src="../images/gallery/img7.webp" alt="Image 7" />
+        </div>
+        <button class="arrow left" id="leftArrow">&lt;</button>
+        <button class="arrow right" id="rightArrow">&gt;</button>
+      </section>
+      <section class="partner_org">
+        <h4>Хамтрагч байгуулгууд</h4>
+        <div class="logo-grid">
+          <img width="70px" src="../images/partnerOrg/apple.webp" alt=" our partner apple" />
+          <img src="../images/partnerOrg/buurger.webp" alt="Burger king" />
+          <img src="../images/partnerOrg/disney.png" alt="our sponsors" />
+          <img src="../images/partnerOrg/kfc.webp" alt="our sponsors" />
+          <img src="../images/partnerOrg/gap.png" alt="our sponsors" />
+          <img src="../images/partnerOrg/huvtsas.webp" alt="our sponsors" />
+          <img src="../images/partnerOrg/image 17.webp" alt="our sponsors" />
+          <img src="../images/partnerOrg/paramount.webp" alt="our sponsors" />
+          <img src="../images/partnerOrg/uul1.webp" alt="our sponsors" />
+          <img src="../images/partnerOrg/uul2.webp" alt="our sponsors" />
+          <img src="../images/partnerOrg/uul3.webp" alt="our sponsors" />
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <section class="footer-first">
+          <div class="footer-logo">
+            <img src="../images/ym2/logo.webp" alt="Logo" />
+            <p>
+              нууц <br />
+              аялал
+            </p>
+          </div>
+          <div class="social-icons">
+            <ul>
+              <li>
+                <a style="color: white" href="#"
+                  ><i
+                    style="font-size: 34px"
+                    class="fa-brands fa-square-facebook"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
+                ></a>
+              </li>
+              <li>
+                <a style="color: white" href="#"
+                  ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="footer-links">
+          <h4>Бидний тухай</h4>
+          <ul>
+            <li><a href="./aboutUs.html" aria-label="Learn more about us">Танилцуулга</a></li>
+            <li><a href="./FaQ.html" aria-label="Some frequently asked questions and their answers">Асуулт хариулт</a></li>
+          </ul>
+        </section>
+        <section class="footer-contact">
+          <h4>Холбоо барих</h4>
+          <ul>
+            <li>
+              <p>
+                и-мэйл:
+                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us">nuutsaylal@gmail.com</a>
+              </p>
+            </li>
+            <li><p>Phone: +976 99999999</p></li>
+          </ul>
+        </section>
+        <section class="footer-address">
+          <h4>Манай хаяг</h4>
+          <li>
+            <p>
+              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+              Улаанбаатар
+            </p>
+          </li>
+        </section>
+      </div>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/d903c022ca.js" crossorigin="anonymous" defer>
+    </script>
+    <script>
+      const galleryWrapper = document.getElementById("galleryWrapper");
+      const leftArrow = document.getElementById("leftArrow");
+      const rightArrow = document.getElementById("rightArrow");
+
+      let scrollPosition = 0;
+      const scrollStep = 300;
+
+      function updateArrows() {
+        leftArrow.style.display = scrollPosition === 0 ? "none" : "block";
+        rightArrow.style.display =
+          Math.abs(scrollPosition) >=
+          galleryWrapper.scrollWidth - galleryWrapper.offsetWidth
+            ? "none"
+            : "block";
+      }
+
+      rightArrow.addEventListener("click", () => {
+        const maxScroll =
+          galleryWrapper.scrollWidth - galleryWrapper.offsetWidth;
+        scrollPosition = Math.max(scrollPosition - scrollStep, -maxScroll);
+        galleryWrapper.style.transform = `translateX(${scrollPosition}px)`;
+        updateArrows();
+      });
+
+      leftArrow.addEventListener("click", () => {
+        scrollPosition = Math.min(scrollPosition + scrollStep, 0);
+        galleryWrapper.style.transform = `translateX(${scrollPosition}px)`;
+        updateArrows();
+      });
+
+      updateArrows();
+    </script>
+    <script src="../assets/js/arrows.js"></script>
+  </body>
+</html>

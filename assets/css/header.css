@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://kit.fontawesome.com/d903c022ca.js");
+
 :root {
   --primary-color: #388e3c;
   --primary-hover-color: #47b477;
@@ -40,10 +41,10 @@ body.dark-mode {
 }
 
 header {
-  font-weight: 500;
+  font-weight: 700;
   background-color: var(--background-color);
   border-bottom: 0.125rem solid var(--border-color);
-  padding: 0 1.25rem;
+  padding: 0 6.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,10 +88,10 @@ header {
 
 .nav-links a {
   text-decoration: none;
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
   color: var(--text-color);
-  padding: 0.625rem 0.9375rem;
+  padding: 0.725rem 0.925rem;
   transition: color 0.3s ease, background-color 0.3s ease;
   justify-content: center;
 }
@@ -137,27 +138,77 @@ header {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 0.625rem 0;
-    flex-direction: row;
-    justify-content: space-around;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    padding: 1rem 0;
     background-color: var(--primary-hover-color);
-    box-shadow: 0 -0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
   }
 
-  .header-nav a {
-    font-size: 0.875rem;
-    margin: 0 0.3125rem;
+  .motto {
+    display: none; /* Hide the motto on smaller screens for a cleaner UI */
   }
 
-  .header-nav img {
-    display: none;
+  .nav-links {
+    display: flex;
+    flex-direction: column; /* Stack navigation links vertically */
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
   }
 
   .nav-links li {
-    border-radius: 50%;
+    width: 100%; /* Make each navigation item span the full width */
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+
+  .nav-links li a {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
     background-color: var(--primary-color);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .nav-links li a:hover {
+    background-color: var(--primary-hover-color);
+  }
+
+  .user-links {
+    display: flex;
+    flex-direction: column; /* Stack user links vertically */
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .user-links a {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  .user-links img {
+    margin-top: 0.5rem;
+    width: 40px;
+    height: auto;
+  }
+
+  .cart-container {
+    margin: 1rem 0;
   }
 }
+
+
+
+
 /* toggle button */
 #toggle-theme {
   border-radius: 50%;

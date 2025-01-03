@@ -79,7 +79,7 @@ input[type="range"]:focus {
   z-index: 1000;
 }
 
-.filters h3 {
+.filters h1 {
   font-family: var(--font-family);
   font-size: 16px;
   color: var(--text-color);
@@ -105,7 +105,7 @@ input[type="range"]:focus {
 .filter-group:last-child::after {
   content: none;
 }
-.filter-group h4 {
+.filter-group h2 {
   font-size: 13px;
   padding: 15px 0;
   color: var(--text-color);
@@ -185,7 +185,7 @@ input[type="range"]:focus {
 .content {
   display: flex;
   justify-content: flex-start;
-  padding-top: 40px;
+  padding-top: 60px;
   background-color: var(--background-color);
 }
 
@@ -213,9 +213,10 @@ travel-item {
 
 .pagination a {
   color: var(--primary-color);
-  margin: 0 5px;
+  margin: 0 10px;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.5rem;;
 }
 
 .pagination a.active {
@@ -232,12 +233,15 @@ travel-item {
     transform: translateX(0);
     position: static;
     width: 20%;
-    height: auto;
+    
   }
   .nuur-container h1 {
     font-size: 4rem;
     top: 6rem;
     left: 20%;
+  }
+  .motto p{
+    display: none;
   }
 }
 @media screen and (max-width: 768px) {
@@ -245,6 +249,9 @@ travel-item {
     position: fixed;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
+  }
+  .motto p{
+    display: none;
   }
 
   .filters.active {
@@ -265,5 +272,8 @@ travel-item {
     font-size: 2.5rem;
     top: 4rem;
     left: 15%;
+  }
+  .motto p{
+    display: none;
   }
 }

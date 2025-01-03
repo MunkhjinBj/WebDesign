@@ -35,7 +35,7 @@ export default class Travels {
 //
 
 export async function travelLoader() {
-  const result = await fetch("./travels.json");
+  const result = await fetch("../../data/travels.json");
   const data = await result.json();
 
   return data.travels;
@@ -105,7 +105,7 @@ function getSelectedFilterValues(className) {
 }
 
 async function loadDestinations() {
-  const result = await fetch("./travels.json");
+  const result = await fetch("../../data/travels.json");
   const data = await result.json();
   const destinationTypes = [
     ...new Set(data.travels.map((travel) => travel.type)),
@@ -168,7 +168,7 @@ export async function renderFilters() {
     "beforeend",
     `
     <div class="slider-container">
-      <input type="range" id="min-price" min="8135" max="1955800" value="8135" step="100" oninput="updatePrice()">
+      <input type="range"  id="min-price" aria-label ="Price range" min="8135" max="1955800" value="8135" step="100" oninput="updatePrice()">
     </div>
     <div class="price-display">
       <span id="min-price-display">100,000₮</span>
