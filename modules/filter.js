@@ -50,7 +50,11 @@ export async function travelLoader() {
     return data.travels;
   } catch (error) {
     console.error("Error loading travels:", error.message);
+<<<<<<< HEAD
     return [];
+=======
+    return []; // Return an empty array to prevent frontend crashes
+>>>>>>> dc48c92 (webapi)
   }
 }
 
@@ -202,6 +206,12 @@ export async function renderTravels(filteredTravels = null) {
   const travelsContainer = document.getElementById("travel-grid");
 
   const travelsData = filteredTravels || (await travelLoader());
+
+  if (!Array.isArray(travelsData)) {
+    console.error("renderTravels expected an array but got:", travelsData);
+    travelsContainer.innerHTML = "<p>Error loading travel data.</p>";
+    return;
+  }
 
   travelsContainer.innerHTML = travelsData
     .map((travel) => {

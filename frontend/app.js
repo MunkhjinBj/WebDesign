@@ -1,13 +1,24 @@
+<<<<<<< HEAD
 import "../components/TravelItem.js";
 ("");
 import "../components/CartComp.js";
 import "../components/CartIcon.js";
+=======
+import "/components/TravelItem.js";
+("");
+import "/components/CartComp.js";
+import "/components/CartIcon.js";
+>>>>>>> dc48c92 (webapi)
 import Travels, {
   travelLoader,
   applyFiltersFromURL,
   renderFilters,
   renderTravels,
+<<<<<<< HEAD
 } from "../modules/filter.js";
+=======
+} from "/modules/filter.js";
+>>>>>>> dc48c92 (webapi)
 
 // import Cart, { addToCart, removeFromCart } from "./modules/cart.js";
 
