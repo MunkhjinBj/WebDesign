@@ -1,0 +1,41 @@
+GET http://localhost:3000
+### Get all travels
+GET http://localhost:3000/api/travels
+Content-Type: application/json
+
+### Add a new travel
+POST http://localhost:3000/api/travels
+Content-Type: application/json
+{
+      "title": "aaaa",
+      "image": "./images/travels/Khuvsgul lake.jpg",
+      "type": "Соёлын аялал",
+      "start_date": "2024-08-15",
+      "finish_date": "2024-08-18",
+      "days": 3,
+      "price": 300000,
+      "status": "Боломжтой",
+      "location": "Орхон",
+      "season": "Намар",
+      "age_group": "Том хүн",
+      "service_type": "Гидтай",
+      "package_features": "Энгийн",
+      "child_friendly": false
+}
+
+GET http://localhost:3000/api/bookings
+Content-Type: application/json
+
+POST http://localhost:3000/api/bookings
+Content-Type: application/json
+{
+  "user_id": 1,
+  "travel_id": 10,
+  "date": "2025-01-20",
+  "status": "Pending",
+  "number_of_travelers": 3,
+  "total_price": 3000000
+}
+
+GET http://localhost:3000/api/destinations
+Content-Type: application/json

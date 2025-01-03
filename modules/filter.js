@@ -35,10 +35,23 @@ export default class Travels {
 //
 
 export async function travelLoader() {
-  const result = await fetch("./travels.json");
-  const data = await result.json();
+  try {
+    const response = await fetch("/api/travels");
 
-  return data.travels;
+    if (!response.ok) {
+      throw new Error(`Failed to fetch travels: ${response.statusText}`);
+    }
+    const data = await response.json();
+    console.log("API Response:", data);
+
+    if (!data || !Array.isArray(data.travels)) {
+      throw new Error("Invalid data structure: 'travels' not found.");
+    }
+    return data.travels;
+  } catch (error) {
+    console.error("Error loading travels:", error.message);
+    return []; // Return an empty array to prevent frontend crashes
+  }
 }
 
 export async function applyFiltersFromURL() {
@@ -105,12 +118,19 @@ function getSelectedFilterValues(className) {
 }
 
 async function loadDestinations() {
-  const result = await fetch("./travels.json");
-  const data = await result.json();
-  const destinationTypes = [
-    ...new Set(data.travels.map((travel) => travel.type)),
-  ];
-  return destinationTypes;
+  try {
+    const response = await fetch("http://localhost:3000/api/destinations");
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch destination types: ${response.statusText}`
+      );
+    }
+    const data = await response.json();
+    return [...new Set(data.map((destination) => destination.type))];
+  } catch (error) {
+    console.error("Error loading destinations:", error);
+    return [];
+  }
 }
 
 export async function renderFilters() {
@@ -183,6 +203,12 @@ export async function renderTravels(filteredTravels = null) {
 
   const travelsData = filteredTravels || (await travelLoader());
 
+  if (!Array.isArray(travelsData)) {
+    console.error("renderTravels expected an array but got:", travelsData);
+    travelsContainer.innerHTML = "<p>Error loading travel data.</p>";
+    return;
+  }
+
   travelsContainer.innerHTML = travelsData
     .map((travel) => {
       return `
@@ -191,7 +217,7 @@ export async function renderTravels(filteredTravels = null) {
           data-image="${travel.image}"
           data-title="${travel.title}"
           data-type="${travel.type}"
-          data-days="${travel.day}"
+          data-days="${travel.days}"
           data-price="${travel.price}"
           data-season="${travel.season}"
           data-location="${travel.location}">
