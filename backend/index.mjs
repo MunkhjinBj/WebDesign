@@ -1,13 +1,20 @@
 import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import path from "path";
+import dotenv from "dotenv";
+
 import { travel } from "./routes/travels.mjs";
 import { booking } from "./routes/bookings.mjs";
-// import user from "./routes/users.mjs";
+import usersRoutes from "./routes/users.mjs";
 import swaggerDocs from "./swagger.mjs";
 import pool from "./db/da.mjs";
-import path from "path";
 
+dotenv.config();
 const app = express();
 
+app.use(bodyParser.json());
+app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve("frontend")));
 app.use("/components", express.static(path.resolve("components")));
@@ -26,6 +33,7 @@ app.get("/api/travels", (req, res) => travel.get(req, res));
 app.post("/api/travels", (req, res) => travel.post(req, res));
 app.get("/api/bookings", (req, res) => booking.get(req, res));
 app.post("/api/bookings", (req, res) => booking.post(req, res));
+app.use("/api/users", usersRoutes);
 app.get("/api/destinations", async (req, res) => {
   try {
     const result = await pool.query("SELECT DISTINCT type FROM travels");

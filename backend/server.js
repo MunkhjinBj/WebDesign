@@ -1,39 +1,39 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const { Pool } = require('pg');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const { Pool } = require("pg");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const app = express();
 const port = 5501;
-require('dotenv').config();
+require("dotenv").config();
 
 // Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static("public"));
 app.use(cors());
 
 // Print the DATABASE_URL to confirm it's correctly loaded
-console.log('DATABASE_URL:', process.env.DATABASE_URL);
+console.log("DATABASE_URL:", process.env.DATABASE_URL);
 
 // Set up PostgreSQL connection pool (for local or cloud database)
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL, // Use your database connection string from .env
-  ssl: { rejectUnauthorized: false }  , // Enable SSL for cloud DB only
+  ssl: { rejectUnauthorized: false }, // Enable SSL for cloud DB only
 });
 
 // Test database connection
 pool.connect((err, client, release) => {
   if (err) {
-    return console.error('Error acquiring client', err.stack);
+    return console.error("Error acquiring client", err.stack);
   }
-  client.query('SELECT NOW()', (err, result) => {
+  client.query("SELECT NOW()", (err, result) => {
     release();
     if (err) {
-      return console.error('Error executing query', err.stack);
+      return console.error("Error executing query", err.stack);
     }
-    console.log('Database connected:', result.rows);
+    console.log("Database connected:", result.rows);
   });
 });
 
@@ -41,7 +41,7 @@ pool.connect((err, client, release) => {
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key"; // Use environment variable for production
 
 // POST route for signup form
-app.post('/signup', async (req, res) => {
+app.post("/signup", async (req, res) => {
   const { fullname, email, phone, password, dob, gender } = req.body;
 
   try {
@@ -58,23 +58,25 @@ app.post('/signup', async (req, res) => {
     const result = await pool.query(query, values);
 
     // Redirect to signin page after successful registration
-    res.redirect('http://127.0.0.1:5501/signin.html');  // Redirect to signin page after successful signup
+    res.redirect("http://127.0.0.1:5501/signin.html"); // Redirect to signin page after successful signup
   } catch (err) {
-    console.error('Error during signup:', err);
-    res.status(500).json({ error: err.message || 'Server error' });
+    console.error("Error during signup:", err);
+    res.status(500).json({ error: err.message || "Server error" });
   }
 });
 
 // POST route for signin (login)
-app.post('/signin', async (req, res) => {
+app.post("/signin", async (req, res) => {
   const { email, password } = req.body;
 
   try {
     // Find the user in the database
-    const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+    const result = await pool.query("SELECT * FROM users WHERE email = $1", [
+      email,
+    ]);
 
     if (result.rows.length === 0) {
-      return res.status(400).json({ message: 'Invalid email or password.' });
+      return res.status(400).json({ message: "Invalid email or password." });
     }
 
     const user = result.rows[0];
@@ -83,25 +85,27 @@ app.post('/signin', async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password_hash);
 
     if (!isMatch) {
-      return res.status(400).json({ message: 'Invalid email or password.' });
+      return res.status(400).json({ message: "Invalid email or password." });
     }
 
     // Generate a JWT token
-    const token = jwt.sign({ userId: user.user_id }, JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user.user_id }, JWT_SECRET, {
+      expiresIn: "1h",
+    });
 
     res.json({ token }); // Send the token back to the client
   } catch (err) {
-    console.error('Error during signin:', err);
-    res.status(500).json({ error: 'Server error' });
+    console.error("Error during signin:", err);
+    res.status(500).json({ error: "Server error" });
   }
 });
 
 // GET route for user info (authentication required)
-app.get('/userinfo', async (req, res) => {
-  const token = req.headers.authorization?.split(' ')[1];
+app.get("/userinfo", async (req, res) => {
+  const token = req.headers.authorization?.split(" ")[1];
 
   if (!token) {
-    return res.status(401).json({ message: 'No token provided.' });
+    return res.status(401).json({ message: "No token provided." });
   }
 
   try {
@@ -109,16 +113,18 @@ app.get('/userinfo', async (req, res) => {
     const userId = decoded.userId;
 
     // Fetch user info
-    const result = await pool.query('SELECT * FROM users WHERE user_id = $1', [userId]);
+    const result = await pool.query("SELECT * FROM users WHERE user_id = $1", [
+      userId,
+    ]);
 
     if (result.rows.length === 0) {
-      return res.status(404).json({ message: 'User not found.' });
+      return res.status(404).json({ message: "User not found." });
     }
 
     res.json(result.rows[0]); // Return user info
   } catch (err) {
-    console.error('Error fetching user info:', err);
-    return res.status(401).json({ message: 'Invalid or expired token.' });
+    console.error("Error fetching user info:", err);
+    return res.status(401).json({ message: "Invalid or expired token." });
   }
 });
 
