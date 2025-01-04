@@ -36,18 +36,6 @@ export default class Travels {
 
 export async function travelLoader() {
   try {
-<<<<<<< HEAD
-    const response = await fetch("/api/travels");
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch travels: ${response.statusText}`);
-    }
-    const data = await response.json();
-    console.log("API Response:", data);
-
-    if (!data || !Array.isArray(data.travels)) {
-      throw new Error("Invalid data structure: 'travels' not found.");
-=======
     let response = await fetch("/api/travels");
     if (
       !response.ok ||
@@ -60,16 +48,11 @@ export async function travelLoader() {
 
     if (!data || !Array.isArray(data.travels)) {
       throw new Error("'travels' not found.");
->>>>>>> origin/main
     }
     return data.travels;
   } catch (error) {
     console.error("Error loading travels:", error.message);
-<<<<<<< HEAD
-    return []; // Return an empty array to prevent frontend crashes
-=======
     return [];
->>>>>>> origin/main
   }
 }
 
@@ -140,11 +123,6 @@ async function loadDestinations() {
   try {
     const response = await fetch("http://localhost:3000/api/destinations");
     if (!response.ok) {
-<<<<<<< HEAD
-      throw new Error(
-        `Failed to fetch destination types: ${response.statusText}`
-      );
-=======
       try {
         response = await fetch("../frontend/travels.json");
       } catch (error) {
@@ -152,7 +130,6 @@ async function loadDestinations() {
           `Failed to fetch destination types: ${response.statusText}`
         );
       }
->>>>>>> origin/main
     }
     const data = await response.json();
     return [...new Set(data.map((destination) => destination.type))];

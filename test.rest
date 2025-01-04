@@ -39,8 +39,6 @@ Content-Type: application/json
 
 GET http://localhost:3000/api/destinations
 Content-Type: application/json
-<<<<<<< HEAD
-=======
 
 GET http://localhost:3000/api/users
 Content-Type: application/json
@@ -67,4 +65,3 @@ Content-Type: application/json
 
 DELETE http://localhost:3000/api/users/32
 Content-Type: application/json
->>>>>>> origin/main
