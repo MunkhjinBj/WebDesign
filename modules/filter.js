@@ -39,7 +39,11 @@ export async function travelLoader() {
     const response = await fetch("/api/travels");
 
     if (!response.ok) {
-      response = await fetch("../frontend/travels.json");
+      try {
+        response = await fetch("../frontend/travels.json");
+      } catch {
+        console.log("boli2");
+      }
     }
     const data = await response.json();
     console.log("API Response:", data);
@@ -121,9 +125,13 @@ async function loadDestinations() {
   try {
     const response = await fetch("http://localhost:3000/api/destinations");
     if (!response.ok) {
-      throw new Error(
-        `Failed to fetch destination types: ${response.statusText}`
-      );
+      try {
+        response = await fetch("../frontend/travels.json");
+      } catch (error) {
+        throw new Error(
+          `Failed to fetch destination types: ${response.statusText}`
+        );
+      }
     }
     const data = await response.json();
     return [...new Set(data.map((destination) => destination.type))];
