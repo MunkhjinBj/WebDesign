@@ -1,7 +1,7 @@
 .nuur-container {
   position: relative;
   text-align: center;
-  height: 28vh;
+  height: auto;
   margin: 0;
   padding: 0;
   box-sizing: border-box;

@@ -2,7 +2,7 @@
   --background-color: #f9f9f9;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --text-color: #333;
-  --primary-color: #176324;
+  --primary-color: #14571E;
   --button-text-color: white;
 }
 
@@ -99,13 +99,20 @@ input {
   background-color: #fff;
 }
 
+/* Password field styling  and making default eye button hiddden*/
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-textfield-decoration-container {
+  display: none;
+}
+
 .input-group select:focus,
 .input-group input:focus {
   outline: none;
   border-color: var(--primary-color);
 }
 
-.password-container + .password-container {
+.password-container input:focus {
   margin-top: 0.5rem;
 }
 
@@ -119,7 +126,7 @@ form .password-container {
 
 .primary-btn {
   padding: 0.75rem;
-  background-color: var(--primary-color);
+  background-color: #14571E;
   color: var(--button-text-color);
   border: none;
   border-radius: 0.5rem;
@@ -129,7 +136,7 @@ form .password-container {
 }
 
 .primary-btn:hover {
-  background-color: darkgreen;
+  background-color: #14571E;
 }
 
 /* Social login buttons */

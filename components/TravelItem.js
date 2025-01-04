@@ -40,13 +40,15 @@ template.innerHTML = `
         flex-direction: column;
         justify-content: space-between;
         overflow: hidden;
-        transition: transform 0.3s, box-shadow 0.3s;
+        transition: transform 0.3s, box-shadow 0.5s;
         position: relative;
         background-color: var(--background-color); 
+        border-radius: 16px;
+        margin: 0px 0px 20px 0px;
     }
 
     article:hover img {
-        transform: scale(1.1);
+        transform: scale(1.05);
         border-radius: 16px;
         transform-origin: center;
     }
@@ -57,6 +59,7 @@ template.innerHTML = `
         border-radius: 16px;
         object-fit: cover;
         transition: transform 0.3s ease-in-out;
+        
     }
     article:hover {
         border-radius: 16px; /* Optional: Rounded corners for the article */

@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Тайгын аялал",
-      "image": "../images/travels/taiga.png",
+      "image": "../images/travels/taiga.webp",
       "type": "Адал явдалт",
       "startDate": "2024-06-24",
       "finishDate": "2024-06-26",
@@ -20,7 +20,7 @@
     {
       "id": 2,
       "title": "Увсын нуурын аялал",
-      "image": "./images/travels/uvsnuur.png",
+      "image": "../images/travels/uvsnuur.webp",
       "type": "Тайван амралт",
       "startDate": "2024-07-01",
       "finishDate": "2024-07-05",
