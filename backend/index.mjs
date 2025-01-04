@@ -27,8 +27,8 @@ const port = 3000;
 app.get("/", (req, res) => {
   res.sendFile(path.resolve("../index.html"));
 });
-app.get("/frontend/app.js", (req, res) => {
-  res.sendFile(path.resolve("frontend/app.js"));
+app.get("../frontend/app.js", (req, res) => {
+  res.sendFile(path.resolve("../frontend/app.js"));
 });
 app.get("/api/travels", (req, res) => travel.get(req, res));
 app.post("/api/travels", (req, res) => travel.post(req, res));
