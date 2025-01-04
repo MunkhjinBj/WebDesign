@@ -4,7 +4,7 @@ import {
   getCartItems,
   getTotalPrice,
   toggle,
-} from "/modules/cart.js";
+} from "../modules/cart.js";
 export default class CartComp extends HTMLElement {
   constructor() {
     super();
