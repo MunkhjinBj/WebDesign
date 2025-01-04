@@ -36,20 +36,18 @@ export default class Travels {
 
 export async function travelLoader() {
   try {
-    const response = await fetch("/api/travels");
-
-    if (!response.ok) {
-      try {
-        response = await fetch("../frontend/travels.json");
-      } catch {
-        console.log("boli2");
-      }
+    let response = await fetch("/api/travels");
+    if (
+      !response.ok ||
+      !response.headers.get("content-type")?.includes("application/json")
+    ) {
+      response = await fetch("../frontend/travels.json");
     }
+
     const data = await response.json();
-    console.log("API Response:", data);
 
     if (!data || !Array.isArray(data.travels)) {
-      throw new Error("Invalid data structure: 'travels' not found.");
+      throw new Error("'travels' not found.");
     }
     return data.travels;
   } catch (error) {
