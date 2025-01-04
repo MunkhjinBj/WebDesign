@@ -6,7 +6,7 @@
     <meta name="description" content="main page" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Нуууц аялал</title>
-    <link rel="stylesheet" href="./frontend/header.css"/>
+    <link rel="stylesheet" href="./frontend/header.css" />
     <script type="module" src="./frontend/app.js" defer></script>
 
     <link rel="preconnect" href="https://ka-f.fontawesome.com" />
@@ -184,39 +184,6 @@
         right: 10px;
       }
 
-      @media (min-width: 991px) and (max-width: 1225px) {
-        .gallery-wrapper img {
-          width: clamp(150px, 30%, 300px);
-          margin-right: 0.5rem;
-        }
-        .motto p {
-          display: none;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .gallery {
-          padding: 1rem 0;
-        }
-
-        .gallery-wrapper img {
-          width: clamp(
-            150px,
-            30%,
-            300px
-          ); /* Жижиг дэлгэцэд зурагны хэмжээг багасгана */
-          margin-right: 0.5rem;
-        }
-
-        .arrow {
-          padding: 10px;
-          font-size: 1rem;
-        }
-        .motto p {
-          display: none;
-        }
-      }
-
       .partner_org {
         margin: 100px 200px 120px 200px;
       }
@@ -257,88 +224,31 @@
         margin-right: auto;
       }
 
-      @media screen and (max-width: 992px) {
+      @media (max-width: 768px) {
+        .comment_section {
+          padding: 20px;
+        }
+
         .comment_section .comments-container {
           flex-direction: column;
-          padding: 20px;
-          gap: 40px;
+          gap: 20px;
         }
 
-        .comment_section h3 {
-          margin-left: 0;
-          text-align: center;
-        }
-
-        .partner_org {
-          margin: 30px 50px;
-        }
-
-        .logo-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-        .motto p {
-          display: none;
-        }
-      }
-
-      @media screen and (max-width: 768px) {
-        .header-nav {
-          flex-direction: column;
-          padding: 10px;
-        }
-
-        .nav-links {
-          flex-direction: column;
+        .comment_section .comments article {
           width: 100%;
-          text-align: center;
-          padding: 10px 0;
-        }
-
-        .nav-links li {
-          margin: 10px 0;
-        }
-
-        .user-links {
-          width: 100%;
-          justify-content: center;
-          padding: 10px 0;
-        }
-
-        .logo-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 30px;
-        }
-
-        .footer {
-          grid-template-columns: 1fr;
-          text-align: center;
-          gap: 30px;
-        }
-
-        .footer section {
-          padding: 10px;
-        }
-        .motto p {
-          display: none;
-        }
-      }
-
-      @media screen and (max-width: 576px) {
-        .comment_section article {
           max-width: 100%;
         }
 
-        .logo-grid {
-          grid-template-columns: repeat(1, 1fr);
-          gap: 40px;
+        .arrow-left,
+        .arrow-right {
+          font-size: 24px;
         }
+      }
 
-        .partner_org {
-          margin: 30px 20px;
-        }
-
-        .partner_org h4 {
-          padding-left: 0;
+      @media (max-width: 576px) {
+        .comment_section h3 {
+          font-size: 1.2rem;
+          margin: 0 auto;
           text-align: center;
         }
 
@@ -346,10 +256,71 @@
         .arrow-right {
           display: none;
         }
-        .motto p {
-          display: none;
+      }
+
+      @media (max-width: 768px) {
+        .gallery {
+          padding: 10px;
+        }
+
+        .gallery-wrapper {
+          gap: 10px;
+        }
+
+        .gallery-wrapper img {
+          max-width: 150px;
+          height: auto;
+        }
+
+        .arrow {
+          font-size: 1rem;
+          padding: 8px;
         }
       }
+
+      @media (max-width: 576px) {
+        .gallery-wrapper img {
+          max-width: 120px;
+        }
+
+        .arrow {
+          display: none; /* Жижиг дэлгэц дээр сумуудыг нуух */
+        }
+      }
+      @media (max-width: 768px) {
+        .partner_org {
+          padding: 30px 10px;
+        }
+
+        .partner_org h4 {
+          font-size: 1.5rem;
+          text-align: center;
+        }
+
+        .logo-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 15px;
+        }
+
+        .logo-grid img {
+          max-width: 70px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .logo-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .logo-grid img {
+          max-width: 60px;
+        }
+
+        .partner_org h4 {
+          font-size: 1.2rem;
+        }
+      }
+
       @keyframes appear {
         from {
           opacity: 0;
@@ -450,17 +421,6 @@
         background: #218838;
       }
 
-      @media (max-width: 768px) {
-        .main-banner .search-bar {
-          width: 95%; /* Бага дэлгэц дээр илүү нарийн */
-          padding: 0.8rem 1rem;
-        }
-
-        .main-banner .search-bar input,
-        .main-banner .search-bar button {
-          font-size: 0.8rem; /* Бага дэлгэцэд текстийг жижигрүүлэх */
-        }
-      }
       /* Popular tours section */
       .popular-tours {
         text-align: center;
@@ -546,10 +506,32 @@
           </p>
         </div>
         <ul class="nav-links">
-          <li><a href="./frontend/aboutUs.html" aria-label="Learn more about us">Бидний тухай</a></li>
-          <li><a href="./frontend/zahialah.html" aria-label="Plan your trip in your prefrence">Аялал захиалах</a></li>
-          <li><a href="./frontend/mytravels.html" aria-label="Navigate your travels">Миний аяллууд</a></li>
-          <li><a href="./frontend/travels.html" aria-label="Deep dive into our travelling options">Aяллууд</a></li>
+          <li>
+            <a href="./frontend/aboutUs.html" aria-label="Learn more about us"
+              >Бидний тухай</a
+            >
+          </li>
+          <li>
+            <a
+              href="./frontend/zahialah.html"
+              aria-label="Plan your trip in your prefrence"
+              >Аялал захиалах</a
+            >
+          </li>
+          <li>
+            <a
+              href="./frontend/mytravels.html"
+              aria-label="Navigate your travels"
+              >Миний аяллууд</a
+            >
+          </li>
+          <li>
+            <a
+              href="./frontend/travels.html"
+              aria-label="Deep dive into our travelling options"
+              >Aяллууд</a
+            >
+          </li>
         </ul>
         <section class="user-links">
           <div class="cart-container" id="cart-container">
@@ -558,18 +540,41 @@
               <span slot="item"></span>
             </cart-comp>
           </div>
-          <a href="./frontend/signin.html" aria-label="Sign in to your account">Нэвтрэх</a>
+          <a href="./frontend/signin.html" aria-label="Sign in to your account"
+            >Нэвтрэх</a
+          >
           <a href="./frontend/signin.html" aria-label="Sign in to your account"
             ><img src="./images/ym2/account_icon.png" alt="" loading="lazy"
           /></a>
         </section>
       </nav>
     </header>
+    <nav class="mobile-nav">
+      <a href="./index.html">
+        <img src="./images/ym2/home_icon.png" alt="Home" />
+      </a>
+      <a href="./frontend/zahialah.html">
+        <img src="./images/ym2/travel_icon.png" alt="Order" />
+      </a>
+      <a href="./frontend/mytravels.html">
+        <img src="./images/ym2/info_icon.png" alt="Medee" />
+      </a>
+      <a href="./frontend/travels.html">
+        <img src="./images/ym2/heart_icon.png" alt="My Travels" />
+      </a>
+      <a href="./frontend/signin.html">
+        <img src="./images/ym2/user_icon.png" alt="Profile" />
+      </a>
+    </nav>
 
     <main>
       <section class="main-banner">
         <div class="banner-image">
-          <img src="./images/ym2/mainpage.webp" alt="Beautiful Landscape" loading="lazy"/>
+          <img
+            src="./images/ym2/mainpage.webp"
+            alt="Beautiful Landscape"
+            loading="lazy"
+          />
         </div>
         <div class="search-bar">
           <form>
@@ -716,13 +721,13 @@
       </section>
       <section class="gallery">
         <div class="gallery-wrapper" id="galleryWrapper">
-          <img src="./images/gallery/img1.webp" alt="Image 1" loading="lazy"/>
-          <img src="./images/gallery/img2.webp" alt="Image 2" loading="lazy"/>
-          <img src="./images/gallery/img3.webp" alt="Image 3" loading="lazy"/>
-          <img src="./images/gallery/img4.webp" alt="Image 4" loading="lazy"/>
-          <img src="./images/gallery/img5.webp" alt="Image 5" loading="lazy"/>
-          <img src="./images/gallery/img6.webp" alt="Image 6" loading="lazy"/>
-          <img src="./images/gallery/img7.webp" alt="Image 7" loading="lazy"/>
+          <img src="./images/gallery/img1.webp" alt="Image 1" loading="lazy" />
+          <img src="./images/gallery/img2.webp" alt="Image 2" loading="lazy" />
+          <img src="./images/gallery/img3.webp" alt="Image 3" loading="lazy" />
+          <img src="./images/gallery/img4.webp" alt="Image 4" loading="lazy" />
+          <img src="./images/gallery/img5.webp" alt="Image 5" loading="lazy" />
+          <img src="./images/gallery/img6.webp" alt="Image 6" loading="lazy" />
+          <img src="./images/gallery/img7.webp" alt="Image 7" loading="lazy" />
         </div>
         <button class="arrow left" id="leftArrow">&lt;</button>
         <button class="arrow right" id="rightArrow">&gt;</button>
@@ -730,17 +735,61 @@
       <section class="partner_org">
         <h4>Хамтрагч байгуулгууд</h4>
         <div class="logo-grid">
-          <img width="70px" src="./images/partnerOrg/apple.webp" alt="Our sponsors" />
-          <img src="./images/partnerOrg/buurger.webp" alt="Our sponsors" loading="lazy"/>
-          <img src="./images/partnerOrg/disney.png" alt="Our sponsors" loading="lazy"/>
-          <img src="./images/partnerOrg/kfc.webp" alt="Our sponsors" loading="lazy" />
-          <img src="./images/partnerOrg/gap.png" alt="Our sponsors" loading="lazy"/>
-          <img src="./images/partnerOrg/huvtsas.webp" alt="Our sponsors" loading="lazy"/>
-          <img src="./images/partnerOrg/image 17.webp" alt="Our sponsors" loading="lazy"/>
-          <img src="./images/partnerOrg/paramount.webp" alt="Our sponsors" loading="lazy"/>
-          <img src="./images/partnerOrg/uul1.webp" alt="Our sponsors" loading="lazy"/>
-          <img src="./images/partnerOrg/uul2.webp" alt="Our sponsors" loading="lazy"/>
-          <img src="./images/partnerOrg/uul3.webp" alt="Our sponsors" loading="lazy"/>
+          <img
+            width="70px"
+            src="./images/partnerOrg/apple.webp"
+            alt="Our sponsors"
+          />
+          <img
+            src="./images/partnerOrg/buurger.webp"
+            alt="Our sponsors"
+            loading="lazy"
+          />
+          <img
+            src="./images/partnerOrg/disney.png"
+            alt="Our sponsors"
+            loading="lazy"
+          />
+          <img
+            src="./images/partnerOrg/kfc.webp"
+            alt="Our sponsors"
+            loading="lazy"
+          />
+          <img
+            src="./images/partnerOrg/gap.png"
+            alt="Our sponsors"
+            loading="lazy"
+          />
+          <img
+            src="./images/partnerOrg/huvtsas.webp"
+            alt="Our sponsors"
+            loading="lazy"
+          />
+          <img
+            src="./images/partnerOrg/image 17.webp"
+            alt="Our sponsors"
+            loading="lazy"
+          />
+          <img
+            src="./images/partnerOrg/paramount.webp"
+            alt="Our sponsors"
+            loading="lazy"
+          />
+          <img
+            src="./images/partnerOrg/uul1.webp"
+            alt="Our sponsors"
+            loading="lazy"
+          />
+          <img
+            src="./images/partnerOrg/uul2.webp"
+            alt="Our sponsors"
+            loading="lazy"
+          />
+          <img
+            src="./images/partnerOrg/uul3.webp"
+            alt="Our sponsors"
+            loading="lazy"
+          />
         </div>
       </section>
     </main>
@@ -780,8 +829,16 @@
         <section class="footer-links">
           <h4>Бидний тухай</h4>
           <ul>
-            <li><a href="aboutUs.html" aria-label="Learn more about us">Танилцуулга</a></li>
-            <li><a href="FaQ.html" aria-label="Frequently asked questions">Асуулт хариулт</a></li>
+            <li>
+              <a href="aboutUs.html" aria-label="Learn more about us"
+                >Танилцуулга</a
+              >
+            </li>
+            <li>
+              <a href="FaQ.html" aria-label="Frequently asked questions"
+                >Асуулт хариулт</a
+              >
+            </li>
           </ul>
         </section>
         <section class="footer-contact">
@@ -790,7 +847,9 @@
             <li>
               <p>
                 и-мэйл:
-                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us!">nuutsaylal@gmail.com</a>
+                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us!"
+                  >nuutsaylal@gmail.com</a
+                >
               </p>
             </li>
             <li><p>Phone: +976 99999999</p></li>
@@ -799,12 +858,12 @@
         <section class="footer-address">
           <h4>Манай хаяг</h4>
           <ul>
-          <li>
-            <p>
-              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
-              Улаанбаатар
-            </p>
-          </li>
+            <li>
+              <p>
+                Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+                Улаанбаатар
+              </p>
+            </li>
           </ul>
         </section>
       </div>

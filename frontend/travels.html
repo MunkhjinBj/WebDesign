@@ -25,10 +25,28 @@
           </p>
         </div>
         <ul class="nav-links">
-          <li><a href="./aboutUs.html" aria-label="Learn more about us">Бидний тухай</a></li>
-          <li><a href="./zahialah.html" aria-label="Book your trip">Аялал захиалах</a></li>
-          <li><a href="./mytravels.html" aria-label="Navigate through your trips">Миний аяллууд</a></li>
-          <li><a href="./travels.html" aria-label="Deep dive into our travelling options">Аяллууд</a></li>
+          <li>
+            <a href="./aboutUs.html" aria-label="Learn more about us"
+              >Бидний тухай</a
+            >
+          </li>
+          <li>
+            <a href="./zahialah.html" aria-label="Book your trip"
+              >Аялал захиалах</a
+            >
+          </li>
+          <li>
+            <a href="./mytravels.html" aria-label="Navigate through your trips"
+              >Миний аяллууд</a
+            >
+          </li>
+          <li>
+            <a
+              href="./travels.html"
+              aria-label="Deep dive into our travelling options"
+              >Аяллууд</a
+            >
+          </li>
         </ul>
         <section class="user-links">
           <button id="toggle-theme" aria-label="Switch mode">
@@ -61,24 +79,72 @@
               <span slot="item"></span>
             </cart-comp>
           </div>
-          <a href="./signin.html" aria-label="Sign in to your account">Нэвтрэх</a>
+          <a href="./signin.html" aria-label="Sign in to your account"
+            >Нэвтрэх</a
+          >
           <a href="signin.html" aria-label="Sign in to your account"
             ><img src="../images/ym2/account_icon.png" alt=""
           /></a>
         </section>
       </nav>
     </header>
-
+    <nav class="mobile-nav">
+      <a href="../index.html">
+        <img src="../images/ym2/home_icon.png" alt="Home" />
+      </a>
+      <a href="./travels.html">
+        <img src="../images/ym2/travel_icon.png" alt="Order" />
+      </a>
+      <a href="../index.html">
+        <img src="../images/ym2/info_icon.png" alt="Medee" />
+      </a>
+      <a href="./mytravels.html">
+        <img src="../images/ym2/heart_icon.png" alt="My Travels" />
+      </a>
+      <a href="../index.html">
+        <img src="../images/ym2/user_icon.png" alt="Profile" />
+      </a>
+    </nav>
     <div class="nuur-container">
       <img src="../images/ym2/main.webp" alt="page main image" loading="lazy" />
       <h1>Аялалууд</h1>
     </div>
 
     <main class="content">
-      <button id="filter-toggle" class="burger-menu" aria-label="Filter for your prefrences">☰ Шүүлтүүр</button>
+      <div class="search-bar">
+        <button aria-label="Search" class="search-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#e8eaed"
+          >
+            <path
+              d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
+            />
+          </svg>
+        </button>
+        <input type="search" name="" id="" placeholder="хайлт хийх" />
+        <button
+          id="filter-toggle-search"
+          class="hevtee-burger-menu"
+          aria-label=""
+        >
+          <img src="../images/ym2/hevtee-burger.png" alt="burger-icon" />
+        </button>
+      </div>
       <aside class="filters">
-        <h1>Шүүлтүүр</h1>
-
+        <div class="filter-header">
+          <h1>Шүүлтүүр</h1>
+          <button
+            id="filter-toggle-filter"
+            class="bosoo-burger-menu"
+            aria-label="menu"
+          >
+            <img src="../images/ym2/bosoo-burger.png" alt="burger-icon" />
+          </button>
+        </div>
         <div class="filter-group days">
           <h2>Аяллын хоног</h2>
         </div>
@@ -95,16 +161,20 @@
           <h2 for="price">Үнэ</h2>
         </div>
 
-        <button id="clear-filters" aria-label="Clear the filters">цэвэрлэх</button>
+        <button id="clear-filters" aria-label="Clear the filters">
+          цэвэрлэх
+        </button>
       </aside>
 
       <section class="travels-container">
         <div id="travel-grid"></div>
 
         <div class="pagination" aria-label="Page navigation">
-          <a href="#" aria-label="Previous page" aria-label="Previous page">&laquo;</a>
-          <a href="#" aria-label="Page 1"aria-label="Current page">1</a>
-          <a href="#" aria-label="Next page"aria-label="Next page">&raquo;</a>
+          <a href="#" aria-label="Previous page" aria-label="Previous page"
+            >&laquo;</a
+          >
+          <a href="#" aria-label="Page 1" aria-label="Current page">1</a>
+          <a href="#" aria-label="Next page" aria-label="Next page">&raquo;</a>
         </div>
       </section>
     </main>
@@ -145,7 +215,9 @@
         <section class="footer-links">
           <h2>Бидний тухай</h2>
           <ul>
-            <li><a href="aboutUs.html"  aria-label="About us">Танилцуулга</a></li>
+            <li>
+              <a href="aboutUs.html" aria-label="About us">Танилцуулга</a>
+            </li>
             <li><a href="FaQ.html" aria-label="FAQ">Асуулт хариулт</a></li>
           </ul>
         </section>
@@ -155,7 +227,9 @@
             <li>
               <p>
                 и-мэйл:
-                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us">nuutsaylal@gmail.com</a>
+                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us"
+                  >nuutsaylal@gmail.com</a
+                >
               </p>
             </li>
             <li><p>Phone: +976 99999999</p></li>
@@ -164,15 +238,39 @@
         <section class="footer-address">
           <h2>Манай хаяг</h2>
           <ul>
-          <li>
-            <p>
-              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
-              Улаанбаатар
-            </p>
-          </li>
-        </ul>
+            <li>
+              <p>
+                Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+                Улаанбаатар
+              </p>
+            </li>
+          </ul>
         </section>
       </div>
     </footer>
+    <script>
+      const filters = document.querySelector(".filters");
+      const search_bar = document.querySelector(".search-bar");
+      document
+        .getElementById("filter-toggle-search")
+        .addEventListener("click", function () {
+          if (filters.style.display === "block") {
+            filters.style.display = "none";
+          } else {
+            filters.style.display = "block";
+            search_bar.style.display = "none";
+          }
+        });
+      document
+        .getElementById("filter-toggle-filter")
+        .addEventListener("click", function () {
+          if (filters.style.display === "block") {
+            filters.style.display = "none";
+            search_bar.style.display = "flex";
+          } else {
+            filters.style.display = "block";
+          }
+        });
+    </script>
   </body>
 </html>

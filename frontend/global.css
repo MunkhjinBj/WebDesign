@@ -1,0 +1,109 @@
+/* Filter Modal/Panel */
+.filters {
+  display: none; /* Hide by default */
+  background: #f9f9f9;
+  padding: 15px;
+  position: absolute;
+  width: 100%;
+  z-index: 999; /* Ensure it appears above other elements */
+  top: 0; /* Adjust based on your layout */
+
+  right: 0;
+}
+
+#filter-panel {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f9f9f9;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+#filter-panel.active {
+  display: block; /* Show when active */
+}
+
+/* Filter Section */
+.filter-section {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+}
+
+.filter-section label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.filter-section input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Price Slider */
+.price-slider {
+  margin: 20px 0;
+}
+
+.price-slider label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.price-slider input[type="range"] {
+  width: 100%;
+}
+
+.price-range {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/* Submit Button */
+.filter-submit {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.filter-submit:hover {
+  background-color: #45a049;
+}
+
+.filter-submit:focus {
+  outline: none;
+}
+@media (max-width: 768px) {
+  #filter-toggle {
+    display: block;
+  }
+
+  .nuur-container img {
+    display: none;
+  }
+  .filters {
+    position: fixed;
+    top: 50px; /* Adjust to avoid overlapping with the toggle button */
+    left: 0;
+    right: 20px;
+    bottom: 0;
+    height: auto;
+    overflow-y: auto;
+    display: none; /* Hidden by default */
+  }
+}
