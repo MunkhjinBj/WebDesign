@@ -1,4 +1,5 @@
 import express from "express";
+<<<<<<< HEAD
 import { travel } from "./routes/travels.mjs";
 import { booking } from "./routes/bookings.mjs";
 // import user from "./routes/users.mjs";
@@ -10,6 +11,27 @@ const app = express();
 
 app.use(express.json());
 app.use(express.static(path.resolve("frontend")));
+=======
+import bodyParser from "body-parser";
+import cors from "cors";
+import path from "path";
+import dotenv from "dotenv";
+
+import { travel } from "./routes/travels.mjs";
+import { booking } from "./routes/bookings.mjs";
+import usersRoutes from "./routes/users.mjs";
+import swaggerDocs from "./swagger.mjs";
+import pool from "./db/da.mjs";
+
+dotenv.config();
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+
+app.use(bodyParser.json());
+app.use(cors());
+app.use(express.json());
+app.use(express.static(path.resolve(".")));
+>>>>>>> origin/main
 app.use("/components", express.static(path.resolve("components")));
 app.use("/modules", express.static(path.resolve("modules")));
 app.use("/images", express.static(path.resolve("images")));
@@ -17,15 +39,26 @@ app.use("/images", express.static(path.resolve("images")));
 const port = 3000;
 
 app.get("/", (req, res) => {
+<<<<<<< HEAD
   res.sendFile(path.resolve("frontend/index.html"));
 });
 app.get("/frontend/app.js", (req, res) => {
   res.sendFile(path.resolve("frontend/app.js"));
+=======
+  res.sendFile(path.resolve("../index.html"));
+});
+app.get("../frontend/app.js", (req, res) => {
+  res.sendFile(path.resolve("../frontend/app.js"));
+>>>>>>> origin/main
 });
 app.get("/api/travels", (req, res) => travel.get(req, res));
 app.post("/api/travels", (req, res) => travel.post(req, res));
 app.get("/api/bookings", (req, res) => booking.get(req, res));
 app.post("/api/bookings", (req, res) => booking.post(req, res));
+<<<<<<< HEAD
+=======
+app.use("/api/users", usersRoutes);
+>>>>>>> origin/main
 app.get("/api/destinations", async (req, res) => {
   try {
     const result = await pool.query("SELECT DISTINCT type FROM travels");
@@ -36,12 +69,17 @@ app.get("/api/destinations", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 // Start Server and Swagger Docs
 app.listen(port, () => {
+=======
+app.listen(port, "0.0.0.0", () => {
+>>>>>>> origin/main
   console.log(`Server running at http://localhost:${port}`);
   swaggerDocs(app, port);
   console.log(`Swagger Docs available at http:// localhost:${port}/docs`);
 });
+<<<<<<< HEAD
 
 // import express from "express";
 // import bodyParser from "body-parser";
@@ -66,3 +104,5 @@ app.listen(port, () => {
 // app.listen(PORT, () => {
 //   console.log(`Server running at http://localhost:${PORT}`);
 // });
+=======
+>>>>>>> origin/main

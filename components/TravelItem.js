@@ -1,7 +1,7 @@
 const template = document.createElement("template");
 template.innerHTML = `
   <style>
-        :host {
+      :host {
         display: block;
         background-color: var(--background-color, #ffffff);
         color: var(--text-color, #333);

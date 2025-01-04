@@ -8,14 +8,25 @@
     <link rel="stylesheet" href="./header.css" />
     <link rel="stylesheet" href="./filter.css" />
     <title>Travels</title>
+<<<<<<< HEAD
     <script type="module" src="../frontend/app.js"></script>
+=======
+    <script type="module" src="../frontend/app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+>>>>>>> origin/main
   </head>
   <body>
     <header>
       <nav class="header-nav">
         <div class="motto">
+<<<<<<< HEAD
           <a href="./index.html"
             ><img width="50px" src="/images/ym2/logo.png" alt="logo"
+=======
+          <a href="../index.html" aria-label="Home"
+            ><img width="50px" src="../images/ym2/logo.png" alt="logo"
+>>>>>>> origin/main
           /></a>
           <p>
             Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
@@ -23,13 +34,13 @@
           </p>
         </div>
         <ul class="nav-links">
-          <li><a href="./aboutUs.html">Бидний тухай</a></li>
-          <li><a href="./zahialah.html">Аялал захиалах</a></li>
-          <li><a href="./mytravels.html">Миний аяллууд</a></li>
-          <li><a href="./travels.html">Аяллууд</a></li>
+          <li><a href="./aboutUs.html" aria-label="Learn more about us">Бидний тухай</a></li>
+          <li><a href="./zahialah.html" aria-label="Book your trip">Аялал захиалах</a></li>
+          <li><a href="./mytravels.html" aria-label="Navigate through your trips">Миний аяллууд</a></li>
+          <li><a href="./travels.html" aria-label="Deep dive into our travelling options">Аяллууд</a></li>
         </ul>
         <section class="user-links">
-          <button id="toggle-theme">
+          <button id="toggle-theme" aria-label="Switch mode">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -59,50 +70,54 @@
               <span slot="item"></span>
             </cart-comp>
           </div>
-          <a href="./signin.html">Нэвтрэх</a>
-          <a href="signin.html"
-            ><img src="/images/ym2/account_icon.png" alt=""
+          <a href="./signin.html" aria-label="Sign in to your account">Нэвтрэх</a>
+          <a href="signin.html" aria-label="Sign in to your account"
+            ><img src="../images/ym2/account_icon.png" alt=""
           /></a>
         </section>
       </nav>
     </header>
 
     <div class="nuur-container">
+<<<<<<< HEAD
       <img src="/images/ym2/main.png" alt="" />
+=======
+      <img src="../images/ym2/main.webp" alt="page main image" loading="lazy" />
+>>>>>>> origin/main
       <h1>Аялалууд</h1>
     </div>
 
     <main class="content">
-      <button id="filter-toggle" class="burger-menu">☰ Шүүлтүүр</button>
+      <button id="filter-toggle" class="burger-menu" aria-label="Filter for your prefrences">☰ Шүүлтүүр</button>
       <aside class="filters">
-        <h3>Шүүлтүүр</h3>
+        <h1>Шүүлтүүр</h1>
 
         <div class="filter-group days">
-          <h4>Аяллын хоног</h4>
+          <h2>Аяллын хоног</h2>
         </div>
         <div class="filter-group types">
-          <h4>Аяллын төрөл</h4>
+          <h2>Аяллын төрөл</h2>
         </div>
         <div class="filter-group season">
-          <h4>Улирал</h4>
+          <h2>Улирал</h2>
         </div>
         <div class="filter-group age">
-          <h4>Насны ангилал</h4>
+          <h2>Насны ангилал</h2>
         </div>
         <div class="filter-group price">
-          <h4 for="price">Үнэ</h4>
+          <h2 for="price">Үнэ</h2>
         </div>
 
-        <button id="clear-filters">цэвэрлэх</button>
+        <button id="clear-filters" aria-label="Clear the filters">цэвэрлэх</button>
       </aside>
 
       <section class="travels-container">
         <div id="travel-grid"></div>
 
         <div class="pagination" aria-label="Page navigation">
-          <a href="#" aria-label="Previous page">&laquo;</a>
-          <a href="#" aria-label="Page 1">1</a>
-          <a href="#" aria-label="Next page">&raquo;</a>
+          <a href="#" aria-label="Previous page" aria-label="Previous page">&laquo;</a>
+          <a href="#" aria-label="Page 1"aria-label="Current page">1</a>
+          <a href="#" aria-label="Next page"aria-label="Next page">&raquo;</a>
         </div>
       </section>
     </main>
@@ -111,7 +126,11 @@
       <div class="footer-container">
         <section class="footer-first">
           <div class="footer-logo">
+<<<<<<< HEAD
             <img src="/images/ym2/logo.png" alt="Logo" />
+=======
+            <img src="../images/ym2/logo.png" alt="Logo" />
+>>>>>>> origin/main
             <p>
               нууц <br />
               аялал
@@ -120,7 +139,7 @@
           <div class="social-icons">
             <ul>
               <li>
-                <a style="color: white" href="#"
+                <a style="color: white" href="#" aria-label="Facebook"
                   ><i
                     style="font-size: 34px"
                     class="fa-brands fa-square-facebook"
@@ -128,12 +147,12 @@
                 </a>
               </li>
               <li>
-                <a style="color: white" href="#"
+                <a style="color: white" href="#" aria-label="Twitter"
                   ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
                 ></a>
               </li>
               <li>
-                <a style="color: white" href="#"
+                <a style="color: white" href="#" aria-label="Instagram"
                   ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
                 ></a>
               </li>
@@ -141,32 +160,34 @@
           </div>
         </section>
         <section class="footer-links">
-          <h4>Бидний тухай</h4>
+          <h2>Бидний тухай</h2>
           <ul>
-            <li><a href="aboutUs.html">Танилцуулга</a></li>
-            <li><a href="FaQ.html">Асуулт хариулт</a></li>
+            <li><a href="aboutUs.html"  aria-label="About us">Танилцуулга</a></li>
+            <li><a href="FaQ.html" aria-label="FAQ">Асуулт хариулт</a></li>
           </ul>
         </section>
         <section class="footer-contact">
-          <h4>Холбоо барих</h4>
+          <h2>Холбоо барих</h2>
           <ul>
             <li>
               <p>
                 и-мэйл:
-                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us">nuutsaylal@gmail.com</a>
               </p>
             </li>
             <li><p>Phone: +976 99999999</p></li>
           </ul>
         </section>
         <section class="footer-address">
-          <h4>Манай хаяг</h4>
+          <h2>Манай хаяг</h2>
+          <ul>
           <li>
             <p>
               Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
               Улаанбаатар
             </p>
           </li>
+        </ul>
         </section>
       </div>
     </footer>

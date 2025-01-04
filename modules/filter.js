@@ -4,7 +4,7 @@ export default class Travels {
     this.image = travelObj.image;
     this.title = travelObj.title;
     this.type = travelObj.type;
-    this.days = travelObj.day;
+    this.days = travelObj.days;
     this.price = travelObj.price;
     this.season = travelObj.season;
     this.location = travelObj.location;
@@ -22,7 +22,7 @@ export default class Travels {
 //         </ul>
 //         <ul class="addCart">
 //           <li>
-//             <button class="add-to-cart">Сагслах</button>
+//             <button class="add-to-cart" aria-label="add to the cart">Сагслах</button>
 //           </li>
 //           <li>
 //             <h2>${this.price}₮</h2>
@@ -36,6 +36,7 @@ export default class Travels {
 
 export async function travelLoader() {
   try {
+<<<<<<< HEAD
     const response = await fetch("/api/travels");
 
     if (!response.ok) {
@@ -46,11 +47,29 @@ export async function travelLoader() {
 
     if (!data || !Array.isArray(data.travels)) {
       throw new Error("Invalid data structure: 'travels' not found.");
+=======
+    let response = await fetch("/api/travels");
+    if (
+      !response.ok ||
+      !response.headers.get("content-type")?.includes("application/json")
+    ) {
+      response = await fetch("../frontend/travels.json");
+    }
+
+    const data = await response.json();
+
+    if (!data || !Array.isArray(data.travels)) {
+      throw new Error("'travels' not found.");
+>>>>>>> origin/main
     }
     return data.travels;
   } catch (error) {
     console.error("Error loading travels:", error.message);
+<<<<<<< HEAD
     return []; // Return an empty array to prevent frontend crashes
+=======
+    return [];
+>>>>>>> origin/main
   }
 }
 
@@ -121,9 +140,19 @@ async function loadDestinations() {
   try {
     const response = await fetch("http://localhost:3000/api/destinations");
     if (!response.ok) {
+<<<<<<< HEAD
       throw new Error(
         `Failed to fetch destination types: ${response.statusText}`
       );
+=======
+      try {
+        response = await fetch("../frontend/travels.json");
+      } catch (error) {
+        throw new Error(
+          `Failed to fetch destination types: ${response.statusText}`
+        );
+      }
+>>>>>>> origin/main
     }
     const data = await response.json();
     return [...new Set(data.map((destination) => destination.type))];
@@ -188,7 +217,7 @@ export async function renderFilters() {
     "beforeend",
     `
     <div class="slider-container">
-      <input type="range" id="min-price" min="8135" max="1955800" value="8135" step="100" oninput="updatePrice()">
+      <input type="range" id="min-price"  aria-label = "Price range"min="8135" max="1955800" value="8135" step="100" oninput="updatePrice()">
     </div>
     <div class="price-display">
       <span id="min-price-display">100,000₮</span>

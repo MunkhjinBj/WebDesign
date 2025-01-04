@@ -1,13 +1,24 @@
+<<<<<<< HEAD
 import "/components/TravelItem.js";
 ("");
 import "/components/CartComp.js";
 import "/components/CartIcon.js";
+=======
+import "../components/TravelItem.js";
+("");
+import "../components/CartComp.js";
+import "../components/CartIcon.js";
+>>>>>>> origin/main
 import Travels, {
   travelLoader,
   applyFiltersFromURL,
   renderFilters,
   renderTravels,
+<<<<<<< HEAD
 } from "/modules/filter.js";
+=======
+} from "../modules/filter.js";
+>>>>>>> origin/main
 
 // import Cart, { addToCart, removeFromCart } from "./modules/cart.js";
 
@@ -28,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                data-title="${t.title}" 
                data-image="${t.image}" 
                data-location="${t.location}" 
-               data-days="${t.day}" 
+               data-days="${t.days}" 
                data-price="${t.price}">
           </travel-item>`
     )
