@@ -5,19 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Signup " />
     <link rel="stylesheet" href="sign_css.css" />
-    <script type="module" src="../frontend/app.js"></script>
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <link rel="stylesheet" href="header.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://kit.fontawesome.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="../dist/header.min.css" />
     <title>Нэвтрэх</title>
   </head>
   <body>
     <header>
       <nav class="header-nav">
         <div class="motto">
-          <a href="./index.html"
+          <a href="../index.html"
             ><img width="50px" src="../images/ym2/logo.png" alt="logo"
           /></a>
           <p>
@@ -26,13 +32,13 @@
           </p>
         </div>
         <ul class="nav-links">
-          <li><a href="./aboutUs.html">Бидний тухай</a></li>
-          <li><a href="./zahialah.html">Аялал захиалах</a></li>
-          <li><a href="./mytravels.html">Миний аяллууд</a></li>
-          <li><a href="./travels.html">Aяллууд</a></li>
+          <li><a href="./aboutUs.html" aria-label="Learn more about us">Бидний тухай</a></li>
+          <li><a href="./zahialah.html" aria-label="Modify your trip for your prefrences">Аялал захиалах</a></li>
+          <li><a href="./mytravels.html" aria-label="Navigate through your trips">Миний аяллууд</a></li>
+          <li><a href="./travels.html" aria-label="Learn more about our travelling options">Aяллууд</a></li>
         </ul>
         <section class="user-links">
-          <button id="toggle-theme">
+          <button id="toggle-theme" aria-label="Toggle dark mode">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -62,9 +68,9 @@
               <span slot="item"></span>
             </cart-comp>
           </div>
-          <a href="./signin.html">Нэвтрэх</a>
-          <a href="signin.html"
-            ><img src="/images/ym2/account_icon.png" alt=""
+          <a href="./signin.html" aria-label="Sign in to your account">Нэвтрэх</a>
+          <a href="signin.html" aria-label="Sign in to your account"
+            ><img src="/images/ym2/account_icon.png" alt="account_icon"
           /></a>
         </section>
       </nav>
@@ -95,14 +101,14 @@
           <div class="password-container">
             <label for="password">Нууц үг</label>
             <input type="password" id="password" name="password" required />
-            <button type="button" class="toggle-password">
+            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
               <i class="fas fa-eye"></i>
             </button>
           </div>
           <div class="password-container">
             <label for="confirm-password">Нууц үг баталгаажуулах</label>
             <input type="password" id="confirm-password" required />
-            <button type="button" class="toggle-password">
+            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
               <i class="fas fa-eye"></i>
             </button>
           </div>
@@ -119,21 +125,23 @@
               <option value="other">Бусад</option>
             </select>
           </div>
-          <button type="submit" class="primary-btn">Бүртгүүлэх</button>
+          <button type="submit" class="primary-btn" aria-label="Sign up">Бүртгүүлэх</button>
         </form>
         <div class="or-container">OR</div>
         <div class="social-login">
           <button
             class="social-btn google"
-            onclick="window.location.href='../index.html'"
+            onclick="window.location.href='../index.html'" aria-label="Sign in with Google" aria-labelledby="google"
           >
             <i class="fab fa-google"></i>
           </button>
-          <button class="social-btn facebook">
+          <button class="social-btn facebook"
+            onclick="window.location.href='../index.html'" aria-label="Sign in with Facebook" aria-labelledby="facebook"
+            >
             <i class="fab fa-facebook-f"></i>
           </button>
         </div>
-        <p>Бүртгэлтэй хаяг байгаа юу? <a href="./signin.html">Нэвтрэх</a></p>
+        <p>Бүртгэлтэй хаяг байгаа юу? <a href="./signin.html" aria-label="Sign in to your account">Нэвтрэх</a></p>
       </section>
     </div>
 
@@ -141,7 +149,7 @@
       <div class="footer-container">
         <section class="footer-first">
           <div class="footer-logo">
-            <img src="./images/ym2/logo.png" alt="Logo" />
+            <img src="../images/ym2/logo.png" alt="Logo" />
             <p>
               нууц <br />
               аялал
@@ -150,7 +158,7 @@
           <div class="social-icons">
             <ul>
               <li>
-                <a style="color: white" href="#"
+                <a style="color: white" href="#" aria-label="Facebook"
                   ><i
                     style="font-size: 34px"
                     class="fa-brands fa-square-facebook"
@@ -158,12 +166,12 @@
                 </a>
               </li>
               <li>
-                <a style="color: white" href="#"
+                <a style="color: white" href="#" aria-label="Twitter"
                   ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
                 ></a>
               </li>
               <li>
-                <a style="color: white" href="#"
+                <a style="color: white" href="#" aria-label="Instagram"
                   ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
                 ></a>
               </li>
@@ -183,7 +191,7 @@
             <li>
               <p>
                 и-мэйл:
-                <a href="mailto:nuutsaylal@gmail.com">nuutsaylal@gmail.com</a>
+                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us">nuutsaylal@gmail.com</a>
               </p>
             </li>
             <li><p>Phone: +976 99999999</p></li>
@@ -191,12 +199,14 @@
         </section>
         <section class="footer-address">
           <h4>Манай хаяг</h4>
+          <ul>
           <li>
             <p>
               Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
               Улаанбаатар
             </p>
           </li>
+        </ul>
         </section>
       </div>
     </footer>
@@ -204,6 +214,7 @@
     <script
       src="https://kit.fontawesome.com/d903c022ca.js"
       crossorigin="anonymous"
+      defer
     ></script>
     <script src="muu.js"></script>
     <script>
@@ -218,5 +229,6 @@
         }
       });
     </script>
+    <script type="module" src="../frontend/app.js" defer></script>
   </body>
 </html>
