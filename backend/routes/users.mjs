@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -25,6 +24,7 @@ router.get("/", async (req, res) => {
 router.post("/register", async (req, res) => {
   const { email, password, full_name, phone_number, date_of_birth, gender } =
     req.body;
+  console.log("req body", req.body);
 
   try {
     // Check if the email already exists
@@ -34,21 +34,19 @@ router.post("/register", async (req, res) => {
     }
 
     // Hash the password
-    const passwordHash = await bcrypt.hash(password, 10);
+    const password_hash = await bcrypt.hash(password, 10);
 
     // Insert the user
     const newUser = await usersData.insertUser({
       email,
-      password,
+      password: password_hash,
       full_name,
       phone_number,
       date_of_birth,
       gender,
     });
 
-    res
-      .status(201)
-      .json({ message: "User registered successfully", user: newUser });
+    res.status(201).send("User registered successfully");
   } catch (error) {
     console.error("Error registering user:", error.message);
     res
@@ -91,6 +89,7 @@ router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
+    id = parseInt(id, 10);
     const deletedUser = await usersData.deleteUser(id);
     if (!deletedUser) {
       return res.status(404).json({ message: "User not found." });
@@ -108,38 +107,3 @@ router.delete("/:id", async (req, res) => {
 });
 
 export default router;
-=======
-// const express = require("express");
-// const router = express.Router();
-// const pool = require("./db");
-
-// // POST route to handle signup
-// router.post("/", async (req, res) => {
-//   const { fullname, email, phone, password, dob, gender } = req.body;
-
-//   try {
-//     // Insert user into the database
-//     const query = `
-//       INSERT INTO users (fullname, email, phone, password, dob, gender)
-//       VALUES ($1, $2, $3, $4, $5, $6)
-//       RETURNING id;
-//     `;
-//     const values = [fullname, email, phone, password, dob, gender];
-//     const result = await pool.query(query, values);
-
-//     res
-//       .status(201)
-//       .send({
-//         message: "User registered successfully",
-//         userId: result.rows[0].id,
-//       });
-//   } catch (error) {
-//     console.error("Error registering user:", error);
-//     res
-//       .status(500)
-//       .send({ error: "An error occurred while registering the user." });
-//   }
-// });
-
-// module.exports = router;
->>>>>>> dc48c92 (webapi)

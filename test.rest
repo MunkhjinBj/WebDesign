@@ -39,7 +39,6 @@ Content-Type: application/json
 
 GET http://localhost:3000/api/destinations
 Content-Type: application/json
-<<<<<<< HEAD
 
 GET http://localhost:3000/api/users
 Content-Type: application/json
@@ -48,12 +47,12 @@ POST http://localhost:3000/api/users/register
 Content-Type: application/json
 
 {
-  "email": "aaaa@gmail.com",
+  "email": "tamiraa@gmail.com",
   "password": "1345678",
-  "full_name": "bold",
-  "phone_number": "99999999",
-  "date_of_birth": "1991-03-01",
-  "gender": "Male"
+  "full_name": "tamir",
+  "phone_number": "90678969",
+  "date_of_birth": "1995-05-01",
+  "gender": "male"
 }
 
 POST http://localhost:3000/api/users/login
@@ -64,6 +63,5 @@ Content-Type: application/json
   "password": "1345678"
 }
 
-DELETE http://localhost:3000/api/users/1
-=======
->>>>>>> dc48c92 (webapi)
+DELETE http://localhost:3000/api/users/32
+Content-Type: application/json

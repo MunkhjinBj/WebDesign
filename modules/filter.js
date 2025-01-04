@@ -39,7 +39,7 @@ export async function travelLoader() {
     const response = await fetch("/api/travels");
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch travels: ${response.statusText}`);
+      response = await fetch("../frontend/travels.json");
     }
     const data = await response.json();
     console.log("API Response:", data);
@@ -50,11 +50,7 @@ export async function travelLoader() {
     return data.travels;
   } catch (error) {
     console.error("Error loading travels:", error.message);
-<<<<<<< HEAD
     return [];
-=======
-    return []; // Return an empty array to prevent frontend crashes
->>>>>>> dc48c92 (webapi)
   }
 }
 

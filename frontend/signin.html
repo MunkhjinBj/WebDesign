@@ -6,12 +6,8 @@
     <meta name="description" content="SignIn">
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="sign_css.css" />
-<<<<<<< HEAD
-    <script type="module" src="../frontend/app.js" defer ></script>
+    <script type="module" src="../frontend/app.js"></script>
     <title>Нэвтрэх</title>
-=======
-    <script type="module" src="../frontend/app.js"></script>    <title>Нэвтрэх</title>
->>>>>>> dc48c92 (webapi)
   </head>
   <body>
     <header>
@@ -184,7 +180,7 @@
         const password = document.getElementById('password').value;
     
         try {
-          const response = await fetch('http://localhost:5501/signin', {
+          const response = await fetch('/api/users/login', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -195,11 +191,10 @@
           const data = await response.json();
     
           if (response.ok) {
-            // Save the JWT token in localStorage
-            localStorage.setItem('token', data.token);
-    
+           
+            
             // Redirect to user info page
-            window.location.href = 'userinfo.html';  // Replace with your user info page URL
+            window.location.href = '../index.html'; 
           } else {
             alert(data.message);
           }

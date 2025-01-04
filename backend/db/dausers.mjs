@@ -28,14 +28,14 @@ export default class DaUsers {
   }
 
   async insertUser(user) {
-    const { email, passwordHash, fullName, phoneNumber, dateOfBirth, gender } =
+    const { email, password, full_name, phone_number, date_of_birth, gender } =
       user;
     const result = await this.pool.query(this.insertUserStr, [
       email,
-      passwordHash,
-      fullName,
-      phoneNumber,
-      dateOfBirth,
+      password,
+      full_name,
+      phone_number,
+      date_of_birth,
       gender,
     ]);
     return result.rows[0];
