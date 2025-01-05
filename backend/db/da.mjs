@@ -16,10 +16,7 @@ const pool = new pg.Pool({
   },
 });
 
-<<<<<<< HEAD
-=======
 //object uusgeed pool object-oo damjuulad ugn
->>>>>>> f4866d7 (.)
 const datravels = new DaTravels(pool);
 const dabookings = new DaBookings(pool);
 

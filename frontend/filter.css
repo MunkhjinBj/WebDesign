@@ -108,13 +108,8 @@ input[type="range"]:focus {
   content: none;
 }
 .filter-group h2 {
-<<<<<<< HEAD
-  font-size: 1.2rem;
-  padding: 0.6em 0;
-=======
   font-size: 13px;
   padding: 15px 0;
->>>>>>> f4866d7 (.)
   color: var(--text-color);
 }
 .filter-group label {
@@ -144,22 +139,6 @@ input[type="range"]:focus {
   transition: var(--background-color) 0.3s ease;
 }
 
-<<<<<<< HEAD
-#clear-filters {
-  background-color: var(--primary-color);
-  color: #fff;
-  display: grid;
-  justify-self: center;
-  margin-top: 1rem;
-  padding: 10px 15px;
-  border-radius: 16px;
-  font-weight: 500;
-  margin-right: 5rem;
-  
-}
-
-=======
->>>>>>> f4866d7 (.)
 /* search */
 .search-bar {
   display: none;
@@ -247,9 +226,8 @@ input[type="range"]:focus {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   margin: 0 auto;
   justify-items: center;
-  gap:calc(0.6rem + 0.5vw);
+  gap: calc(0.6rem + 0.5vw);
 }
-
 
 #travel-grid travel-item {
   width: 100%;
@@ -262,7 +240,6 @@ input[type="range"]:focus {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-
 }
 
 .pagination a {
@@ -270,12 +247,7 @@ input[type="range"]:focus {
   margin: 0 5px;
   text-decoration: none;
   font-weight: bold;
-<<<<<<< HEAD
-  font-size: 2rem;
-  padding: 10px;
-=======
   font-size: 1.5rem;
->>>>>>> f4866d7 (.)
 }
 
 .pagination a.active {
@@ -313,11 +285,7 @@ input[type="range"]:focus {
     padding: 20px 0 10px 50px;
     height: max-content;
     background-color: var(--background-color);
-<<<<<<< HEAD
-    box-shadow: 0 2px 8px rgb(255, 255, 255);
-=======
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
->>>>>>> f4866d7 (.)
     box-sizing: border-box;
     overflow-y: auto;
     border-radius: 20px;
