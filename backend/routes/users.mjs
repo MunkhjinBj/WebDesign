@@ -9,9 +9,6 @@ const usersData = new DaUsers(pool);
 
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
 
-<<<<<<< HEAD
-// Get all users
-=======
 /**
  * @openapi
  * /api/users:
@@ -29,7 +26,6 @@ const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
  *       500:
  *         description: Server Error
  */
->>>>>>> f4866d7 (.)
 router.get("/", async (req, res) => {
   try {
     const users = await usersData.getAllUsers();
@@ -41,8 +37,6 @@ router.get("/", async (req, res) => {
 });
 
 // Register a user
-<<<<<<< HEAD
-=======
 /**
  * @openapi
  * /api/users/register:
@@ -69,7 +63,6 @@ router.get("/", async (req, res) => {
  *         description: Server error
  */
 
->>>>>>> f4866d7 (.)
 router.post("/register", async (req, res) => {
   const { email, password, full_name, phone_number, date_of_birth, gender } =
     req.body;
@@ -105,8 +98,6 @@ router.post("/register", async (req, res) => {
 });
 
 // Login a user
-<<<<<<< HEAD
-=======
 /**
  * @openapi
  * /api/users:
@@ -130,7 +121,6 @@ router.post("/register", async (req, res) => {
  *       500:
  *         description: Server Error
  */
->>>>>>> f4866d7 (.)
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -160,8 +150,6 @@ router.post("/login", async (req, res) => {
 });
 
 // Delete a user
-<<<<<<< HEAD
-=======
 /**
  * @openapi
  * /api/users:
@@ -185,7 +173,6 @@ router.post("/login", async (req, res) => {
  *       500:
  *         description: Server Error
  */
->>>>>>> f4866d7 (.)
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
