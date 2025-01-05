@@ -31,20 +31,22 @@ template.innerHTML = `
 
 
     article {
-        width: 220px;
-        height: 350px;
-        padding-bottom: 1.1rem;
-        text-align: center;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        overflow: hidden;
-        transition: transform 0.3s, box-shadow 0.5s;
-        position: relative;
-        background-color: var(--background-color); 
-        border-radius: 16px;
-        margin: 15px;
+      width: 100%; /* Use full width of the container */
+      max-width: 220px; /* Restrict to a max width */
+      height: auto; /* Let height adjust based on content */
+      padding-bottom: 1.1rem;
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.5s;
+      position: relative;
+      background-color: var(--background-color); 
+      border-radius: 16px;
+      margin: 15px;
+      border: 1px solid var(--border-color);
     }
 
     article:hover img {
@@ -54,11 +56,15 @@ template.innerHTML = `
     }
 
     article img {
-        width: 220px;
-        height: 220px;
-        border-radius: 16px;
-        object-fit: cover;
-        transition: transform 0.3s ease-in-out;
+    width: 220px;
+    height: 220px;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    }
+
         
     }
     article:hover {
@@ -66,31 +72,30 @@ template.innerHTML = `
         box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Optional: Shadow effect */
     }
     article h3 {
-        text-align: left;
-        font-size: 14px;
-        font-weight: 550;
-        border-bottom: 1px solid var(--text-color);
-        padding-bottom: 3px;
-        margin: 0 10px;
-        color: inherit;
+      font-size: 1rem; /* Use rem for better responsiveness */
+      font-weight: 550;
+      border-bottom: 1px solid var(--text-color);
+      padding-bottom: 3px;
+      margin: 0 10px;
+      color: inherit;
     }
 
     article p {
-        color: var(--text-color);
-        font-size: 10px;
-        margin: 5px 0;
+      color: var(--text-color);
+      font-size: 0.8rem; /* Adjust font size based on root font size */
+      margin: 5px 0;
     }
     article button {
-        background-color: var(--primary-hover-color);
-        color: var(--text-color);
-        border: none;
-        padding: 5px 10px;
-        right: -50px;
-        border-radius: 12px;
-        cursor: pointer;
-        font-size: 12px;
-        font-weight: 500;
-        transition: background-color 0.3s ease;
+      background-color: var(--primary-hover-color);
+      color: var(--text-color);
+      border: none;
+      padding: 5px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+      margin: 0 auto;
     }
 
     article button:hover {
@@ -120,6 +125,7 @@ template.innerHTML = `
         justify-content: space-between;
         padding: 5px 5px 0 5px;
         margin: 0;
+        flex-wrap: wrap;
     }
     .location li:first-child::before {
         content: "";
@@ -137,6 +143,7 @@ template.innerHTML = `
         justify-content: space-between;
         padding: 0 5px ;
         margin:0;
+        flex-wrap: wrap;
     } 
   </style>
   <article>

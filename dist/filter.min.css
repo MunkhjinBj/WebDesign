@@ -171,7 +171,15 @@ input[type="range"]:focus {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   margin: 0 auto;
+  justify-items: center;
+
 }
+/* #travel-grid .travel-item {
+
+  justify-content: center;
+  text-align: center;
+} */
+
 travel-item {
   width: 220px;
 }

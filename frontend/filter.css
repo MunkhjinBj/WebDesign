@@ -211,12 +211,12 @@ input[type="range"]:focus {
 .content {
   display: flex;
   justify-content: flex-start;
-  padding-top: 40px;
+  padding-top: 2rem;
   background-color: var(--background-color);
 }
 
 .travels-container {
-  width: 70%;
+  width: 80%;
   padding: 0 25px 0 20px;
   background-color: var(--background-color);
 }
@@ -225,9 +225,12 @@ input[type="range"]:focus {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   margin: 0 auto;
+  justify-items: center;
+  gap:calc(0.6rem + 0.5vw);
 }
 travel-item {
-  width: 220px;
+  width: 240px;
+  height: auto;
 }
 
 /*---------------------------------------- Pagination ----------------------------------------*/
