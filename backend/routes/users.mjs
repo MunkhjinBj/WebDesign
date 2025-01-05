@@ -64,15 +64,14 @@ router.get("/", async (req, res) => {
  */
 
 router.post("/register", async (req, res) => {
-  const { email, password, full_name, phone_number, date_of_birth, gender } =
-    req.body;
+  const { email, password, full_name, phone_number, date_of_birth, gender } = req.body;
   console.log("req body", req.body);
 
   try {
     // Check if the email already exists
     const existingUser = await usersData.getUserByEmail(email);
     if (existingUser) {
-      return res.status(400).json({ message: "Email already registered." });
+      return res.status(400).json({ message: "Email already registered" });
     }
 
     // Hash the password
@@ -88,12 +87,11 @@ router.post("/register", async (req, res) => {
       gender,
     });
 
-    res.status(201).send("User registered successfully");
+    // Redirect to the sign-in page after successful registration
+    res.redirect('/frontend/signin.html');
   } catch (error) {
     console.error("Error registering user:", error.message);
-    res
-      .status(500)
-      .json({ error: "An error occurred while registering the user." });
+    res.status(500).json({ error: "An error occurred while registering the user." });
   }
 });
 
@@ -128,7 +126,7 @@ router.post("/login", async (req, res) => {
     // Find the user by email
     const user = await usersData.getUserByEmail(email);
     if (!user) {
-      return res.status(400).json({ message: "Invalid email or password." });
+      return res.status(400);
     }
 
     // Compare the password

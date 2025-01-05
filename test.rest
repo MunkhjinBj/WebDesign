@@ -29,12 +29,12 @@ Content-Type: application/json
 POST http://localhost:3000/api/bookings
 Content-Type: application/json
 {
-  "user_id": 1,
+  "user_id": 13,
   "travel_id": 10,
-  "date": "2025-01-20",
-  "status": "Pending",
-  "number_of_travelers": 3,
-  "total_price": 3000000
+  "date": "2025-01-05",
+  "status": "In Progress",
+  "number_of_travelers": 2,
+  "total_price": 300000
 }
 
 GET http://localhost:3000/api/destinations
@@ -45,11 +45,10 @@ Content-Type: application/json
 
 POST http://localhost:3000/api/users/register
 Content-Type: application/json
-
 {
+  "full_name": "tamir",
   "email": "tamiraa@gmail.com",
   "password": "1345678",
-  "full_name": "tamir",
   "phone_number": "90678969",
   "date_of_birth": "1995-05-01",
   "gender": "male"
@@ -63,5 +62,5 @@ Content-Type: application/json
   "password": "1345678"
 }
 
-DELETE http://localhost:3000/api/users/32
+DELETE http://localhost:3000/api/users/34
 Content-Type: application/json

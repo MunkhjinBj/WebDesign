@@ -85,7 +85,7 @@ const options = {
             password: {
               type: "string",
               format: "password",
-              example: "securepassword123",
+              example: "password123",
             },
           },
         },
