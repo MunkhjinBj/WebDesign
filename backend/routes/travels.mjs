@@ -57,5 +57,6 @@ export default class Travels {
     await datravels.addTravel(req, res);
   }
 }
+
 const travel = new Travels();
 export { travel };

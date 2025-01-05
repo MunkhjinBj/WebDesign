@@ -51,15 +51,11 @@ app.post("/api/travels", (req, res) => travel.post(req, res));
 //Захиалгын өгөгдлийг авах, шинэ захиалга нэмэх API
 app.get("/api/bookings", (req, res) => booking.get(req, res));
 app.post("/api/bookings", (req, res) => booking.post(req, res));
-<<<<<<< HEAD
-app.use("/api/users", usersRoutes);
-=======
 
 //usersRoutes файлыг ашиглан хэрэглэгчийн холбогдсон маршрут.
 app.use("/api/users", usersRoutes);
 
 //travels хүснэгтээс ялгаатай аяллын төрлүүдийг авах
->>>>>>> f4866d7 (.)
 app.get("/api/destinations", async (req, res) => {
   try {
     const result = await pool.query("SELECT DISTINCT type FROM travels");
