@@ -19,7 +19,7 @@
   top: 20%;
   left: 17%;
   transform: translate(-50%, -50%);
-  color: #fff;
+  color: white;
   font-size: clamp(1.5rem, 5vw, 3rem);
   box-sizing: border-box;
 }
@@ -62,7 +62,7 @@ input[type="range"]:focus {
   top: 0;
   left: 0;
   height: 80%;
-  margin: 0 35px;
+  margin: 0 2rem;
 }
 
 .filters::after {
@@ -82,7 +82,7 @@ input[type="range"]:focus {
 
 .filters h1 {
   font-family: var(--font-family);
-  font-size: 16px;
+  font-size: 2rem;
   color: var(--text-color);
   letter-spacing: 1px;
   border-bottom: 2px solid var(--primary-hover-color);
@@ -108,8 +108,8 @@ input[type="range"]:focus {
   content: none;
 }
 .filter-group h2 {
-  font-size: 13px;
-  padding: 15px 0;
+  font-size: 1.2rem;
+  padding: 0.6em 0;
   color: var(--text-color);
 }
 .filter-group label {
@@ -137,6 +137,19 @@ input[type="range"]:focus {
   cursor: pointer;
   font-size: 0.9rem;
   transition: var(--background-color) 0.3s ease;
+}
+
+#clear-filters {
+  background-color: var(--primary-color);
+  color: #fff;
+  display: grid;
+  justify-self: center;
+  margin-top: 1rem;
+  padding: 10px 15px;
+  border-radius: 16px;
+  font-weight: 500;
+  margin-right: 5rem;
+  
 }
 
 /* search */
@@ -228,9 +241,12 @@ input[type="range"]:focus {
   justify-items: center;
   gap:calc(0.6rem + 0.5vw);
 }
-travel-item {
-  width: 240px;
-  height: auto;
+
+
+#travel-grid travel-item {
+  width: 100%;
+  height: 100%;
+  justify-items: center;
 }
 
 /*---------------------------------------- Pagination ----------------------------------------*/
@@ -238,6 +254,7 @@ travel-item {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+
 }
 
 .pagination a {
@@ -245,7 +262,8 @@ travel-item {
   margin: 0 5px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  padding: 10px;
 }
 
 .pagination a.active {
@@ -283,7 +301,7 @@ travel-item {
     padding: 20px 0 10px 50px;
     height: max-content;
     background-color: var(--background-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgb(255, 255, 255);
     box-sizing: border-box;
     overflow-y: auto;
     border-radius: 20px;
