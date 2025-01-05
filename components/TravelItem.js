@@ -44,7 +44,7 @@ template.innerHTML = `
         position: relative;
         background-color: var(--background-color); 
         border-radius: 16px;
-        margin: 0px 0px 20px 0px;
+        margin: 15px;
     }
 
     article:hover img {
@@ -62,7 +62,7 @@ template.innerHTML = `
         
     }
     article:hover {
-        border-radius: 16px; /* Optional: Rounded corners for the article */
+        border-radius: 16px;
         box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Optional: Shadow effect */
     }
     article h3 {
