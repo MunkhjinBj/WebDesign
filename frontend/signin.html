@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="SignIn">
+    <meta name="description" content="SignIn" />
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="sign_css.css" />
     <script type="module" src="../frontend/app.js"></script>
@@ -21,49 +21,69 @@
             <strong style="font-weight: 600">бид бүтээж өгнө</strong>
           </p>
         </div>
-      <ul class="nav-links">
-        <li><a href="./aboutUs.html" aria-label="Learn more about us">Бидний тухай</a></li>
-        <li><a href="./zahialah.html" aria-label="Book your trip">Аялал захиалах</a></li>
-        <li><a href="./mytravels.html" aria-label="Navigate through your trips">Миний аяллууд</a></li>
-        <li><a href="./travels.html" aria-label="Deep dive into our travelling options">Аяллууд</a></li>
-      </ul>
-      <section class="user-links">
-        <button id="toggle-theme" aria-label = "Toggle dark mode">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#080d21"
+        <ul class="nav-links">
+          <li>
+            <a href="./aboutUs.html" aria-label="Learn more about us"
+              >Бидний тухай</a
+            >
+          </li>
+          <li>
+            <a href="./zahialah.html" aria-label="Book your trip"
+              >Аялал захиалах</a
+            >
+          </li>
+          <li>
+            <a href="./mytravels.html" aria-label="Navigate through your trips"
+              >Миний аяллууд</a
+            >
+          </li>
+          <li>
+            <a
+              href="./travels.html"
+              aria-label="Deep dive into our travelling options"
+              >Аяллууд</a
+            >
+          </li>
+        </ul>
+        <section class="user-links">
+          <button id="toggle-theme" aria-label="Toggle dark mode">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#080d21"
+            >
+              <path
+                d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#080d21"
+            >
+              <path
+                d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"
+              />
+            </svg>
+          </button>
+          <div class="cart-container" id="cart-container">
+            <cart-icon></cart-icon>
+            <cart-comp data-total-price>
+              <span slot="item"></span>
+            </cart-comp>
+          </div>
+          <a href="./signin.html" aria-label="Sign in to your account"
+            >Нэвтрэх</a
           >
-            <path
-              d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"
-            />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#080d21"
-          >
-            <path
-              d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"
-            />
-          </svg>
-        </button>
-        <div class="cart-container" id="cart-container">
-          <cart-icon></cart-icon>
-          <cart-comp data-total-price>
-            <span slot="item"></span>
-          </cart-comp>
-        </div>
-        <a href="./signin.html" aria-label="Sign in to your account">Нэвтрэх</a>
-        <a href="./signin.html" aria-label="Sign in to your account"
-          ><img src="/images/ym2/account_icon.png" alt="icon"
-        /></a>
-      </section>
-    </nav>
+          <a href="./signin.html" aria-label="Sign in to your account"
+            ><img src="/images/ym2/account_icon.png" alt="icon"
+          /></a>
+        </section>
+      </nav>
     </header>
     <nav class="mobile-nav">
       <a href="../index.html">
@@ -93,31 +113,43 @@
           <div class="password-container">
             <label for="password">Нууц үг</label>
             <input type="password" id="password" name="password" required />
-            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+            <button
+              type="button"
+              class="toggle-password"
+              aria-label="Toggle password visibility"
+            >
               <i class="fas fa-eye"></i>
             </button>
           </div>
           <a href="#" class="forgot-password">Нууц үгээ мартсан уу?</a>
-          <button type="submit" class="primary-btn" aria-label="Psuh this">Нэвтрэх</button>
+          <button type="submit" class="primary-btn" aria-label="Psuh this">
+            Нэвтрэх
+          </button>
         </form>
         <div class="or-container">OR</div>
         <div class="social-login">
           <button class="social-btn google" aria-label="Sign in with Google">
             <i class="fab fa-google"></i>
           </button>
-          <button class="social-btn facebook" aria-label="Sign in with Facebook">
+          <button
+            class="social-btn facebook"
+            aria-label="Sign in with Facebook"
+          >
             <i class="fab fa-facebook-f"></i>
           </button>
         </div>
-        <p>Бүртгэлтэй хаяг байхгүй юу? <a href="./signup.html" aria-label="Sign up here">Бүртгүүлэх</a></p>
+        <p>
+          Бүртгэлтэй хаяг байхгүй юу?
+          <a href="./signup.html" aria-label="Sign up here">Бүртгүүлэх</a>
+        </p>
       </section>
     </div>
-    
+
     <footer>
       <div class="footer-container">
         <section class="footer-first">
           <div class="footer-logo">
-            <img src="../images/ym2/logo.png" alt="Logo" loading="lazy"/>
+            <img src="../images/ym2/logo.png" alt="Logo" />
             <p>
               нууц <br />
               аялал
@@ -126,9 +158,7 @@
           <div class="social-icons">
             <ul>
               <li>
-                <a
-                  style="color: white" 
-                  href="#" aria-label="Facebook"
+                <a style="color: white" href="#" aria-label="Facebook"
                   ><i
                     style="font-size: 34px"
                     class="fa-brands fa-square-facebook"
@@ -141,9 +171,7 @@
                 ></a>
               </li>
               <li>
-                <a
-                  style="color: white"
-                 href="#" aria-label="Instagram"
+                <a style="color: white" href="#" aria-label="Instagram"
                   ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
                 ></a>
               </li>
@@ -153,8 +181,8 @@
         <section class="footer-links">
           <h4>Бидний тухай</h4>
           <ul>
-            <li><a href="aboutUs.html" aria-label="More of our pages">Танилцуулга</a></li>
-            <li><a href="QnA.html" aria-label="More of our pages">Асуулт хариулт</a></li>
+            <li><a href="aboutUs.html">Танилцуулга</a></li>
+            <li><a href="FaQ.html">Асуулт хариулт</a></li>
           </ul>
         </section>
         <section class="footer-contact">
@@ -163,7 +191,9 @@
             <li>
               <p>
                 и-мэйл:
-                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail us">nuutsaylal@gmail.com</a>
+                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us"
+                  >nuutsaylal@gmail.com</a
+                >
               </p>
             </li>
             <li><p>Phone: +976 99999999</p></li>
@@ -171,55 +201,51 @@
         </section>
         <section class="footer-address">
           <h4>Манай хаяг</h4>
-          <ul>
-          <li>
-            <p>
-              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
-              Улаанбаатар
-            </p>
-          </li>
-        </ul>
+          <p>
+            Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
+          </p>
         </section>
       </div>
     </footer>
 
-    </footer>
-    
-    
-    <script src="https://kit.fontawesome.com/d903c022ca.js" crossorigin="anonymous" defer></script>
+    <script
+      src="https://kit.fontawesome.com/d903c022ca.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
     <script src="muu.js" defer></script>
-    <script>    
+    <script>
       // Form submission handler
-      document.querySelector('form').addEventListener('submit', async function(e) {
-        e.preventDefault();  // Prevent default form submission
-    
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-    
-        try {
-          const response = await fetch('/api/users/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-          });
-    
-          const data = await response.json();
-    
-          if (response.ok) {
-           
-            
-            // Redirect to user info page
-            window.location.href = '../index.html'; 
-          } else {
-            alert(data.message);
+      document
+        .querySelector("form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault(); // Prevent default form submission
+
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          try {
+            const response = await fetch("/api/users/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ email, password }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+              // Redirect to user info page
+              window.location.href = "../index.html";
+            } else {
+              alert(data.message);
+            }
+          } catch (err) {
+            console.error("Error during sign-in:", err);
+            alert("An error occurred while signing in.");
           }
-        } catch (err) {
-          console.error('Error during sign-in:', err);
-          alert('An error occurred while signing in.');
-        }
-      });
+        });
     </script>
   </body>
 </html>

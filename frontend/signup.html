@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Signup " />
     <link rel="stylesheet" href="sign_css.css" />
-    
+    <link rel="stylesheet" href="../frontend/header.css" />
+    <script src="../frontend/app.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -15,8 +16,9 @@
     <link rel="preconnect" href="https://kit.fontawesome.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet">
-    <link rel="stylesheet" href="../dist/header.min.css" />
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="../dist/header.min.css" /> -->
     <title>Нэвтрэх</title>
   </head>
   <body>
@@ -32,10 +34,30 @@
           </p>
         </div>
         <ul class="nav-links">
-          <li><a href="./aboutUs.html" aria-label="Learn more about us">Бидний тухай</a></li>
-          <li><a href="./zahialah.html" aria-label="Modify your trip for your prefrences">Аялал захиалах</a></li>
-          <li><a href="./mytravels.html" aria-label="Navigate through your trips">Миний аяллууд</a></li>
-          <li><a href="./travels.html" aria-label="Learn more about our travelling options">Aяллууд</a></li>
+          <li>
+            <a href="./aboutUs.html" aria-label="Learn more about us"
+              >Бидний тухай</a
+            >
+          </li>
+          <li>
+            <a
+              href="./zahialah.html"
+              aria-label="Modify your trip for your prefrences"
+              >Аялал захиалах</a
+            >
+          </li>
+          <li>
+            <a href="./mytravels.html" aria-label="Navigate through your trips"
+              >Миний аяллууд</a
+            >
+          </li>
+          <li>
+            <a
+              href="./travels.html"
+              aria-label="Learn more about our travelling options"
+              >Aяллууд</a
+            >
+          </li>
         </ul>
         <section class="user-links">
           <button id="toggle-theme" aria-label="Toggle dark mode">
@@ -68,7 +90,9 @@
               <span slot="item"></span>
             </cart-comp>
           </div>
-          <a href="./signin.html" aria-label="Sign in to your account">Нэвтрэх</a>
+          <a href="./signin.html" aria-label="Sign in to your account"
+            >Нэвтрэх</a
+          >
           <a href="signin.html" aria-label="Sign in to your account"
             ><img src="/images/ym2/account_icon.png" alt="account_icon"
           /></a>
@@ -118,14 +142,22 @@
           <div class="password-container">
             <label for="password">Нууц үг</label>
             <input type="password" id="password" name="password" required />
-            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+            <button
+              type="button"
+              class="toggle-password"
+              aria-label="Toggle password visibility"
+            >
               <i class="fas fa-eye"></i>
             </button>
           </div>
           <div class="password-container">
             <label for="confirm-password">Нууц үг баталгаажуулах</label>
             <input type="password" id="confirm-password" required />
-            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+            <button
+              type="button"
+              class="toggle-password"
+              aria-label="Toggle password visibility"
+            >
               <i class="fas fa-eye"></i>
             </button>
           </div>
@@ -142,23 +174,35 @@
               <option value="other">Бусад</option>
             </select>
           </div>
-          <button type="submit" class="primary-btn" aria-label="Sign up">Бүртгүүлэх</button>
+          <button type="submit" class="primary-btn" aria-label="Sign up">
+            Бүртгүүлэх
+          </button>
         </form>
         <div class="or-container">OR</div>
         <div class="social-login">
           <button
             class="social-btn google"
-            onclick="window.location.href='../index.html'" aria-label="Sign in with Google" aria-labelledby="google"
+            onclick="window.location.href='../index.html'"
+            aria-label="Sign in with Google"
+            aria-labelledby="google"
           >
             <i class="fab fa-google"></i>
           </button>
-          <button class="social-btn facebook"
-            onclick="window.location.href='../index.html'" aria-label="Sign in with Facebook" aria-labelledby="facebook"
-            >
+          <button
+            class="social-btn facebook"
+            onclick="window.location.href='../index.html'"
+            aria-label="Sign in with Facebook"
+            aria-labelledby="facebook"
+          >
             <i class="fab fa-facebook-f"></i>
           </button>
         </div>
-        <p>Бүртгэлтэй хаяг байгаа юу? <a href="./signin.html" aria-label="Sign in to your account">Нэвтрэх</a></p>
+        <p>
+          Бүртгэлтэй хаяг байгаа юу?
+          <a href="./signin.html" aria-label="Sign in to your account"
+            >Нэвтрэх</a
+          >
+        </p>
       </section>
     </div>
 
@@ -208,7 +252,9 @@
             <li>
               <p>
                 и-мэйл:
-                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us">nuutsaylal@gmail.com</a>
+                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us"
+                  >nuutsaylal@gmail.com</a
+                >
               </p>
             </li>
             <li><p>Phone: +976 99999999</p></li>
@@ -216,14 +262,9 @@
         </section>
         <section class="footer-address">
           <h4>Манай хаяг</h4>
-          <ul>
-          <li>
-            <p>
-              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
-              Улаанбаатар
-            </p>
-          </li>
-        </ul>
+          <p>
+            Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
+          </p>
         </section>
       </div>
     </footer>
