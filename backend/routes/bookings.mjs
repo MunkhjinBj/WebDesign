@@ -13,7 +13,13 @@ export default class Bookings {
    *     summary: Get all bookings
    *     responses:
    *       200:
-   *         description: Fetched Successfully
+   *         description: List of bookings retrieved successfully
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: array
+   *               items:
+   *                 $ref: '#/components/schemas/Booking'
    *       400:
    *         description: Bad Request
    *       404:

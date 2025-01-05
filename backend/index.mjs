@@ -1,3 +1,12 @@
+//Хүсэлт: GET /api/travels
+
+// Клиент хүсэлт илгээнэ.
+// server.js хүсэлтийг travels.mjs руу дамжуулна.
+// travels.mjs-ийн travel.get функц DaTravels.getAllTravels-г дуудна.
+// DaTravels SQL хүсэлт гүйцэтгэж, өгөгдлийг буцаана.
+// travel.get клиентэд JSON форматаар өгөгдлийг хариу илгээнэ.
+
+//Үндсэн сервер файл. clinet-аас ирсэн хүсэлтүүдийг хүлээж аваад зохих route-үүд рүү дамжуулна.
 import express from "express";
 import compression from "compression";
 import bodyParser from "body-parser";
@@ -9,6 +18,7 @@ import { travel } from "./routes/travels.mjs";
 import { booking } from "./routes/bookings.mjs";
 import usersRoutes from "./routes/users.mjs";
 import swaggerDocs from "./swagger.mjs";
+//da.mjs файлд байгаа өгөгдлийн сангийн холболтыг ашиглан өгөгдөлтэй ажиллана.
 import pool from "./db/da.mjs";
 
 dotenv.config();
@@ -32,11 +42,24 @@ app.get("/", (req, res) => {
 app.get("../frontend/app.js", (req, res) => {
   res.sendFile(path.resolve("../frontend/app.js"));
 });
+
+//Аялалын өгөгдлийг авах, шинэ аялал нэмэх API.
+// 1. GET /api/travels гэсэн хүсэлт ирэх үщд server.js хүсэлтийг travels.mjs-рүү дамжуулна.
 app.get("/api/travels", (req, res) => travel.get(req, res));
 app.post("/api/travels", (req, res) => travel.post(req, res));
+
+//Захиалгын өгөгдлийг авах, шинэ захиалга нэмэх API
 app.get("/api/bookings", (req, res) => booking.get(req, res));
 app.post("/api/bookings", (req, res) => booking.post(req, res));
+<<<<<<< HEAD
 app.use("/api/users", usersRoutes);
+=======
+
+//usersRoutes файлыг ашиглан хэрэглэгчийн холбогдсон маршрут.
+app.use("/api/users", usersRoutes);
+
+//travels хүснэгтээс ялгаатай аяллын төрлүүдийг авах
+>>>>>>> f4866d7 (.)
 app.get("/api/destinations", async (req, res) => {
   try {
     const result = await pool.query("SELECT DISTINCT type FROM travels");
@@ -50,5 +73,5 @@ app.get("/api/destinations", async (req, res) => {
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server running at http://localhost:${port}`);
   swaggerDocs(app, port);
-  console.log(`Swagger Docs available at http:// localhost:${port}/docs`);
+  console.log(`Swagger Docs available at http://localhost:${port}/docs`);
 });

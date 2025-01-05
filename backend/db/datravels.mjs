@@ -1,3 +1,5 @@
+// Өгөгдлийн сантай шууд харьцаж, SQL хүсэлтүүдийг удирддаг.
+// аялалтай холбоотой өгөгдөл боловсруулах үйлдлүүдийг хэрэгжүүлдэг.
 export default class DaTravels {
   constructor(poolObj) {
     this.pool = poolObj;
@@ -19,6 +21,9 @@ export default class DaTravels {
         package_features = $13, child_friendly = $14
       WHERE id = $15 RETURNING *`;
   }
+
+  //3. getAllTravels функц SQL хүсэлтийг ашиглан өгөгдлийн сангаас бүх аяллын өгөгдлийг уншиж боловсруулаад өгөгдлийг буцаагаад travels.mjs файл руу буцаана
+  // бүх аяллыг  аруулах функц. Амжилттай бол, бүх аяллын өгөгдлийг JSON форматаар буцаана.Алдаа гарвал, HTTP 500 хариу кодтой алдааны мэдээлэл буцаана.
 
   async getAllTravels(req, res) {
     try {
