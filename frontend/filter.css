@@ -247,7 +247,7 @@ input[type="range"]:focus {
   margin: 0 5px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .pagination a.active {
