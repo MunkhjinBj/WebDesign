@@ -16,7 +16,7 @@ export default class DaBookings {
         UPDATE bookings
         SET 
           user_id = $1, travel_id = $2, date = $3, status = $4, number_of_travelers = $5, total_price = $6
-        WHERE id = $5 RETURNING *`;
+        WHERE id = $7 RETURNING *`;
 
     this.deleteBookingStr = `
         DELETE FROM bookings WHERE id = $1 RETURNING *`;
@@ -88,9 +88,9 @@ export default class DaBookings {
         travel_id,
         date,
         status,
-        id,
         number_of_travelers,
         total_price,
+        id,
       ]);
 
       if (result.rows.length === 0) {

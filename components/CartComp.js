@@ -5,6 +5,7 @@ import {
   getTotalPrice,
   toggle,
 } from "../modules/cart.js";
+
 export default class CartComp extends HTMLElement {
   constructor() {
     super();
@@ -99,6 +100,21 @@ export default class CartComp extends HTMLElement {
         button.remove-from-cart:hover {
             background-color: #c0392b;
         }
+        button.book-now {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #47b477;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+        button.book-now:hover {
+            background-color: #3a9d63;
+        }
     </style>
          <div id="cart" class="cart">
         <h3>Сагс</h3>
@@ -106,6 +122,7 @@ export default class CartComp extends HTMLElement {
           <slot name="cart-items"><p></p></slot>
         </div>
         <h4>Нийт: <slot name="total-price"></slot></h4>
+        <button class="book-now">Book Now</button>
       </div>
       `;
     this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -128,6 +145,8 @@ export default class CartComp extends HTMLElement {
       if (event.target.classList.contains("remove-from-cart")) {
         const id = parseInt(event.target.getAttribute("data-id"), 10);
         this.removeFromCart(id);
+      } else if (event.target.classList.contains("book-now")) {
+        window.location.href = '/frontend/booking.html';
       }
     });
     const slot = this.shadowRoot.querySelector('slot[name="items"]');

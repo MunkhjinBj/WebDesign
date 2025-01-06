@@ -87,7 +87,6 @@ router.post("/register", async (req, res) => {
       gender,
     });
 
-    // Redirect to the sign-in page after successful registration
     res.redirect('/frontend/signin.html');
   } catch (error) {
     console.error("Error registering user:", error.message);
