@@ -7,7 +7,7 @@
   font-display: swap;
 }
 :root {
-  --primary-color: #14571E;
+  --primary-color: #14571e;
   --primary-hover-color: #47b477;
   --text-color: #333;
   --background-color: #ffffff;
@@ -259,7 +259,6 @@ footer {
 .footer-container section {
   flex: 1 1 20%;
   margin: 10px;
- 
 }
 
 .footer-container .footer-logo {
@@ -505,16 +504,11 @@ footer {
 
 /*----------------About Us---------------*/
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
-
 .about-section {
-  background-color: #f9f9f9;
-  padding: 2rem 1rem;
+  background-color: var(--background-color);
+  padding: 2rem 5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .about-container {
@@ -524,13 +518,13 @@ body {
 }
 
 .about-header h1 {
-  font-size: 2.5rem;
-  color: #333;
+  font-size: 1.5rem;
+  color: var(--background-color-dark);
   margin-bottom: 1rem;
 }
 
 .about-header .intro {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #555;
   margin-bottom: 2rem;
 }
@@ -549,7 +543,7 @@ body {
 }
 
 .about-details {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #444;
   line-height: 1.8;
   text-align: justify;
@@ -557,7 +551,7 @@ body {
 }
 
 .about-details .call-to-action {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #222;
   font-weight: bold;
   text-align: center;
@@ -590,7 +584,7 @@ body {
   padding: 20px;
   border: 1px solid var(--button-color);
   height: 150px; /* Adjust the height as needed */
-  width: 500px; 
+  width: 500px;
 }
 /* .leaflet-control-attribution leaflet-control a{
   display: none;
@@ -598,4 +592,3 @@ body {
 .leaflet-control-attribution {
   display: none;
 }
-

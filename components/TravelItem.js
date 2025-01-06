@@ -189,22 +189,26 @@ export default class TravelItem extends HTMLElement {
     this.shadowRoot.querySelector("article").setAttribute("data-id", id);
     this.shadowRoot.querySelector("img").src = image;
     this.shadowRoot.querySelector("h3").textContent = title;
-    this.shadowRoot.querySelector(".location li:first-child").textContent = location;
-    this.shadowRoot.querySelector(".location li:last-child").textContent = `${days} хоног`;
+    this.shadowRoot.querySelector(".location li:first-child").textContent =
+      location;
+    this.shadowRoot.querySelector(
+      ".location li:last-child"
+    ).textContent = `${days} хоног`;
     this.shadowRoot.querySelector(".addCart h2").textContent = `${price}₮`;
 
-    this.shadowRoot.querySelector(".add-to-cart").addEventListener("click", () => {
-      const addToCartEvent = new CustomEvent("addToCart", {
-        detail: { id, title, price },
-        bubbles: true,
-        composed: true,
-      });
-      this.dispatchEvent(addToCartEvent);
-      console.log("CustomEvent dispatched:", addToCartEvent);
+    this.shadowRoot
+      .querySelector(".add-to-cart")
+      .addEventListener("click", () => {
+        const addToCartEvent = new CustomEvent("addToCart", {
+          detail: { id, title, price },
+          bubbles: true,
+          composed: true,
+        });
+        this.dispatchEvent(addToCartEvent);
+        console.log("CustomEvent dispatched:", addToCartEvent);
 
-      // Store the selected travel ID in localStorage
-      localStorage.setItem('selectedTravelId', id);
-    });
+        localStorage.setItem("selectedTravelId", id);
+      });
   }
 }
 

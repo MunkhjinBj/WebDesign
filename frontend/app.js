@@ -144,7 +144,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.body.classList.toggle("dark-mode");
     document.body.classList.toggle("light-mode");
   });
-
+  const filters = document.querySelector(".filters");
+  const search_bar = document.querySelector(".search-bar");
+  document
+    .getElementById("filter-toggle-search")
+    .addEventListener("click", function () {
+      if (filters.style.display === "block") {
+        filters.style.display = "none";
+      } else {
+        filters.style.display = "block";
+        search_bar.style.display = "none";
+      }
+    });
+  document
+    .getElementById("filter-toggle-filter")
+    .addEventListener("click", function () {
+      if (filters.style.display === "block") {
+        filters.style.display = "none";
+        search_bar.style.display = "flex";
+      } else {
+        filters.style.display = "block";
+      }
+    });
   //state
   document.addEventListener("showCard", () => {
     const cartComp = document.querySelector("cart-comp");

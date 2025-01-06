@@ -80,7 +80,7 @@
               <span slot="item"></span>
             </cart-comp>
           </div>
-          
+
           <a href="./signin.html" aria-label="Sign in to your account"
             >Нэвтрэх</a
           >
@@ -164,7 +164,7 @@
         </div>
 
         <button id="clear-filters" aria-label="Clear the filters">
-           Шүүлтүүрийг цэвэрлэх
+          Шүүлтүүрийг цэвэрлэх
         </button>
       </aside>
 
@@ -240,15 +240,13 @@
           <p>
             Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
           </p>
-          
         </section>
         <div id="my-map"></div>
       </div>
     </footer>
-    
   </body>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
- <!--  <script>
+  <!--  <script>
     const map = L.map('my-map').setView([47.9221, 106.9155], 15);
   L.tileLayer('https://maps.geoapify.com/v1/tile/osm-liberty/{z}/{x}/{y}.png?apiKey=d6924d9c547f4f8f9d3bf06d41780f07', {
     attribution: 'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors',
@@ -257,28 +255,5 @@
 
   <script src="geo.js"></script>
 
-    <script>
-      const filters = document.querySelector(".filters");
-      const search_bar = document.querySelector(".search-bar");
-      document
-        .getElementById("filter-toggle-search")
-        .addEventListener("click", function () {
-          if (filters.style.display === "block") {
-            filters.style.display = "none";
-          } else {
-            filters.style.display = "block";
-            search_bar.style.display = "none";
-          }
-        });
-      document
-        .getElementById("filter-toggle-filter")
-        .addEventListener("click", function () {
-          if (filters.style.display === "block") {
-            filters.style.display = "none";
-            search_bar.style.display = "flex";
-          } else {
-            filters.style.display = "block";
-          }
-        });
-    </script>
+  <script></script>
 </html>
