@@ -1,6 +1,35 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const cartItemsContainer = document.getElementById('cart-items');
     const numberOfTravelersInput = document.getElementById('number_of_travelers');
+    const travelGrid = document.getElementById('travel-grid');
+  
+    // Get travel ID from localStorage
+    const travelId = localStorage.getItem('selectedTravelId');
+  
+    // Fetch travel information
+    let travelInfo = {};
+    try {
+      const response = await fetch(`/api/travels/${travelId}`);
+      if (response.ok) {
+        travelInfo = await response.json();
+      } else {
+        console.error('Failed to fetch travel information');
+      }
+    } catch (error) {
+      console.error('Error fetching travel information:', error);
+    }
+  
+    // Display travel information using TravelItem component
+    travelGrid.innerHTML = `
+      <travel-item
+        data-id="${travelInfo.id}"
+        data-title="${travelInfo.title}"
+        data-image="${travelInfo.image}"
+        data-location="${travelInfo.location}"
+        data-days="${travelInfo.days}"
+        data-price="${travelInfo.price}">
+      </travel-item>
+    `;
   
     // Fetch cart items from localStorage
     let cartItems = [];
@@ -49,6 +78,13 @@ document.addEventListener("DOMContentLoaded", async () => {
           // Clear cart after successful booking
           localStorage.removeItem('cartItems');
           localStorage.removeItem('data-total-price');
+  
+          // Dispatch custom event to reset cart count
+          const bookingSuccessfulEvent = new CustomEvent('bookingSuccessful', {
+            bubbles: true,
+            composed: true,
+          });
+          document.dispatchEvent(bookingSuccessfulEvent);
         } else {
           const result = await response.json();
           document.getElementById('booking-message').textContent = result.message || 'An error occurred while booking.';
@@ -58,4 +94,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById('booking-message').textContent = 'An error occurred while booking.';
       }
     });
+  
+    function updateCartDisplay() {
+      // Update cart items display
+      cartItemsContainer.innerHTML = "<p>Сагс хоосон байна</p>";
+    }
   });

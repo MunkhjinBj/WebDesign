@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./header.css">
   <link rel="stylesheet" href="./filter.css">
   <script type="module" src="../frontend/booking.js" defer></script>
+  <script type="module" src="./app.js" defer></script>
 </head>
 <body>
   <header>
@@ -51,8 +52,10 @@
   <main>
     <h1>Booking</h1>
     <div id="cart-items"></div>
+    <section class="travels-container">
+      <div id="travel-grid"></div> <!-- Add this container to display travel info -->
     <form id="booking-form">
-      <input type="hidden" name="user_id" value="1"> <!-- Replace with actual user ID -->
+      <input type="hidden" name="user_id" value="1">
       <label for="number_of_travelers">Number of Travelers:</label>
       <input type="number" name="number_of_travelers" id="number_of_travelers" required>
       <button type="submit">Book Now</button>
@@ -78,43 +81,43 @@
             </li>
             <li>
               <a style="color: white" href="#" aria-label="Twitter">
-                <i style="font-size: 34px" class="fa-brands fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a style="color: white" href="#" aria-label="Instagram">
-                <i style="font-size: 34px" class="fa-brands fa-instagram"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section class="footer-links">
-        <h4>Бидний тухай</h4>
-        <ul>
-          <li><a href="./aboutUs.html">Танилцуулга</a></li>
-          <li><a href="./FaQ.html">Асуулт хариулт</a></li>
-        </ul>
-      </section>
-      <section class="footer-contact">
-        <h4>Холбоо барих</h4>
-        <ul>
-          <li>
-            <p>
-              и-мэйл:
-              <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us">nuutsaylal@gmail.com</a>
-            </p>
-          </li>
-          <li><p>Phone: +976 99999999</p></li>
-        </ul>
-      </section>
-      <section class="footer-address">
-        <h4>Манай хаяг</h4>
-        <p>
-          Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
-        </p>
-      </section>
-    </div>
-  </footer>
-</body>
-</html>
+                <i style="font-size:34px" class="fa-brands fa-twitter"></i>
+                              </a>
+                            </li>
+                            <li>
+                              <a style="color: white" href="#" aria-label="Instagram">
+                                <i style="font-size: 34px" class="fa-brands fa-instagram"></i>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </section>
+                      <section class="footer-links">
+                        <h4>Бидний тухай</h4>
+                        <ul>
+                          <li><a href="./aboutUs.html">Танилцуулга</a></li>
+                          <li><a href="./FaQ.html">Асуулт хариулт</a></li>
+                        </ul>
+                      </section>
+                      <section class="footer-contact">
+                        <h4>Холбоо барих</h4>
+                        <ul>
+                          <li>
+                            <p>
+                              и-мэйл:
+                              <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us">nuutsaylal@gmail.com</a>
+                            </p>
+                          </li>
+                          <li><p>Phone: +976 99999999</p></li>
+                        </ul>
+                      </section>
+                      <section class="footer-address">
+                        <h4>Манай хаяг</h4>
+                        <p>
+                          Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг, Улаанбаатар
+                        </p>
+                      </section>
+                    </div>
+                  </footer>
+                </body>
+                </html>

@@ -16,7 +16,6 @@ template.innerHTML = `
         transition: color 0.3s ease;
     }
 
-
     .cart-count {
         position: absolute;
         top: -8px;
@@ -61,6 +60,7 @@ class CartIcon extends HTMLElement {
   connectedCallback() {
     this.addEventListener("click", this.handleClick.bind(this));
     this.updateCartCount();
+    document.addEventListener('bookingSuccessful', this.resetCartCount.bind(this));
   }
 
   static get observedAttributes() {
@@ -84,6 +84,11 @@ class CartIcon extends HTMLElement {
   updateCartCount() {
     const savedCount = localStorage.getItem("cartCount") || "0";
     this.cartCountElement.textContent = savedCount;
+  }
+
+  resetCartCount() {
+    this.cartCountElement.textContent = '0';
+    localStorage.setItem("cartCount", "0");
   }
 }
 

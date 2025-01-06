@@ -146,7 +146,9 @@ export default class CartComp extends HTMLElement {
         const id = parseInt(event.target.getAttribute("data-id"), 10);
         this.removeFromCart(id);
       } else if (event.target.classList.contains("book-now")) {
-        window.location.href = '/frontend/booking.html';
+        const cartItems = getCartItems();
+        const travelIds = cartItems.map(item => item.id).join(',');
+        window.location.href = `/frontend/booking.html?travelIds=${travelIds}`;
       }
     });
     const slot = this.shadowRoot.querySelector('slot[name="items"]');
