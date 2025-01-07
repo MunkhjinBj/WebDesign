@@ -12,7 +12,26 @@ import Travels, {
 // import Cart, { addToCart, removeFromCart } from "./modules/cart.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  console.log("gggggggg");
+  //dark-mode
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.toggle("dark-mode");
+  }
+  document.getElementById("toggle-theme").addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("dark-mode");
+
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+
+  //state
+  document.addEventListener("showCard", () => {
+    const cartComp = document.querySelector("cart-comp");
+    if (cartComp) {
+      cartComp.toggle();
+    }
+  });
+
   const travelGrid = document.getElementById("travel-grid");
 
   await renderFilters();
@@ -137,14 +156,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     });
 
-  //dark-mode
-  const toggleThemeButton = document.querySelector("#toggle-theme");
-
-  toggleThemeButton.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    document.body.classList.toggle("light-mode");
-  });
-
+  const toggleButton = document.getElementById("toggle-theme");
+  if (!toggleButton) {
+    console.error("Toggle button not found in index.html");
+  } else {
+    console.log("Toggle button found");
+    toggleButton.addEventListener("click", () => {
+      document.body.classList.toggle("dark-theme");
+    });
+  }
   const filters = document.querySelector(".filters");
   const search_bar = document.querySelector(".search-bar");
   document
@@ -168,12 +188,4 @@ document.addEventListener("DOMContentLoaded", async () => {
         filters.style.display = "block";
       }
     });
-
-  //state
-  document.addEventListener("showCard", () => {
-    const cartComp = document.querySelector("cart-comp");
-    if (cartComp) {
-      cartComp.toggle();
-    }
-  });
 });
