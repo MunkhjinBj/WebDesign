@@ -3,29 +3,18 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import DaUsers from "../db/dausers.mjs";
 import pool from "../db/da.mjs";
+import  authenticate  from "../middleware/authenticate.mjs";  // Add this import
 
 const router = express.Router();
 const usersData = new DaUsers(pool);
 
-const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+  console.error("Error: JWT_SECRET is not set!");
+  process.exit(1); // Exit if secret is missing
+}
 
-/**
- * @openapi
- * /api/users:
- *   get:
- *     tags:
- *       - Users
- *     summary: Get all users
- *     responses:
- *       200:
- *         description: Fetched Successfully
- *       400:
- *         description: Bad Request
- *       404:
- *         description: Not Found
- *       500:
- *         description: Server Error
- */
+// Get all users
 router.get("/", async (req, res) => {
   try {
     const users = await usersData.getAllUsers();
@@ -37,47 +26,21 @@ router.get("/", async (req, res) => {
 });
 
 // Register a user
-/**
- * @openapi
- * /api/users/register:
- *   post:
- *     tags:
- *       - Users
- *     summary: Register a new user
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/UserRegister'
- *     responses:
- *       201:
- *         description: User registered successfully
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/User'
- *       400:
- *         description: Email already registered
- *       500:
- *         description: Server error
- */
-
 router.post("/register", async (req, res) => {
   const { email, password, full_name, phone_number, date_of_birth, gender } = req.body;
-  console.log("req body", req.body);
+
+  if (!email || !password || !full_name) {
+    return res.status(400).json({ message: "Missing required fields: email, password, full_name." });
+  }
 
   try {
-    // Check if the email already exists
     const existingUser = await usersData.getUserByEmail(email);
     if (existingUser) {
       return res.status(400).json({ message: "Email already registered" });
     }
 
-    // Hash the password
     const password_hash = await bcrypt.hash(password, 10);
 
-    // Insert the user
     const newUser = await usersData.insertUser({
       email,
       password: password_hash,
@@ -87,7 +50,7 @@ router.post("/register", async (req, res) => {
       gender,
     });
 
-    res.redirect('/frontend/signin.html');
+    res.status(201).json({ message: "User registered successfully", user: newUser });
   } catch (error) {
     console.error("Error registering user:", error.message);
     res.status(500).json({ error: "An error occurred while registering the user." });
@@ -95,50 +58,27 @@ router.post("/register", async (req, res) => {
 });
 
 // Login a user
-/**
- * @openapi
- * /api/users:
- *   post:
- *     tags:
- *       - Users
- *     summary: login a user
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/Users'
- *     responses:
- *       200:
- *         description: Fetched Successfully
- *       400:
- *         description: Bad Request
- *       404:
- *         description: Not Found
- *       500:
- *         description: Server Error
- */
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email and password are required." });
+  }
+
   try {
-    // Find the user by email
     const user = await usersData.getUserByEmail(email);
     if (!user) {
-      return res.status(400);
+      return res.status(404).json({ message: "User not found." });
     }
 
-    // Compare the password
     const isMatch = await bcrypt.compare(password, user.password_hash);
     if (!isMatch) {
-      return res.status(400).json({ message: "Invalid email or password." });
+      return res.status(401).json({ message: "Invalid email or password." });
     }
 
-    // Generate a JWT token
-    const token = jwt.sign({ userId: user.user_id }, JWT_SECRET, {
-      expiresIn: "1h",
-    });
+    const token = jwt.sign({ userId: user.user_id }, JWT_SECRET, { expiresIn: "1h" });
 
+    // Send the token back to the client to be stored in localStorage
     res.status(200).json({ token, message: "Login successful" });
   } catch (error) {
     console.error("Error logging in:", error.message);
@@ -146,48 +86,46 @@ router.post("/login", async (req, res) => {
   }
 });
 
+
+// User info route (protected)
+router.get("/userinfo", authenticate, async (req, res) => {
+  try {
+    const userId = req.user.userId; // Get userId from decoded JWT
+    const user = await usersData.getUserById(userId); // Fetch user data using userId from the token
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+
+    // Send user info in response
+    res.status(200).json({
+      full_name: user.full_name,
+      email: user.email,
+      phone_number: user.phone_number,
+      date_of_birth: user.date_of_birth,
+      gender: user.gender,
+    });
+  } catch (error) {
+    console.error("Error fetching user info:", error.message);
+    res.status(500).json({ error: "An error occurred while fetching user info." });
+  }
+});
+
 // Delete a user
-/**
- * @openapi
- * /api/users:
- *   post:
- *     tags:
- *       - Users
- *     summary: Delete a user
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/Users'
- *     responses:
- *       200:
- *         description: Fetched Successfully
- *       400:
- *         description: Bad Request
- *       404:
- *         description: Not Found
- *       500:
- *         description: Server Error
- */
 router.delete("/:id", async (req, res) => {
-  const { id } = req.params;
+  let { id } = req.params;
 
   try {
     id = parseInt(id, 10);
-    const deletedUser = await usxersData.deleteUser(id);
+    const deletedUser = await usersData.deleteUser(id);
     if (!deletedUser) {
       return res.status(404).json({ message: "User not found." });
     }
 
-    res
-      .status(200)
-      .json({ message: "User deleted successfully", user: deletedUser });
+    res.status(200).json({ message: "User deleted successfully", user: deletedUser });
   } catch (error) {
     console.error("Error deleting user:", error.message);
-    res
-      .status(500)
-      .json({ error: "An error occurred while deleting the user." });
+    res.status(500).json({ error: "An error occurred while deleting the user." });
   }
 });
 

@@ -236,10 +236,12 @@
             const data = await response.json();
 
             if (response.ok) {
-              // Redirect to user info page
+              // Store token in localStorage
+              localStorage.setItem('authToken', data.token);
+              // Redirect to user dashboard or home
               window.location.href = "../index.html";
             } else {
-              alert(data.message);
+              alert(data.message); // Display error message
             }
           } catch (err) {
             console.error("Error during sign-in:", err);
@@ -247,5 +249,6 @@
           }
         });
     </script>
+    
   </body>
 </html>

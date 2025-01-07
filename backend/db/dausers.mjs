@@ -8,6 +8,9 @@ export default class DaUsers {
     this.selectUserByEmailStr = `
       SELECT * FROM users WHERE email = $1
     `;
+    this.selectUserByIdStr = `
+      SELECT * FROM users WHERE user_id = $1
+    `;
     this.insertUserStr = `
       INSERT INTO users (email, password_hash, full_name, phone_number, date_of_birth, gender)
       VALUES ($1, $2, $3, $4, $5, $6) RETURNING *
@@ -24,6 +27,11 @@ export default class DaUsers {
 
   async getUserByEmail(email) {
     const result = await this.pool.query(this.selectUserByEmailStr, [email]);
+    return result.rows[0];
+  }
+
+  async getUserById(userId) {
+    const result = await this.pool.query(this.selectUserByIdStr, [userId]);
     return result.rows[0];
   }
 

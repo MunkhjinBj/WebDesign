@@ -43,7 +43,7 @@
         }
 
         try {
-          const response = await fetch("http://localhost:5501/userinfo", {
+          const response = await fetch(`http://localhost:${port}/userinfo`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

@@ -1,61 +1,26 @@
 import express from "express";
 import { dabookings } from "../db/da.mjs";
+import authenticate from "../middleware/authenticate.mjs";  // Import the authentication middleware
 
 export default class Bookings {
   constructor() {}
 
-  /**
-   * @openapi
-   * /api/bookings:
-   *   get:
-   *     tags:
-   *       - Bookings
-   *     summary: Get all bookings
-   *     responses:
-   *       200:
-   *         description: List of bookings retrieved successfully
-   *         content:
-   *           application/json:
-   *             schema:
-   *               type: array
-   *               items:
-   *                 $ref: '#/components/schemas/Booking'
-   *       400:
-   *         description: Bad Request
-   *       404:
-   *         description: Not Found
-   *       500:
-   *         description: Server Error
-   */
+  // Get all bookings
   async get(req, res) {
     await dabookings.getAllBookings(req, res);
   }
 
-  /**
-   * @openapi
-   * /api/bookings:
-   *   post:
-   *     tags:
-   *       - Bookings
-   *     summary: Add a new booking
-   *     requestBody:
-   *       required: true
-   *       content:
-   *         application/json:
-   *           schema:
-   *             $ref: '#/components/schemas/Booking'
-   *     responses:
-   *       201:
-   *         description: Booking added successfully
-   *       400:
-   *         description: Missing or invalid data
-   *       500:
-   *         description: Server Error
-   */
+  // Add a new booking (with authentication middleware)
   async post(req, res) {
     await dabookings.addBooking(req, res);
   }
 }
 
 const booking = new Bookings();
-export { booking };
+const router = express.Router();
+
+// Apply authentication middleware to routes that need it
+router.get("/", authenticate, (req, res) => booking.get(req, res));  // Make sure route is '/api/bookings'
+router.post("/", authenticate, (req, res) => booking.post(req, res)); // Same here for POST
+
+export { router as bookingRouter };

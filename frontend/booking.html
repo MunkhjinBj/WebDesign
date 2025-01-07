@@ -6,7 +6,7 @@
   <title>Booking</title>
   <link rel="stylesheet" href="./header.css">
   <link rel="stylesheet" href="./filter.css">
-  <script type="module" src="../frontend/booking.js" defer></script>
+
   <script type="module" src="./app.js" defer></script>
 </head>
 <body>
@@ -55,7 +55,6 @@
     <section class="travels-container">
       <div id="travel-grid"></div> <!-- Add this container to display travel info -->
     <form id="booking-form">
-      <input type="hidden" name="user_id" value="1">
       <label for="number_of_travelers">Number of Travelers:</label>
       <input type="number" name="number_of_travelers" id="number_of_travelers" required>
       <button type="submit">Book Now</button>
@@ -119,5 +118,57 @@
                       </section>
                     </div>
                   </footer>
+
+
+                  <script>
+                    document.getElementById('booking-form').addEventListener('submit', async function(e) {
+                      e.preventDefault();
+                  
+                      const number_of_travelers = document.getElementById('number_of_travelers').value;
+                      const travel_id = new URLSearchParams(window.location.search).get('travelIds'); // Retrieve travel_id from query parameters
+                      const date = new Date().toISOString(); // Set the booking date to the current date
+                      const status = "Pending"; // Default status
+                  
+                      // Retrieve the price per traveler from localStorage or another source
+                      const price_per_traveler = 300000;
+                  
+                      const total_price = number_of_travelers * price_per_traveler; // Calculate the total price
+                  
+                      const token = localStorage.getItem("authToken");
+                  
+                      if (!token) {
+                        alert("You need to be logged in to make a booking.");
+                        return;
+                      }
+                  
+                      try {
+                        const response = await fetch('/api/bookings', {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`,
+                          },
+                          body: JSON.stringify({
+                            travel_id: travel_id,
+                            date: date,
+                            status: status,
+                            number_of_travelers: number_of_travelers,
+                            total_price: total_price,
+                          })
+                        });
+                  
+                        const result = await response.json();
+                        if (response.ok) {
+                          alert('Booking Successful!');
+                          // Handle successful booking logic here
+                        } else {
+                          document.getElementById('booking-message').innerText = result.message || 'Error making booking';
+                        }
+                      } catch (error) {
+                        console.error("Error making booking:", error);
+                        document.getElementById('booking-message').innerText = 'Error making booking';
+                      }
+                    });
+                  </script>
                 </body>
                 </html>
