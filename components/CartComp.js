@@ -117,13 +117,13 @@ export default class CartComp extends HTMLElement {
         }
     </style>
          <div id="cart" class="cart">
-        <h3>Сагс</h3>
-        <div id="cart-items">
-          <slot name="cart-items"><p></p></slot>
+            <h3>Сагс</h3>
+            <div id="cart-items">
+                <slot name="cart-items"><p></p></slot>
+            </div>
+            <h4>Нийт: <slot name="total-price"></slot></h4>
+            <button class="book-now">Book Now</button>
         </div>
-        <h4>Нийт: <slot name="total-price"></slot></h4>
-        <button class="book-now">Book Now</button>
-      </div>
       `;
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
@@ -147,7 +147,7 @@ export default class CartComp extends HTMLElement {
         this.removeFromCart(id);
       } else if (event.target.classList.contains("book-now")) {
         const cartItems = getCartItems();
-        const travelIds = cartItems.map(item => item.id).join(',');
+        const travelIds = cartItems.map((item) => item.id).join(",");
         window.location.href = `/frontend/booking.html?travelIds=${travelIds}`;
       }
     });

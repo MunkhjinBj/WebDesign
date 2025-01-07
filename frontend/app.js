@@ -144,6 +144,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.body.classList.toggle("dark-mode");
     document.body.classList.toggle("light-mode");
   });
+
   const filters = document.querySelector(".filters");
   const search_bar = document.querySelector(".search-bar");
   document
@@ -156,6 +157,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         search_bar.style.display = "none";
       }
     });
+
   document
     .getElementById("filter-toggle-filter")
     .addEventListener("click", function () {
@@ -166,6 +168,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         filters.style.display = "block";
       }
     });
+
   //state
   document.addEventListener("showCard", () => {
     const cartComp = document.querySelector("cart-comp");
