@@ -13,7 +13,6 @@ import Travels, {
 
 document.addEventListener("DOMContentLoaded", async () => {
   //dark-mode
-
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     document.body.classList.toggle("dark-mode");
@@ -156,15 +155,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     });
 
-  const toggleButton = document.getElementById("toggle-theme");
-  if (!toggleButton) {
-    console.error("Toggle button not found in index.html");
-  } else {
-    console.log("Toggle button found");
-    toggleButton.addEventListener("click", () => {
-      document.body.classList.toggle("dark-theme");
-    });
-  }
   const filters = document.querySelector(".filters");
   const search_bar = document.querySelector(".search-bar");
   document
