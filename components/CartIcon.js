@@ -16,6 +16,7 @@ template.innerHTML = `
         transition: color 0.3s ease;
     }
 
+
     .cart-count {
         position: absolute;
         top: -8px;

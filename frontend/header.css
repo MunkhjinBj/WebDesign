@@ -38,13 +38,13 @@ body.dark-mode {
   --border-color: #0f1a43;
 }
 
-/* Global styles */
 * {
   margin: 0;
   padding: 0;
   font-family: var(--font-family);
 }
 
+/* HEADER */
 header {
   font-weight: 500;
   background-color: var(--background-color);
@@ -140,34 +140,7 @@ header {
 .mobile-nav {
   display: none;
 }
-/* Responsive design */
-/* @media (max-width: 768px) {
-  .header-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 0.625rem 0;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: var(--primary-hover-color);
-    box-shadow: 0 -0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
-  }
 
-  .header-nav a {
-    font-size: 0.875rem;
-    margin: 0 0.3125rem;
-  }
-
-  .header-nav img {
-    display: none;
-  }
-
-  .nav-links li {
-    border-radius: 50%;
-    background-color: var(--primary-color);
-  }
-} */
 @media (max-width: 1437px) {
   .header-nav {
     display: flex;
@@ -203,7 +176,7 @@ header {
   }
 }
 
-/* Mobile nav */
+/* MOBILE_NAV */
 @media (max-width: 768px) {
   .header-nav {
     flex-direction: column;
@@ -250,7 +223,8 @@ header {
     display: none;
   }
 }
-/* toggle button */
+
+/* toggle button(dark/light) */
 #toggle-theme {
   border-radius: 50%;
   height: 40px;
@@ -276,6 +250,28 @@ header {
 .dark-mode #toggle-theme svg:last-child {
   display: block;
 }
+
+/* Filter Toggle Button */
+.burger-menu {
+  background-color: var(--background-color);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+
+.burger-menu:focus {
+  outline: none;
+}
+
+.burger-menu:hover {
+  background-color: #f5f5f5;
+}
+
 /*---------------------footer----------------------------*/
 footer {
   display: flex;
@@ -364,8 +360,6 @@ footer {
   max-width: 300px;
   font-size: 12px;
 }
-
-/*-------------------------------------------------*/
 
 /*FaQ*/
 
@@ -495,50 +489,6 @@ footer {
   }
 }
 
-/* Position and style for cart icon */
-/* .cart-icon {
-  position: relative;
-  font-size: 20px;
-  cursor: pointer;
-  color: var(--primary-color);
-  transition: color 0.3s ease;
-}
-
-.cart-icon:hover {
-  color: #62ebc9;
-}
-.cart-icon:hover + .cart {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.cart-count {
-  position: absolute;
-  top: -10px;
-  right: -15px;
-  background-color: #ff6666;
-  color: white;
-  font-size: 10px;
-  padding: 5px 10px;
-  border-radius: 50%;
-  font-weight: bold;
-}
-
-.cart-container {
-  position: relative;
-  display: inline-block;
-}
-
-.cart-container:hover .cart,
-.cart-container:focus-within .cart {
-  display: block;
-  transform: translateY(0);
-  opacity: 1;
-} */
-
-/* Cart dropdown position */
-
 /*----------------About Us---------------*/
 
 .about-section {
@@ -594,27 +544,6 @@ footer {
   font-weight: bold;
   text-align: center;
   margin-top: 1.5rem;
-}
-
-/* Filter Toggle Button */
-.burger-menu {
-  background-color: var(--background-color);
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px 15px;
-  font-size: 16px;
-  cursor: pointer;
-  display: inline-block;
-  margin: 10px;
-  text-align: center;
-}
-
-.burger-menu:focus {
-  outline: none;
-}
-
-.burger-menu:hover {
-  background-color: #f5f5f5;
 }
 
 #my-map {

@@ -5,6 +5,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .nuur-container img {
@@ -24,7 +33,7 @@
   box-sizing: border-box;
 }
 
-/*---------------------------------------- Filter Section ----------------------------------------*/
+/*------------------ Filter Section -------------------------------------*/
 .filter-group.price,
 .filter-group.days,
 .filter-group.types,
@@ -139,22 +148,20 @@ input[type="range"]:focus {
   transition: var(--background-color) 0.3s ease;
 }
 
-
 #clear-filters {
-  
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: var(--background-color) 0.3s ease;
-    margin: 10px;
-    justify-items: center;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--background-color) 0.3s ease;
+  margin: 10px;
+  justify-items: center;
 }
 
-/* search */
+/* search in mobile dis */
 .search-bar {
   display: none;
   align-items: center;
@@ -221,7 +228,7 @@ input[type="range"]:focus {
   width: 10px;
   height: auto;
 }
-/*---------------------------------------- Travels Section ----------------------------------------*/
+/*-------------------Travels Section-------------------------------*/
 
 .content {
   display: flex;
@@ -250,7 +257,7 @@ input[type="range"]:focus {
   justify-items: center;
 }
 
-/*---------------------------------------- Pagination ----------------------------------------*/
+/*-------- Pagination-----------------------*/
 .pagination {
   display: flex;
   justify-content: center;
@@ -272,9 +279,9 @@ input[type="range"]:focus {
   border-radius: 3px;
 }
 
-/*---------------------------------------- Responsiveness ----------------------------------------*/
+/*-------- Responsiveness ---------------*/
 
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .nuur-container h1 {
     font-size: 4rem;
     top: 6rem;
@@ -306,10 +313,9 @@ input[type="range"]:focus {
     border-radius: 20px;
     border: none;
   }
-  .travels-container{
-      
-      width: 100%;
-      padding: 0;
+  .travels-container {
+    width: 100%;
+    padding: 0;
   }
 
   .filters::after {

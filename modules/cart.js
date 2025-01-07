@@ -61,12 +61,10 @@ export function removeFromCart(id) {
     if (cartCountElement) {
       let currentCount = parseInt(cartCountElement.textContent || "0", 10);
 
-      // Prevent negative counts
       if (currentCount > 0) {
         currentCount -= 1;
         cartCountElement.textContent = currentCount;
 
-        // Save the updated count to localStorage
         localStorage.setItem("cartCount", currentCount);
       }
     }

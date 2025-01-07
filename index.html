@@ -322,7 +322,7 @@
         }
 
         .arrow {
-          display: none; /* Жижиг дэлгэц дээр сумуудыг нуух */
+          display: none;
         }
       }
       @media (max-width: 768px) {
@@ -444,9 +444,13 @@
       }
 
       .main-banner .search-bar form button {
-        background: var(--primary-color);
+        background: linear-gradient(
+          45deg,
+          var(--primary-color),
+          var(--primary-hover-color)
+        );
         max-width: 150px;
-        color: var(--text-color);
+        color: var(--text-color-dark);
         border: none;
         cursor: pointer;
         height: max-content;
