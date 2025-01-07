@@ -81,12 +81,6 @@ export function getTotalPrice() {
     .toLocaleString();
 }
 
-export function toggle() {
-  const cart = this.shadowRoot.querySelector("#cart");
-  const isVisible = cart.style.display === "block";
-  cart.style.display = isVisible ? "none" : "block";
-}
-
 // export function renderCart() {
 //   const cartContainer = document.getElementById("cart-items");
 //   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];

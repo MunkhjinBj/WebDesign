@@ -3,23 +3,18 @@ import {
   removeFromCart as removeFromCartModule,
   getCartItems,
   getTotalPrice,
-  toggle,
 } from "../modules/cart.js";
 
 export default class CartComp extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-
+    this.state = {
+      isVisible: false,
+    };
     const template = document.createElement("template");
     template.innerHTML = `
     <style>  
-        :host(:state(open)) {
-          background-color: lightgreen;
-        }
-        :host(:state(closed)) {
-          background-color: lightcoral;
-        }
         .cart {
             position: absolute;
             right: 20px;
@@ -145,12 +140,14 @@ export default class CartComp extends HTMLElement {
       if (event.target.classList.contains("remove-from-cart")) {
         const id = parseInt(event.target.getAttribute("data-id"), 10);
         this.removeFromCart(id);
-      } else if (event.target.classList.contains("book-now")) {
+      }
+      if (event.target.classList.contains("book-now")) {
         const cartItems = getCartItems();
         const travelIds = cartItems.map((item) => item.id).join(",");
         window.location.href = `/frontend/booking.html?travelIds=${travelIds}`;
       }
     });
+
     const slot = this.shadowRoot.querySelector('slot[name="items"]');
     if (slot) {
       slot.addEventListener("slotchange", () => {
@@ -160,9 +157,9 @@ export default class CartComp extends HTMLElement {
     this.render();
   }
 
-  disconnectedCallback() {
-    this.shadowRoot.removeEventListener("click", this.handleButtonClick);
-  }
+  // disconnectedCallback() {
+  //   this.shadowRoot.removeEventListener("click", this.handleButtonClick);
+  // }
 
   addToCart(item) {
     addToCartModule(item);
@@ -209,10 +206,21 @@ export default class CartComp extends HTMLElement {
     );
     slotTotalPrice.innerHTML = localStorage.getItem("data-total-price") || "0₮";
   }
+
+  //state
   toggle() {
+    // const cart = this.shadowRoot.querySelector("#cart");
+    // const isVisible = cart.style.display === "block";
+    // cart.style.display = isVisible ?
+
     const cart = this.shadowRoot.querySelector("#cart");
-    const isVisible = cart.style.display === "block";
-    cart.style.display = isVisible ? "none" : "block";
+    if (!this.state.isVisible) {
+      cart.style.display = "block";
+      this.state.isVisible = true;
+    } else {
+      cart.style.display = "none";
+      this.state.isVisible = false;
+    }
   }
 }
 customElements.define("cart-comp", CartComp);
