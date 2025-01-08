@@ -1,1042 +1,409 @@
 <!DOCTYPE html>
 <html lang="mn">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="main page" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Нуууц аялал</title>
 
-    <link rel="stylesheet" href="./frontend/header.css" />
-    <link rel="manifest" href="./manifest.json" />
-    <script type="module" src="./frontend/app.js" defer></script>
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("./service-worker.js")
-          .then(() => console.log("Service Worker registered!"))
-          .catch((error) =>
-            console.error("Service Worker registration failed:", error)
-          );
-      }
-    </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="main page" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Нуууц аялал</title>
 
-    <!--  tur css--e duustl commentcly-->
-    <!-- <link rel="stylesheet" href="./dist/header.min.css"/>
+  <link rel="stylesheet" href="./dist/header.min.css" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="preload" href="https://unpkg.com/leaflet/dist/leaflet.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://kit.fontawesome.com/d903c022ca.js" as="style" rel="script" crossorigin="anonymous">
+    <link rel="preload" href="./dist/index.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <script type="module" src="./frontend/app.js" defer></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("./service-worker.js")
+        .then(() => console.log("Service Worker registered!"))
+        .catch((error) =>
+          console.error("Service Worker registration failed:", error)
+        );
+    }
+  </script>
+
+  <!--  tur css--e duustl commentcly-->
+  <!-- <link rel="stylesheet" href="./dist/header.min.css"/>
     <link rel="stylesheet" href="./dist/index.min.css"/>
     <script type="module" src="./dist/app.min.js" defer></script> -->
 
-    <link rel="preconnect" href="https://ka-f.fontawesome.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: var(--font-family);
-        font-weight: 500;
-        font-style: normal;
-        box-sizing: border-box;
-      }
-      main {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        gap: 3rem;
-        background-color: var(--background-color);
-      }
-
-      /*-------comment--------*/
-      .comment_section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 50px 10rem 5rem 10rem;
-        padding: 2rem;
-        overflow: hidden;
-        gap: 2rem;
-        color: var(--text-color);
-      }
-
-      .comment_section .comments-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: start;
-        align-items: center;
-        margin: 0;
-        position: relative;
-      }
-
-      .comment_section .comments-wrapper {
-        width: 270px;
-      }
-
-      .comment_section .comments {
-        display: flex;
-        transition: transform 0.3s ease-in-out;
-        will-change: transform;
-      }
-
-      .comment_section .comments article {
-        flex-shrink: 0;
-        width: 100%;
-        max-width: 400px;
-        padding: 1rem;
-        border-radius: 16px;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-        margin-right: 15px;
-        box-sizing: border-box;
-      }
-
-      .comment_section .comments article:hover {
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;
-        transform: translateY(-0.3%);
-        transition: 0.3s ease;
-      }
-
-      .comment_section article p {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-height: 1.5;
-        font-size: 12px;
-        text-align: justify;
-        vertical-align: top;
-        font-family: var(--font-family-p);
-        font-weight: 300;
-      }
-
-      .comment_section article span {
-        display: flex;
-        font-size: 1.3em;
-        color: gold;
-        align-items: end;
-      }
-
-      .rating {
-        display: flex;
-        width: 100%;
-        margin-top: 10px;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0;
-      }
-
-      .user_time {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      article strong,
-      article time {
-        margin-top: 5px;
-        font-family: var(--font-family-p);
-        font-weight: 300;
-        font-size: 12px;
-      }
-
-      .arrow-left,
-      .arrow-right {
-        background-color: rgba(0, 0, 0, 0.7);
-        color: var(--text-color);
-        border: none;
-        border-radius: 50%;
-        padding: 10px;
-        cursor: pointer;
-        z-index: 10;
-        font-size: 1.5rem;
-        transition: var(--background-color) 0.3s;
-        position: absolute;
-        top: 70%;
-        transform: translateY(-50%);
-      }
-
-      .arrow-left:hover,
-      .arrow-right:hover {
-        background-color: rgba(0, 0, 0, 0.9);
-      }
-
-      .arrow-left {
-        left: 10px;
-      }
-
-      .arrow-right {
-        right: 10px;
-      }
-
-      /* gallery */
-      .gallery {
-        position: relative;
-        width: 90%;
-        max-width: 1200px;
-        overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        margin: auto;
-      }
-
-      .gallery-wrapper {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        will-change: transform;
-      }
-
-      .gallery-wrapper img {
-        flex-shrink: 0;
-        width: clamp(200px, 20%, 250px);
-        height: auto;
-        margin-right: 15px;
-        object-fit: cover;
-        border-radius: 5px;
-        user-select: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      .arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.7);
-        color: var(--text-color);
-        border: none;
-        border-radius: 50%;
-        padding: 10px;
-        cursor: pointer;
-        z-index: 10;
-        font-size: 1.5rem;
-        transition: var(--background-color) 0.3s;
-      }
-
-      .arrow:hover {
-        background-color: rgba(0, 0, 0, 0.9);
-      }
-
-      .arrow.left {
-        left: 10px;
-      }
-
-      .arrow.right {
-        right: 10px;
-      }
-
-      .partner_org {
-        margin: 100px 200px 120px 200px;
-      }
-
-      .partner_org h4 {
-        text-align: left;
-        padding-left: 120px;
-        font-size: 18px;
-        margin-bottom: 50px;
-        font-weight: 600;
-        color: var(--text-color);
-      }
-
-      .logo-grid {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 20px;
-        justify-items: center;
-        align-items: center;
-      }
-
-      .logo-grid img {
-        max-width: 80px;
-        height: auto;
-        transition: transform 0.3s ease;
-      }
-
-      .logo-grid img:hover {
-        transform: scale(1.1);
-      }
-
-      .logo-grid img:nth-child(-n + 6) {
-        grid-column-start: span 1;
-        margin-left: auto;
-      }
-
-      .logo-grid img:nth-child(n + 7) {
-        grid-column-start: span 1;
-        margin-right: auto;
-      }
-
-      @media (max-width: 768px) {
-        .comment_section {
-          padding: 20px;
-        }
-
-        .comment_section .comments-container {
-          flex-direction: column;
-          gap: 20px;
-        }
-
-        .comment_section .comments article {
-          width: 100%;
-          max-width: 100%;
-          box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-        }
-
-        .arrow-left,
-        .arrow-right {
-          font-size: 24px;
-        }
-      }
-      @media (max-width: 576px) {
-        .comment_section h3 {
-          font-size: 1.2rem;
-          margin: 0 auto;
-          text-align: center;
-        }
-
-        .arrow-left,
-        .arrow-right {
-          display: none;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .gallery {
-          padding: 10px;
-        }
-
-        .gallery-wrapper {
-          gap: 10px;
-        }
-
-        .gallery-wrapper img {
-          max-width: 150px;
-          height: auto;
-        }
-
-        .arrow {
-          font-size: 1rem;
-          padding: 8px;
-        }
-      }
-
-      @media (max-width: 576px) {
-        .gallery-wrapper img {
-          max-width: 120px;
-        }
-
-        .arrow {
-          display: none;
-        }
-      }
-      @media (max-width: 768px) {
-        .partner_org {
-          padding: 30px 10px;
-        }
-
-        .partner_org h4 {
-          font-size: 1.5rem;
-          text-align: center;
-        }
-
-        .logo-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 15px;
-        }
-
-        .logo-grid img {
-          max-width: 70px;
-        }
-      }
-
-      @media (max-width: 576px) {
-        .logo-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .logo-grid img {
-          max-width: 60px;
-        }
-
-        .partner_org h4 {
-          font-size: 1.2rem;
-        }
-      }
-
-      @keyframes appear {
-        from {
-          opacity: 0;
-          scale: 0.5;
-        }
-        to {
-          opacity: 1;
-          scale: 1;
-        }
-      }
-      .block {
-        animation: appear linear;
-        animation-timeline: view();
-        animation-range: entry 0;
-      }
-
-      .main-banner {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        text-align: center;
-        margin-bottom: 2rem;
-      }
-
-      .main-banner .banner-image img {
-        width: 95vw;
-        height: auto;
-        display: block;
-        padding: 40px 60px 60px 60px;
-      }
-
-      .main-banner .search-bar {
-        position: absolute;
-        width: 75vw;
-        bottom: 1%;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 1rem 1.8rem;
-        border-radius: 18px;
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 29px 0px;
-        background-color: var(--sec-background-color);
-        flex-direction: row;
-        flex-wrap: wrap;
-        transition: all 0.3s ease-in-out;
-        gap: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-sizing: border-box;
-      }
-
-      .main-banner .search-bar form {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
-        box-sizing: border-box;
-      }
-
-      .main-banner .search-bar label {
-        display: flex;
-        flex-direction: column;
-        font-size: 0.9rem;
-        color: var(--text-color);
-        text-align: left;
-        padding: 0 8px;
-        box-sizing: border-box;
-      }
-
-      .main-banner .search-bar input,
-      .main-banner .search-bar button {
-        width: 100%;
-        position: relative;
-        padding: 0.5rem;
-        border: 1px solid var(--background-color);
-        background-color: var(--background-color);
-        border-radius: 8px;
-        font-size: 0.9rem;
-        flex-shrink: 0;
-        flex: 1 1 auto;
-        color: #666;
-        box-sizing: border-box;
-      }
-
-      .main-banner .search-bar form button {
-        background: linear-gradient(
-          45deg,
-          var(--primary-color),
-          var(--primary-hover-color)
-        );
-        max-width: 150px;
-        color: var(--text-color-dark);
-        border: none;
-        cursor: pointer;
-        height: max-content;
-        transition: var(--background-color) 0.3s ease;
-        box-sizing: border-box;
-      }
-
-      .main-banner .search-bar button:hover {
-        background: var(--primary-color);
-      }
-
-      /* Popular tours section */
-      .popular-tours {
-        color: var(--text-color);
-        text-align: center;
-        padding: 2rem 2rem;
-        background-color: var(--sec-background-color);
-      }
-
-      .popular-tours h2 {
-        font-size: 1.2rem;
-        text-transform: uppercase;
-        margin-bottom: 1rem;
-        font-weight: 550;
-        text-align: center;
-      }
-
-      .tours-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        justify-content: center;
-      }
-
-      .tour {
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        text-align: center;
-        color: var(--text-color);
-      }
-
-      .tour:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      }
-
-      .tour img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-      }
-
-      .tour-info {
-        padding: 1rem;
-      }
-
-      .tour-info h3 {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .tour-info p {
-        font-size: 0.9rem;
-        color: var(--text-color);
-      }
-
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .main-banner .search-bar {
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-        .motto p {
-          display: none;
-        }
-        .popular-tours {
-          padding: 1rem;
-        }
-        .tours-grid {
-          grid-template-columns: 1fr;
-          justify-items: center;
-        }
-      }
-      travel-item::part(title) {
-        color: blue;
-        font-size: 24px;
-      }
-
-      #travel-grid travel-item {
-        display: grid;
-        width: 100%;
-        max-width: 300px;
-        justify-items: center;
-        border-radius: 16px;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <nav class="header-nav">
-        <div class="motto">
-          <a href="./index.html" aria-label="Homepage"
-            ><img
-              width="50px"
-              src="./images/ym2/logo.png"
-              alt="logo"
-              loading="lazy"
-          /></a>
+<!--   <link rel="preconnect" href="https://ka-f.fontawesome.com" crossorigin/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/> -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://api.geoapify.com">
+  <style>
+    
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="header-nav">
+      <div class="motto">
+        <a href="./index.html" aria-label="Homepage"><img width="50px" src="./images/ym2/logo.png" alt="logo" loading="eager" /></a>
+        <p>
+          Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
+          <strong style="font-weight: 600">бид бүтээж өгнө</strong>
+        </p>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="./frontend/aboutUs.html" aria-label="Learn more about us">Бидний тухай</a>
+        </li>
+        <li>
+          <a href="./frontend/zahialah.html" aria-label="Plan your trip in your prefrence">Аялал захиалах</a>
+        </li>
+        <li>
+          <a href="./frontend/mytravels.html" aria-label="Navigate your travels">Миний аяллууд</a>
+        </li>
+        <li>
+          <a href="./frontend/travels.html" aria-label="Deep dive into our travelling options">Aяллууд</a>
+        </li>
+      </ul>
+      <section class="user-links">
+        <button id="toggle-theme" aria-label="Switch mode">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#080d21">
+            <path
+              d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#080d21">
+            <path
+              d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z" />
+          </svg>
+        </button>
+        <div class="cart-container" id="cart-container">
+          <cart-icon></cart-icon>
+          <cart-comp data-total-price>
+            <span slot="item"></span>
+          </cart-comp>
+        </div>
+        <a href="./frontend/signin.html" aria-label="Sign in to your account">Нэвтрэх</a>
+        <a href="./frontend/signin.html" aria-label="Sign in to your account"><img src="./images/ym2/account_icon.png"
+            alt="" loading="eager" /></a>
+      </section>
+    </nav>
+  </header>
+  <nav class="mobile-nav">
+    <a href="./index.html">
+      <img src="./images/ym2/home_icon.png" alt="Home" />
+    </a>
+    <a href="./frontend/zahialah.html">
+      <img src="./images/ym2/travel_icon.png" alt="Order" />
+    </a>
+    <a href="./frontend/mytravels.html">
+      <img src="./images/ym2/info_icon.png" alt="Medee" />
+    </a>
+    <a href="./frontend/travels.html">
+      <img src="./images/ym2/heart_icon.png" alt="My Travels" />
+    </a>
+    <a href="./frontend/signin.html">
+      <img src="./images/ym2/user_icon.png" alt="Profile" />
+    </a>
+  </nav>
+
+  <main>
+    <section class="main-banner">
+      <div class="banner-image">
+        <img src="./images/ym2/mainpage.webp" alt="Beautiful Landscape" loading="eager" />
+      </div>
+      <div class="search-bar">
+        <form>
+          <label>
+            Байршил
+            <input type="text" placeholder="Архангай" />
+          </label>
+          <label>
+            Хоног
+            <input type="number" placeholder="2" />
+          </label>
+          <label>
+            Эхлэх өдөр
+            <input type="date" value="2025-01-01" />
+          </label>
+          <label>
+            Дуусах өдөр
+            <input type="date" value="2025-01-05" />
+          </label>
+          <button type="submit">Хайх</button>
+        </form>
+      </div>
+    </section>
+    <section class="popular-tours">
+      <h2>Эрэлттэй аяллууд</h2>
+      <div class="tours-grid" id="travel-grid">
+        <travel-item data-id="1" data-title="Хөвсгөл далайн аялал" data-image="/images/travels/Khuvsgul lake.webp"
+          data-location="Хөвсгөл" data-days="5" data-price="350,000"></travel-item>
+        <travel-item data-id="2" data-title="Увс нуурын аялал" data-image="/images/travels/uvsnuur.webp"
+          data-location="Увс" data-days="3" data-price="280,000"></travel-item>
+        <travel-item data-id="1" data-title="Хөвсгөл далайн аялал" data-image="/images/travels/Khuvsgul lake.webp"
+          data-location="Хөвсгөл" data-days="5" data-price="350,000"></travel-item>
+        <travel-item data-id="2" data-title="Увс нуурын аялал" data-image="/images/travels/uvsnuur.webp"
+          data-location="Увс" data-days="3" data-price="280,000"></travel-item>
+        <travel-item data-id="1" data-title="Хөвсгөл далайн аялал" data-image="./images/travels/Khuvsgul lake.webp"
+          data-location="Хөвсгөл" data-days="5" data-price="350,000"></travel-item>
+      </div>
+    </section>
+
+    <section class="comment_section">
+      <h3>Аялагчдын сэтгэгдлүүдээс</h3>
+      <section class="comments-container">
+        <button class="arrow left arrow-left fa-solid fa-chevron-left"></button>
+        <div class="comments-wrapper">
+          <div class="comments">
+            <article>
+              <p>
+                Миний нууцлаг аяллын туршлага намайг чамин газар руу
+                аваачиж,онгоцны буудал дэзр гэнэтийн нээлтээ хийхдээ хөл амгүй
+                болгов. Хачирхалтай кафенаас эхлээд сэтгэл хөдлөм үзмэр хүртэл
+                хором бүp нууцлаг, сэтгэл догдлолоор дүүрэн байсан нь
+                амьдралынхаа адал явдал болсон.
+              </p>
+              <div class="rating">
+                <span>★★★★☆</span>
+                <div class="user_time">
+                  <strong>Амарзаяа.М</strong>
+                  <time datetime="">2024.02.04</time>
+                </div>
+              </div>
+            </article>
+            <article>
+              <p>
+                Нууцлаг аялал миний урьд өмнө нь хэзээ ч байгаагүй нууцлг
+                эрдэнийн эрдэнэсийг олж харах нүдийг минь нээж нээлт болгон нь
+                эрдэнэс нээх мэт мэдрэмж төрүүлдэг. Чулуун гудамжнаас эхлээд
+                хөл хөдөлгөөн ихтэй зах хүртэл бүх турлага нь сэтгэл хөдлөл,
+                хүлээлтээр дүүрэн байсан бөгөөд хором бүрийг мартагдашгүй
+                болгодог.
+              </p>
+              <div class="rating">
+                <span>★★★★☆</span>
+                <div class="user_time">
+                  <strong>Амарзаяа.М</strong>
+                  <time datetime="">2024.02.04</time>
+                </div>
+              </div>
+            </article>
+            <article>
+              <p>
+                Нууцлаг аялалын адал явдалд орох нь эцэс төгсгөлгүй
+                боломжуудын ертөнцөд хөл тавьсантай адил байв. Эртний
+                балгасуудбг судлахаас эхлээд чамин хоолоор амтлах хүртэл
+                зорьсон газар бүр миний хамгийн зэрлэг хүлээлтийг давж,
+                туршлага бүрийг эхнээс нь дуустал сэтгэл хөдөлгөм болгосон.
+              </p>
+              <div class="rating">
+                <span>★★★★☆</span>
+                <div class="user_time">
+                  <strong>Амарзаяа.М</strong>
+                  <time datetime="">2024.02.04</time>
+                </div>
+              </div>
+            </article>
+            <article>
+              <p>
+                Над шиг тэнүүчлэгч хүний хувьд нууцлаг аялал нь биелэх
+                мөрөөдөл байсан. Очих газ р бүр сэтгэл татам ой дундуур
+                тэнүүчилж, далд хүрхрээнд бүдрах хүртэл сонин адал явдал,
+                санааннд оромгүй учралуудыг амлаж, эргэн тойрныхоо ертөнцийг
+                гайхшруулах мэдрэмжийг дахин төрүүлэв.
+              </p>
+              <div class="rating">
+                <span>★★★★☆</span>
+                <div class="user_time">
+                  <strong>Амарзаяа.М</strong>
+                  <time datetime="">2024.02.04</time>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <button class="arrow right arrow-right fa-solid fa-chevron-right"></button>
+      </section>
+    </section>
+    <section class="gallery">
+      <div class="gallery-wrapper" id="galleryWrapper">
+        <img src="./images/gallery/img1.webp" alt="Image 1" loading="lazy" />
+        <img src="./images/gallery/img2.webp" alt="Image 2" loading="lazy" />
+        <img src="./images/gallery/img3.webp" alt="Image 3" loading="lazy" />
+        <img src="./images/gallery/img4.webp" alt="Image 4" loading="lazy" />
+        <img src="./images/gallery/img5.webp" alt="Image 5" loading="lazy" />
+        <img src="./images/gallery/img6.webp" alt="Image 6" loading="lazy" />
+        <img src="./images/gallery/img7.webp" alt="Image 7" loading="lazy" />
+      </div>
+      <button class="arrow left" id="leftArrow">&lt;</button>
+      <button class="arrow right" id="rightArrow">&gt;</button>
+    </section>
+    <section class="partner_org">
+      <h4>Хамтрагч байгуулгууд</h4>
+      <div class="logo-grid">
+        <img width="70px" src="./images/partnerOrg/apple.webp" alt="Our sponsors" />
+        <img src="./images/partnerOrg/buurger.webp" alt="Our sponsors" loading="lazy" />
+        <img src="./images/partnerOrg/disney.png" alt="Our sponsors" loading="lazy" />
+        <img src="./images/partnerOrg/kfc.webp" alt="Our sponsors" loading="lazy" />
+        <img src="./images/partnerOrg/gap.png" alt="Our sponsors" loading="lazy" />
+        <img src="./images/partnerOrg/huvtsas.webp" alt="Our sponsors" loading="lazy" />
+        <img src="./images/partnerOrg/image 17.webp" alt="Our sponsors" loading="lazy" />
+        <img src="./images/partnerOrg/paramount.webp" alt="Our sponsors" loading="lazy" />
+        <img src="./images/partnerOrg/uul1.webp" alt="Our sponsors" loading="lazy" />
+        <img src="./images/partnerOrg/uul2.webp" alt="Our sponsors" loading="lazy" />
+        <img src="./images/partnerOrg/uul3.webp" alt="Our sponsors" loading="lazy" />
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-container">
+      <section class="footer-first">
+        <div class="footer-logo">
+          <img src="./images/ym2/logo.png" alt="Logo" />
           <p>
-            Таний хүсэлд нийцсэн, хүссэн аяллалыг тань<br />
-            <strong style="font-weight: 600">бид бүтээж өгнө</strong>
+            нууц <br />
+            аялал
           </p>
         </div>
-        <ul class="nav-links">
+        <div class="social-icons">
+          <ul>
+            <li>
+              <a style="color: white" href="#" aria-label="Facebook"><i style="font-size: 34px"
+                  class="fa-brands fa-square-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a style="color: white" href="#" aria-label="Twitter"><i style="font-size: 34px"
+                  class="fa-brands fa-twitter"></i></a>
+            </li>
+            <li>
+              <a style="color: white" href="#" aria-label="Instagram"><i style="font-size: 34px"
+                  class="fa-brands fa-instagram"></i></a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="footer-links">
+        <h4>Бидний тухай</h4>
+        <ul>
           <li>
-            <a href="./frontend/aboutUs.html" aria-label="Learn more about us"
-              >Бидний тухай</a
-            >
+            <a href="aboutUs.html" aria-label="Learn more about us">Танилцуулга</a>
           </li>
           <li>
-            <a
-              href="./frontend/zahialah.html"
-              aria-label="Plan your trip in your prefrence"
-              >Аялал захиалах</a
-            >
-          </li>
-          <li>
-            <a
-              href="./frontend/mytravels.html"
-              aria-label="Navigate your travels"
-              >Миний аяллууд</a
-            >
-          </li>
-          <li>
-            <a
-              href="./frontend/travels.html"
-              aria-label="Deep dive into our travelling options"
-              >Aяллууд</a
-            >
+            <a href="FaQ.html" aria-label="Frequently asked questions">Асуулт хариулт</a>
           </li>
         </ul>
-        <section class="user-links">
-          <button id="toggle-theme" aria-label="Switch mode">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#080d21"
-            >
-              <path
-                d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#080d21"
-            >
-              <path
-                d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"
-              />
-            </svg>
-          </button>
-          <div class="cart-container" id="cart-container">
-            <cart-icon></cart-icon>
-            <cart-comp data-total-price>
-              <span slot="item"></span>
-            </cart-comp>
-          </div>
-          <a href="./frontend/signin.html" aria-label="Sign in to your account"
-            >Нэвтрэх</a
-          >
-          <a href="./frontend/signin.html" aria-label="Sign in to your account"
-            ><img src="./images/ym2/account_icon.png" alt="" loading="lazy"
-          /></a>
-        </section>
-      </nav>
-    </header>
-    <nav class="mobile-nav">
-      <a href="./index.html">
-        <img src="./images/ym2/home_icon.png" alt="Home" />
-      </a>
-      <a href="./frontend/zahialah.html">
-        <img src="./images/ym2/travel_icon.png" alt="Order" />
-      </a>
-      <a href="./frontend/mytravels.html">
-        <img src="./images/ym2/info_icon.png" alt="Medee" />
-      </a>
-      <a href="./frontend/travels.html">
-        <img src="./images/ym2/heart_icon.png" alt="My Travels" />
-      </a>
-      <a href="./frontend/signin.html">
-        <img src="./images/ym2/user_icon.png" alt="Profile" />
-      </a>
-    </nav>
-
-    <main>
-      <section class="main-banner">
-        <div class="banner-image">
-          <img
-            src="./images/ym2/mainpage.webp"
-            alt="Beautiful Landscape"
-            loading="lazy"
-          />
-        </div>
-        <div class="search-bar">
-          <form>
-            <label>
-              Байршил
-              <input type="text" placeholder="Архангай" />
-            </label>
-            <label>
-              Хоног
-              <input type="number" placeholder="2" />
-            </label>
-            <label>
-              Эхлэх өдөр
-              <input type="date" value="2025-01-01" />
-            </label>
-            <label>
-              Дуусах өдөр
-              <input type="date" value="2025-01-05" />
-            </label>
-            <button type="submit">Хайх</button>
-          </form>
-        </div>
       </section>
-      <section class="popular-tours">
-        <h2>Эрэлттэй аяллууд</h2>
-        <div class="tours-grid" id="travel-grid">
-          <travel-item
-            data-id="1"
-            data-title="Хөвсгөл далайн аялал"
-            data-image="/images/travels/Khuvsgul lake.webp"
-            data-location="Хөвсгөл"
-            data-days="5"
-            data-price="350,000"
-          ></travel-item>
-          <travel-item
-            data-id="2"
-            data-title="Увс нуурын аялал"
-            data-image="/images/travels/uvsnuur.webp"
-            data-location="Увс"
-            data-days="3"
-            data-price="280,000"
-          ></travel-item>
-          <travel-item
-            data-id="1"
-            data-title="Хөвсгөл далайн аялал"
-            data-image="/images/travels/Khuvsgul lake.webp"
-            data-location="Хөвсгөл"
-            data-days="5"
-            data-price="350,000"
-          ></travel-item>
-          <travel-item
-            data-id="2"
-            data-title="Увс нуурын аялал"
-            data-image="/images/travels/uvsnuur.webp"
-            data-location="Увс"
-            data-days="3"
-            data-price="280,000"
-          ></travel-item>
-          <travel-item
-            data-id="1"
-            data-title="Хөвсгөл далайн аялал"
-            data-image="./images/travels/Khuvsgul lake.webp"
-            data-location="Хөвсгөл"
-            data-days="5"
-            data-price="350,000"
-          ></travel-item>
-        </div>
-      </section>
-
-      <section class="comment_section">
-        <h3>Аялагчдын сэтгэгдлүүдээс</h3>
-        <section class="comments-container">
-          <button
-            class="arrow left arrow-left fa-solid fa-chevron-left"
-          ></button>
-          <div class="comments-wrapper">
-            <div class="comments">
-              <article>
-                <p>
-                  Миний нууцлаг аяллын туршлага намайг чамин газар руу
-                  аваачиж,онгоцны буудал дэзр гэнэтийн нээлтээ хийхдээ хөл амгүй
-                  болгов. Хачирхалтай кафенаас эхлээд сэтгэл хөдлөм үзмэр хүртэл
-                  хором бүp нууцлаг, сэтгэл догдлолоор дүүрэн байсан нь
-                  амьдралынхаа адал явдал болсон.
-                </p>
-                <div class="rating">
-                  <span>★★★★☆</span>
-                  <div class="user_time">
-                    <strong>Амарзаяа.М</strong>
-                    <time datetime="">2024.02.04</time>
-                  </div>
-                </div>
-              </article>
-              <article>
-                <p>
-                  Нууцлаг аялал миний урьд өмнө нь хэзээ ч байгаагүй нууцлг
-                  эрдэнийн эрдэнэсийг олж харах нүдийг минь нээж нээлт болгон нь
-                  эрдэнэс нээх мэт мэдрэмж төрүүлдэг. Чулуун гудамжнаас эхлээд
-                  хөл хөдөлгөөн ихтэй зах хүртэл бүх турлага нь сэтгэл хөдлөл,
-                  хүлээлтээр дүүрэн байсан бөгөөд хором бүрийг мартагдашгүй
-                  болгодог.
-                </p>
-                <div class="rating">
-                  <span>★★★★☆</span>
-                  <div class="user_time">
-                    <strong>Амарзаяа.М</strong>
-                    <time datetime="">2024.02.04</time>
-                  </div>
-                </div>
-              </article>
-              <article>
-                <p>
-                  Нууцлаг аялалын адал явдалд орох нь эцэс төгсгөлгүй
-                  боломжуудын ертөнцөд хөл тавьсантай адил байв. Эртний
-                  балгасуудбг судлахаас эхлээд чамин хоолоор амтлах хүртэл
-                  зорьсон газар бүр миний хамгийн зэрлэг хүлээлтийг давж,
-                  туршлага бүрийг эхнээс нь дуустал сэтгэл хөдөлгөм болгосон.
-                </p>
-                <div class="rating">
-                  <span>★★★★☆</span>
-                  <div class="user_time">
-                    <strong>Амарзаяа.М</strong>
-                    <time datetime="">2024.02.04</time>
-                  </div>
-                </div>
-              </article>
-              <article>
-                <p>
-                  Над шиг тэнүүчлэгч хүний хувьд нууцлаг аялал нь биелэх
-                  мөрөөдөл байсан. Очих газ р бүр сэтгэл татам ой дундуур
-                  тэнүүчилж, далд хүрхрээнд бүдрах хүртэл сонин адал явдал,
-                  санааннд оромгүй учралуудыг амлаж, эргэн тойрныхоо ертөнцийг
-                  гайхшруулах мэдрэмжийг дахин төрүүлэв.
-                </p>
-                <div class="rating">
-                  <span>★★★★☆</span>
-                  <div class="user_time">
-                    <strong>Амарзаяа.М</strong>
-                    <time datetime="">2024.02.04</time>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-          <button
-            class="arrow right arrow-right fa-solid fa-chevron-right"
-          ></button>
-        </section>
-      </section>
-      <section class="gallery">
-        <div class="gallery-wrapper" id="galleryWrapper">
-          <img src="./images/gallery/img1.webp" alt="Image 1" loading="lazy" />
-          <img src="./images/gallery/img2.webp" alt="Image 2" loading="lazy" />
-          <img src="./images/gallery/img3.webp" alt="Image 3" loading="lazy" />
-          <img src="./images/gallery/img4.webp" alt="Image 4" loading="lazy" />
-          <img src="./images/gallery/img5.webp" alt="Image 5" loading="lazy" />
-          <img src="./images/gallery/img6.webp" alt="Image 6" loading="lazy" />
-          <img src="./images/gallery/img7.webp" alt="Image 7" loading="lazy" />
-        </div>
-        <button class="arrow left" id="leftArrow">&lt;</button>
-        <button class="arrow right" id="rightArrow">&gt;</button>
-      </section>
-      <section class="partner_org">
-        <h4>Хамтрагч байгуулгууд</h4>
-        <div class="logo-grid">
-          <img
-            width="70px"
-            src="./images/partnerOrg/apple.webp"
-            alt="Our sponsors"
-          />
-          <img
-            src="./images/partnerOrg/buurger.webp"
-            alt="Our sponsors"
-            loading="lazy"
-          />
-          <img
-            src="./images/partnerOrg/disney.png"
-            alt="Our sponsors"
-            loading="lazy"
-          />
-          <img
-            src="./images/partnerOrg/kfc.webp"
-            alt="Our sponsors"
-            loading="lazy"
-          />
-          <img
-            src="./images/partnerOrg/gap.png"
-            alt="Our sponsors"
-            loading="lazy"
-          />
-          <img
-            src="./images/partnerOrg/huvtsas.webp"
-            alt="Our sponsors"
-            loading="lazy"
-          />
-          <img
-            src="./images/partnerOrg/image 17.webp"
-            alt="Our sponsors"
-            loading="lazy"
-          />
-          <img
-            src="./images/partnerOrg/paramount.webp"
-            alt="Our sponsors"
-            loading="lazy"
-          />
-          <img
-            src="./images/partnerOrg/uul1.webp"
-            alt="Our sponsors"
-            loading="lazy"
-          />
-          <img
-            src="./images/partnerOrg/uul2.webp"
-            alt="Our sponsors"
-            loading="lazy"
-          />
-          <img
-            src="./images/partnerOrg/uul3.webp"
-            alt="Our sponsors"
-            loading="lazy"
-          />
-        </div>
-      </section>
-    </main>
-    <footer>
-      <div class="footer-container">
-        <section class="footer-first">
-          <div class="footer-logo">
-            <img src="./images/ym2/logo.png" alt="Logo" />
+      <section class="footer-contact">
+        <h4>Холбоо барих</h4>
+        <ul>
+          <li>
             <p>
-              нууц <br />
-              аялал
+              и-мэйл:
+              <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us!">nuutsaylal@gmail.com</a>
             </p>
-          </div>
-          <div class="social-icons">
-            <ul>
-              <li>
-                <a style="color: white" href="#" aria-label="Facebook"
-                  ><i
-                    style="font-size: 34px"
-                    class="fa-brands fa-square-facebook"
-                  ></i>
-                </a>
-              </li>
-              <li>
-                <a style="color: white" href="#" aria-label="Twitter"
-                  ><i style="font-size: 34px" class="fa-brands fa-twitter"></i
-                ></a>
-              </li>
-              <li>
-                <a style="color: white" href="#" aria-label="Instagram"
-                  ><i style="font-size: 34px" class="fa-brands fa-instagram"></i
-                ></a>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section class="footer-links">
-          <h4>Бидний тухай</h4>
-          <ul>
-            <li>
-              <a href="aboutUs.html" aria-label="Learn more about us"
-                >Танилцуулга</a
-              >
-            </li>
-            <li>
-              <a href="FaQ.html" aria-label="Frequently asked questions"
-                >Асуулт хариулт</a
-              >
-            </li>
-          </ul>
-        </section>
-        <section class="footer-contact">
-          <h4>Холбоо барих</h4>
-          <ul>
-            <li>
-              <p>
-                и-мэйл:
-                <a href="mailto:nuutsaylal@gmail.com" aria-label="Mail to us!"
-                  >nuutsaylal@gmail.com</a
-                >
-              </p>
-            </li>
-            <li><p>Phone: +976 99999999</p></li>
-          </ul>
-        </section>
-        <section class="footer-address">
-          <h4>Манай хаяг</h4>
-          <ul>
-            <li>
-              <p>
-                Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
-                Улаанбаатар
-              </p>
-            </li>
-          </ul>
-        </section>
-      </div>
-    </footer>
+          </li>
+          <li>
+            <p>Phone: +976 99999999</p>
+          </li>
+        </ul>
+      </section>
+      <section class="footer-address">
+        <h4>Манай хаяг</h4>
+        <ul>
+          <li>
+            <p>
+              Их сургуулийн гудамж - 1, Бага тойруу, Сүхбаатар дүүрэг,
+              Улаанбаатар
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <div id="my-map" style="height: 100px; width: auto;"></div>
+      </section>
+    </div>
+  </footer>
 
-    <script
-      src="https://kit.fontawesome.com/d903c022ca.js"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script>
-      // Gallery functionality
-      const galleryWrapper = document.getElementById("galleryWrapper");
-      const leftArrow = document.getElementById("leftArrow");
-      const rightArrow = document.getElementById("rightArrow");
+  <script src="https://kit.fontawesome.com/d903c022ca.js" crossorigin="anonymous" defer></script>
+  <script>
+    // Gallery functionality
+    const galleryWrapper = document.getElementById("galleryWrapper");
+    const leftArrow = document.getElementById("leftArrow");
+    const rightArrow = document.getElementById("rightArrow");
 
-      let scrollPosition = 0;
-      const scrollStep = 300;
+    let scrollPosition = 0;
+    const scrollStep = 300;
 
-      function updateArrows() {
-        leftArrow.style.display = scrollPosition === 0 ? "none" : "block";
-        rightArrow.style.display =
-          Math.abs(scrollPosition) >=
+    function updateArrows() {
+      leftArrow.style.display = scrollPosition === 0 ? "none" : "block";
+      rightArrow.style.display =
+        Math.abs(scrollPosition) >=
           galleryWrapper.scrollWidth - galleryWrapper.offsetWidth
-            ? "none"
-            : "block";
-      }
+          ? "none"
+          : "block";
+    }
 
-      rightArrow.addEventListener("click", () => {
-        const maxScroll =
-          galleryWrapper.scrollWidth - galleryWrapper.offsetWidth;
-        scrollPosition = Math.max(scrollPosition - scrollStep, -maxScroll);
-        galleryWrapper.style.transform = `translateX(${scrollPosition}px)`;
-        updateArrows();
-      });
-
-      leftArrow.addEventListener("click", () => {
-        scrollPosition = Math.min(scrollPosition + scrollStep, 0);
-        galleryWrapper.style.transform = `translateX(${scrollPosition}px)`;
-        updateArrows();
-      });
-
+    rightArrow.addEventListener("click", () => {
+      const maxScroll =
+        galleryWrapper.scrollWidth - galleryWrapper.offsetWidth;
+      scrollPosition = Math.max(scrollPosition - scrollStep, -maxScroll);
+      galleryWrapper.style.transform = `translateX(${scrollPosition}px)`;
       updateArrows();
+    });
 
-      // Comments functionality
-      const commentsWrapper = document.querySelector(".comments-wrapper");
-      const comments = document.querySelectorAll(".comments article");
-      const commentsLeftArrow = document.querySelector(".arrow-left");
-      const commentsRightArrow = document.querySelector(".arrow-right");
+    leftArrow.addEventListener("click", () => {
+      scrollPosition = Math.min(scrollPosition + scrollStep, 0);
+      galleryWrapper.style.transform = `translateX(${scrollPosition}px)`;
+      updateArrows();
+    });
 
-      let commentsIndex = 0; // The index of the currently visible comment
-      const commentWidth = comments[0].offsetWidth + 15; // Comment width + margin
-      const totalComments = comments.length;
+    updateArrows();
 
-      function updateCommentsArrows() {
-        commentsLeftArrow.style.display =
-          commentsIndex === 0 ? "none" : "block";
-        commentsRightArrow.style.display =
-          commentsIndex >= totalComments - 1 ? "none" : "block";
+    // Comments functionality
+    const commentsWrapper = document.querySelector(".comments-wrapper");
+    const comments = document.querySelectorAll(".comments article");
+    const commentsLeftArrow = document.querySelector(".arrow-left");
+    const commentsRightArrow = document.querySelector(".arrow-right");
+
+    let commentsIndex = 0; // The index of the currently visible comment
+    const commentWidth = comments[0].offsetWidth + 15; // Comment width + margin
+    const totalComments = comments.length;
+
+    function updateCommentsArrows() {
+      commentsLeftArrow.style.display =
+        commentsIndex === 0 ? "none" : "block";
+      commentsRightArrow.style.display =
+        commentsIndex >= totalComments - 1 ? "none" : "block";
+    }
+
+    commentsRightArrow.addEventListener("click", () => {
+      if (commentsIndex < totalComments - 1) {
+        commentsIndex++;
+        commentsWrapper.style.transform = `translateX(-${commentsIndex * commentWidth
+          }px)`;
+        updateCommentsArrows();
       }
+    });
 
-      commentsRightArrow.addEventListener("click", () => {
-        if (commentsIndex < totalComments - 1) {
-          commentsIndex++;
-          commentsWrapper.style.transform = `translateX(-${
-            commentsIndex * commentWidth
+    commentsLeftArrow.addEventListener("click", () => {
+      if (commentsIndex > 0) {
+        commentsIndex--;
+        commentsWrapper.style.transform = `translateX(-${commentsIndex * commentWidth
           }px)`;
-          updateCommentsArrows();
-        }
-      });
+        updateCommentsArrows();
+      }
+    });
 
-      commentsLeftArrow.addEventListener("click", () => {
-        if (commentsIndex > 0) {
-          commentsIndex--;
-          commentsWrapper.style.transform = `translateX(-${
-            commentsIndex * commentWidth
-          }px)`;
-          updateCommentsArrows();
-        }
-      });
+    updateCommentsArrows();
+  </script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js" defer></script>
+  <script src="./frontend/arrows.js" defer></script>
+  <script src="./frontend/geo.js" defer></script>
+</body>
 
-      updateCommentsArrows();
-    </script>
-    <script src="./frontend/arrows.js" defer></script>
-  </body>
 </html>

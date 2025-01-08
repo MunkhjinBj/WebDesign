@@ -125,9 +125,9 @@
                       e.preventDefault();
                   
                       const number_of_travelers = document.getElementById('number_of_travelers').value;
-                      const travel_id = new URLSearchParams(window.location.search).get('travelIds'); // Retrieve travel_id from query parameters
-                      const date = new Date().toISOString(); // Set the booking date to the current date
-                      const status = "Pending"; // Default status
+                      const travel_id = new URLSearchParams(window.location.search).get('travelIds');
+                      const date = new Date().toISOString();
+                      const status = "Pending";
                   
                       // Retrieve the price per traveler from localStorage or another source
                       const price_per_traveler = 300000;
@@ -159,10 +159,9 @@
                   
                         const result = await response.json();
                         if (response.ok) {
-                          alert('Booking Successful!');
-                          // Handle successful booking logic here
+                          alert('Таны аялалын захиалга амжилттай бүртгэгдлээ.');
                         } else {
-                          document.getElementById('booking-message').innerText = result.message || 'Error making booking';
+                          document.getElementById('booking-message').innerText = result.message || 'Уучлаарайь алдаа гарлаа';
                         }
                       } catch (error) {
                         console.error("Error making booking:", error);

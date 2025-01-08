@@ -10,8 +10,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Minify CSS
-const cssFilePath = path.join(__dirname, 'frontend', 'filter.css');
-const cssOutputPath = path.join(__dirname, 'dist', 'filter.min.css');
+const cssFilePath = path.join(__dirname, 'frontend', 'index.css');
+const cssOutputPath = path.join(__dirname, 'dist', 'index.min.css');
 
 fs.readFile(cssFilePath, 'utf8', (err, css) => {
   if (err) throw err;
