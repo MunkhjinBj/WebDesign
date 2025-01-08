@@ -9,30 +9,11 @@ template.innerHTML = `
       transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     }
 
-    :host(:state(active)) {
-      background-color: var(--primary-hover-color, #47b477);
-      color: var(--text-color-dark, #ffffff);
-      transform: scale(1.05);
-      box-shadow: 0 4px 12px var(--shadow-color, rgba(0, 0, 0, 0.3));
-    }
-
-    :host(:state(disabled)) {
-      background-color: var(--background-color-dark, #0a0a0a);
-      color: var(--text-color-dark, #ffffff);
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    :host(:state(hover)) {
-      background-color: var(--sec-background-color, #f8f8f8);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px var(--shadow-color, rgba(0, 0, 4, 0.5));
-    }
-
+  
     article {
-      width: 100%; /* Use full width of the container */
-      max-width: 220px; /* Restrict to a max width */
-      height: auto; /* Let height adjust based on content */
+      width: 100%;
+      max-width: 220px;
+      height: auto; 
       padding-bottom: 1.1rem;
       text-align: center;
       cursor: pointer;
@@ -102,7 +83,7 @@ template.innerHTML = `
     }
 
     .info {
-      padding: 0 1rem;
+      padding: 1rem 1rem;
     }
 
     .info ul {
@@ -132,7 +113,7 @@ template.innerHTML = `
 
     .location li:first-child::before {
       content: "";
-      background-image: url("./images/ym2/loc.png");
+      background-image: url("../images/ym2/location_on_24dp_314D1C_FILL0_wght400_GRAD0_opsz24.svg");
       background-size: contain;
       background-repeat: no-repeat;
       vertical-align: middle;
@@ -140,6 +121,7 @@ template.innerHTML = `
       height: 18px;
       display: inline-block;
       margin-right: 3px;
+      color: var(--background-color, red);
     }
 
     .addCart {
@@ -174,7 +156,6 @@ export default class TravelItem extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.internals = this.attachInternals();
   }
 
   connectedCallback() {
