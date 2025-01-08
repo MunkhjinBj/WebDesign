@@ -1,4 +1,3 @@
-// Хүсэлтийг хүлээн авч бизнес логик руу дамжуулах
 import express from "express";
 import { datravels } from "../db/da.mjs";
 
@@ -27,7 +26,7 @@ export default class Travels {
    *       500:
    *         description: Server Error
    */
-  //2. travel.get(req, res) функц ажиллаад DaTravels доторх getAllTravels функцыг дуудна.ирсэн хариуг clinet-руу  илгээнэ.
+
   async get(req, res) {
     await datravels.getAllTravels(req, res);
   }

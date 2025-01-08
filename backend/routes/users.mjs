@@ -3,15 +3,14 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import DaUsers from "../db/dausers.mjs";
 import pool from "../db/da.mjs";
-import  authenticate  from "../middleware/authenticate.mjs";  // Add this import
-
+import authenticate from "../middleware/authenticate.mjs";
 const router = express.Router();
 const usersData = new DaUsers(pool);
 
 const JWT_SECRET = process.env.JWT_SECRET;
 if (!JWT_SECRET) {
   console.error("Error: JWT_SECRET is not set!");
-  process.exit(1); // Exit if secret is missing
+  process.exit(1);
 }
 
 // Get all users
@@ -27,10 +26,13 @@ router.get("/", async (req, res) => {
 
 // Register a user
 router.post("/register", async (req, res) => {
-  const { email, password, full_name, phone_number, date_of_birth, gender } = req.body;
+  const { email, password, full_name, phone_number, date_of_birth, gender } =
+    req.body;
 
   if (!email || !password || !full_name) {
-    return res.status(400).json({ message: "Missing required fields: email, password, full_name." });
+    return res.status(400).json({
+      message: "Missing required fields: email, password, full_name.",
+    });
   }
 
   try {
@@ -50,10 +52,14 @@ router.post("/register", async (req, res) => {
       gender,
     });
 
-    res.status(201).json({ message: "User registered successfully", user: newUser });
+    res
+      .status(201)
+      .json({ message: "User registered successfully", user: newUser });
   } catch (error) {
     console.error("Error registering user:", error.message);
-    res.status(500).json({ error: "An error occurred while registering the user." });
+    res
+      .status(500)
+      .json({ error: "An error occurred while registering the user." });
   }
 });
 
@@ -62,7 +68,9 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    return res.status(400).json({ message: "Email and password are required." });
+    return res
+      .status(400)
+      .json({ message: "Email and password are required." });
   }
 
   try {
@@ -76,7 +84,9 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Invalid email or password." });
     }
 
-    const token = jwt.sign({ userId: user.user_id }, JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign({ userId: user.user_id }, JWT_SECRET, {
+      expiresIn: "1h",
+    });
 
     // Send the token back to the client to be stored in localStorage
     res.status(200).json({ token, message: "Login successful" });
@@ -86,12 +96,10 @@ router.post("/login", async (req, res) => {
   }
 });
 
-
-// User info route (protected)
 router.get("/userinfo", authenticate, async (req, res) => {
   try {
-    const userId = req.user.userId; // Get userId from decoded JWT
-    const user = await usersData.getUserById(userId); // Fetch user data using userId from the token
+    const userId = req.user.userId;
+    const user = await usersData.getUserById(userId);
 
     if (!user) {
       return res.status(404).json({ message: "User not found." });
@@ -107,7 +115,9 @@ router.get("/userinfo", authenticate, async (req, res) => {
     });
   } catch (error) {
     console.error("Error fetching user info:", error.message);
-    res.status(500).json({ error: "An error occurred while fetching user info." });
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching user info." });
   }
 });
 
@@ -122,10 +132,14 @@ router.delete("/:id", async (req, res) => {
       return res.status(404).json({ message: "User not found." });
     }
 
-    res.status(200).json({ message: "User deleted successfully", user: deletedUser });
+    res
+      .status(200)
+      .json({ message: "User deleted successfully", user: deletedUser });
   } catch (error) {
     console.error("Error deleting user:", error.message);
-    res.status(500).json({ error: "An error occurred while deleting the user." });
+    res
+      .status(500)
+      .json({ error: "An error occurred while deleting the user." });
   }
 });
 

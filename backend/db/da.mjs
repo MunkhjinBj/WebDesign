@@ -1,4 +1,3 @@
-// өгөгдлийн сантай холбогдох, өгөгдлийн сангийн өгөгдлийг удирдах, тэдгээртэй ажиллахад зориулагдсан
 import pg from "pg";
 import dotenv from "dotenv";
 import DaTravels from "./datravels.mjs";
@@ -16,7 +15,6 @@ const pool = new pg.Pool({
   },
 });
 
-//object uusgeed pool object-oo damjuulad ugn
 const datravels = new DaTravels(pool);
 const dabookings = new DaBookings(pool);
 

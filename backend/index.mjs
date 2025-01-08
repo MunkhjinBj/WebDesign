@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.config(); // Load environment variables before anything else
+dotenv.config();
 
 import express from "express";
 import compression from "compression";
@@ -7,11 +7,11 @@ import cors from "cors";
 import path from "path";
 
 import { travel } from "./routes/travels.mjs";
-import { bookingRouter } from "./routes/bookings.mjs"; // Import bookingRouter
+import { booking } from "./routes/bookings.mjs";
 import usersRoutes from "./routes/users.mjs";
 import authenticate from "./middleware/authenticate.mjs";
 import swaggerDocs from "./swagger.mjs";
-import pool from "./db/da.mjs"; // Database connection
+import pool from "./db/da.mjs";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -25,50 +25,31 @@ if (!process.env.JWT_SECRET) {
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); // Parses JSON request bodies
+app.use(express.json());
 app.use(compression());
 app.use(cors());
-app.use(express.static(path.resolve("."))); // Static files
+app.use(express.static(path.resolve(".")));
 
-// Static routes for components, modules, and images
 app.use("/components", express.static(path.resolve("components")));
 app.use("/modules", express.static(path.resolve("modules")));
 app.use("/images", express.static(path.resolve("images")));
 
 // Routes
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve("frontend/index.html")); // Adjusted path
+  res.sendFile(path.resolve("frontend/index.html"));
 });
 app.get("/frontend/app.js", (req, res) => {
-  res.sendFile(path.resolve("frontend/app.js")); // Adjusted path
+  res.sendFile(path.resolve("frontend/app.js"));
 });
 
-// Travel API
-app.get("/api/travels", async (req, res) => {
-  try {
-    await travel.get(req, res);
-  } catch (error) {
-    console.error("Error fetching travels:", error.message);
-    res.status(500).json({ error: "Failed to fetch travels." });
-  }
-});
+app.get("/api/travels", (req, res) => travel.get(req, res));
+app.post("/api/travels", (req, res) => travel.post(req, res));
 
-app.post("/api/travels", async (req, res) => {
-  try {
-    await travel.post(req, res);
-  } catch (error) {
-    console.error("Error creating travel:", error.message);
-    res.status(500).json({ error: "Failed to create travel." });
-  }
-});
+app.get("/api/bookings", (req, res) => booking.get(req, res));
+app.post("/api/bookings", (req, res) => booking.post(req, res));
 
-// Use bookingRouter for bookings API routes
-app.use("/api/bookings", bookingRouter);  // Mount the bookingRouter here
-
-// Users API
 app.use("/api/users", usersRoutes);
 
-// Destinations API
 app.get("/api/destinations", async (req, res) => {
   try {
     const result = await pool.query("SELECT DISTINCT type FROM travels");
@@ -82,6 +63,6 @@ app.get("/api/destinations", async (req, res) => {
 // Start server
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server running at http://localhost:${port}`);
-  swaggerDocs(app, port); // Swagger documentation setup
+  swaggerDocs(app, port);
   console.log(`Swagger Docs available at http://localhost:${port}/docs`);
 });
