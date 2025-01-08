@@ -111,10 +111,10 @@ function getSelectedFilterValues(className) {
 
 async function loadDestinations() {
   try {
-    const response = await fetch("http://localhost:3000/api/destinations");
+    const response = await fetch("/api/destinations");
     if (!response.ok) {
       try {
-        response = await fetch("../frontend/travels.json");
+        response = await fetch("../frontend/destination.json");
       } catch (error) {
         throw new Error(
           `Failed to fetch destination types: ${response.statusText}`

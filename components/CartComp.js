@@ -116,7 +116,7 @@ export default class CartComp extends HTMLElement {
             <div id="cart-items">
                 <slot name="cart-items"><p></p></slot>
             </div>
-            <h4>Нийт: <slot name="total-price"></slot></h4>
+            <h4>Нийт: <slot name="total-price" id="total-price"></slot></h4>
             <button class="book-now">Book Now</button>
         </div>
       `;

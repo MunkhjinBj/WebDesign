@@ -15,9 +15,4 @@ export default class Bookings {
 }
 
 const booking = new Bookings();
-const router = express.Router();
-
-router.get("/", authenticate, (req, res) => booking.get(req, res));
-router.post("/", authenticate, (req, res) => booking.post(req, res));
-
-export { router as bookingRouter };
+export { booking };
