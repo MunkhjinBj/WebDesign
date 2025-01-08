@@ -33,33 +33,37 @@ export default class DaBookings {
   }
 
   async addBooking(req, res) {
-    const { travel_id, date, status = "Pending", number_of_travelers, total_price } = req.body;
-  
+    const {
+      travel_id,
+      date,
+      status = "Pending",
+      number_of_travelers,
+      total_price,
+    } = req.body;
+
     if (!travel_id || !date) {
       res.status(400).send("Missing required fields: travel_id or date.");
       return;
     }
-  
+
     try {
-      const user_id = req.user.userId; // Extract userId from req.user
-  
+      const user_id = req.user.user_id;
+
       const result = await this.pool.query(this.insertBookingStr, [
-        user_id, // Use logged-in user's ID (from authenticate middleware)
+        user_id,
         travel_id,
         date,
         status,
         number_of_travelers,
         total_price,
       ]);
-  
+
       res.status(201).json(result.rows[0]);
     } catch (error) {
       console.error("Error adding booking:", error.message);
       res.status(500).send(`Error adding booking: ${error.message}`);
     }
   }
-  
-  
 
   async updateBooking(req, res) {
     const { id } = req.params;

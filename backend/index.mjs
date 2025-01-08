@@ -46,7 +46,9 @@ app.get("/api/travels", (req, res) => travel.get(req, res));
 app.post("/api/travels", (req, res) => travel.post(req, res));
 
 app.get("/api/bookings", (req, res) => booking.get(req, res));
-app.post("/api/bookings", (req, res) => booking.post(req, res));
+app.post("/api/bookings", authenticate, (req, res) => {
+  bookingController.addBooking(req, res);
+});
 
 app.use("/api/users", usersRoutes);
 
