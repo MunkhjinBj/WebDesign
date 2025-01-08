@@ -10,8 +10,8 @@
   --primary-color: #14571e;
   --primary-hover-color: #47b477;
   --text-color: #333;
-  --background-color: #f5f5f5;
-  --sec-background-color: #ffffff;
+  --background-color: #fefefe;
+  --sec-background-color: #f5f5f5;
   --mobile-background-color: #f7f6f0;
   --button-color: #176324;
   --border-color: #e0e0e0;
@@ -36,6 +36,7 @@ body.dark-mode {
   --text-color: #efecec;
   --border-color: #0f1a43;
   --mobile-background-color: #000000;
+  --shadow-color: rgba(232, 226, 226, 0.604);
 }
 
 * {
