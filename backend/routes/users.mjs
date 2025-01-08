@@ -55,6 +55,7 @@ router.post("/register", async (req, res) => {
     res
       .status(201)
       .json({ message: "User registered successfully", user: newUser });
+      window.location.href = "http://localhost:3000/login.html";
   } catch (error) {
     console.error("Error registering user:", error.message);
     res

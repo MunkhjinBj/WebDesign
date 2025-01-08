@@ -3,6 +3,7 @@ import {
   removeFromCart as removeFromCartModule,
   getCartItems,
   getTotalPrice,
+  clearCart, // Import clearCart function
 } from "../modules/cart.js";
 
 export default class CartComp extends HTMLElement {
@@ -145,6 +146,7 @@ export default class CartComp extends HTMLElement {
         const cartItems = getCartItems();
         const travelIds = cartItems.map((item) => item.id).join(",");
         window.location.href = `/frontend/booking.html?travelIds=${travelIds}`;
+        this.clearCart(); // Clear the cart upon booking
       }
     });
 
@@ -156,10 +158,6 @@ export default class CartComp extends HTMLElement {
     }
     this.render();
   }
-
-  // disconnectedCallback() {
-  //   this.shadowRoot.removeEventListener("click", this.handleButtonClick);
-  // }
 
   addToCart(item) {
     addToCartModule(item);
@@ -209,10 +207,6 @@ export default class CartComp extends HTMLElement {
 
   //state
   toggle() {
-    // const cart = this.shadowRoot.querySelector("#cart");
-    // const isVisible = cart.style.display === "block";
-    // cart.style.display = isVisible ?
-
     const cart = this.shadowRoot.querySelector("#cart");
     if (!this.state.isVisible) {
       cart.style.display = "block";
@@ -221,6 +215,13 @@ export default class CartComp extends HTMLElement {
       cart.style.display = "none";
       this.state.isVisible = false;
     }
+  }
+
+  clearCart() {
+    clearCart(); // Clear the cart items
+    localStorage.setItem("cartCount", "0"); // Reset cart count in local storage
+    this.updateTotalPrice();
+    this.render();
   }
 }
 customElements.define("cart-comp", CartComp);

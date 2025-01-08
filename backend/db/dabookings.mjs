@@ -41,10 +41,10 @@ export default class DaBookings {
     }
   
     try {
-      const user_id = req.user.userId; // Extract userId from req.user
+      const user_id = req.user.userId; 
   
       const result = await this.pool.query(this.insertBookingStr, [
-        user_id, // Use logged-in user's ID (from authenticate middleware)
+        user_id,
         travel_id,
         date,
         status,
