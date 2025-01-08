@@ -7,6 +7,7 @@ import Travels, {
   renderFilters,
   renderTravels,
 } from "../modules/filter.js";
+import addToCart from "../modules/cart.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   // dark/kight-mode

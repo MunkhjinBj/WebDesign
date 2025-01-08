@@ -10,12 +10,12 @@
   --primary-color: #14571e;
   --primary-hover-color: #47b477;
   --text-color: #333;
-  --background-color: #ffffff;
-  --sec-background-color: #f3f3f3;
+  --background-color: #f5f5f5;
+  --sec-background-color: #ffffff;
   --mobile-background-color: #f7f6f0;
   --button-color: #176324;
   --border-color: #e0e0e0;
-  --shadow-color: rgba(0, 0, 4, 0.5);
+  --shadow-color: rgba(0, 0, 0, 0.3);
   --base-font-size: 12px;
   --h-font-size: 0.75rem;
   --font-family: "Montserrat Alternates", sans-serif;
