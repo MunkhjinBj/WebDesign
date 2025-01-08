@@ -16,12 +16,11 @@
   --button-color: #176324;
   --border-color: #e0e0e0;
   --shadow-color: rgba(0, 0, 4, 0.5);
-  --facebook-color: #3b5998;
-  --linkedin-color: #0e76a8;
-  --google-color: #b7eb2a;
-  --base-font-size: 14px;
+  --base-font-size: 12px;
+  --h-font-size: 0.75rem;
   --font-family: "Montserrat Alternates", sans-serif;
   --font-family-p: "Montserrat", sans-serif;
+  --font-weight: 500;
 
   --background-color-dark: #0a0a0a;
   --text-color-dark: #ffffff;
@@ -42,11 +41,20 @@ body.dark-mode {
   margin: 0;
   padding: 0;
   font-family: var(--font-family);
+  animation: fadeIn 0.05s ease-in;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* HEADER */
 header {
-  font-weight: 500;
+  font-weight: var(--font-weight);
   background-color: var(--background-color);
   border-bottom: 0.125rem solid var(--border-color);
   padding: 0 1.25rem;
@@ -100,12 +108,12 @@ header {
   transition: color 0.3s ease, background-color 0.3s ease;
   justify-content: center;
   margin: 0 10px 0 10px;
-  font-weight: 600;
+  font-weight: var(--font-weight);
 }
 
 .nav-links a:hover {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--text-color-dark);
   border-radius: 0.3125rem;
 }
 
@@ -119,7 +127,7 @@ header {
   text-decoration: none;
   text-transform: uppercase;
   color: var(--text-color);
-  font-size: 0.75rem;
+  font-size: var(--h-font-size);
   padding: 0.625rem 0.3125rem 0.625rem 0.625rem;
   transition: color 0.3s ease;
 }
@@ -162,7 +170,7 @@ header {
 @media (min-width: 768px) and (max-width: 1159px) {
   .nav-links a {
     font-weight: 500;
-    font-size: 0.8rem;
+    font-size: var(--base-font-size);
     text-align: center;
   }
   .nav-links li {
@@ -173,6 +181,8 @@ header {
     grid-template-columns: repeat(4, 1fr);
     height: 3rem;
     justify-items: center;
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -210,8 +220,8 @@ header {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: white;
-    font-size: 14px;
+    color: var(--text-color-dark);
+    font-size: var(--base-font-size);
   }
 
   .mobile-nav img {
@@ -254,7 +264,7 @@ header {
 /* Filter Toggle Button */
 .burger-menu {
   background-color: var(--background-color);
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   padding: 10px 15px;
   font-size: 16px;
@@ -384,10 +394,10 @@ footer {
 .faq-item {
   background: linear-gradient(135deg, #f1f1f1, #f1f1f1);
   border-radius: 40px;
-  padding: 20px; /* Inner padding for content */
+  padding: 20px;
   box-shadow: 8px 8px 20px rgba(238, 238, 238, 0.1),
-    -8px -8px 20px rgba(255, 255, 255, 0.7); /* 3D shadow */
-  border: 1px solid #ffffff; /* Slight border for a defined edge */
+    -8px -8px 20px rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--border-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -403,7 +413,7 @@ footer {
 }
 
 .item-title a {
-  color: #333;
+  color: var(--text-color);
   text-decoration: none;
   font-weight: bold;
 }
@@ -414,7 +424,7 @@ footer {
 
 .answer {
   font-size: 1em;
-  color: #555;
+  color: var(--text-color);
   margin-top: 1vh;
 }
 
@@ -506,7 +516,7 @@ footer {
 }
 
 .about-header h1 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: var(--text-color);
   margin-bottom: 1rem;
 }
@@ -526,12 +536,13 @@ footer {
 
 .about-images img {
   width: 30%;
+  height: 300px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .about-details {
-  font-size: 0.8rem;
+  font-size: var(--base-font-size);
   color: var(--text-color);
   line-height: 1.8;
   text-align: justify;
@@ -550,7 +561,7 @@ footer {
   margin-top: 20px;
   padding: 20px;
   border: 1px solid var(--button-color);
-  height: 150px; /* Adjust the height as needed */
+  height: 150px;
   width: 500px;
 }
 /* .leaflet-control-attribution leaflet-control a{

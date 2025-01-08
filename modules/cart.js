@@ -2,9 +2,9 @@ export default class Cart {
   constructor(cartObj) {
     this.id = cartObj.id;
     this.title = cartObj.title;
-    this.startDate = cartObj.startDate;
-    this.finishDate = cartObj.finishDate;
     this.price = cartObj.price;
+    this.days = cartObj.days;
+    this.image = cartObj.image;
   }
 
   // render() {

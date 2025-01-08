@@ -57,10 +57,8 @@ export async function travelLoader() {
 }
 
 export async function applyFiltersFromURL() {
-  // Load all travel data first
+  const params = new URLSearchParams(window.location.search);
   let travels = await travelLoader();
-  const params = new URLSearchParams(document.location.search);
-
   // Extract filters from URL parameters
   const urlType = params.get("type");
   const urlDays = params.get("days");
@@ -93,13 +91,6 @@ export async function applyFiltersFromURL() {
       "4-6": [4, 6],
       "7+": [7, Infinity],
     };
-
-    travels = travels.filter((travel) => {
-      return filterDays.some((range) => {
-        const [min, max] = dayRanges[range];
-        return travel.day >= min && travel.day <= max;
-      });
-    });
   }
 
   if (filterSeason.length > 0) {
@@ -112,7 +103,6 @@ export async function applyFiltersFromURL() {
 
   return travels;
 }
-
 function getSelectedFilterValues(className) {
   return Array.from(document.querySelectorAll(`.${className}:checked`)).map(
     (input) => input.value
@@ -155,7 +145,7 @@ export async function renderFilters() {
       .map((type) => {
         return `
       <label>
-        <input type="checkbox" value="${type}" class="filter-types" /> ${type}
+        <input type="checkbox" value="${type}" class="filter-types" data-filter="type"/> ${type}
       </label>
     `;
       })
@@ -165,28 +155,28 @@ export async function renderFilters() {
   filterDaysContainer.insertAdjacentHTML(
     "beforeend",
     `
-    <label><input type="checkbox" value="1-3" class="filter-days" /> 1-3 хоног</label>
-    <label><input type="checkbox" value="4-6" class="filter-days" /> 4-6 хоног</label>
-    <label><input type="checkbox" value="7+" class="filter-days" /> 7+ хоног</label>
+    <label><input type="checkbox" value="1-3" class="filter-days" data-filter="days"/> 1-3 хоног</label>
+    <label><input type="checkbox" value="4-6" class="filter-days" data-filter="days"/> 4-6 хоног</label>
+    <label><input type="checkbox" value="7+" class="filter-days" data-filter="days"/> 7+ хоног</label>
     `
   );
 
   filterSeasonContainer.insertAdjacentHTML(
     "beforeend",
     `
-    <label><input type="checkbox" value="Зун" class="filter-season" /> Зун</label>
-    <label><input type="checkbox" value="Намар" class="filter-season" /> Намар</label>
-    <label><input type="checkbox" value="Өвөл" class="filter-season" /> Өвөл</label>
-    <label><input type="checkbox" value="Хавар" class="filter-season" /> Хавар</label>
+    <label><input type="checkbox" value="Зун" class="filter-season" data-filter="season"/> Зун</label>
+    <label><input type="checkbox" value="Намар" class="filter-season" data-filter="season"/> Намар</label>
+    <label><input type="checkbox" value="Өвөл" class="filter-season" data-filter="season"/> Өвөл</label>
+    <label><input type="checkbox" value="Хавар" class="filter-season" data-filter="season"/> Хавар</label>
     `
   );
 
   filterAgeGroupContainer.insertAdjacentHTML(
     "beforeend",
     `
-    <label><input type="checkbox" value="Гэр бүл" class="filter-ageGroup" /> Гэр бүл</label>
-    <label><input type="checkbox" value="Тамирчид" class="filter-ageGroup" />  Тамирчид</label>
-    <label><input type="checkbox" value="Том хүн" class="filter-ageGroup" /> Том хүн</label>
+    <label><input type="checkbox" value="Гэр бүл" class="filter-ageGroup" data-filter="ageGroup"/> Гэр бүл</label>
+    <label><input type="checkbox" value="Тамирчид" class="filter-ageGroup" data-filter="ageGroup"/>  Тамирчид</label>
+    <label><input type="checkbox" value="Том хүн" class="filter-ageGroup" data-filter="ageGroup"/> Том хүн</label>
     `
   );
 
@@ -204,29 +194,52 @@ export async function renderFilters() {
   );
 }
 
-export async function renderTravels(filteredTravels = null) {
-  const travelsContainer = document.getElementById("travel-grid");
+// export async function renderTravels() {
+//   const travelsContainer = document.getElementById("travel-grid");
 
-  const travelsData = filteredTravels || (await travelLoader());
+//   const travelsData = filteredTravels || (await travelLoader());
 
-  if (!Array.isArray(travelsData)) {
-    console.error("renderTravels expected an array but got:", travelsData);
-    travelsContainer.innerHTML = "<p>Error loading travel data.</p>";
+//   if (!Array.isArray(travelsData)) {
+//     console.error("renderTravels expected an array but got:", travelsData);
+//     travelsContainer.innerHTML = "<p>Error loading travel data.</p>";
+//     return;
+//   }
+
+//   travelsContainer.innerHTML = travelsData
+//     .map((travel) => {
+//       return `
+//         <travel-item
+//           data-id="${travel.id}"
+//           data-image="${travel.image}"
+//           data-title="${travel.title}"
+//           data-type="${travel.type}"
+//           data-days="${travel.days}"
+//           data-price="${travel.price}"
+//           data-season="${travel.season}"
+//           data-location="${travel.location}">
+//         </travel-item>
+//       `;
+//     })
+//     .join("");
+// }
+export async function renderTravels(filteredTravels) {
+  const travelGrid = document.getElementById("travel-grid");
+
+  if (!filteredTravels || filteredTravels.length === 0) {
+    travelGrid.innerHTML = "<p>Тохирох аялал олдсонгүй.</p>";
     return;
   }
 
-  travelsContainer.innerHTML = travelsData
-    .map((travel) => {
+  travelGrid.innerHTML = filteredTravels
+    .map((t) => {
       return `
         <travel-item
-          data-id="${travel.id}"
-          data-image="${travel.image}"
-          data-title="${travel.title}"
-          data-type="${travel.type}"
-          data-days="${travel.days}"
-          data-price="${travel.price}"
-          data-season="${travel.season}"
-          data-location="${travel.location}">
+          data-id="${t.id}"
+          data-title="${t.title}"
+          data-image="${t.image}"
+          data-location="${t.location}"
+          data-days="${t.days}"
+          data-price="${t.price}">
         </travel-item>
       `;
     })

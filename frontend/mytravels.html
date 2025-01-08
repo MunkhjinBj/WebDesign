@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,12 +8,16 @@
     <script type="module" src="../frontend/app.js"></script>
     <title>Document</title>
 
-    <style>
+    <!-- <style>
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
       #container {
         max-width: 100%;
         border-radius: 15px;
         padding: 35px 25px;
-        height: 70vh;
+        height: max-content;
       }
 
       #container p {
@@ -27,12 +31,13 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+        background-color: var(--sec-background-color);
       }
       .year-container h1 {
         margin: 1rem 0 1rem 0.5rem;
       }
       .month-container {
-        box-shadow: 0px 0px 26px -20px rgba(66, 68, 90, 1);
+        box-shadow: 0px 0px 26px -20px rgb(98, 100, 132);
         padding: 2rem;
       }
       .month-container p {
@@ -86,6 +91,129 @@
         word-wrap: break-word;
         width: 190px;
         bottom: -200px;
+      }
+    </style> -->
+    <style>
+      /* Ерөнхий өнгөний тохиргоо */
+
+      body {
+        margin: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      /* Контейнер */
+      #container {
+        max-width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: var(--sec-background-color);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Тайлбар */
+      #container p {
+        text-align: center;
+        font-size: 1.2em;
+        color: var(--secondary-color);
+      }
+
+      /* Түүхийн нийтлэл */
+      .history-container {
+        margin: 20px 0;
+        padding: 20px;
+        background-color: var(--sec-background-color);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .history {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .history .infoNstate {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .history .infoNstate img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .history .info h1 {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+      }
+
+      .history .info p {
+        font-size: 0.9em;
+        margin: 5px 0;
+        color: var(--secondary-color);
+      }
+
+      .history .state {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8em;
+        align-self: flex-start;
+      }
+
+      .history .note {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .history .note span {
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .history .note p {
+        font-size: 0.85em;
+        color: var(--text-color);
+        word-wrap: break-word;
+      }
+
+      /* Жил ба сар */
+      .year-container h1 {
+        font-size: 1.5em;
+        color: var(--primary-color);
+      }
+
+      .month-container p {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin: 10px 0;
+        color: var(--secondary-color);
+      }
+
+      /* Мобайл тохиргоо */
+      @media (max-width: 768px) {
+        #container {
+          max-width: 90%;
+        }
+
+        .history .infoNstate {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .history .infoNstate img {
+          width: 100%;
+          height: auto;
+        }
       }
     </style>
   </head>
@@ -231,64 +359,37 @@
     ></script>
     <script>
       const tours = JSON.parse(localStorage.getItem("cartItems")) || [];
-      console.log(tours);
-
       const ordersContainer = document.getElementById("container");
 
       if (tours.length === 0) {
         ordersContainer.innerHTML = `<p>Та аялал захиалаагүй байна.</p>`;
       } else {
-        const groupedTours = tours.reduce((acc, tour) => {
-          const tourDate = new Date(tour.startDate);
-          const year = tourDate.getFullYear();
-          const month = tourDate.toLocaleString("mn-MN", { month: "long" });
+        tours.forEach((tour) => {
+          const orderElement = document.createElement("section");
+          orderElement.classList.add("history-container");
 
-          if (!acc[year]) acc[year] = {};
-          if (!acc[year][month]) acc[year][month] = [];
+          const days = tour.days || "Тодорхойгүй хоног";
+          const imageSrc = tour.image || "../images/default_image.png";
+          const note = tour.note || "Тэмдэглэл байхгүй";
 
-          acc[year][month].push(tour);
-          return acc;
-        }, {});
-
-        for (const year in groupedTours) {
-          const yearElement = document.createElement("section");
-          yearElement.classList.add("year-container");
-          yearElement.innerHTML = `<h1>${year} он</h1>`;
-          ordersContainer.appendChild(yearElement);
-
-          const months = groupedTours[year];
-          for (const month in months) {
-            const monthElement = document.createElement("section");
-            monthElement.classList.add("month-container");
-            monthElement.innerHTML = `<p>${month}</p>`;
-            yearElement.appendChild(monthElement);
-
-            const tours = months[month];
-            tours.forEach((tour) => {
-              const orderElement = document.createElement("section");
-              orderElement.classList.add("history-container");
-
-              orderElement.innerHTML = `
-              <section class="history">
-                <div class="infoNstate">
-                  <img src="${tours.image}">
-                  <div class="info">
-                    <h1>${tour.title}</h1>
-                    <p>Хугацаа: ${tour.startDate}-ээс ${tour.finishDate} /${tour.date} өдөр/</p>
-                  </div>
-                  <span class="state">o</span>
+          orderElement.innerHTML = `
+            <section class="history">
+              <div class="infoNstate">
+                <img src="${imageSrc}" alt="${tour.title}" />
+                <div class="info">
+                  <h1>${tour.title}</h1>
+                  <p>Хугацаа: ${tour.days}</p>
+                  <p>Үнэ: ${tour.price}₮</p>
                 </div>
-                <div class="note">
-                  <span>v</span>
-                  <p></p>
-                </div>
-              </section>
-            `;
-
-              monthElement.appendChild(orderElement);
-            });
-          }
-        }
+                <span class="state">o</span>
+              </div>
+              <div class="note">
+                <p>${note}</p>
+              </div>
+            </section>
+          `;
+          ordersContainer.appendChild(orderElement);
+        });
       }
     </script>
   </body>

@@ -200,7 +200,7 @@ export default class TravelItem extends HTMLElement {
       .querySelector(".add-to-cart")
       .addEventListener("click", () => {
         const addToCartEvent = new CustomEvent("addToCart", {
-          detail: { id, title, price },
+          detail: { id, title, price, image, days },
           bubbles: true,
           composed: true,
         });

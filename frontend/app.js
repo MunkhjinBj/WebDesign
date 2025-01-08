@@ -8,77 +8,32 @@ import Travels, {
   renderTravels,
 } from "../modules/filter.js";
 
-// import Cart, { addToCart, removeFromCart } from "./modules/cart.js";
-
 document.addEventListener("DOMContentLoaded", async () => {
-  //dark-mode
-  const savedTheme = localStorage.getItem("theme") || "light";
-  if (savedTheme === "dark") {
-    document.body.classList.toggle("dark-mode");
-  }
-  document.getElementById("toggle-theme").addEventListener("click", () => {
-    const isDark = document.body.classList.toggle("dark-mode");
+  // dark/kight-mode
+  initializeTheme();
 
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  });
-
-  //state
-  document.addEventListener("showCard", () => {
-    const cartComp = document.querySelector("cart-comp");
-    if (cartComp) {
-      cartComp.toggle();
-    }
-  });
-
+  // Cart
+  initializeCart();
   const travelGrid = document.getElementById("travel-grid");
 
   await renderFilters();
-  await renderTravels();
 
-  // Шүүлтүүрээс үл хамааран аяллын мэдээллийг харуулах
-  const travels = await travelLoader();
-  travelGrid.innerHTML = travels
-    .map(
-      (t) =>
-        `<travel-item
-               data-id="${t.id}" 
-               data-title="${t.title}" 
-               data-image="${t.image}" 
-               data-location="${t.location}" 
-               data-days="${t.days}" 
-               data-price="${t.price}">
-          </travel-item>`
-    )
-    .join("");
-  // travelGrid.innerHTML = travels.map((t) => new Travels(t).render()).join("");
+  const filteredTravels = await applyFiltersFromURL();
+  renderTravels(filteredTravels);
 
-  // Шүүлтүүрүүдийг сонгож аялуудыг шинэчлэх
-  document.querySelectorAll(".filter-group label").forEach((label) => {
-    label.addEventListener("click", async () => {
-      const updatedTravels = await applyFiltersFromURL();
-      travelGrid.innerHTML = updatedTravels
-        .map(
-          (t) =>
-            `<travel-item
-               data-id="${t.id}" 
-               data-title="${t.title}" 
-               data-image="${t.image}" 
-               data-location="${t.location}" 
-               data-days="${t.day}" 
-               data-price="${t.price}">
-             </travel-item>`
-        )
-        .join("");
+  // Checkbox сонгох үед URL шинэчлэх
+  setupFilterListeners();
+
+  document
+    .getElementById("clear-filters")
+    .addEventListener("click", async () => {
+      clearFilters();
+      const travels = await travelLoader();
+      renderTravels(travels);
     });
-  });
-  // document.querySelectorAll(".filter-group label").forEach((label) => {
-  //   label.addEventListener("click", async () => {
-  //     const updatedTravels = await applyFiltersFromURL();
-  //     travelGrid.innerHTML = updatedTravels
-  //       .map((t) => new Travels(t).render())
-  //       .join("");
-  //   });
-  // });
+
+  // Шүүлтүүрийг нээх/хаах товчлуурын үйлдэл (мобайл дээр)
+  setupMobileFilterToggle();
 
   // Сагсанд нэмэх
   //eniig addToCart ashiglah gej baigaa shuu
@@ -87,6 +42,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       id: event.detail.id,
       title: event.detail.title,
       price: event.detail.price,
+      image: event.detail.image,
+      days: event.detail.days,
     };
 
     const cartElement = document.querySelector("cart-comp");
@@ -95,86 +52,89 @@ document.addEventListener("DOMContentLoaded", async () => {
       cartElement.style.display = "block";
     }
   });
+});
 
-  // document.addEventListener("click", (event) => {
-  //   if (event.target.classList.contains("add-to-cart")) {
-  //     const article = event.target.closest("article");
-  //     const id = parseInt(article.dataset.id, 10);
-  //     addToCart(id);
-  //   }
-  // });
+function initializeTheme() {
+  const savedTheme = localStorage.getItem("theme") || "light";
+  if (savedTheme === "dark") {
+    document.body.classList.toggle("dark-mode");
+  }
+  document.getElementById("toggle-theme").addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("dark-mode");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+}
 
-  // Шүүлтүүрийг цэвэрлэх товчлуур
-  document
-    .getElementById("clear-filters")
-    .addEventListener("click", async () => {
-      document.querySelectorAll(".filter-group input").forEach((input) => {
-        input.checked = false;
-      });
+function initializeCart() {
+  document.addEventListener("showCard", () => {
+    const cartComp = document.querySelector("cart-comp");
+    if (cartComp) {
+      cartComp.toggle();
+    }
+  });
+}
 
-      window.location.search = "";
-      const travels = await travelLoader();
-      travelGrid.innerHTML = travels
-        .map(
-          (t) =>
-            `<travel-item
-             data-id="${t.id}" 
-             data-title="${t.title}" 
-             data-image="${t.image}" 
-             data-location="${t.location}" 
-             data-days="${t.day}" 
-             data-price="${t.price}">
-           </travel-item>`
-        )
-        .join("");
+// Checkbox сонгох үед URL шинэчлэх ба DOM шинэчлэх
+function setupFilterListeners() {
+  const filters = document.querySelectorAll(".filter-group input");
+
+  filters.forEach((input) => {
+    input.addEventListener("change", async () => {
+      const filterKey = input.dataset.filter;
+      const filterValue = input.checked ? input.value : null;
+
+      updateURLParams(filterKey, filterValue);
+      const filteredTravels = await applyFiltersFromURL();
+      renderTravels(filteredTravels);
     });
+  });
+}
 
-  // Шүүлтүүрийг нээх/хаах товчлуурын үйлдэл(mobile дээр)
-  // document
-  //   .getElementById("filter-toggle")
-  //   .addEventListener("click", function () {
-  //     const filters = document.querySelector(".filters");
-  //     filters.classList.toggle("active");
-  //   });
+// URL-д шүүлтүүрийг нэмэх/устгах
+function updateURLParams(filterKey, filterValue) {
+  const params = new URLSearchParams(window.location.search);
 
-  // document
-  //   .querySelector(".filters .close-btn")
-  //   .addEventListener("click", function () {
-  //     const filters = document.querySelector(".filters");
-  //     filters.classList.remove("active");
-  //   });
+  if (filterValue) {
+    params.set(filterKey, filterValue);
+  } else {
+    params.delete(filterKey);
+  }
 
-  document
-    .getElementById("clear-filters")
-    .addEventListener("click", function () {
-      document
-        .querySelectorAll(".filters input[type='range']")
-        .forEach((input) => {
-          input.value = input.min;
-        });
-    });
+  const newURL = `${window.location.pathname}?${params}`;
+  window.history.replaceState({}, "", newURL);
+}
 
+function clearFilters() {
+  document.querySelectorAll(".filter-group input").forEach((input) => {
+    input.checked = false;
+  });
+
+  window.location.search = "";
+}
+
+function setupMobileFilterToggle() {
   const filters = document.querySelector(".filters");
-  const search_bar = document.querySelector(".search-bar");
+  const searchBar = document.querySelector(".search-bar");
+
   document
     .getElementById("filter-toggle-search")
-    .addEventListener("click", function () {
+    .addEventListener("click", () => {
       if (filters.style.display === "block") {
         filters.style.display = "none";
       } else {
         filters.style.display = "block";
-        search_bar.style.display = "none";
+        searchBar.style.display = "none";
       }
     });
 
   document
     .getElementById("filter-toggle-filter")
-    .addEventListener("click", function () {
+    .addEventListener("click", () => {
       if (filters.style.display === "block") {
         filters.style.display = "none";
-        search_bar.style.display = "flex";
+        searchBar.style.display = "flex";
       } else {
         filters.style.display = "block";
       }
     });
-});
+}
